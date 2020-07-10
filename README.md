@@ -1,6 +1,6 @@
-# EHR.Processing
+# Tasks to Complete
 
-## Tasks to complete
+## EHR Processing
 - Extract data from an EHR system
 - Understand authentication system required to access data with an API
 - Format data into fields (for future front-end displays)

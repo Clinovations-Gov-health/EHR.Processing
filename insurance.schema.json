@@ -1,0 +1,236 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "definitions": {
+        "intDefns": {
+            "type": "object",
+            "properties": {
+                "includedWithMedical": {"type": "boolean"},
+                "value": {"type": "integer"},
+                "isPercent": {"type": "boolean"},
+                "deductible": {"type": "string"},
+                "per": {"type": "string"}
+            },
+            "required": ["includedWithMedical"]
+        },
+        "planCostSharing": {
+            "type": "object",
+            "properties": {
+                "medDeductible-Ind-Std": {
+                    "$ref": "#/definitions/intDefns"
+                },
+                "drugDeductible-Ind-Std": {
+                    "$ref": "#/definitions/intDefns"
+                },
+                "medDeductible-Fam-Std": {
+                    "$ref": "#/definitions/intDefns"
+                },
+                "drugDeductible-Fam-Std": {
+                    "$ref": "#/definitions/intDefns"
+                },
+                "medDeductible-FamPerPerson-Std": {
+                    "$ref": "#/definitions/intDefns"
+                },
+                "drugDeductible-FamPerPerson-Std": {
+                    "$ref": "#/definitions/intDefns"
+                },
+                "medMOOP-Ind-Std": {
+                    "$ref": "#/definitions/intDefns"
+                },
+                "drugMOOP-Ind-Std": {
+                    "$ref": "#/definitions/intDefns"
+                },
+                "medMOOP-Fam-Std": {
+                    "$ref": "#/definitions/intDefns"
+                },
+                "drugMOOP-Fam-Std": {
+                    "$ref": "#/definitions/intDefns"
+                },
+                "medMOOP-FamPerPerson-Std": {
+                    "$ref": "#/definitions/intDefns"
+                },
+                "drugMOOP-FamPerPerson-Std": {
+                    "description": "Included in Medical set to 0",
+                    "$ref": "#/definitions/intDefns"
+                },
+                "primCarePhysStd": {
+                    "$ref": "#/definitions/intDefns"
+                },
+                "specStd": {
+                    "$ref": "#/definitions/intDefns"
+                },
+                "emergencyRoomStd" : {
+                    "$ref": "#/definitions/intDefns"
+                },
+                "inPatientFacStd" : {
+                    "$ref": "#/definitions/intDefns"
+                },
+                "inPatientPhysStd" : {
+                    "$ref": "#/definitions/intDefns"
+                },
+                "genericDrugsStd": {
+                    "$ref": "#/definitions/intDefns"
+                },
+                "prefDrugsStd": {
+                    "$ref": "#/definitions/intDefns"
+                },
+                "nonprefDrugStd": {
+                    "$ref": "#/definitions/intDefns"
+                },
+                "specDrugStd": {
+                    "$ref": "#/definitions/intDefns"
+                }
+            }
+        }
+    },
+    "type": "object",
+    "properties": {
+        "stateCode": {
+            "type": "string"
+        },
+        "metalLevel": {
+            "type": "string"
+        },
+        "issuerName": {
+            "type": "string"
+        },
+        "planID": {
+            "type": "string"
+        },
+        "planMarketingName": {
+            "type": "string"
+        },
+        "planType": {
+            "type": "string"
+        },
+        "ratingArea": {
+            "type": "string"
+        },
+        "summaryBenefitsURL": {
+            "type": "string"
+        },
+        "ehbPercentofTotalPremium":{
+            "type": "integer"
+        },
+        "premiumScenarios": {
+            "type": "object",
+            "properties": {
+                "premInd14":{
+                    "type": "integer"
+                },
+                "premInd18":{
+                    "type": "integer"
+                },
+                "premInd21":{
+                    "type": "integer"
+                },
+                "premInd27":{
+                    "type": "integer"
+                },
+                "premInd30":{
+                    "type": "integer"
+                },
+                "premInd40":{
+                    "type": "integer"
+                },
+                "premInd50":{
+                    "type": "integer"
+                },
+                "premInd60":{
+                    "type": "integer"
+                },
+                "premCoup21":{
+                    "type": "integer"
+                },
+                "premCoup30":{
+                    "type": "integer"
+                },
+                "premCoup40":{
+                    "type": "integer"
+                },
+                "premCoup50":{
+                    "type": "integer"
+                },
+                "premCoup60":{
+                    "type": "integer"
+                },
+                "premCoup21+1Child":{
+                    "type": "integer"
+                },
+                "premCoup30+1Child":{
+                    "type": "integer"
+                },
+                "premCoup40+1Child":{
+                    "type": "integer"
+                },
+                "premCoup50+1Child":{
+                    "type": "integer"
+                },
+                "premCouple21+2Child":{
+                    "type": "integer"
+                },
+                "premCouple30+2Child":{
+                    "type": "integer"
+                },
+                "premCouple40+2Child":{
+                    "type": "integer"
+                },
+                "premCouple50+2Child":{
+                    "type": "integer"
+                },
+                "premCouple21+3Child":{
+                    "type": "integer"
+                },
+                "premCouple30+3Child":{
+                    "type": "integer"
+                },
+                "premCouple40+3Child":{
+                    "type": "integer"
+                },
+                "premCouple50+3Child":{
+                    "type": "integer"
+                },
+                "premInd21+1Child":{
+                    "type": "integer"
+                },
+                "premInd30+1Child":{
+                    "type": "integer"
+                },
+                "premInd40+1Child":{
+                    "type": "integer"
+                },
+                "premInd50+1Child":{
+                    "type": "integer"
+                },
+                "premInd21+2Child":{
+                    "type": "integer"
+                },
+                "premInd30+2Child":{
+                    "type": "integer"
+                },
+                "premInd40+2Child":{
+                    "type": "integer"
+                },
+                "premInd50+2Child":{
+                    "type": "integer"
+                },
+                "premInd21+3Child":{
+                    "type": "integer"
+                },
+                "premInd30+3Child":{
+                    "type": "integer"
+                },
+                "premInd40+3Child":{
+                    "type": "integer"
+                },
+                "premInd50+3Child":{
+                    "type": "integer"
+                },
+            }
+        },
+        "standPlanCostSharing":    { "$ref": "#/definitions/planCostSharing" },
+        "silver73PlanCostSharing": { "$ref": "#/definitions/planCostSharing" },
+        "silver87PlanCostSharing": { "$ref": "#/definitions/planCostSharing" },
+        "silver94PlanCostSharing": { "$ref": "#/definitions/planCostSharing" }
+    },
+    "required": ["planID"]
+}

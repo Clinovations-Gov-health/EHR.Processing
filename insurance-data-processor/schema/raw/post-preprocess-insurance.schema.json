@@ -1,0 +1,552 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "properties": {
+      "State Code": {
+        "type": "string"
+      },
+      "Metal Level": {
+        "type": "string"
+      },
+      "Issuer Name": {
+        "type": "string"
+      },
+      "HIOS Issuer ID": {
+        "type": "string"
+      },
+      "Plan ID (Standard Component)": {
+        "type": "string"
+      },
+      "Plan Marketing Name": {
+        "type": "string"
+      },
+      "Plan Type": {
+        "type": "string"
+      },
+      "Rating Area": {
+        "type": "string"
+      },
+      "Customer Service Phone Number Local": {
+        "type": "string"
+      },
+      "Customer Service Phone Number Toll Free": {
+        "type": "string"
+      },
+      "Customer Service Phone Number TTY": {
+        "type": "string"
+      },
+      "Network URL": {
+        "type": "string"
+      },
+      "Summary of Benefits URL": {
+        "type": "string"
+      },
+      "EHB Percent of Total Premium": {
+        "type": "string"
+      },
+      "Premium Child Age 0-14": {
+        "type": "string"
+      },
+      "Premium Child Age 18": {
+        "type": "string"
+      },
+      "Premium Adult Individual Age 21": {
+        "type": "string"
+      },
+      "Premium Adult Individual Age 27": {
+        "type": "string"
+      },
+      "Premium Adult Individual Age 30": {
+        "type": "string"
+      },
+      "Premium Adult Individual Age 40": {
+        "type": "string"
+      },
+      "Premium Adult Individual Age 50": {
+        "type": "string"
+      },
+      "Premium Adult Individual Age 60": {
+        "type": "string"
+      },
+      "Premium Couple 21": {
+        "type": "string"
+      },
+      "Premium Couple 30": {
+        "type": "string"
+      },
+      "Premium Couple 40": {
+        "type": "string"
+      },
+      "Premium Couple 50": {
+        "type": "string"
+      },
+      "Premium Couple 60": {
+        "type": "string"
+      },
+      "Couple+1 child, Age 21": {
+        "type": "string"
+      },
+      "Couple+1 child, Age 30": {
+        "type": "string"
+      },
+      "Couple+1 child, Age 40": {
+        "type": "string"
+      },
+      "Couple+1 child, Age 50": {
+        "type": "string"
+      },
+      "Couple+2 children, Age 21": {
+        "type": "string"
+      },
+      "Couple+2 children, Age 30": {
+        "type": "string"
+      },
+      "Couple+2 children, Age 40": {
+        "type": "string"
+      },
+      "Couple+2 children, Age 50": {
+        "type": "string"
+      },
+      "Couple+3 or more Children, Age 21": {
+        "type": "string"
+      },
+      "Couple+3 or more Children, Age 30": {
+        "type": "string"
+      },
+      "Couple+3 or more Children, Age 40": {
+        "type": "string"
+      },
+      "Couple+3 or more Children, Age 50": {
+        "type": "string"
+      },
+      "Individual+1 child, Age 21": {
+        "type": "string"
+      },
+      "Individual+1 child, Age 30": {
+        "type": "string"
+      },
+      "Individual+1 child, Age 40": {
+        "type": "string"
+      },
+      "Individual+1 child, Age 50": {
+        "type": "string"
+      },
+      "Individual+2 children, Age 21": {
+        "type": "string"
+      },
+      "Individual+2 children, Age 30": {
+        "type": "string"
+      },
+      "Individual+2 children, Age 40": {
+        "type": "string"
+      },
+      "Individual+2 children, Age 50": {
+        "type": "string"
+      },
+      "Individual+3 or more children, Age 21": {
+        "type": "string"
+      },
+      "Individual+3 or more children, Age 30": {
+        "type": "string"
+      },
+      "Individual+3 or more children, Age 40": {
+        "type": "string"
+      },
+      "Individual+3 or more children, Age 50": {
+        "type": "string"
+      },
+      "Medical Deductible - Individual - Standard": {
+        "type": "string"
+      },
+      "Drug Deductible - Individual - Standard": {
+        "type": "string"
+      },
+      "Medical Deductible - Family - Standard": {
+        "type": "string"
+      },
+      "Drug Deductible - Family - Standard": {
+        "type": "string"
+      },
+      "Medical Deductible - Family (Per Person) - Standard": {
+        "type": "string"
+      },
+      "Drug Deductible - Family (Per Person) - Standard": {
+        "type": "string"
+      },
+      "Medical Maximum Out Of Pocket - Individual - Standard": {
+        "type": "string"
+      },
+      "Drug Maximum Out Of Pocket - Individual - Standard": {
+        "type": "string"
+      },
+      "Medical Maximum Out Of Pocket - Family - Standard": {
+        "type": "string"
+      },
+      "Drug Maximum Out Of Pocket - Family - Standard": {
+        "type": "string"
+      },
+      "Medical Maximum Out Of Pocket - Family (Per Person) - Standard": {
+        "type": "string"
+      },
+      "Drug Maximum Out Of Pocket - Family (Per Person) - Standard": {
+        "type": "string"
+      },
+      "Primary Care Physician - Standard": {
+        "type": "string"
+      },
+      "Specialist - Standard": {
+        "type": "string"
+      },
+      "Emergency Room - Standard": {
+        "type": "string"
+      },
+      "Inpatient Facility - Standard": {
+        "type": "string"
+      },
+      "Inpatient Physician - Standard": {
+        "type": "string"
+      },
+      "Generic Drugs - Standard": {
+        "type": "string"
+      },
+      "Preferred Brand Drugs - Standard": {
+        "type": "string"
+      },
+      "Non-preferred Brand Drugs - Standard": {
+        "type": "string"
+      },
+      "Specialty Drugs - Standard": {
+        "type": "string"
+      },
+      "Medical Deductible - Individual - 73 Percent": {
+        "type": "string"
+      },
+      "Drug Deductible - Individual - 73 Percent": {
+        "type": "string"
+      },
+      "Medical Deductible - Family - 73 Percent": {
+        "type": "string"
+      },
+      "Drug Deductible - Family - 73 Percent": {
+        "type": "string"
+      },
+      "Medical Deductible - Family (Per Person) - 73 Percent": {
+        "type": "string"
+      },
+      "Drug Deductible - Family (Per Person) - 73 Percent": {
+        "type": "string"
+      },
+      "Medical Maximum Out Of Pocket - Individual - 73 Percent": {
+        "type": "string"
+      },
+      "Drug Maximum Out Of Pocket - Individual - 73 Percent": {
+        "type": "string"
+      },
+      "Medical Maximum Out Of Pocket - Family - 73 Percent": {
+        "type": "string"
+      },
+      "Drug Maximum Out Of Pocket - Family - 73 Percent": {
+        "type": "string"
+      },
+      "Medical Maximum Out Of Pocket - Family (Per Person) - 73 Percent": {
+        "type": "string"
+      },
+      "Drug Maximum Out Of Pocket - Family (Per Person) - 73 Percent": {
+        "type": "string"
+      },
+      "Primary Care Physician - 73 Percent": {
+        "type": "string"
+      },
+      "Specialist - 73 Percent": {
+        "type": "string"
+      },
+      "Emergency Room - 73 Percent": {
+        "type": "string"
+      },
+      "Inpatient Facility - 73 Percent": {
+        "type": "string"
+      },
+      "Inpatient Physician - 73 Percent": {
+        "type": "string"
+      },
+      "Generic Drugs - 73 Percent": {
+        "type": "string"
+      },
+      "Preferred Brand Drugs - 73 Percent": {
+        "type": "string"
+      },
+      "Non-preferred Brand Drugs - 73 Percent": {
+        "type": "string"
+      },
+      "Specialty Drugs - 73 Percent": {
+        "type": "string"
+      },
+      "Medical Deductible - Individual - 87 Percent": {
+        "type": "string"
+      },
+      "Drug Deductible - Individual - 87 Percent": {
+        "type": "string"
+      },
+      "Medical Deductible - Family - 87 Percent": {
+        "type": "string"
+      },
+      "Drug Deductible - Family - 87 Percent": {
+        "type": "string"
+      },
+      "Medical Deductible - Family (Per Person) - 87 Percent": {
+        "type": "string"
+      },
+      "Drug Deductible - Family (Per Person) - 87 Percent": {
+        "type": "string"
+      },
+      "Medical Maximum Out Of Pocket - Individual - 87 Percent": {
+        "type": "string"
+      },
+      "Drug Maximum Out Of Pocket - Individual - 87 Percent": {
+        "type": "string"
+      },
+      "Medical Maximum Out Of Pocket - Family - 87 Percent": {
+        "type": "string"
+      },
+      "Drug Maximum Out Of Pocket - Family - 87 Percent": {
+        "type": "string"
+      },
+      "Medical Maximum Out Of Pocket - Family (Per Person) - 87 Percent": {
+        "type": "string"
+      },
+      "Drug Maximum Out Of Pocket - Family (Per Person) - 87 Percent": {
+        "type": "string"
+      },
+      "Primary Care Physician - 87 Percent": {
+        "type": "string"
+      },
+      "Specialist - 87 Percent": {
+        "type": "string"
+      },
+      "Emergency Room - 87 Percent": {
+        "type": "string"
+      },
+      "Inpatient Facility - 87 Percent": {
+        "type": "string"
+      },
+      "Inpatient Physician - 87 Percent": {
+        "type": "string"
+      },
+      "Generic Drugs - 87 Percent": {
+        "type": "string"
+      },
+      "Preferred Brand Drugs - 87 Percent": {
+        "type": "string"
+      },
+      "Non-preferred Brand Drugs - 87 Percent": {
+        "type": "string"
+      },
+      "Specialty Drugs - 87 Percent": {
+        "type": "string"
+      },
+      "Medical Deductible - Individual - 94 Percent": {
+        "type": "string"
+      },
+      "Drug Deductible - Individual - 94 Percent": {
+        "type": "string"
+      },
+      "Medical Deductible - Family - 94 Percent": {
+        "type": "string"
+      },
+      "Drug Deductible - Family - 94 Percent": {
+        "type": "string"
+      },
+      "Medical Deductible - Family (Per Person) - 94 Percent": {
+        "type": "string"
+      },
+      "Drug Deductible - Family (Per Person) - 94 Percent": {
+        "type": "string"
+      },
+      "Medical Maximum Out Of Pocket -individual - 94 Percent": {
+        "type": "string"
+      },
+      "Drug Maximum Out Of Pocket - individual - 94 Percent": {
+        "type": "string"
+      },
+      "Medical Maximum Out Of Pocket - family - 94 Percent": {
+        "type": "string"
+      },
+      "Drug Maximum Out Of Pocket - Family  - 94 Percent": {
+        "type": "string"
+      },
+      "Medical Maximum Out Of Pocket - Family (Per Person) - 94 Percent": {
+        "type": "string"
+      },
+      "Drug Maximum Out Of Pocket - Family (Per Person) - 94 Percent": {
+        "type": "string"
+      },
+      "Primary Care Physician - 94 Percent": {
+        "type": "string"
+      },
+      "Specialist - 94 Percent": {
+        "type": "string"
+      },
+      "Emergency Room - 94 Percent": {
+        "type": "string"
+      },
+      "Inpatient Facility - 94 Percent": {
+        "type": "string"
+      },
+      "Inpatient Physician - 94 Percent": {
+        "type": "string"
+      },
+      "Generic Drugs - 94 Percent": {
+        "type": "string"
+      },
+      "Preferred Brand Drugs - 94 Percent": {
+        "type": "string"
+      },
+      "Non-preferred Brand Drugs - 94 Percent": {
+        "type": "string"
+      },
+      "Specialty Drugs - 94 Percent": {
+        "type": "string"
+      }
+    },
+    "additionalProperties": false,
+    "required": [
+      "State Code",
+      "Metal Level",
+      "Issuer Name",
+      "HIOS Issuer ID",
+      "Plan ID (Standard Component)",
+      "Plan Marketing Name",
+      "Plan Type",
+      "Rating Area",
+      "Customer Service Phone Number Local",
+      "Customer Service Phone Number Toll Free",
+      "Customer Service Phone Number TTY",
+      "Network URL",
+      "Summary of Benefits URL",
+      "EHB Percent of Total Premium",
+      "Premium Child Age 0-14",
+      "Premium Child Age 18",
+      "Premium Adult Individual Age 21",
+      "Premium Adult Individual Age 27",
+      "Premium Adult Individual Age 30",
+      "Premium Adult Individual Age 40",
+      "Premium Adult Individual Age 50",
+      "Premium Adult Individual Age 60",
+      "Premium Couple 21",
+      "Premium Couple 30",
+      "Premium Couple 40",
+      "Premium Couple 50",
+      "Premium Couple 60",
+      "Couple+1 child, Age 21",
+      "Couple+1 child, Age 30",
+      "Couple+1 child, Age 40",
+      "Couple+1 child, Age 50",
+      "Couple+2 children, Age 21",
+      "Couple+2 children, Age 30",
+      "Couple+2 children, Age 40",
+      "Couple+2 children, Age 50",
+      "Couple+3 or more Children, Age 21",
+      "Couple+3 or more Children, Age 30",
+      "Couple+3 or more Children, Age 40",
+      "Couple+3 or more Children, Age 50",
+      "Individual+1 child, Age 21",
+      "Individual+1 child, Age 30",
+      "Individual+1 child, Age 40",
+      "Individual+1 child, Age 50",
+      "Individual+2 children, Age 21",
+      "Individual+2 children, Age 30",
+      "Individual+2 children, Age 40",
+      "Individual+2 children, Age 50",
+      "Individual+3 or more children, Age 21",
+      "Individual+3 or more children, Age 30",
+      "Individual+3 or more children, Age 40",
+      "Individual+3 or more children, Age 50",
+      "Medical Deductible - Individual - Standard",
+      "Drug Deductible - Individual - Standard",
+      "Medical Deductible - Family - Standard",
+      "Drug Deductible - Family - Standard",
+      "Medical Deductible - Family (Per Person) - Standard",
+      "Drug Deductible - Family (Per Person) - Standard",
+      "Medical Maximum Out Of Pocket - Individual - Standard",
+      "Drug Maximum Out Of Pocket - Individual - Standard",
+      "Medical Maximum Out Of Pocket - Family - Standard",
+      "Drug Maximum Out Of Pocket - Family - Standard",
+      "Medical Maximum Out Of Pocket - Family (Per Person) - Standard",
+      "Drug Maximum Out Of Pocket - Family (Per Person) - Standard",
+      "Primary Care Physician - Standard",
+      "Specialist - Standard",
+      "Emergency Room - Standard",
+      "Inpatient Facility - Standard",
+      "Inpatient Physician - Standard",
+      "Generic Drugs - Standard",
+      "Preferred Brand Drugs - Standard",
+      "Non-preferred Brand Drugs - Standard",
+      "Specialty Drugs - Standard",
+      "Medical Deductible - Individual - 73 Percent",
+      "Drug Deductible - Individual - 73 Percent",
+      "Medical Deductible - Family - 73 Percent",
+      "Drug Deductible - Family - 73 Percent",
+      "Medical Deductible - Family (Per Person) - 73 Percent",
+      "Drug Deductible - Family (Per Person) - 73 Percent",
+      "Medical Maximum Out Of Pocket - Individual - 73 Percent",
+      "Drug Maximum Out Of Pocket - Individual - 73 Percent",
+      "Medical Maximum Out Of Pocket - Family - 73 Percent",
+      "Drug Maximum Out Of Pocket - Family - 73 Percent",
+      "Medical Maximum Out Of Pocket - Family (Per Person) - 73 Percent",
+      "Drug Maximum Out Of Pocket - Family (Per Person) - 73 Percent",
+      "Primary Care Physician - 73 Percent",
+      "Specialist - 73 Percent",
+      "Emergency Room - 73 Percent",
+      "Inpatient Facility - 73 Percent",
+      "Inpatient Physician - 73 Percent",
+      "Generic Drugs - 73 Percent",
+      "Preferred Brand Drugs - 73 Percent",
+      "Non-preferred Brand Drugs - 73 Percent",
+      "Specialty Drugs - 73 Percent",
+      "Medical Deductible - Individual - 87 Percent",
+      "Drug Deductible - Individual - 87 Percent",
+      "Medical Deductible - Family - 87 Percent",
+      "Drug Deductible - Family - 87 Percent",
+      "Medical Deductible - Family (Per Person) - 87 Percent",
+      "Drug Deductible - Family (Per Person) - 87 Percent",
+      "Medical Maximum Out Of Pocket - Individual - 87 Percent",
+      "Drug Maximum Out Of Pocket - Individual - 87 Percent",
+      "Medical Maximum Out Of Pocket - Family - 87 Percent",
+      "Drug Maximum Out Of Pocket - Family - 87 Percent",
+      "Medical Maximum Out Of Pocket - Family (Per Person) - 87 Percent",
+      "Drug Maximum Out Of Pocket - Family (Per Person) - 87 Percent",
+      "Primary Care Physician - 87 Percent",
+      "Specialist - 87 Percent",
+      "Emergency Room - 87 Percent",
+      "Inpatient Facility - 87 Percent",
+      "Inpatient Physician - 87 Percent",
+      "Generic Drugs - 87 Percent",
+      "Preferred Brand Drugs - 87 Percent",
+      "Non-preferred Brand Drugs - 87 Percent",
+      "Specialty Drugs - 87 Percent",
+      "Medical Deductible - Individual - 94 Percent",
+      "Drug Deductible - Individual - 94 Percent",
+      "Medical Deductible - Family - 94 Percent",
+      "Drug Deductible - Family - 94 Percent",
+      "Medical Deductible - Family (Per Person) - 94 Percent",
+      "Drug Deductible - Family (Per Person) - 94 Percent",
+      "Medical Maximum Out Of Pocket -individual - 94 Percent",
+      "Drug Maximum Out Of Pocket - individual - 94 Percent",
+      "Medical Maximum Out Of Pocket - family - 94 Percent",
+      "Drug Maximum Out Of Pocket - Family  - 94 Percent",
+      "Medical Maximum Out Of Pocket - Family (Per Person) - 94 Percent",
+      "Drug Maximum Out Of Pocket - Family (Per Person) - 94 Percent",
+      "Primary Care Physician - 94 Percent",
+      "Specialist - 94 Percent",
+      "Emergency Room - 94 Percent",
+      "Inpatient Facility - 94 Percent",
+      "Inpatient Physician - 94 Percent",
+      "Generic Drugs - 94 Percent",
+      "Preferred Brand Drugs - 94 Percent",
+      "Non-preferred Brand Drugs - 94 Percent",
+      "Specialty Drugs - 94 Percent"
+    ]
+  }
+}

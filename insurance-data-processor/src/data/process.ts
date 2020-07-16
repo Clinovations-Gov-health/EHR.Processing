@@ -1,8 +1,8 @@
 import dataForge = require('data-forge');
 import 'data-forge-fs';
 import { promises as fs } from 'fs';
-import { PostPreprocessInsuranceSchema } from './interface/raw/post-preprocess-insurance';
-import { InsurancePlan, IntDefns } from './interface/db/insurance';
+import { PostPreprocessInsuranceSchema } from './interface/post-preprocess-insurance';
+import { InsurancePlan, IntDefns } from '../db/db/insurance';
 import { identity, set } from 'lodash';
 import numeral from 'numeral';
 import nearley from 'nearley';

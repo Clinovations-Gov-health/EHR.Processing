@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-import { InsurancePlan } from '../data/interface/db/insurance';
+import { InsurancePlan } from './db/insurance';
 import { InsurancePlanModel } from './model/insurance-plan';
 import { chunk } from 'lodash';
 

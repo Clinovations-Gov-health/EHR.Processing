@@ -19,3 +19,7 @@ export type DentalPlanMetalLevel = typeof DentalPlanMetalLevels[number];
 export const NormalPlanMetalLevels = ['Silver', 'Expanded Bronze', 'Gold', 'Catastrophic', 'Platinum', 'Bronze'] as const;
 export type NormalPlanMetalLevel = typeof NormalPlanMetalLevels[number];
 
+export const CSRVariations = ['StandardOffExchange', 'StandardOnExchange', 'ZeroCostSharingPlan', 'LimitedCostSharingPlan', '73PercentSilverPlan', '87PercentSilverPlan', '94PercentSilverPlan'] as const;
+export type CSRVariation = typeof CSRVariations[number];
+
+

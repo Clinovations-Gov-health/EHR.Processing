@@ -1,12 +1,12 @@
 import dataForge = require("data-forge");
 import "data-forge-fs";
-import { isEmpty } from "lodash";
+import { isEmpty, merge } from "lodash";
 import { Pool, spawn, Worker } from "threads";
 import { DataSource, StateCode } from "../util";
 import { RawAttributeModel } from "./interface/plan-attribute";
 import { RatePreprocessModel, RawRateModel } from "./interface/rate";
 import { PreprocessWorker } from "./preprocess-worker";
-import { RawCostSharingModel } from "./interface/cost-sharing";
+import { RawCostSharingModel, CostSharingPreprocessModel } from "./interface/cost-sharing";
 
 export async function preprocess(type: DataSource, data: Buffer) {
     switch (type) {
@@ -26,13 +26,17 @@ async function preprocessCostSharingData(data: Buffer) {
 
     const dfChunkJsonStrings = dataForge.fromCSV(data.toString('utf-8'))
         .dropSeries<RawCostSharingModel>(COLUMNS_TO_DROP)
-        .window(100000)
+        .window(10000)
         .toArray()
         .map(chunk => chunk.toCSV());
 
     const workerPool = Pool(() => spawn<PreprocessWorker>(new Worker('./preprocess-worker.js')));
+    const resultChunks = await Promise.all<{
+        [key: string]: CostSharingPreprocessModel;
+    }>(dfChunkJsonStrings.map(chunk => workerPool.queue(worker => worker.preprocessCostSharingData(chunk))));
     
     await workerPool.terminate();
+    return resultChunks.reduce((prev, curr) => merge(prev, curr), {});
 }
 
 async function preprocessAttributesData(data: Buffer) {

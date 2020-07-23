@@ -1,18 +1,18 @@
 import 'data-forge-fs';
 import { appendFileSync } from "fs";
-import { mapValues, create } from "lodash";
+import { compact, isEmpty, mapValues } from "lodash";
+import nearley from 'nearley';
 import numeral from 'numeral';
 import { expose } from 'threads';
 import { match } from "ts-pattern";
+import { threadId } from 'worker_threads';
 import { createSinglePropertyObject, DentalPlanMetalLevel, NormalPlanMetalLevel, PlanDemographic, PlanType, StateCode } from "../util";
+import costSharingCostDetailGrammar from './grammars/cost-sharing-cost-detail-grammar';
+import costSharingLimitUnitGrammar from './grammars/cost-sharing-limit-unit-grammar';
+import { BenefitItemCostSharingScheme, BenefitItemLimit, CostSharingBenefit, CostSharingPreprocessModel, EHBInfo, RawCostSharingModel } from './interface/cost-sharing';
 import { DeductibleProperties, DentalOnlyDependentProperties, OOPProperties, PlanAttributePreprocessModel, RawAttributeModel } from "./interface/plan-attribute";
 import dataForge = require('data-forge');
-import { threadId } from 'worker_threads';
-import nearley from 'nearley';
-import { BenefitItemLimit, BenefitItemCostSharingScheme, CostSharingPreprocessModel, RawCostSharingModel, EHBInfo, CostSharingBenefit } from './interface/cost-sharing';
 
-import costSharingLimitUnitGrammar from './grammars/cost-sharing-limit-unit-grammar';
-import costSharingCostDetailGrammar from './grammars/cost-sharing-cost-detail-grammar';
 
 export type PreprocessWorker = typeof worker;
 
@@ -374,12 +374,17 @@ export const worker = {
             IsExclFromOonMOOP: (val?: string) => val === "Yes",
         } as const;
 
-        type TransformedData = {[Property in keyof RawCostSharingModel]-?: Property extends keyof typeof TRANSFORMATION_MAP
-            ? ReturnType<typeof TRANSFORMATION_MAP[Property]>
-            : RawCostSharingModel[Property]};
+        type TransformedData = {[Property in keyof typeof TRANSFORMATION_MAP]: ReturnType<typeof TRANSFORMATION_MAP[Property]>}
+            & {[Property in keyof Omit<RawCostSharingModel, keyof typeof TRANSFORMATION_MAP>]: RawCostSharingModel[Property]};      
 
         const result = dataForge.fromCSV(chunk)
-            .transformSeries<TransformedData>(TRANSFORMATION_MAP)
+            .transformSeries<TransformedData>(mapValues(TRANSFORMATION_MAP, (fn, property) => (val: any, idx: number) => {
+                if (idx % 5000 === 0) {
+                    appendFileSync('log', `worker ${threadId}: ${property}: row ${idx}\n`);
+                }
+
+                return fn(val);
+            }))
             .aggregate<{[key: string]: CostSharingPreprocessModel}>({}, (prev, row) => {
                 const key = row.PlanId.join('-');
                 if (!prev[key]) {
@@ -395,8 +400,10 @@ export const worker = {
                     : { isEHB: false };
 
                 const limit: BenefitItemLimit | undefined = row.LimitUnit
-                    ? { quantity: row.LimitQty, ...row.LimitUnit }
+                    ? { quantity: row.LimitQty!, ...row.LimitUnit }
                     : undefined;
+            
+                const inNetworkTierTwo = compact([row.CopayInnTier2, row.CoinsInnTier2]) as [] | [BenefitItemCostSharingScheme] | [BenefitItemCostSharingScheme, BenefitItemCostSharingScheme];
 
                 const result: CostSharingBenefit = row.IsCovered
                     ? { covered: false }
@@ -405,9 +412,17 @@ export const worker = {
                         ...createSinglePropertyObject("exclusions", row.Exclusions),
                         ...createSinglePropertyObject("explanations", row.Explanation),
                         ...createSinglePropertyObject("limit", limit),
-                        
+                        inNetworkTierOne: compact([row.CoinsInnTier1, row.CopayInnTier1]) as [BenefitItemCostSharingScheme] | [BenefitItemCostSharingScheme, BenefitItemCostSharingScheme],
+                        outOfNetwork: compact([row.CoinsOutofNet, row.CopayOutofNet]) as [BenefitItemCostSharingScheme] | [BenefitItemCostSharingScheme, BenefitItemCostSharingScheme],
+                        ...(isEmpty(inNetworkTierTwo) ? {} : { inNetworkTierTwo: inNetworkTierTwo as [BenefitItemCostSharingScheme] | [BenefitItemCostSharingScheme, BenefitItemCostSharingScheme] }),
+                        ...ehbInfo,
                     }
+
+                prev[key].benefits[row.BenefitName] = result;
+                return prev;
             });
+
+        return result;
     }
 }
 

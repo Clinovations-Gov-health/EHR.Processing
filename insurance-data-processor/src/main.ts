@@ -3,10 +3,10 @@ import { preprocess } from "./preprocess/preprocess";
 import { writeFileSync } from "fs";
 
 async function main() {
-    const data = await getData("attributes");
+    const data = await getData("costSharing");
     global.gc();
-    const res = await preprocess("attributes", data);
-    writeFileSync("attributes.json", JSON.stringify(res, null, 4));
+    const res = await preprocess("costSharing", data);
+    writeFileSync("data/costSharing.json", JSON.stringify(res, null, 4));
 }
 
 main();

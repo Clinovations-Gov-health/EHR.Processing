@@ -1,4 +1,116 @@
-import { StateCode, PlanType, DentalPlanMetalLevel, NormalPlanMetalLevel } from "../../util";
+import { DentalPlanMetalLevel, NormalPlanMetalLevel, PlanDemographic, PlanType, StateCode } from "../../util";
+
+/**
+ * Shape of the raw CSV table data for plan attributes.
+ */
+export interface RawAttributeModel {
+    StateCode: string;
+    IssuerId: string;
+    MarketCoverage: string;
+    DentalOnlyPlan: string;
+    StandardComponentId: string;
+    PlanMarketingName: string;
+    NetworkId: string;
+    ServiceAreaId: string;
+    FormularyId?: string;
+    PlanType: string;
+    MetalLevel: string;
+    PlanLevelExclusions?: string;
+    ChildOnlyOffering: string;
+    WellnessProgramOffered?: string;
+    DiseaseManagementProgramsOffered?: string;
+    IsGuaranteedRate?: string;
+    NationalNetwork: string;
+    FormularyURL?: string;
+    PlanId: string;
+    CSRVariationType: string;
+    MultipleInNetworkTiers: string;
+    MedicalDrugDeductiblesIntegrated?: string;
+    MedicalDrugMaximumOutofPocketIntegrated?: string;
+    SpecialtyDrugMaximumCoinsurance?: string;
+    InpatientCopaymentMaximumDays: string;
+    BeginPrimaryCareCostSharingAfterNumberOfVisits: string;
+    BeginPrimaryCareDeductibleCoinsuranceAfterNumberOfCopays: string;
+    MEHBInnTier1IndividualMOOP?: string;
+    MEHBInnTier1FamilyPerPersonMOOP?: string;
+    MEHBInnTier1FamilyPerGroupMOOP?: string;
+    MEHBInnTier2IndividualMOOP?: string;
+    MEHBInnTier2FamilyPerPersonMOOP?: string;
+    MEHBInnTier2FamilyPerGroupMOOP?: string;
+    MEHBOutOfNetIndividualMOOP?: string;
+    MEHBOutOfNetFamilyPerPersonMOOP?: string;
+    MEHBOutOfNetFamilyPerGroupMOOP?: string;
+    MEHBCombInnOonIndividualMOOP?: string;
+    MEHBCombInnOonFamilyPerPersonMOOP?: string;
+    MEHBCombInnOonFamilyPerGroupMOOP?: string;
+    DEHBInnTier1IndividualMOOP?: string;
+    DEHBInnTier1FamilyPerPersonMOOP?: string;
+    DEHBInnTier1FamilyPerGroupMOOP?: string;
+    DEHBInnTier2IndividualMOOP?: string;
+    DEHBInnTier2FamilyPerPersonMOOP?: string;
+    DEHBInnTier2FamilyPerGroupMOOP?: string;
+    DEHBOutOfNetIndividualMOOP?: string;
+    DEHBOutOfNetFamilyPerPersonMOOP?: string;
+    DEHBOutOfNetFamilyPerGroupMOOP?: string;
+    DEHBCombInnOonIndividualMOOP?: string;
+    DEHBCombInnOonFamilyPerPersonMOOP?: string;
+    DEHBCombInnOonFamilyPerGroupMOOP?: string;
+    TEHBInnTier1IndividualMOOP?: string;
+    TEHBInnTier1FamilyPerPersonMOOP?: string;
+    TEHBInnTier1FamilyPerGroupMOOP?: string;
+    TEHBInnTier2IndividualMOOP?: string;
+    TEHBInnTier2FamilyPerPersonMOOP?: string;
+    TEHBInnTier2FamilyPerGroupMOOP?: string;
+    TEHBOutOfNetIndividualMOOP?: string;
+    TEHBOutOfNetFamilyPerPersonMOOP?: string;
+    TEHBOutOfNetFamilyPerGroupMOOP?: string;
+    TEHBCombInnOonIndividualMOOP?: string;
+    TEHBCombInnOonFamilyPerPersonMOOP?: string;
+    TEHBCombInnOonFamilyPerGroupMOOP?: string;
+    MEHBDedInnTier1Individual?: string;
+    MEHBDedInnTier1FamilyPerPerson?: string;
+    MEHBDedInnTier1FamilyPerGroup?: string;
+    MEHBDedInnTier1Coinsurance?: string;
+    MEHBDedInnTier2Individual?: string;
+    MEHBDedInnTier2FamilyPerPerson?: string;
+    MEHBDedInnTier2FamilyPerGroup?: string;
+    MEHBDedInnTier2Coinsurance?: string;
+    MEHBDedOutOfNetIndividual?: string;
+    MEHBDedOutOfNetFamilyPerPerson?: string;
+    MEHBDedOutOfNetFamilyPerGroup?: string;
+    MEHBDedCombInnOonIndividual?: string;
+    MEHBDedCombInnOonFamilyPerPerson?: string;
+    MEHBDedCombInnOonFamilyPerGroup?: string;
+    DEHBDedInnTier1Individual?: string;
+    DEHBDedInnTier1FamilyPerPerson?: string;
+    DEHBDedInnTier1FamilyPerGroup?: string;
+    DEHBDedInnTier1Coinsurance?: string;
+    DEHBDedInnTier2Individual?: string;
+    DEHBDedInnTier2FamilyPerPerson?: string;
+    DEHBDedInnTier2FamilyPerGroup?: string;
+    DEHBDedInnTier2Coinsurance?: string;
+    DEHBDedOutOfNetIndividual?: string;
+    DEHBDedOutOfNetFamilyPerPerson?: string;
+    DEHBDedOutOfNetFamilyPerGroup?: string;
+    DEHBDedCombInnOonIndividual?: string;
+    DEHBDedCombInnOonFamilyPerPerson?: string;
+    DEHBDedCombInnOonFamilyPerGroup?: string;
+    TEHBDedInnTier1Individual?: string;
+    TEHBDedInnTier1FamilyPerPerson?: string;
+    TEHBDedInnTier1FamilyPerGroup?: string;
+    TEHBDedInnTier1Coinsurance?: string;
+    TEHBDedInnTier2Individual?: string;
+    TEHBDedInnTier2FamilyPerPerson?: string;
+    TEHBDedInnTier2FamilyPerGroup?: string;
+    TEHBDedInnTier2Coinsurance?: string;
+    TEHBDedOutOfNetIndividual?: string;
+    TEHBDedOutOfNetFamilyPerPerson?: string;
+    TEHBDedOutOfNetFamilyPerGroup?: string;
+    TEHBDedCombInnOonIndividual?: string;
+    TEHBDedCombInnOonFamilyPerPerson?: string;
+    TEHBDedCombInnOonFamilyPerGroup?: string;
+    PlanBrochure?: string;
+}
 
 export type PlanAttributePreprocessModel = {
     /**
@@ -28,11 +140,11 @@ export type PlanAttributePreprocessModel = {
     /**
      * Whether there is a plan level exclusion. An existence of such makes our estimation imprecise.
      */
-    hasPlanLevelExclusions: boolean;
+    planLevelExclusions?: string;
     /**
      * Whether the plan is restricted to adults or children or neither.
      */
-    demographics: "both" | "adult" | "child";
+    demographics: PlanDemographic;
     /**
      * Whether the plan's rate is guaranteed or estimated.
      */
@@ -62,7 +174,7 @@ export type PlanAttributePreprocessModel = {
      * Maximum number of primary care visits with co-payment allowed, after which all primary care visits will be subject to the deducitble
      * or maximum out of pocket limits.
      */
-    beginPrimaryCareDeducitableCoinsuranceAfterNumberOfCopays?: number;
+    beginPrimaryCareDeductibleCoinsuranceAfterNumberOfCopays?: number;
     /**
      * URL to the brochure describing the plan in more detail.
      */
@@ -72,7 +184,7 @@ export type PlanAttributePreprocessModel = {
 /**
  * Properties dependent on whether the plan is dental-only.
  */
-type DentalOnlyDependentProperties = {
+export type DentalOnlyDependentProperties = {
     /**
      * Whether a plan only covers dental.
      */
@@ -126,7 +238,7 @@ type DentalOnlyDependentProperties = {
     /**
      * Maximum dollar value of coinsurance for specialty high-cost drugs.
      */
-    specialityDrugMaximumCoinsurance?: number;
+    specialtyDrugMaximumCoinsurance?: number;
     /**
      * Whether the provider networks are multi-tiered.
      */
@@ -139,7 +251,7 @@ type DentalOnlyDependentProperties = {
      * Whether the medical and drug OOPs are integrated by the plan issuer.
      */
     medicalDrugOOPIntegrated: boolean;
-} & OOPProperties);
+} & OOPProperties & DeductibleProperties);
 
 type SingleOOPProperties = {
     individual?: number;
@@ -157,18 +269,13 @@ type SingleDeductiblePropertiesWithCoinsurance = {
     coinsurance?: number;
 } & SingleDeductibleProperties;
 
-type OOPProperties = {
+export type OOPProperties = {
     isMultiTiered: false;
     medicalDrugOOPIntegrated: true;
     oop: {
         inNetwork: SingleOOPProperties;
         outNetwork: SingleOOPProperties;
         combined: SingleOOPProperties;
-    },
-    deductible: {
-        inNetwork: SingleDeductiblePropertiesWithCoinsurance;
-        outNetwork: SingleDeductibleProperties;
-        combined: SingleDeductibleProperties;
     },
 } | {
     isMultiTiered: true;
@@ -179,12 +286,6 @@ type OOPProperties = {
         outNetwork: SingleOOPProperties;
         combined: SingleOOPProperties;
     },
-    deductible: {
-        tierOneInNetwork: SingleDeductiblePropertiesWithCoinsurance;
-        tierTwoInNetwork: SingleDeductiblePropertiesWithCoinsurance;
-        outNetwork: SingleDeductibleProperties;
-        combined: SingleDeductibleProperties;
-    }
 } | {
     isMultiTiered: false;
     medicalDrugOOPIntegrated: false;
@@ -196,14 +297,6 @@ type OOPProperties = {
         drugOutNetwork: SingleOOPProperties;
         drugCombined: SingleOOPProperties;
     },
-    deductible: {
-        medicalInNetwork: SingleDeductiblePropertiesWithCoinsurance;
-        medicalOutNetwork: SingleDeductibleProperties;
-        medicalCombined: SingleDeductibleProperties;
-        drugInNetwork: SingleDeductiblePropertiesWithCoinsurance;
-        drugOutNetwork: SingleDeductibleProperties;
-        drugCombined: SingleDeductibleProperties;
-    }
 } | {
     isMultiTiered: true;
     medicalDrugOOPIntegrated: false;
@@ -217,6 +310,39 @@ type OOPProperties = {
         drugOutNetwork: SingleOOPProperties;
         drugCombined: SingleOOPProperties;
     },
+}
+
+export type DeductibleProperties = {
+    isMultiTiered: false;
+    medicalDrugDeductibleIntegrated: true;
+    deductible: {
+        inNetwork: SingleDeductiblePropertiesWithCoinsurance;
+        outNetwork: SingleDeductibleProperties;
+        combined: SingleDeductibleProperties;
+    },
+} | {
+    isMultiTiered: true;
+    medicalDrugDeductibleIntegrated: true;
+    deductible: {
+        tierOneInNetwork: SingleDeductiblePropertiesWithCoinsurance;
+        tierTwoInNetwork: SingleDeductiblePropertiesWithCoinsurance;
+        outNetwork: SingleDeductibleProperties;
+        combined: SingleDeductibleProperties;
+    }
+} | {
+    isMultiTiered: false;
+    medicalDrugDeductibleIntegrated: false;
+    deductible: {
+        medicalInNetwork: SingleDeductiblePropertiesWithCoinsurance;
+        medicalOutNetwork: SingleDeductibleProperties;
+        medicalCombined: SingleDeductibleProperties;
+        drugInNetwork: SingleDeductiblePropertiesWithCoinsurance;
+        drugOutNetwork: SingleDeductibleProperties;
+        drugCombined: SingleDeductibleProperties;
+    }
+} | {
+    isMultiTiered: true;
+    medicalDrugDeductibleIntegrated: false;
     deductible: {
         medicalTierOneInNetwork: SingleDeductiblePropertiesWithCoinsurance;
         medicalTierTwoInNetwork: SingleDeductiblePropertiesWithCoinsurance;

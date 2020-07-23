@@ -1,16 +1,55 @@
 import dataForge = require("data-forge");
 import "data-forge-fs";
-import { writeFileSync } from "fs";
 import { isEmpty } from "lodash";
-import { RatePreprocessModel } from "./interface/rate";
+import { Pool, spawn, Worker } from "threads";
+import { DataSource, StateCode } from "../util";
+import { RawAttributeModel } from "./interface/plan-attribute";
+import { RatePreprocessModel, RawRateModel } from "./interface/rate";
+import { PreprocessWorker } from "./preprocess-worker";
+import { RawCostSharingModel } from "./interface/cost-sharing";
 
-export type PreprocessDataType = "rate";
-
-export async function preprocess(type: PreprocessDataType, data: Buffer) {
+export async function preprocess(type: DataSource, data: Buffer) {
     switch (type) {
         case 'rate':
             return await preprocessRateData(data);
+
+        case 'attributes':
+            return await preprocessAttributesData(data);
+
+        case 'costSharing':
+            return await preprocessCostSharingData(data);
     }
+}
+
+async function preprocessCostSharingData(data: Buffer) {
+    const COLUMNS_TO_DROP = ["BusinessYear", "StateCode", "IssuerId", "SourceName", "ImportDate", "StandardComponentId", "EHBVarReason"];
+
+    const dfChunkJsonStrings = dataForge.fromCSV(data.toString('utf-8'))
+        .dropSeries<RawCostSharingModel>(COLUMNS_TO_DROP)
+        .window(100000)
+        .toArray()
+        .map(chunk => chunk.toCSV());
+
+    const workerPool = Pool(() => spawn<PreprocessWorker>(new Worker('./preprocess-worker.js')));
+    
+    await workerPool.terminate();
+}
+
+async function preprocessAttributesData(data: Buffer) {
+    const COLUMNS_TO_DROP = ["BusinessYear", "SourceName", "ImportDate", "TIN", "HIOSProductId", "HPID", "IsNewPlan", "DesignType", "IsNoticeRequiredForPregnancy", "IsReferralRequiredForSpecialist", "SpecialistRequiringReferral", "IndianPlanVariationEstimatedAdvancedPaymentAmountPerEnrollee", "ChildOnlyPlanId", "EHBPercentTotalPremium", "EHBPediatricDentalApportionmentQuantity", "PlanEffectiveDate", "PlanExpirationDate", "OutOfCountryCoverage", "OutOfCountryCoverageDescription", "OutOfServiceAreaCoverage", "OutOfServiceAreaCoverageDescription", "URLForEnrollmentPayment", "PlanVariantMarketingName", "IssuerActuarialValue", "AVCalculatorOutputNumber", "FirstTierUtilization", "SecondTierUtilization", "SBCHavingaBabyDeductible", "SBCHavingaBabyCopayment", "SBCHavingaBabyCoinsurance", "SBCHavingaBabyLimit", "SBCHavingDiabetesDeductible", "SBCHavingDiabetesCopayment", "SBCHavingDiabetesCoinsurance", "SBCHavingDiabetesLimit", "SBCHavingSimplefractureDeductible", "SBCHavingSimplefractureCopayment", "SBCHavingSimplefractureCoinsurance", "SBCHavingSimplefractureLimit", "IsHSAEligible", "HSAOrHRAEmployerContribution", "HSAOrHRAEmployerContributionAmount", "URLForSummaryofBenefitsCoverage", "QHPNonQHPTypeId", "UniquePlanDesign", "CompositeRatingOffered"];
+
+    // Array of CSV representations of 1000 rows in the dataframe.
+    const dfChunkJsonStrings = dataForge.fromCSV(data.toString('utf-8'))
+        .dropSeries<RawAttributeModel>(COLUMNS_TO_DROP)
+        .window(2000)
+        .toArray()
+        .map(chunk => chunk.toCSV());
+
+    const workerPool = Pool(() => spawn<PreprocessWorker>(new Worker('./preprocess-worker.js')));
+    const resultChunks = await Promise.all(dfChunkJsonStrings.map(chunk => workerPool.queue(worker => worker.preprocessAttributesData(chunk))));
+
+    await workerPool.terminate();
+    return resultChunks.reduce((prev, curr) => ({...prev, ...curr}), {});
 }
 
 async function preprocessRateData(data: Buffer) {
@@ -18,42 +57,53 @@ async function preprocessRateData(data: Buffer) {
      * Useless columns for our purpose. To be dropped in data processing.
      */
     const COLUMNS_TO_DROP = ["SourceName", "ImportDate", "FederalTIN", "RateEffectiveDate", "RateExpirationDate", "BusinessYear"];
-    /**
-     * Columns containing numbers. Will be converted from number strings to numbers during processing.
-     */
-    const NUMBER_COLUMNS = ["IndividualRate", "IndividualTobaccoRate", "Couple", "PrimarySubscriberAndOneDependent", "PrimarySubscriberAndTwoDependents", "PrimarySubscriberAndThreeOrMoreDependents", "CoupleAndOneDependent", "CoupleAndTwoDependents", "CoupleAndThreeOrMoreDependents"]
+
+    const numberTransformer = (val?: string) => val ? Number(val) : undefined;
+
+    const TRANSFORMATION_MAP = {
+        StateCode: (val: string) => val as StateCode,
+        IndividualRate: (val: string) => Number(val),
+        IndividualTobaccoRate: numberTransformer,
+        Couple: numberTransformer, 
+        PrimarySubscriberAndOneDependent: numberTransformer,
+        PrimarySubscriberAndTwoDependents: numberTransformer,
+        PrimarySubscriberAndThreeOrMoreDependents: numberTransformer,
+        CoupleAndOneDependent: numberTransformer,
+        CoupleAndTwoDependents: numberTransformer,
+        CoupleAndThreeOrMoreDependents: numberTransformer,
+        RatingAreaId: (value: string, index: number) => {
+            const matches = ratingAreaStringRegex.exec(value);
+            if (!matches || isEmpty(matches)) {
+                throw `RatingAreaId on row ${index} has invalid value ${value}`;
+            }
+
+            const res = parseInt(matches[1]);
+            if (!res) {
+                throw `RatingAreaId on row ${index} has invalid value ${value}`;
+            }
+
+            return res;
+        }
+    };
 
     const ratingAreaStringRegex = /^Rating Area (\d{1,2})$/;
 
+    type TransformedData = {[Property in keyof RawRateModel]: Property extends keyof typeof TRANSFORMATION_MAP ? ReturnType<typeof TRANSFORMATION_MAP[Property]> : RawRateModel[Property]};
+
     const result = dataForge.fromCSV(data.toString('utf-8'))
-        .dropSeries(COLUMNS_TO_DROP)
-        .parseFloats(NUMBER_COLUMNS)
-        .transformSeries({
-            "RatingAreaId": (value, index) => {
-                const matches = ratingAreaStringRegex.exec(value);
-                if (!matches || isEmpty(matches)) {
-                    throw `RatingAreaId on row ${index} has invalid value ${value}`;
-                }
-
-                const res = parseInt(matches[0][1]);
-                if (!res) {
-                    throw `RatingAreaId on row ${index} has invalid value ${value}`;
-                }
-
-                return res;
-            },
-        })
-        .aggregate<Map<string, RatePreprocessModel>>({}, (prev, row) => {
-            if (!prev.has(row.PlanId)) {
-                prev.set(row.PlanId, {
+        .dropSeries<RawRateModel>(COLUMNS_TO_DROP)
+        .transformSeries<TransformedData>(TRANSFORMATION_MAP)
+        .aggregate<{[key: string]: RatePreprocessModel}>({}, (prev, row) => {
+            if (!prev[row.PlanId]) {
+                prev[row.PlanId] = {
                     stateCode: row.StateCode,
                     issuerId: row.IssuerId,
-                    planId: row.PlanId,
+                    standardComponentId: row.PlanId,
                     rateDetail: {},
-                });
+                };
             }
 
-            const plan = prev.get(row.PlanId)!;
+            const plan = prev[row.PlanId]!;
             const isFamilyPlan = row.Age === "Family Option";
             if (!Reflect.has(plan.rateDetail, row.RatingAreaId)) {
                 // If the plan doesn't have rate detail corresponding to this rating area, we create the detail.
@@ -64,15 +114,15 @@ async function preprocessRateData(data: Buffer) {
                         type: "family",
                         individual: [
                             row.IndividualRate,
-                            row.PrimarySubscriberAndOneDependent,
-                            row.PrimarySubscriberAndTwoDependents,
-                            row.PrimarySubscriberAndThreeOrMoreDependents,
+                            row.PrimarySubscriberAndOneDependent!,
+                            row.PrimarySubscriberAndTwoDependents!,
+                            row.PrimarySubscriberAndThreeOrMoreDependents!,
                         ],
                         couple: [
-                            row.Couple,
-                            row.CoupleAndOneDependent,
-                            row.CoupleAndTwoDependents,
-                            row.CoupleAndThreeOrMoreDependents
+                            row.Couple!,
+                            row.CoupleAndOneDependent!,
+                            row.CoupleAndTwoDependents!,
+                            row.CoupleAndThreeOrMoreDependents!,
                         ],
                     } : {
                         type: "individual",
@@ -104,12 +154,10 @@ async function preprocessRateData(data: Buffer) {
                 rateDetail.rate[ageIndex] = row.IndividualRate;
                 rateDetail.tobaccoRate[ageIndex] = !row.Tobacco || row.Tobacco === "No Preference"
                     ? row.IndividualRate
-                    : row.IndividualTobaccoRate;
+                    : row.IndividualTobaccoRate!;
             }
 
             return prev;
         });
-
-    writeFileSync("result.json", JSON.stringify(result));
     return result;
 }

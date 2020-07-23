@@ -1,6 +1,27 @@
 import { StateCode } from "../../util";
 
 /**
+ * Shape of the raw CSV table data for plan attributes.
+ */
+export interface RawRateModel {
+    StateCode: string;
+    IssuerId: string;
+    PlanId: string;
+    RatingAreaId: string;
+    Tobacco?: string;
+    Age: string;
+    IndividualRate: string;
+    IndividualTobaccoRate?: string;
+    Couple?: string;
+    PrimarySubscriberAndOneDependent?: string;
+    PrimarySubscriberAndTwoDependents?: string;
+    PrimarySubscriberAndThreeOrMoreDependents?: string;
+    CoupleAndOneDependent?: string;
+    CoupleAndTwoDependents?: string;
+    CoupleAndThreeOrMoreDependents?: string;
+}
+
+/**
  * Shape of the rate table after preprocessing.
  */
 export interface RatePreprocessModel {
@@ -13,9 +34,9 @@ export interface RatePreprocessModel {
      */
     issuerId: string;
     /**
-     * Id of the plan.
+     * Id of the standard component of the plan.
      */
-    planId: string;
+    standardComponentId: string;
     /**
      * Detail of the rates. This is a map of rating area to the rates specific to that area.
      */

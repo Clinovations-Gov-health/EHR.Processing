@@ -6,6 +6,9 @@
         "url": "git+https://github.com/Clinovations-Gov-health/EHR.Processing.git"
     },
     "license": "private",
+    "scripts": {
+        "start": "DEBUG=main node --expose-gc -max-old-space-size=12288 dist/main.js"
+    },
     "bugs": {
         "url": "https://github.com/Clinovations-Gov-health/EHR.Processing/issues"
     },
@@ -13,8 +16,11 @@
     "dependencies": {
         "adm-zip": "^0.4.16",
         "axios": "^0.19.2",
+        "cli-progress": "^3.8.2",
         "data-forge": "^1.8.9",
         "data-forge-fs": "0.0.8",
+        "debug": "^4.1.1",
+        "json-stream-stringify": "^2.0.2",
         "lodash": "^4.17.19",
         "mongoose": "^5.9.25",
         "nearley": "^2.19.5",
@@ -24,7 +30,9 @@
     },
     "devDependencies": {
         "@types/adm-zip": "^0.4.33",
+        "@types/cli-progress": "^3.7.0",
         "@types/debug": "^4.1.5",
+        "@types/json-stream-stringify": "^2.0.1",
         "@types/lodash": "^4.14.157",
         "@types/mongoose": "^5.7.32",
         "@types/nearley": "^2.11.1",

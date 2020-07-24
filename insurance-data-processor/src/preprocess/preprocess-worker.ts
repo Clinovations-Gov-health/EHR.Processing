@@ -1,16 +1,15 @@
 import 'data-forge-fs';
-import { appendFileSync } from "fs";
-import { compact, isEmpty, mapValues } from "lodash";
+import { compact, isEmpty } from "lodash";
 import nearley from 'nearley';
 import numeral from 'numeral';
 import { expose } from 'threads';
 import { match } from "ts-pattern";
-import { threadId } from 'worker_threads';
 import { createSinglePropertyObject, DentalPlanMetalLevel, NormalPlanMetalLevel, PlanDemographic, PlanType, StateCode } from "../util";
 import costSharingCostDetailGrammar from './grammars/cost-sharing-cost-detail-grammar';
 import costSharingLimitUnitGrammar from './grammars/cost-sharing-limit-unit-grammar';
 import { BenefitItemCostSharingScheme, BenefitItemLimit, CostSharingBenefit, CostSharingPreprocessModel, EHBInfo, RawCostSharingModel } from './interface/cost-sharing';
 import { DeductibleProperties, DentalOnlyDependentProperties, OOPProperties, PlanAttributePreprocessModel, RawAttributeModel } from "./interface/plan-attribute";
+import { RatePreprocessModel, RawRateModel } from './interface/rate';
 import dataForge = require('data-forge');
 
 
@@ -142,13 +141,7 @@ export const worker = {
             & {[Property in keyof Omit<RawAttributeModel, keyof typeof TRANSFORMATION_MAP>]: RawAttributeModel[Property]};      
 
         const result = dataForge.fromCSV(chunk)
-            .transformSeries<TransformedData>(mapValues(TRANSFORMATION_MAP, (fn, property) => (val: any, idx: number) => {
-                if (idx !== 0 && idx % 1000 === 0) {
-                    appendFileSync('log', `worker ${threadId}: ${property}: row ${idx}\n`);
-                }
-
-                return fn(val);
-            }))
+            .transformSeries<TransformedData>(TRANSFORMATION_MAP)
             .aggregate<{[key: string]: PlanAttributePreprocessModel}>({}, (prev, row) => {
                 const dentalOnlyDependentProperties: DentalOnlyDependentProperties = row.DentalOnlyPlan
                     ? {
@@ -356,7 +349,7 @@ export const worker = {
                 const components = val.split('-');
                 return [components[0], components[1]];
             },
-            BenefitName: (val: string) => val.trim().replaceAll(/[\t""]/, ""),
+            BenefitName: (val: string) => val.trim().replace(/[\t""]/g, ""),
             CopayInnTier1: parseCostDetail,
             CopayInnTier2: parseCostDetail,
             CopayOutofNet: parseCostDetail,
@@ -367,7 +360,7 @@ export const worker = {
             IsCovered: (val?: string) => val === "Covered",
             QuantLimitOnSvc: (val?: string) => val === "Yes",
             LimitQty: (val?: string) => val ? numeral(val).value() : undefined,
-            LimitUnit: parseLimitUnit, // TODO
+            LimitUnit: parseLimitUnit,
             Exclusions: (val?: string) => val ?? undefined,
             Explanation: (val?: string) => val ?? undefined,
             IsExclFromInnMOOP: (val?: string) => val === "Yes",
@@ -378,13 +371,7 @@ export const worker = {
             & {[Property in keyof Omit<RawCostSharingModel, keyof typeof TRANSFORMATION_MAP>]: RawCostSharingModel[Property]};      
 
         const result = dataForge.fromCSV(chunk)
-            .transformSeries<TransformedData>(mapValues(TRANSFORMATION_MAP, (fn, property) => (val: any, idx: number) => {
-                if (idx % 5000 === 0) {
-                    appendFileSync('log', `worker ${threadId}: ${property}: row ${idx}\n`);
-                }
-
-                return fn(val);
-            }))
+            .transformSeries<TransformedData>(TRANSFORMATION_MAP)
             .aggregate<{[key: string]: CostSharingPreprocessModel}>({}, (prev, row) => {
                 const key = row.PlanId.join('-');
                 if (!prev[key]) {
@@ -406,8 +393,7 @@ export const worker = {
                 const inNetworkTierTwo = compact([row.CopayInnTier2, row.CoinsInnTier2]) as [] | [BenefitItemCostSharingScheme] | [BenefitItemCostSharingScheme, BenefitItemCostSharingScheme];
 
                 const result: CostSharingBenefit = row.IsCovered
-                    ? { covered: false }
-                    : {
+                    ? {
                         covered: true,
                         ...createSinglePropertyObject("exclusions", row.Exclusions),
                         ...createSinglePropertyObject("explanations", row.Explanation),
@@ -416,13 +402,112 @@ export const worker = {
                         outOfNetwork: compact([row.CoinsOutofNet, row.CopayOutofNet]) as [BenefitItemCostSharingScheme] | [BenefitItemCostSharingScheme, BenefitItemCostSharingScheme],
                         ...(isEmpty(inNetworkTierTwo) ? {} : { inNetworkTierTwo: inNetworkTierTwo as [BenefitItemCostSharingScheme] | [BenefitItemCostSharingScheme, BenefitItemCostSharingScheme] }),
                         ...ehbInfo,
-                    }
+                    } : { covered: false };
 
                 prev[key].benefits[row.BenefitName] = result;
                 return prev;
             });
 
         return result;
+    },
+    preprocessRateData: (chunk: string) => {
+        const numberTransformer = (val?: string) => val ? Number(val) : undefined;
+    
+        const TRANSFORMATION_MAP = {
+            IndividualRate: (val: string) => Number(val),
+            IndividualTobaccoRate: numberTransformer,
+            Couple: numberTransformer, 
+            PrimarySubscriberAndOneDependent: numberTransformer,
+            PrimarySubscriberAndTwoDependents: numberTransformer,
+            PrimarySubscriberAndThreeOrMoreDependents: numberTransformer,
+            CoupleAndOneDependent: numberTransformer,
+            CoupleAndTwoDependents: numberTransformer,
+            CoupleAndThreeOrMoreDependents: numberTransformer,
+            RatingAreaId: (value: string, index: number) => {
+                const matches = ratingAreaStringRegex.exec(value);
+                if (!matches || isEmpty(matches)) {
+                    throw `RatingAreaId on row ${index} has invalid value ${value}`;
+                }
+    
+                const res = parseInt(matches[1]);
+                if (!res) {
+                    throw `RatingAreaId on row ${index} has invalid value ${value}`;
+                }
+    
+                return res;
+            }
+        };
+    
+        const ratingAreaStringRegex = /^Rating Area (\d{1,2})$/;
+    
+        type TransformedData = {[Property in keyof RawRateModel]: Property extends keyof typeof TRANSFORMATION_MAP ? ReturnType<typeof TRANSFORMATION_MAP[Property]> : RawRateModel[Property]};
+
+        return dataForge.fromCSV(chunk)
+            .transformSeries<TransformedData>(TRANSFORMATION_MAP)
+            .aggregate<{[key: string]: RatePreprocessModel}>({}, (prev, row) => {
+                if (!prev[row.PlanId]) {
+                    prev[row.PlanId] = {
+                        standardComponentId: row.PlanId,
+                        rateDetail: {},
+                    };
+                }
+    
+                const plan = prev[row.PlanId]!;
+                const isFamilyPlan = row.Age === "Family Option";
+                if (!Reflect.has(plan.rateDetail, row.RatingAreaId)) {
+                    // If the plan doesn't have rate detail corresponding to this rating area, we create the detail.
+                    // On family plans, there can only be one entry in the data table for this rating area, so we initialize it
+                    // in one go. For individual plans, we simply initializes the rate arrays filled with undefined.
+                    plan.rateDetail[row.RatingAreaId] = isFamilyPlan
+                        ? {
+                            type: "family",
+                            individual: [
+                                row.IndividualRate,
+                                row.PrimarySubscriberAndOneDependent!,
+                                row.PrimarySubscriberAndTwoDependents!,
+                                row.PrimarySubscriberAndThreeOrMoreDependents!,
+                            ],
+                            couple: [
+                                row.Couple!,
+                                row.CoupleAndOneDependent!,
+                                row.CoupleAndTwoDependents!,
+                                row.CoupleAndThreeOrMoreDependents!,
+                            ],
+                        } : {
+                            type: "individual",
+                            rate: Array(51).fill(undefined),
+                            tobaccoRate: Array(51).fill(undefined),
+                        };
+                }
+    
+                if (!isFamilyPlan) {
+                    let ageIndex: number;
+                    switch (row.Age) {
+                        case "0-14":
+                            ageIndex = 0;
+                            break;
+    
+                        case "64 and over":
+                            ageIndex = 50;
+                            break;
+    
+                        default:
+                            ageIndex = parseInt(row.Age) - 14;
+                    }
+    
+                    const rateDetail = plan.rateDetail[row.RatingAreaId];
+                    if (rateDetail.type !== 'individual') {
+                        throw "Invalid code path.";
+                    }
+    
+                    rateDetail.rate[ageIndex] = row.IndividualRate;
+                    rateDetail.tobaccoRate[ageIndex] = !row.Tobacco || row.Tobacco === "No Preference"
+                        ? row.IndividualRate
+                        : row.IndividualTobaccoRate!;
+                }
+    
+                return prev;
+            });
     }
 }
 

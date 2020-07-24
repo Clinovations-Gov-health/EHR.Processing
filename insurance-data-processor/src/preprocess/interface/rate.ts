@@ -1,11 +1,8 @@
-import { StateCode } from "../../util";
 
 /**
  * Shape of the raw CSV table data for plan attributes.
  */
 export interface RawRateModel {
-    StateCode: string;
-    IssuerId: string;
     PlanId: string;
     RatingAreaId: string;
     Tobacco?: string;
@@ -25,14 +22,6 @@ export interface RawRateModel {
  * Shape of the rate table after preprocessing.
  */
 export interface RatePreprocessModel {
-    /**
-     * Two-digit abbreviation of the state in which the plan is marketed.
-     */
-    stateCode: StateCode;
-    /**
-     * Five-digit numeral id of the plan issuer.
-     */
-    issuerId: string;
     /**
      * Id of the standard component of the plan.
      */

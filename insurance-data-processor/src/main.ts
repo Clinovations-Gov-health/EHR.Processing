@@ -1,15 +1,15 @@
-import { getData } from "./source/source";
-import { preprocess } from "./preprocess/preprocess";
+import cliProgress from 'cli-progress';
+import loggerFactory, { Debugger } from 'debug';
 import fs from "fs";
 import JsonStreamStringify from 'json-stream-stringify';
-import cliProgress from 'cli-progress';
-
-import loggerFactory, { Debugger } from 'debug';
-import { DataSource } from "./util";
-import { join } from './join/join';
-import { RatePreprocessModel } from "./preprocess/interface/rate";
+import { addToDatabase, join } from './join/join';
 import { CostSharingPreprocessModel } from "./preprocess/interface/cost-sharing";
 import { PlanAttributePreprocessModel } from "./preprocess/interface/plan-attribute";
+import { RatePreprocessModel } from "./preprocess/interface/rate";
+import { preprocess } from "./preprocess/preprocess";
+import { getData } from "./source/source";
+import { DataSource } from "./util";
+
 
 async function main() {
     const logger = loggerFactory("main");
@@ -20,7 +20,13 @@ async function main() {
     global.gc();
     const attributesData = await process('attributes', logger);
     
-    join(rateData, attributesData, costSharingData, logger);
+    const res = await join(rateData, attributesData, costSharingData, logger);
+    logger("Writing the final data file");
+
+    await writeToFile(res, "data/final.json");
+
+    logger("Loading the data into the database")
+    await addToDatabase(Object.values(res));
 }
 
 async function process(dataType: "rate", logger: Debugger): Promise<Record<string, RatePreprocessModel>>;
@@ -31,15 +37,17 @@ async function process(dataType: DataSource, logger: Debugger) {
     const data = await getData(dataType, logger);
     const res = await preprocess(dataType, data, logger);
 
-    // write data to file
-    logger("Writing data to file");
+    return res;
+}
+
+async function writeToFile(data: any, fileName: string): Promise<void> {
     const progressBar = new cliProgress.SingleBar({}, cliProgress.Presets.shades_classic);
-    progressBar.start(Object.keys(res).length, 0);
+    progressBar.start(Object.keys(data).length, 0);
 
     await new Promise(resolve => {
-        const fsStream = fs.createWriteStream(`data/${dataType}.json`);
+        const fsStream = fs.createWriteStream(fileName);
         const readKeys = new Set<string>();
-        const jsonStream = new JsonStreamStringify(res)
+        const jsonStream = new JsonStreamStringify(data, undefined, 4);
         jsonStream.on('data', data => {
             const currPath = jsonStream.path();
             if (currPath.length as number === 1 && !readKeys.has(currPath[0])) {
@@ -54,9 +62,6 @@ async function process(dataType: DataSource, logger: Debugger) {
             resolve();
         })
     });
-
-    logger(`Process Complete: ${dataType} data`);
-    return res;
 }
 
 main();

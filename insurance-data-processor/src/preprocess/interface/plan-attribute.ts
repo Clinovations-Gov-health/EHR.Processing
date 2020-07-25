@@ -165,7 +165,7 @@ export type PlanAttributePreprocessModel = {
      * Maximum number of days for which a patient can be charged copayment for an inpatient visit, if the plan charges
      * in person visits by day.
      */
-    inpatientCopaymentMaximumDays?: number;
+    inPatientCopaymentMaximumDays?: number;
     /**
      * Maximum number of fully covered visits allowed, after which primary care cost sharing begins.
      */
@@ -203,7 +203,7 @@ export type DentalOnlyDependentProperties = {
         outNetwork: SingleDeductibleProperties;
         combined: SingleDeductibleProperties;
     }
-} | ({
+} | {
     /**
      * Whether a plan only covers dental.
      */
@@ -239,19 +239,9 @@ export type DentalOnlyDependentProperties = {
      * Maximum dollar value of coinsurance for specialty high-cost drugs.
      */
     specialtyDrugMaximumCoinsurance?: number;
-    /**
-     * Whether the provider networks are multi-tiered.
-     */
-    isMultiTiered: boolean;
-    /**
-     * Whether the medical and drug deductibles are integrated by the plan issuer.
-     */
-    medicalDrugDeductibleIntegrated: boolean;
-    /**
-     * Whether the medical and drug OOPs are integrated by the plan issuer.
-     */
-    medicalDrugOOPIntegrated: boolean;
-} & OOPProperties & DeductibleProperties);
+
+    costCeiling: CostCeilingProperties;
+};
 
 type SingleOOPProperties = {
     individual?: number;
@@ -269,88 +259,78 @@ type SingleDeductiblePropertiesWithCoinsurance = {
     coinsurance?: number;
 } & SingleDeductibleProperties;
 
-export type OOPProperties = {
+export type CostCeilingProperties = {
     isMultiTiered: false;
-    medicalDrugOOPIntegrated: true;
-    oop: {
-        inNetwork: SingleOOPProperties;
-        outNetwork: SingleOOPProperties;
-        combined: SingleOOPProperties;
-    },
+    oop: SingleTieredOOPProperties;
+    deductible: SingleTieredMaximumDeducitbleProperties;
 } | {
     isMultiTiered: true;
-    medicalDrugOOPIntegrated: true;
-    oop: {
-        tierOneInNetwork: SingleOOPProperties;
-        tierTwoInNetwork: SingleOOPProperties;
-        outNetwork: SingleOOPProperties;
-        combined: SingleOOPProperties;
-    },
-} | {
-    isMultiTiered: false;
-    medicalDrugOOPIntegrated: false;
-    oop: {
-        medicalInNetwork: SingleOOPProperties;
-        medicalOutNetwork: SingleOOPProperties;
-        medicalCombined: SingleOOPProperties;
-        drugInNetwork: SingleOOPProperties;
-        drugOutNetwork: SingleOOPProperties;
-        drugCombined: SingleOOPProperties;
-    },
-} | {
-    isMultiTiered: true;
-    medicalDrugOOPIntegrated: false;
-    oop: {
-        medicalTierOneInNetwork: SingleOOPProperties;
-        medicalTierTwoInNetwork: SingleOOPProperties;
-        medicalOutNetwork: SingleOOPProperties;
-        medicalCombined: SingleOOPProperties;
-        drugTierOneInNetwork: SingleOOPProperties;
-        drugTierTwoInNetwork: SingleOOPProperties;
-        drugOutNetwork: SingleOOPProperties;
-        drugCombined: SingleOOPProperties;
-    },
+    oop: MultiTieredOOPProperties;
+    deductible: MultiTieredMaximumDeductibleProperties;
 }
 
-export type DeductibleProperties = {
-    isMultiTiered: false;
-    medicalDrugDeductibleIntegrated: true;
-    deductible: {
-        inNetwork: SingleDeductiblePropertiesWithCoinsurance;
-        outNetwork: SingleDeductibleProperties;
-        combined: SingleDeductibleProperties;
-    },
+export type SingleTieredOOPProperties = {
+    medicalDrugIntegrated: true;
+    inNetwork: SingleOOPProperties;
+    outNetwork: SingleOOPProperties;
+    combined: SingleOOPProperties;
 } | {
-    isMultiTiered: true;
-    medicalDrugDeductibleIntegrated: true;
-    deductible: {
-        tierOneInNetwork: SingleDeductiblePropertiesWithCoinsurance;
-        tierTwoInNetwork: SingleDeductiblePropertiesWithCoinsurance;
-        outNetwork: SingleDeductibleProperties;
-        combined: SingleDeductibleProperties;
-    }
+    medicalDrugIntegrated: false;
+    medicalInNetwork: SingleOOPProperties;
+    medicalOutNetwork: SingleOOPProperties;
+    medicalCombined: SingleOOPProperties;
+    drugInNetwork: SingleOOPProperties;
+    drugOutNetwork: SingleOOPProperties;
+    drugCombined: SingleOOPProperties;
+};
+
+export type MultiTieredOOPProperties = {
+    medicalDrugIntegrated: true;
+    tierOneInNetwork: SingleOOPProperties;
+    tierTwoInNetwork: SingleOOPProperties;
+    outNetwork: SingleOOPProperties;
+    combined: SingleOOPProperties;    
 } | {
-    isMultiTiered: false;
-    medicalDrugDeductibleIntegrated: false;
-    deductible: {
-        medicalInNetwork: SingleDeductiblePropertiesWithCoinsurance;
-        medicalOutNetwork: SingleDeductibleProperties;
-        medicalCombined: SingleDeductibleProperties;
-        drugInNetwork: SingleDeductiblePropertiesWithCoinsurance;
-        drugOutNetwork: SingleDeductibleProperties;
-        drugCombined: SingleDeductibleProperties;
-    }
+    medicalDrugIntegrated: false;
+    medicalTierOneInNetwork: SingleOOPProperties;
+    medicalTierTwoInNetwork: SingleOOPProperties;
+    medicalOutNetwork: SingleOOPProperties;
+    medicalCombined: SingleOOPProperties;
+    drugTierOneInNetwork: SingleOOPProperties;
+    drugTierTwoInNetwork: SingleOOPProperties;
+    drugOutNetwork: SingleOOPProperties;
+    drugCombined: SingleOOPProperties;   
+}
+
+export type SingleTieredMaximumDeducitbleProperties = {
+    medicalDrugIntegrated: true;
+    inNetwork: SingleDeductiblePropertiesWithCoinsurance;
+    outNetwork: SingleDeductibleProperties;
+    combined: SingleDeductibleProperties;
 } | {
-    isMultiTiered: true;
-    medicalDrugDeductibleIntegrated: false;
-    deductible: {
-        medicalTierOneInNetwork: SingleDeductiblePropertiesWithCoinsurance;
-        medicalTierTwoInNetwork: SingleDeductiblePropertiesWithCoinsurance;
-        medicalOutNetwork: SingleDeductibleProperties;
-        medicalCombined: SingleDeductibleProperties;
-        drugTierOneInNetwork: SingleDeductiblePropertiesWithCoinsurance;
-        drugTierTwoInNetwork: SingleDeductiblePropertiesWithCoinsurance;
-        drugOutNetwork: SingleDeductibleProperties;
-        drugCombined: SingleDeductibleProperties;
-    },
+    medicalDrugIntegrated: false;
+    medicalInNetwork: SingleDeductiblePropertiesWithCoinsurance;
+    medicalOutNetwork: SingleDeductibleProperties;
+    medicalCombined: SingleDeductibleProperties;
+    drugInNetwork: SingleDeductiblePropertiesWithCoinsurance;
+    drugOutNetwork: SingleDeductibleProperties;
+    drugCombined: SingleDeductibleProperties;
+};
+
+export type MultiTieredMaximumDeductibleProperties = {
+    medicalDrugIntegrated: true;
+    tierOneInNetwork: SingleDeductiblePropertiesWithCoinsurance;
+    tierTwoInNetwork: SingleDeductiblePropertiesWithCoinsurance;
+    outNetwork: SingleDeductibleProperties;
+    combined: SingleDeductibleProperties;
+} | {
+    medicalDrugIntegrated: false;
+    medicalTierOneInNetwork: SingleDeductiblePropertiesWithCoinsurance;
+    medicalTierTwoInNetwork: SingleDeductiblePropertiesWithCoinsurance;
+    medicalOutNetwork: SingleDeductibleProperties;
+    medicalCombined: SingleDeductibleProperties;
+    drugTierOneInNetwork: SingleDeductiblePropertiesWithCoinsurance;
+    drugTierTwoInNetwork: SingleDeductiblePropertiesWithCoinsurance;
+    drugOutNetwork: SingleDeductibleProperties;
+    drugCombined: SingleDeductibleProperties;
 }

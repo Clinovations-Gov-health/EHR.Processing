@@ -11,7 +11,10 @@
         "baseUrl": "./",
         "incremental": true,
         "esModuleInterop": true,
-        "outDir": "./dist"
+        "outDir": "./dist",
+        "plugins": [
+            { "transform": "typescript-is/lib/transform-inline/transformer" }
+        ]
     },
     "exclude": ["node_modules", "dist"]
 }

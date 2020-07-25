@@ -29,11 +29,11 @@ export interface RatePreprocessModel {
     /**
      * Detail of the rates. This is a map of rating area to the rates specific to that area.
      */
-    rateDetail: {[area: number]: {
+    rateDetail: {[area: string]: {
         /**
          * The plan only has an individual component. Plan rates are determined by age and tobacco usage.
          */
-        type: "individual",
+        target: "individual",
         /**
          * Rate for individual with no tobacco usage. The first entry is rate for age 14 or lower; last entry is rate for age 64 and over.
          *
@@ -52,7 +52,7 @@ export interface RatePreprocessModel {
         /**
          * The plan has an individual and family component. Plan rates are determined by number of spouses and dependents only.
          */
-        type: "family",
+        target: "family",
         /**
          * Rates for an individual with 0, 1, 2, 3 dependents.
          */

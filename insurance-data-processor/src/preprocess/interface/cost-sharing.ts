@@ -1,4 +1,4 @@
-import { BenefitItemCostSharingDeductibleStatus, BenefitItemCostSharingFrequency, BenefitItemLimitUnit, BenefitItemLimitFrequency } from "src/util";
+import { BenefitItemCostSharingDeductibleStatus, BenefitItemCostSharingFrequency, BenefitItemLimitUnit, BenefitItemLimitFrequency } from "../../util";
 
 export interface RawCostSharingModel {
     PlanId: string;
@@ -23,12 +23,12 @@ export interface RawCostSharingModel {
 export interface CostSharingPreprocessModel {
     standardComponentId: string;
     variantId: string;
-    benefits: {[key: string]: CostSharingBenefit};
+    benefits: Record<string, CostSharingBenefit>;
 }
 
 export type CostSharingBenefit = {
     covered: false;
-} | ({
+} | {
     covered: true;
     exclusions?: string;
     explanations?: string;
@@ -36,15 +36,13 @@ export type CostSharingBenefit = {
     inNetworkTierTwo?: [BenefitItemCostSharingScheme] | [BenefitItemCostSharingScheme, BenefitItemCostSharingScheme];
     outOfNetwork: [BenefitItemCostSharingScheme] | [BenefitItemCostSharingScheme, BenefitItemCostSharingScheme];
     limit?: BenefitItemLimit;
-} & EHBInfo);
+    ehbInfo?: EHBInfo,
+};
 
 export type EHBInfo = {
-    isEHB: false;
-} | {
-    isEHB: true;
     isExcludedFromInNetworkMOOP: boolean;
     isExcludedFromOutOfNetworkMOOP: boolean;
-}
+};
 
 export type BenefitItemCostSharingScheme = {
     amount: number;

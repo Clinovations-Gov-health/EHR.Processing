@@ -8,7 +8,7 @@ import { createSinglePropertyObject, DentalPlanMetalLevel, NormalPlanMetalLevel,
 import costSharingCostDetailGrammar from './grammars/cost-sharing-cost-detail-grammar';
 import costSharingLimitUnitGrammar from './grammars/cost-sharing-limit-unit-grammar';
 import { BenefitItemCostSharingScheme, BenefitItemLimit, CostSharingBenefit, CostSharingPreprocessModel, EHBInfo, RawCostSharingModel } from './interface/cost-sharing';
-import { DeductibleProperties, DentalOnlyDependentProperties, OOPProperties, PlanAttributePreprocessModel, RawAttributeModel } from "./interface/plan-attribute";
+import { DentalOnlyDependentProperties, PlanAttributePreprocessModel, RawAttributeModel, SingleTieredMaximumDeducitbleProperties, MultiTieredMaximumDeductibleProperties, SingleTieredOOPProperties, MultiTieredOOPProperties, CostCeilingProperties } from "./interface/plan-attribute";
 import { RatePreprocessModel, RawRateModel } from './interface/rate';
 import dataForge = require('data-forge');
 
@@ -200,10 +200,11 @@ export const worker = {
                         },
                         formularyUrl: row.FormularyURL!,
                         ...createSinglePropertyObject("specialtyDrugMaximumCoinsurance", row.SpecialtyDrugMaximumCoinsurance),
-                        ...{
-                            ...getOOPProperties(row),
-                            ...getDeductibleProperties(row),
-                        } as OOPProperties & DeductibleProperties,
+                        costCeiling: {
+                            isMultiTiered: row.MultipleInNetworkTiers,
+                            deductible: getDeductibleProperties(row),
+                            oop: getOOPProperties(row),
+                        } as CostCeilingProperties,
                     };           
     
                 prev[row.PlanId] = {
@@ -231,102 +232,78 @@ export const worker = {
 
         return result;
 
-        function getDeductibleProperties(row: TransformedData): DeductibleProperties {
-            return match<[boolean, boolean], DeductibleProperties>([row.MultipleInNetworkTiers, row.MedicalDrugDeductiblesIntegrated])
+        function getDeductibleProperties(row: TransformedData): SingleTieredMaximumDeducitbleProperties | MultiTieredMaximumDeductibleProperties {
+            return match<[boolean, boolean], SingleTieredMaximumDeducitbleProperties | MultiTieredMaximumDeductibleProperties>([row.MultipleInNetworkTiers, row.MedicalDrugDeductiblesIntegrated])
                 .with([false, true], () => ({
-                    isMultiTiered: false,
-                    medicalDrugDeductibleIntegrated: true,
-                    deductible: {
-                        inNetwork: { individual: row.TEHBDedInnTier1Individual, familyPerPerson: row.TEHBDedInnTier1FamilyPerPerson, familyPerGroup: row.TEHBDedInnTier1FamilyPerGroup, coinsurance: row.TEHBDedInnTier1Coinsurance },
-                        outNetwork: { individual: row.TEHBDedOutOfNetIndividual, familyPerPerson: row.TEHBDedOutOfNetFamilyPerPerson, familyPerGroup: row.TEHBDedOutOfNetFamilyPerGroup },
-                        combined: { individual: row.TEHBDedCombInnOonIndividual, familyPerPerson: row.TEHBDedCombInnOonFamilyPerPerson, familyPerGroup: row.TEHBDedCombInnOonFamilyPerGroup },
-                    },
+                    medicalDrugIntegrated: true,
+                    inNetwork: { individual: row.TEHBDedInnTier1Individual, familyPerPerson: row.TEHBDedInnTier1FamilyPerPerson, familyPerGroup: row.TEHBDedInnTier1FamilyPerGroup, coinsurance: row.TEHBDedInnTier1Coinsurance },
+                    outNetwork: { individual: row.TEHBDedOutOfNetIndividual, familyPerPerson: row.TEHBDedOutOfNetFamilyPerPerson, familyPerGroup: row.TEHBDedOutOfNetFamilyPerGroup },
+                    combined: { individual: row.TEHBDedCombInnOonIndividual, familyPerPerson: row.TEHBDedCombInnOonFamilyPerPerson, familyPerGroup: row.TEHBDedCombInnOonFamilyPerGroup },
                 }))
                 .with([false, false], () => ({
-                    isMultiTiered: false,
-                    medicalDrugDeductibleIntegrated: false,
-                    deductible: {
-                        medicalInNetwork: { individual: row.MEHBDedInnTier1Individual, familyPerPerson: row.MEHBDedInnTier1FamilyPerPerson, familyPerGroup: row.MEHBDedInnTier1FamilyPerGroup, coinsurance: row.MEHBDedInnTier1Coinsurance },
-                        medicalOutNetwork: { individual: row.MEHBDedOutOfNetIndividual, familyPerPerson: row.MEHBDedOutOfNetFamilyPerPerson, familyPerGroup: row.MEHBDedOutOfNetFamilyPerGroup },
-                        medicalCombined: { individual: row.MEHBDedCombInnOonIndividual, familyPerPerson: row.MEHBDedCombInnOonFamilyPerPerson, familyPerGroup: row.MEHBDedCombInnOonFamilyPerGroup },
-                        drugInNetwork: { individual: row.DEHBDedInnTier1Individual, familyPerPerson: row.DEHBDedInnTier1FamilyPerPerson, familyPerGroup: row.DEHBDedInnTier1FamilyPerGroup, coinsurance: row.DEHBDedInnTier1Coinsurance },
-                        drugOutNetwork: { individual: row.DEHBDedOutOfNetIndividual, familyPerPerson: row.DEHBDedOutOfNetFamilyPerPerson, familyPerGroup: row.DEHBDedOutOfNetFamilyPerGroup },
-                        drugCombined: { individual: row.DEHBDedCombInnOonIndividual, familyPerPerson: row.DEHBDedCombInnOonFamilyPerPerson, familyPerGroup: row.DEHBDedCombInnOonFamilyPerGroup },
-                    },
+                    medicalDrugIntegrated: false,
+                    medicalInNetwork: { individual: row.MEHBDedInnTier1Individual, familyPerPerson: row.MEHBDedInnTier1FamilyPerPerson, familyPerGroup: row.MEHBDedInnTier1FamilyPerGroup, coinsurance: row.MEHBDedInnTier1Coinsurance },
+                    medicalOutNetwork: { individual: row.MEHBDedOutOfNetIndividual, familyPerPerson: row.MEHBDedOutOfNetFamilyPerPerson, familyPerGroup: row.MEHBDedOutOfNetFamilyPerGroup },
+                    medicalCombined: { individual: row.MEHBDedCombInnOonIndividual, familyPerPerson: row.MEHBDedCombInnOonFamilyPerPerson, familyPerGroup: row.MEHBDedCombInnOonFamilyPerGroup },
+                    drugInNetwork: { individual: row.DEHBDedInnTier1Individual, familyPerPerson: row.DEHBDedInnTier1FamilyPerPerson, familyPerGroup: row.DEHBDedInnTier1FamilyPerGroup, coinsurance: row.DEHBDedInnTier1Coinsurance },
+                    drugOutNetwork: { individual: row.DEHBDedOutOfNetIndividual, familyPerPerson: row.DEHBDedOutOfNetFamilyPerPerson, familyPerGroup: row.DEHBDedOutOfNetFamilyPerGroup },
+                    drugCombined: { individual: row.DEHBDedCombInnOonIndividual, familyPerPerson: row.DEHBDedCombInnOonFamilyPerPerson, familyPerGroup: row.DEHBDedCombInnOonFamilyPerGroup },
                 }))
                 .with([true, true], () => ({
-                    isMultiTiered: true,
-                    medicalDrugDeductibleIntegrated: true,
-                    deductible: {
-                        tierOneInNetwork: { individual: row.TEHBDedInnTier1Individual, familyPerPerson: row.TEHBDedInnTier1FamilyPerPerson, familyPerGroup: row.TEHBDedInnTier1FamilyPerGroup, coinsurance: row.TEHBDedInnTier1Coinsurance },
-                        tierTwoInNetwork: { individual: row.TEHBDedInnTier2Individual, familyPerPerson: row.TEHBDedInnTier2FamilyPerPerson, familyPerGroup: row.TEHBDedInnTier2FamilyPerGroup, coinsurance: row.TEHBDedInnTier2Coinsurance },
-                        outNetwork: { individual: row.TEHBDedOutOfNetIndividual, familyPerPerson: row.TEHBDedOutOfNetFamilyPerPerson, familyPerGroup: row.TEHBDedOutOfNetFamilyPerGroup },
-                        combined: { individual: row.TEHBDedCombInnOonIndividual, familyPerPerson: row.TEHBDedCombInnOonFamilyPerPerson, familyPerGroup: row.TEHBCombInnOonFamilyPerGroupMOOP },
-                    },
+                    medicalDrugIntegrated: true,
+                    tierOneInNetwork: { individual: row.TEHBDedInnTier1Individual, familyPerPerson: row.TEHBDedInnTier1FamilyPerPerson, familyPerGroup: row.TEHBDedInnTier1FamilyPerGroup, coinsurance: row.TEHBDedInnTier1Coinsurance },
+                    tierTwoInNetwork: { individual: row.TEHBDedInnTier2Individual, familyPerPerson: row.TEHBDedInnTier2FamilyPerPerson, familyPerGroup: row.TEHBDedInnTier2FamilyPerGroup, coinsurance: row.TEHBDedInnTier2Coinsurance },
+                    outNetwork: { individual: row.TEHBDedOutOfNetIndividual, familyPerPerson: row.TEHBDedOutOfNetFamilyPerPerson, familyPerGroup: row.TEHBDedOutOfNetFamilyPerGroup },
+                    combined: { individual: row.TEHBDedCombInnOonIndividual, familyPerPerson: row.TEHBDedCombInnOonFamilyPerPerson, familyPerGroup: row.TEHBCombInnOonFamilyPerGroupMOOP },
                 }))
                 .with([true, false], () => ({
-                    isMultiTiered: true,
-                    medicalDrugDeductibleIntegrated: false,
-                    deductible: {
-                        medicalTierOneInNetwork: { individual: row.MEHBDedInnTier1Individual, familyPerPerson: row.MEHBDedInnTier1FamilyPerPerson, familyPerGroup: row.MEHBDedInnTier1FamilyPerGroup, coinsurance: row.MEHBDedInnTier1Coinsurance },
-                        medicalTierTwoInNetwork: { individual: row.MEHBDedInnTier2Individual, familyPerPerson: row.MEHBDedInnTier2FamilyPerPerson, familyPerGroup: row.MEHBDedInnTier2FamilyPerGroup, coinsurance: row.MEHBDedInnTier2Coinsurance },
-                        medicalOutNetwork: { individual: row.MEHBDedOutOfNetIndividual, familyPerPerson: row.MEHBDedOutOfNetFamilyPerPerson, familyPerGroup: row.MEHBDedOutOfNetFamilyPerGroup },
-                        medicalCombined: { individual: row.MEHBDedCombInnOonIndividual, familyPerPerson: row.MEHBDedCombInnOonFamilyPerPerson, familyPerGroup: row.MEHBDedCombInnOonFamilyPerGroup }, 
-                        drugTierOneInNetwork: { individual: row.DEHBDedInnTier1Individual, familyPerPerson: row.DEHBDedInnTier1FamilyPerPerson, familyPerGroup: row.DEHBDedInnTier1FamilyPerGroup, coinsurance: row.DEHBDedInnTier1Coinsurance },
-                        drugTierTwoInNetwork: { individual: row.DEHBDedInnTier2Individual, familyPerPerson: row.DEHBDedInnTier2FamilyPerPerson, familyPerGroup: row.DEHBDedInnTier2FamilyPerGroup, coinsurance: row.DEHBDedInnTier2Coinsurance },
-                        drugOutNetwork: { individual: row.DEHBDedOutOfNetIndividual, familyPerPerson: row.DEHBDedOutOfNetFamilyPerPerson, familyPerGroup: row.DEHBDedOutOfNetFamilyPerGroup },
-                        drugCombined: { individual: row.DEHBDedCombInnOonIndividual, familyPerPerson: row.DEHBDedCombInnOonFamilyPerPerson, familyPerGroup: row.DEHBDedCombInnOonFamilyPerGroup },   
-                    }
+                    medicalDrugIntegrated: false,
+                    medicalTierOneInNetwork: { individual: row.MEHBDedInnTier1Individual, familyPerPerson: row.MEHBDedInnTier1FamilyPerPerson, familyPerGroup: row.MEHBDedInnTier1FamilyPerGroup, coinsurance: row.MEHBDedInnTier1Coinsurance },
+                    medicalTierTwoInNetwork: { individual: row.MEHBDedInnTier2Individual, familyPerPerson: row.MEHBDedInnTier2FamilyPerPerson, familyPerGroup: row.MEHBDedInnTier2FamilyPerGroup, coinsurance: row.MEHBDedInnTier2Coinsurance },
+                    medicalOutNetwork: { individual: row.MEHBDedOutOfNetIndividual, familyPerPerson: row.MEHBDedOutOfNetFamilyPerPerson, familyPerGroup: row.MEHBDedOutOfNetFamilyPerGroup },
+                    medicalCombined: { individual: row.MEHBDedCombInnOonIndividual, familyPerPerson: row.MEHBDedCombInnOonFamilyPerPerson, familyPerGroup: row.MEHBDedCombInnOonFamilyPerGroup }, 
+                    drugTierOneInNetwork: { individual: row.DEHBDedInnTier1Individual, familyPerPerson: row.DEHBDedInnTier1FamilyPerPerson, familyPerGroup: row.DEHBDedInnTier1FamilyPerGroup, coinsurance: row.DEHBDedInnTier1Coinsurance },
+                    drugTierTwoInNetwork: { individual: row.DEHBDedInnTier2Individual, familyPerPerson: row.DEHBDedInnTier2FamilyPerPerson, familyPerGroup: row.DEHBDedInnTier2FamilyPerGroup, coinsurance: row.DEHBDedInnTier2Coinsurance },
+                    drugOutNetwork: { individual: row.DEHBDedOutOfNetIndividual, familyPerPerson: row.DEHBDedOutOfNetFamilyPerPerson, familyPerGroup: row.DEHBDedOutOfNetFamilyPerGroup },
+                    drugCombined: { individual: row.DEHBDedCombInnOonIndividual, familyPerPerson: row.DEHBDedCombInnOonFamilyPerPerson, familyPerGroup: row.DEHBDedCombInnOonFamilyPerGroup },   
                 }))
                 .run();
         }
 
-        function getOOPProperties(row: TransformedData): OOPProperties {
-            return match<[boolean, boolean], OOPProperties>([row.MultipleInNetworkTiers, row.MedicalDrugMaximumOutofPocketIntegrated])
+        function getOOPProperties(row: TransformedData): SingleTieredOOPProperties | MultiTieredOOPProperties {
+            return match<[boolean, boolean], SingleTieredOOPProperties | MultiTieredOOPProperties>([row.MultipleInNetworkTiers, row.MedicalDrugMaximumOutofPocketIntegrated])
                 .with([false, true], () => ({
-                    isMultiTiered: false,
-                    medicalDrugOOPIntegrated: true,
-                    oop: {
-                        inNetwork: { individual: row.TEHBInnTier1IndividualMOOP, familyPerPerson: row.TEHBInnTier1FamilyPerPersonMOOP, familyPerGroup: row.TEHBInnTier1FamilyPerGroupMOOP },
-                        outNetwork: { individual: row.TEHBOutOfNetIndividualMOOP, familyPerPerson: row.TEHBOutOfNetFamilyPerPersonMOOP, familyPerGroup: row.TEHBOutOfNetFamilyPerGroupMOOP },
-                        combined: { individual: row.TEHBCombInnOonIndividualMOOP, familyPerPerson: row.TEHBCombInnOonFamilyPerPersonMOOP, familyPerGroup: row.TEHBCombInnOonFamilyPerGroupMOOP },
-                    },
+                    medicalDrugIntegrated: true,
+                    inNetwork: { individual: row.TEHBInnTier1IndividualMOOP, familyPerPerson: row.TEHBInnTier1FamilyPerPersonMOOP, familyPerGroup: row.TEHBInnTier1FamilyPerGroupMOOP },
+                    outNetwork: { individual: row.TEHBOutOfNetIndividualMOOP, familyPerPerson: row.TEHBOutOfNetFamilyPerPersonMOOP, familyPerGroup: row.TEHBOutOfNetFamilyPerGroupMOOP },
+                    combined: { individual: row.TEHBCombInnOonIndividualMOOP, familyPerPerson: row.TEHBCombInnOonFamilyPerPersonMOOP, familyPerGroup: row.TEHBCombInnOonFamilyPerGroupMOOP },
                 }))
                 .with([false, false], () => ({
-                    isMultiTiered: false,
-                    medicalDrugOOPIntegrated: false,
-                    oop: {
-                        medicalInNetwork: { individual: row.MEHBInnTier1IndividualMOOP, familyPerPerson: row.MEHBInnTier1FamilyPerPersonMOOP, familyPerGroup: row.MEHBInnTier1FamilyPerGroupMOOP },
-                        medicalOutNetwork: { individual: row.MEHBOutOfNetIndividualMOOP, familyPerPerson: row.MEHBOutOfNetFamilyPerPersonMOOP, familyPerGroup: row.MEHBOutOfNetFamilyPerGroupMOOP },
-                        medicalCombined: { individual: row.MEHBCombInnOonIndividualMOOP, familyPerPerson: row.MEHBCombInnOonFamilyPerPersonMOOP, familyPerGroup: row.MEHBCombInnOonFamilyPerGroupMOOP },
-                        drugInNetwork: { individual: row.DEHBInnTier1IndividualMOOP, familyPerPerson: row.DEHBInnTier1FamilyPerPersonMOOP, familyPerGroup: row.DEHBInnTier1FamilyPerGroupMOOP },
-                        drugOutNetwork: { individual: row.DEHBOutOfNetIndividualMOOP, familyPerPerson: row.DEHBOutOfNetFamilyPerPersonMOOP, familyPerGroup: row.DEHBOutOfNetFamilyPerGroupMOOP },
-                        drugCombined: { individual: row.DEHBCombInnOonIndividualMOOP, familyPerPerson: row.DEHBCombInnOonFamilyPerPersonMOOP, familyPerGroup: row.DEHBCombInnOonFamilyPerGroupMOOP },
-                    },
+                    medicalDrugIntegrated: false,
+                    medicalInNetwork: { individual: row.MEHBInnTier1IndividualMOOP, familyPerPerson: row.MEHBInnTier1FamilyPerPersonMOOP, familyPerGroup: row.MEHBInnTier1FamilyPerGroupMOOP },
+                    medicalOutNetwork: { individual: row.MEHBOutOfNetIndividualMOOP, familyPerPerson: row.MEHBOutOfNetFamilyPerPersonMOOP, familyPerGroup: row.MEHBOutOfNetFamilyPerGroupMOOP },
+                    medicalCombined: { individual: row.MEHBCombInnOonIndividualMOOP, familyPerPerson: row.MEHBCombInnOonFamilyPerPersonMOOP, familyPerGroup: row.MEHBCombInnOonFamilyPerGroupMOOP },
+                    drugInNetwork: { individual: row.DEHBInnTier1IndividualMOOP, familyPerPerson: row.DEHBInnTier1FamilyPerPersonMOOP, familyPerGroup: row.DEHBInnTier1FamilyPerGroupMOOP },
+                    drugOutNetwork: { individual: row.DEHBOutOfNetIndividualMOOP, familyPerPerson: row.DEHBOutOfNetFamilyPerPersonMOOP, familyPerGroup: row.DEHBOutOfNetFamilyPerGroupMOOP },
+                    drugCombined: { individual: row.DEHBCombInnOonIndividualMOOP, familyPerPerson: row.DEHBCombInnOonFamilyPerPersonMOOP, familyPerGroup: row.DEHBCombInnOonFamilyPerGroupMOOP },
                 }))
                 .with([true, true], () => ({
-                    isMultiTiered: true,
-                    medicalDrugOOPIntegrated: true,
-                    oop: {
-                        tierOneInNetwork: { individual: row.TEHBInnTier1IndividualMOOP, familyPerPerson: row.TEHBInnTier1FamilyPerPersonMOOP, familyPerGroup: row.TEHBInnTier1FamilyPerGroupMOOP },
-                        tierTwoInNetwork: { individual: row.TEHBInnTier2IndividualMOOP, familyPerPerson: row.TEHBInnTier2FamilyPerPersonMOOP, familyPerGroup: row.TEHBInnTier2FamilyPerGroupMOOP },
-                        outNetwork: { individual: row.TEHBOutOfNetIndividualMOOP, familyPerPerson: row.TEHBOutOfNetFamilyPerPersonMOOP, familyPerGroup: row.TEHBOutOfNetFamilyPerGroupMOOP },
-                        combined: { individual: row.TEHBCombInnOonIndividualMOOP, familyPerPerson: row.TEHBCombInnOonFamilyPerPersonMOOP, familyPerGroup: row.TEHBCombInnOonFamilyPerGroupMOOP },
-                    },
+                    medicalDrugIntegrated: true,
+                    tierOneInNetwork: { individual: row.TEHBInnTier1IndividualMOOP, familyPerPerson: row.TEHBInnTier1FamilyPerPersonMOOP, familyPerGroup: row.TEHBInnTier1FamilyPerGroupMOOP },
+                    tierTwoInNetwork: { individual: row.TEHBInnTier2IndividualMOOP, familyPerPerson: row.TEHBInnTier2FamilyPerPersonMOOP, familyPerGroup: row.TEHBInnTier2FamilyPerGroupMOOP },
+                    outNetwork: { individual: row.TEHBOutOfNetIndividualMOOP, familyPerPerson: row.TEHBOutOfNetFamilyPerPersonMOOP, familyPerGroup: row.TEHBOutOfNetFamilyPerGroupMOOP },
+                    combined: { individual: row.TEHBCombInnOonIndividualMOOP, familyPerPerson: row.TEHBCombInnOonFamilyPerPersonMOOP, familyPerGroup: row.TEHBCombInnOonFamilyPerGroupMOOP },
                 }))
                 .with([true, false], () => ({
-                    isMultiTiered: true,
-                    medicalDrugOOPIntegrated: false,
-                    oop: {
-                        medicalTierOneInNetwork: { individual: row.MEHBInnTier1IndividualMOOP, familyPerPerson: row.MEHBInnTier1FamilyPerPersonMOOP, familyPerGroup: row.MEHBInnTier1FamilyPerGroupMOOP },
-                        medicalTierTwoInNetwork: { individual: row.MEHBInnTier2IndividualMOOP, familyPerPerson: row.MEHBInnTier2FamilyPerPersonMOOP, familyPerGroup: row.MEHBInnTier2FamilyPerGroupMOOP },
-                        medicalOutNetwork: { individual: row.MEHBOutOfNetIndividualMOOP, familyPerPerson: row.MEHBOutOfNetFamilyPerPersonMOOP, familyPerGroup: row.MEHBOutOfNetFamilyPerGroupMOOP },
-                        medicalCombined: { individual: row.MEHBCombInnOonIndividualMOOP, familyPerPerson: row.MEHBCombInnOonFamilyPerPersonMOOP, familyPerGroup: row.MEHBCombInnOonFamilyPerGroupMOOP }, 
-                        drugTierOneInNetwork: { individual: row.DEHBInnTier1IndividualMOOP, familyPerPerson: row.DEHBInnTier1FamilyPerPersonMOOP, familyPerGroup: row.DEHBInnTier1FamilyPerGroupMOOP },
-                        drugTierTwoInNetwork: { individual: row.DEHBInnTier2IndividualMOOP, familyPerPerson: row.DEHBInnTier2FamilyPerPersonMOOP, familyPerGroup: row.DEHBInnTier2FamilyPerGroupMOOP },
-                        drugOutNetwork: { individual: row.DEHBOutOfNetIndividualMOOP, familyPerPerson: row.DEHBOutOfNetFamilyPerPersonMOOP, familyPerGroup: row.DEHBOutOfNetFamilyPerGroupMOOP },
-                        drugCombined: { individual: row.DEHBCombInnOonIndividualMOOP, familyPerPerson: row.DEHBCombInnOonFamilyPerPersonMOOP, familyPerGroup: row.DEHBCombInnOonFamilyPerGroupMOOP },   
-                    }
+                    medicalDrugIntegrated: false,
+                    medicalTierOneInNetwork: { individual: row.MEHBInnTier1IndividualMOOP, familyPerPerson: row.MEHBInnTier1FamilyPerPersonMOOP, familyPerGroup: row.MEHBInnTier1FamilyPerGroupMOOP },
+                    medicalTierTwoInNetwork: { individual: row.MEHBInnTier2IndividualMOOP, familyPerPerson: row.MEHBInnTier2FamilyPerPersonMOOP, familyPerGroup: row.MEHBInnTier2FamilyPerGroupMOOP },
+                    medicalOutNetwork: { individual: row.MEHBOutOfNetIndividualMOOP, familyPerPerson: row.MEHBOutOfNetFamilyPerPersonMOOP, familyPerGroup: row.MEHBOutOfNetFamilyPerGroupMOOP },
+                    medicalCombined: { individual: row.MEHBCombInnOonIndividualMOOP, familyPerPerson: row.MEHBCombInnOonFamilyPerPersonMOOP, familyPerGroup: row.MEHBCombInnOonFamilyPerGroupMOOP }, 
+                    drugTierOneInNetwork: { individual: row.DEHBInnTier1IndividualMOOP, familyPerPerson: row.DEHBInnTier1FamilyPerPersonMOOP, familyPerGroup: row.DEHBInnTier1FamilyPerGroupMOOP },
+                    drugTierTwoInNetwork: { individual: row.DEHBInnTier2IndividualMOOP, familyPerPerson: row.DEHBInnTier2FamilyPerPersonMOOP, familyPerGroup: row.DEHBInnTier2FamilyPerGroupMOOP },
+                    drugOutNetwork: { individual: row.DEHBOutOfNetIndividualMOOP, familyPerPerson: row.DEHBOutOfNetFamilyPerPersonMOOP, familyPerGroup: row.DEHBOutOfNetFamilyPerGroupMOOP },
+                    drugCombined: { individual: row.DEHBCombInnOonIndividualMOOP, familyPerPerson: row.DEHBCombInnOonFamilyPerPersonMOOP, familyPerGroup: row.DEHBCombInnOonFamilyPerGroupMOOP },   
                 }))
                 .run();
         }
@@ -372,7 +349,7 @@ export const worker = {
 
         const result = dataForge.fromCSV(chunk)
             .transformSeries<TransformedData>(TRANSFORMATION_MAP)
-            .aggregate<{[key: string]: CostSharingPreprocessModel}>({}, (prev, row) => {
+            .aggregate<Record<string, CostSharingPreprocessModel>>({}, (prev, row) => {
                 const key = row.PlanId.join('-');
                 if (!prev[key]) {
                     prev[key] = {
@@ -382,9 +359,9 @@ export const worker = {
                     };
                 }
 
-                const ehbInfo: EHBInfo = row.IsEHB
-                    ? { isEHB: true, isExcludedFromInNetworkMOOP: row.IsExclFromInnMOOP, isExcludedFromOutOfNetworkMOOP: row.IsExclFromOonMOOP }
-                    : { isEHB: false };
+                const ehbInfo: EHBInfo | undefined = row.IsEHB
+                    ? { isExcludedFromInNetworkMOOP: row.IsExclFromInnMOOP, isExcludedFromOutOfNetworkMOOP: row.IsExclFromOonMOOP }
+                    : undefined
 
                 const limit: BenefitItemLimit | undefined = row.LimitUnit
                     ? { quantity: row.LimitQty!, ...row.LimitUnit }
@@ -401,7 +378,7 @@ export const worker = {
                         inNetworkTierOne: compact([row.CoinsInnTier1, row.CopayInnTier1]) as [BenefitItemCostSharingScheme] | [BenefitItemCostSharingScheme, BenefitItemCostSharingScheme],
                         outOfNetwork: compact([row.CoinsOutofNet, row.CopayOutofNet]) as [BenefitItemCostSharingScheme] | [BenefitItemCostSharingScheme, BenefitItemCostSharingScheme],
                         ...(isEmpty(inNetworkTierTwo) ? {} : { inNetworkTierTwo: inNetworkTierTwo as [BenefitItemCostSharingScheme] | [BenefitItemCostSharingScheme, BenefitItemCostSharingScheme] }),
-                        ...ehbInfo,
+                        ...createSinglePropertyObject("ehbInfo", ehbInfo),
                     } : { covered: false };
 
                 prev[key].benefits[row.BenefitName] = result;
@@ -429,7 +406,7 @@ export const worker = {
                     throw `RatingAreaId on row ${index} has invalid value ${value}`;
                 }
     
-                const res = parseInt(matches[1]);
+                const res = parseInt(matches[1])?.toString();
                 if (!res) {
                     throw `RatingAreaId on row ${index} has invalid value ${value}`;
                 }
@@ -460,7 +437,7 @@ export const worker = {
                     // in one go. For individual plans, we simply initializes the rate arrays filled with undefined.
                     plan.rateDetail[row.RatingAreaId] = isFamilyPlan
                         ? {
-                            type: "family",
+                            target: "family",
                             individual: [
                                 row.IndividualRate,
                                 row.PrimarySubscriberAndOneDependent!,
@@ -474,7 +451,7 @@ export const worker = {
                                 row.CoupleAndThreeOrMoreDependents!,
                             ],
                         } : {
-                            type: "individual",
+                            target: "individual",
                             rate: Array(51).fill(undefined),
                             tobaccoRate: Array(51).fill(undefined),
                         };
@@ -496,7 +473,7 @@ export const worker = {
                     }
     
                     const rateDetail = plan.rateDetail[row.RatingAreaId];
-                    if (rateDetail.type !== 'individual') {
+                    if (rateDetail.target !== 'individual') {
                         throw "Invalid code path.";
                     }
     

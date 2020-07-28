@@ -8,7 +8,7 @@
     "license": "private",
     "scripts": {
         "start": "DEBUG=main node --expose-gc -max-old-space-size=12288 dist/main.js",
-        "build": "ttsc"
+        "build": "tsc"
     },
     "bugs": {
         "url": "https://github.com/Clinovations-Gov-health/EHR.Processing/issues"
@@ -16,6 +16,7 @@
     "homepage": "https://github.com/Clinovations-Gov-health/EHR.Processing#readme",
     "dependencies": {
         "adm-zip": "^0.4.16",
+        "ajv": "^6.12.3",
         "axios": "^0.19.2",
         "cli-progress": "^3.8.2",
         "data-forge": "^1.8.9",
@@ -26,23 +27,24 @@
         "mongodb": "^3.5.9",
         "nearley": "^2.19.5",
         "numeral": "^2.0.6",
+        "pluralize": "^8.0.0",
         "stream-json": "^1.7.0",
         "threads": "^1.6.3",
-        "ts-pattern": "^1.1.0",
-        "typescript-is": "^0.16.3"
+        "ts-pattern": "^1.1.0"
     },
     "devDependencies": {
-        "@types/mongodb": "^3.5.25",
         "@types/adm-zip": "^0.4.33",
         "@types/cli-progress": "^3.7.0",
         "@types/debug": "^4.1.5",
+        "@types/json-schema": "^7.0.5",
         "@types/json-stream-stringify": "^2.0.1",
-        "@types/lodash": "^4.14.157",
+        "@types/lodash": "^4.14.158",
+        "@types/mongodb": "^3.5.25",
         "@types/nearley": "^2.11.1",
-        "@types/node": "^14.0.23",
+        "@types/node": "^14.0.26",
         "@types/numeral": "0.0.28",
+        "@types/pluralize": "0.0.29",
         "@types/stream-json": "^1.5.1",
-        "ttypescript": "^1.5.10",
         "typescript": "^3.9.7"
     }
 }

@@ -2,11 +2,11 @@ import cliProgress from 'cli-progress';
 import { Debugger } from "debug";
 import { ceil, chunk, mapValues } from "lodash";
 import { MongoClient } from "mongodb";
-import { CostSharingPreprocessModel } from "src/preprocess/interface/cost-sharing";
-import { PlanAttributePreprocessModel } from "src/preprocess/interface/plan-attribute";
-import { RatePreprocessModel } from "src/preprocess/interface/rate";
-import { assertEquals } from 'typescript-is';
-import { Plan } from "./model";
+import { CostSharingPreprocessModel } from "../preprocess/interface/cost-sharing";
+import { PlanAttributePreprocessModel } from "../preprocess/interface/plan-attribute";
+import { RatePreprocessModel } from "../preprocess/interface/rate";
+import { Plan, planSchema } from "./model";
+import ajv from 'ajv';
 
 export async function join(ratesData: Record<string, RatePreprocessModel>, attributesData: Record<string, PlanAttributePreprocessModel>, costSharingData: Record<string, CostSharingPreprocessModel>, logger: Debugger) {
     logger("Joining data");
@@ -28,27 +28,51 @@ export async function join(ratesData: Record<string, RatePreprocessModel>, attri
     progressBar = new cliProgress.SingleBar({}, cliProgress.Presets.shades_classic);
     progressBar.start(Object.keys(res).length, 0);
 
-    Object.values(res).forEach(val => {
-        assertEquals<Plan>(val);
+    const validator = new ajv();
+    validator.addMetaSchema(require('ajv/lib/refs/json-schema-draft-06.json'));
+    const validate = validator.compile(planSchema);
+
+    Object.values(res).map(plan => {
+        const valid = validate(plan);
+        if (!valid) {
+            throw validate.errors;
+        }
         progressBar.increment();
-    })
+    });
 
     progressBar.stop();
     return res;
 }
 
 export async function addToDatabase(data: Plan[]) {
-    const client = await MongoClient.connect("mongodb://localhost:27017/Clinovations?replicaSet=rs0");
+    const client = await MongoClient.connect("mongodb://localhost:27017/Clinovations?replicaSet=rs0", {
+        useUnifiedTopology: true,
+        useNewUrlParser: true,
+    });
     const db = client.db('Clinovations');
     const collection = db.collection('Plan');
+
+    // resets the collection
+    await collection.deleteMany({});
+    
+    // sets the indices
+    await collection.createIndexes([
+        { key: { standardComponentId: 1, variantId: 1 }, name: "planId", unique: true },
+        { key: { isDentalOnly: 1, stateCode: 1, isIndividual: 1, demographics: 1 }, name: "query" },
+    ]);
 
     const planChunks = chunk(data, 10);
     const progressBar = new cliProgress.SingleBar({}, cliProgress.Presets.shades_classic);
     progressBar.start(ceil(data.length / 10), 0);
 
     for (const chunk of planChunks) {
-        await collection.insertMany(chunk);
-        progressBar.increment();
+        try {
+            await collection.insertMany(chunk);
+            progressBar.increment();
+        } catch (e) {
+            console.log(e);
+            break;
+        }
     }
 
     progressBar.stop();

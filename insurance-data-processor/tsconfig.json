@@ -12,9 +12,6 @@
         "incremental": true,
         "esModuleInterop": true,
         "outDir": "./dist",
-        "plugins": [
-            { "transform": "typescript-is/lib/transform-inline/transformer" }
-        ]
     },
     "exclude": ["node_modules", "dist"]
 }

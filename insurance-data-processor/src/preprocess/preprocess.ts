@@ -2,7 +2,7 @@ import dataForge = require("data-forge");
 import cliProgress from 'cli-progress';
 import "data-forge-fs";
 import { Debugger } from "debug";
-import { merge } from "lodash";
+import { merge, mergeWith, zipWith } from "lodash";
 import { Pool, spawn, Worker } from "threads";
 import { DataSource } from "../util";
 import { CostSharingPreprocessModel, RawCostSharingModel } from "./interface/cost-sharing";
@@ -105,5 +105,19 @@ async function preprocessRateData(data: Buffer, logger: Debugger) {
     progressBar.stop();
     await workerPool.terminate();
     logger("Combining data");
-    return resultChunks.reduce((prev, curr) => ({...prev, ...curr}), {});
+
+    resultChunks.forEach(record => {
+        Object.values(record).forEach(rec => {
+            if (rec.standardComponentId === "82285AL0010001" && rec.rateDetail["2"].target === "individual") {
+                console.log(rec.rateDetail["2"]?.rate);
+                console.log(rec.rateDetail["2"]?.tobaccoRate)
+            }
+        })
+    })
+
+    return resultChunks.reduce((prev, curr) => mergeWith(prev, curr, (obj, src) => {
+        if (Array.isArray(obj) && Array.isArray(src)) {
+            return zipWith(obj, src, (first, second) => first === undefined ? second : first);
+        }
+    }), {});
 }

@@ -1,6 +1,6 @@
 import cliProgress from 'cli-progress';
 import loggerFactory, { Debugger } from 'debug';
-import fs from "fs";
+import fs from 'fs';
 import JsonStreamStringify from 'json-stream-stringify';
 import { addToDatabase, join } from './join/join';
 import { CostSharingPreprocessModel } from "./preprocess/interface/cost-sharing";
@@ -10,22 +10,21 @@ import { preprocess } from "./preprocess/preprocess";
 import { getData } from "./source/source";
 import { DataSource } from "./util";
 
-
 async function main() {
     const logger = loggerFactory("main");
 
-    const costSharingData = await process("costSharing", logger);
-    global.gc();
     const rateData = await process('rate', logger);
+    global.gc();
+    const costSharingData = await process("costSharing", logger);
     global.gc();
     const attributesData = await process('attributes', logger);
     
     const res = await join(rateData, attributesData, costSharingData, logger);
-    logger("Writing the final data file");
 
+    logger("Writing final data to file");
     await writeToFile(res, "data/final.json");
 
-    logger("Loading the data into the database")
+    logger("Loading the data into the database");
     await addToDatabase(Object.values(res));
 }
 

@@ -28,11 +28,11 @@ export function createSinglePropertyObject<S extends string, P>(property: S, val
 export const BenefitItemCostSharingDeductibleStatuses = ["before", "after", "unknown"] as const;
 export type BenefitItemCostSharingDeductibleStatus = typeof BenefitItemCostSharingDeductibleStatuses[number];
 
-export const BenefitItemCostSharingFrequencies = ["day", "once"] as const;
+export const BenefitItemCostSharingFrequencies = ["day", "once", "stay"] as const;
 export type BenefitItemCostSharingFrequency = typeof BenefitItemCostSharingFrequencies[number];
 
-export const BenefitItemLimitUnits = ["hour", "day", "month", "visit", "treatment", "procedure", "dollar", "exam", "item", ""] as const;
+export const BenefitItemLimitUnits = ["hour", "day", "month", "visit", "treatment", "procedure", "dollar", "exam", "item"] as const;
 export type BenefitItemLimitUnit = typeof BenefitItemLimitUnits[number];
 
-export const BenefitItemLimitFrequencies = ["week", "month", "year", "visit", "admission", "episode", "lifetime", "benefit period", "stay"] as const;
+export const BenefitItemLimitFrequencies = ["week", "month", "year", "visit", "admission", "episode", "lifetime", "benefit period", "stay", "procedure", "transplant"] as const;
 export type BenefitItemLimitFrequency = typeof BenefitItemLimitFrequencies[number];

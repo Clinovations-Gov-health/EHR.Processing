@@ -11,6 +11,7 @@ import { BenefitItemCostSharingScheme, BenefitItemLimit, CostSharingBenefit, Cos
 import { DentalOnlyDependentProperties, PlanAttributePreprocessModel, RawAttributeModel, SingleTieredMaximumDeducitbleProperties, MultiTieredMaximumDeductibleProperties, SingleTieredOOPProperties, MultiTieredOOPProperties, CostCeilingProperties } from "./interface/plan-attribute";
 import { RatePreprocessModel, RawRateModel } from './interface/rate';
 import dataForge = require('data-forge');
+import pluralize from 'pluralize';
 
 
 export type PreprocessWorker = typeof worker;
@@ -312,7 +313,12 @@ export const worker = {
         const parseLimitUnit = (val?: string) => {
             if (!val) return undefined;
             const parser = new nearley.Parser(nearley.Grammar.fromCompiled(costSharingLimitUnitGrammar));
-            return parser.feed(val).finish()[0] as Omit<BenefitItemLimit, "quantity">;
+            let res = parser.feed(val).finish()[0] as Omit<BenefitItemLimit, "quantity">;
+            if (pluralize.isPlural(res.frequencyUnit)) {
+                res.frequencyUnit = pluralize.singular(res.frequencyUnit) as any;
+            }
+
+            return res;
         }
 
         const parseCostDetail = (val?: string) => {
@@ -326,7 +332,7 @@ export const worker = {
                 const components = val.split('-');
                 return [components[0], components[1]];
             },
-            BenefitName: (val: string) => val.trim().replace(/[\t""]/g, ""),
+            BenefitName: (val: string) => val.trim().replace(/[\t""\.]/g, ""),
             CopayInnTier1: parseCostDetail,
             CopayInnTier2: parseCostDetail,
             CopayOutofNet: parseCostDetail,
@@ -369,14 +375,17 @@ export const worker = {
             
                 const inNetworkTierTwo = compact([row.CopayInnTier2, row.CoinsInnTier2]) as [] | [BenefitItemCostSharingScheme] | [BenefitItemCostSharingScheme, BenefitItemCostSharingScheme];
 
-                const result: CostSharingBenefit = row.IsCovered
+                const inNetworkTierOne = compact([row.CoinsInnTier1, row.CopayInnTier1]);
+                const outOfNetwork = compact([row.CoinsOutofNet, row.CopayOutofNet]);
+
+                const result: CostSharingBenefit = row.IsCovered && !isEmpty(inNetworkTierOne) && !isEmpty(outOfNetwork)
                     ? {
                         covered: true,
                         ...createSinglePropertyObject("exclusions", row.Exclusions),
                         ...createSinglePropertyObject("explanations", row.Explanation),
                         ...createSinglePropertyObject("limit", limit),
-                        inNetworkTierOne: compact([row.CoinsInnTier1, row.CopayInnTier1]) as [BenefitItemCostSharingScheme] | [BenefitItemCostSharingScheme, BenefitItemCostSharingScheme],
-                        outOfNetwork: compact([row.CoinsOutofNet, row.CopayOutofNet]) as [BenefitItemCostSharingScheme] | [BenefitItemCostSharingScheme, BenefitItemCostSharingScheme],
+                        inNetworkTierOne: inNetworkTierOne as [BenefitItemCostSharingScheme] | [BenefitItemCostSharingScheme, BenefitItemCostSharingScheme],
+                        outOfNetwork: outOfNetwork as [BenefitItemCostSharingScheme] | [BenefitItemCostSharingScheme, BenefitItemCostSharingScheme],
                         ...(isEmpty(inNetworkTierTwo) ? {} : { inNetworkTierTwo: inNetworkTierTwo as [BenefitItemCostSharingScheme] | [BenefitItemCostSharingScheme, BenefitItemCostSharingScheme] }),
                         ...createSinglePropertyObject("ehbInfo", ehbInfo),
                     } : { covered: false };

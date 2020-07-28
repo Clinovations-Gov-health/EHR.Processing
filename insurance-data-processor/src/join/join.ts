@@ -44,8 +44,8 @@ export async function join(ratesData: Record<string, RatePreprocessModel>, attri
     return res;
 }
 
-export async function addToDatabase(data: Plan[]) {
-    const client = await MongoClient.connect("mongodb://localhost:27017/Clinovations?replicaSet=rs0", {
+export async function addToDatabase(dbAddress: string, data: Plan[]) {
+    const client = await MongoClient.connect(dbAddress, {
         useUnifiedTopology: true,
         useNewUrlParser: true,
     });

@@ -9,9 +9,12 @@ import { RatePreprocessModel } from "./preprocess/interface/rate";
 import { preprocess } from "./preprocess/preprocess";
 import { getData } from "./source/source";
 import { DataSource } from "./util";
+import { Config } from './config';
+
 
 async function main() {
     const logger = loggerFactory("main");
+    const config = new Config();
 
     const rateData = await process('rate', logger);
     global.gc();
@@ -25,7 +28,7 @@ async function main() {
     await writeToFile(res, "data/final.json");
 
     logger("Loading the data into the database");
-    await addToDatabase(Object.values(res));
+    await addToDatabase(config.mongoDbAddress, Object.values(res));
 }
 
 async function process(dataType: "rate", logger: Debugger): Promise<Record<string, RatePreprocessModel>>;

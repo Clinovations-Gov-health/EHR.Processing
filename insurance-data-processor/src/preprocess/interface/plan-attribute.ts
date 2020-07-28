@@ -112,6 +112,9 @@ export interface RawAttributeModel {
     PlanBrochure?: string;
 }
 
+/**
+ * Plan attributes portion of the plan data as stored in the database.
+ */
 export type PlanAttributePreprocessModel = {
     /**
      * Two-digit abbreviation of the state in which the plan is marketed.
@@ -239,7 +242,9 @@ export type DentalOnlyDependentProperties = {
      * Maximum dollar value of coinsurance for specialty high-cost drugs.
      */
     specialtyDrugMaximumCoinsurance?: number;
-
+    /**
+     * Certain cost limits for EHR items.
+     */
     costCeiling: CostCeilingProperties;
 };
 
@@ -260,21 +265,33 @@ type SingleDeductiblePropertiesWithCoinsurance = {
 } & SingleDeductibleProperties;
 
 export type CostCeilingProperties = {
+    /**
+     * Whether the in-network providers are multitiered.
+     */
     isMultiTiered: false;
     oop: SingleTieredOOPProperties;
     deductible: SingleTieredMaximumDeducitbleProperties;
 } | {
+    /**
+     * Whether the in-network providers are multitiered.
+     */
     isMultiTiered: true;
     oop: MultiTieredOOPProperties;
     deductible: MultiTieredMaximumDeductibleProperties;
 }
 
 export type SingleTieredOOPProperties = {
+    /**
+     * Whether medical cost ceilings and drug cost ceilings are the same.
+     */
     medicalDrugIntegrated: true;
     inNetwork: SingleOOPProperties;
     outNetwork: SingleOOPProperties;
     combined: SingleOOPProperties;
 } | {
+    /**
+     * Whether medical cost ceilings and drug cost ceilings are the same.
+     */
     medicalDrugIntegrated: false;
     medicalInNetwork: SingleOOPProperties;
     medicalOutNetwork: SingleOOPProperties;
@@ -285,12 +302,18 @@ export type SingleTieredOOPProperties = {
 };
 
 export type MultiTieredOOPProperties = {
+    /**
+     * Whether medical cost ceilings and drug cost ceilings are the same.
+     */
     medicalDrugIntegrated: true;
     tierOneInNetwork: SingleOOPProperties;
     tierTwoInNetwork: SingleOOPProperties;
     outNetwork: SingleOOPProperties;
     combined: SingleOOPProperties;    
 } | {
+    /**
+     * Whether medical cost ceilings and drug cost ceilings are the same.
+     */
     medicalDrugIntegrated: false;
     medicalTierOneInNetwork: SingleOOPProperties;
     medicalTierTwoInNetwork: SingleOOPProperties;
@@ -303,11 +326,17 @@ export type MultiTieredOOPProperties = {
 }
 
 export type SingleTieredMaximumDeducitbleProperties = {
+    /**
+     * Whether medical cost ceilings and drug cost ceilings are the same.
+     */
     medicalDrugIntegrated: true;
     inNetwork: SingleDeductiblePropertiesWithCoinsurance;
     outNetwork: SingleDeductibleProperties;
     combined: SingleDeductibleProperties;
 } | {
+    /**
+     * Whether medical cost ceilings and drug cost ceilings are the same.
+     */
     medicalDrugIntegrated: false;
     medicalInNetwork: SingleDeductiblePropertiesWithCoinsurance;
     medicalOutNetwork: SingleDeductibleProperties;
@@ -318,12 +347,18 @@ export type SingleTieredMaximumDeducitbleProperties = {
 };
 
 export type MultiTieredMaximumDeductibleProperties = {
+    /**
+     * Whether medical cost ceilings and drug cost ceilings are the same.
+     */
     medicalDrugIntegrated: true;
     tierOneInNetwork: SingleDeductiblePropertiesWithCoinsurance;
     tierTwoInNetwork: SingleDeductiblePropertiesWithCoinsurance;
     outNetwork: SingleDeductibleProperties;
     combined: SingleDeductibleProperties;
 } | {
+    /**
+     * Whether medical cost ceilings and drug cost ceilings are the same.
+     */
     medicalDrugIntegrated: false;
     medicalTierOneInNetwork: SingleDeductiblePropertiesWithCoinsurance;
     medicalTierTwoInNetwork: SingleDeductiblePropertiesWithCoinsurance;

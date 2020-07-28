@@ -106,15 +106,6 @@ async function preprocessRateData(data: Buffer, logger: Debugger) {
     await workerPool.terminate();
     logger("Combining data");
 
-    resultChunks.forEach(record => {
-        Object.values(record).forEach(rec => {
-            if (rec.standardComponentId === "82285AL0010001" && rec.rateDetail["2"].target === "individual") {
-                console.log(rec.rateDetail["2"]?.rate);
-                console.log(rec.rateDetail["2"]?.tobaccoRate)
-            }
-        })
-    })
-
     return resultChunks.reduce((prev, curr) => mergeWith(prev, curr, (obj, src) => {
         if (Array.isArray(obj) && Array.isArray(src)) {
             return zipWith(obj, src, (first, second) => first === undefined ? second : first);

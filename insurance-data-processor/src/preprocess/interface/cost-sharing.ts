@@ -27,8 +27,14 @@ export interface CostSharingPreprocessModel {
 }
 
 export type CostSharingBenefit = {
+    /**
+     * Whether this benefit is covered by the plan.
+     */
     covered: false;
 } | {
+    /**
+     * Whether this benefit is covered by the plan.
+     */
     covered: true;
     exclusions?: string;
     explanations?: string;
@@ -45,19 +51,54 @@ export type EHBInfo = {
 };
 
 export type BenefitItemCostSharingScheme = {
+    /**
+     * The amount of the cost sharing. If isPercent is true, this is the percentage value (e.g. 30 stands for 30%). 
+     * If isPercent is false, this is the covered dollar value.
+     */
     amount: number;
+    /**
+     * Whether the amount is a dollar value or a percentage.
+     */
     isPercent: false;
+    /**
+     * Whether this cost sharing is applied before deductibles or after.
+     */
     deductibleStatus: BenefitItemCostSharingDeductibleStatus;
+    /**
+     * How often is the cost sharing applied.
+     */
     frequency: BenefitItemCostSharingFrequency;
 } | {
+    /**
+     * The amount of the cost sharing. If isPercent is true, this is the percentage value (e.g. 30 stands for 30%). 
+     * If isPercent is false, this is the covered dollar value.
+     */
     amount: number;
+    /**
+     * Whether the amount is a dollar value or a percentage.
+     */
     isPercent: true;
+    /**
+     * Whether this cost sharing is applied before deductibles or after.
+     */
     deductibleStatus: BenefitItemCostSharingDeductibleStatus;
 };
 
 export type BenefitItemLimit = {
+    /**
+     * Number of the limit.
+     */
     quantity: number;
+    /**
+     * Unit of the limit.
+     */
     unit: BenefitItemLimitUnit;
+    /**
+     * Number of how often is the limit applied.
+     */
     frequencyNum: number;
+    /**
+     * Unit of how often is the limit applied.
+     */
     frequencyUnit: BenefitItemLimitFrequency;
 }

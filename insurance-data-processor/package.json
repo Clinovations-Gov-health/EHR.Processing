@@ -45,6 +45,7 @@
         "@types/numeral": "0.0.28",
         "@types/pluralize": "0.0.29",
         "@types/stream-json": "^1.5.1",
+        "prettier": "^2.0.5",
         "typescript": "^3.9.7"
     }
 }

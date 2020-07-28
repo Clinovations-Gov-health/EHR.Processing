@@ -66,13 +66,8 @@ export async function addToDatabase(data: Plan[]) {
     progressBar.start(ceil(data.length / 10), 0);
 
     for (const chunk of planChunks) {
-        try {
-            await collection.insertMany(chunk);
-            progressBar.increment();
-        } catch (e) {
-            console.log(e);
-            break;
-        }
+        await collection.insertMany(chunk);
+        progressBar.increment();
     }
 
     progressBar.stop();

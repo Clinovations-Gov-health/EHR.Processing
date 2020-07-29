@@ -1,5 +1,7 @@
 {
+    "$schema": "http://json.schemastore.org/prettierrc",
     "tabWidth": 4,
     "singleQuote": true,
-    "printWidth": 140
+    "printWidth": 140,
+    "filepath": "src/**/*.ts"
 }

@@ -1,0 +1,43 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "Server backend for the clinovations project.",
+  "scripts": {
+    "prettier": "prettier src/**/*.ts --write",
+    "build": "ttsc",
+    "start": "node dist/main.js",
+    "start:dev": "ts-node src/main.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Clinovations-Gov-health/EHR.Processing.git"
+  },
+  "license": "private",
+  "bugs": {
+    "url": "https://github.com/Clinovations-Gov-health/EHR.Processing/issues"
+  },
+  "homepage": "https://github.com/Clinovations-Gov-health/EHR.Processing#readme",
+  "devDependencies": {
+    "@types/mongodb": "^3.5.25",
+    "@types/node": "^14.0.27",
+    "@types/tls-keygen": "^3.7.0",
+    "prettier": "^2.0.5",
+    "ts-node": "^8.10.2",
+    "ttypescript": "^1.5.10",
+    "typescript": "^3.9.7"
+  },
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "fastify": "^3.1.1",
+    "fastify-compress": "^3.2.2",
+    "fastify-cors": "^4.1.0",
+    "fastify-decorators": "^3.1.0",
+    "fastify-favicon": "^3.0.0",
+    "fastify-helmet": "^4.0.2",
+    "fastify-rate-limit": "^4.0.2",
+    "messagepack": "^1.1.10",
+    "mongodb": "^3.5.9",
+    "tls-keygen": "^3.7.0",
+    "typescript-is": "^0.16.3"
+  }
+}

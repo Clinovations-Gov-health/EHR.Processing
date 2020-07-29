@@ -1,0 +1,25 @@
+{
+  "name": "node.js-react-restapis",
+  "version": "1.0.0",
+  "description": "Node.js RestAPIs access MongoDB by Mongoose",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Nodejs",
+    "RestAPIs",
+    "Express",
+    "MongoDB",
+    "Mongoose"
+  ],
+  "author": "grokonez.com",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.16.4",
+    "mongodb": "^3.5.9",
+    "mongoose": "^5.9.25",
+    "nodemon": "^2.0.4"
+  }
+}

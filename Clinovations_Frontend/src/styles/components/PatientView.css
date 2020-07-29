@@ -1,0 +1,15 @@
+.row.flex {
+    display: flex;
+    flex-wrap: wrap;
+ }
+
+ .row [class^="col-"] {
+    flex: 0 0 calc(50% - 10px);
+    height: 100px;
+    margin: 5px;
+    background-color: lightgreen;
+ }
+ 
+ .row [class^="col-"]:last-child {
+     flex-grow: 1;
+ }

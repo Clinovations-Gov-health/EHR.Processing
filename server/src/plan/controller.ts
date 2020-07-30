@@ -1,22 +1,40 @@
 import { FastifyReply, FastifyRequest } from "fastify";
-import { is } from 'typescript-is';
+import { decode } from 'messagepack';
+import { assertEquals } from 'typescript-is';
 import { Controller } from '../util/decorators/controller.decorator';
-import { RecommendationEHRData, RecommendationRequestParams } from "./interface/payload";
-import { provide } from "inversify-binding-decorators";
+import { Route } from "../util/decorators/route.decorator";
+import { RecommendationEHRData, RecommendationRequestQuery } from "./interface/payload";
 
-@provide("Controller")
+@Controller("/plan")
 export class PlanController {
     /**
-     * Provides insurance plan recommendations given EHR data from the patient. The EHR data should be a base-64 encoding of the MessagePack serialization of the JSON object.
+     * Provides insurance plan recommendations given EHR data from the patient. The EHR data should be a hex encoding of the MessagePack serialization of the JSON object.
      */
-    // @GET({ url: "/recommendation" })
-    async recommendationHandler(req: FastifyRequest<{ Params: RecommendationRequestParams }>, res: FastifyReply) {
-        // Deserializes the json object.
-        // const ehrData = decode<RecommendationEHRData>(Buffer.from(req.params.data, 'base64'));
-        if (!is<RecommendationEHRData>(3)) {
-            res.status(404).send();
-        }
-        return {};
+    @Route({ 
+        method: "GET", 
+        url: "/recommendation", 
+        preValidation: (req, _, done) => {
+            const queries = req.query as any;
+            try {
+                queries.data = decode(Buffer.from(queries.data, 'hex'));
+                done();
+            } catch (e) {
+                done(e);
+            }
+        },
+        schema: { querystring: {} },
+        validatorCompiler: _ => {
+            return (query: Record<string, any>) => {
+                try {
+                    assertEquals<RecommendationEHRData>(query.data);
+                    return { value: query };
+                } catch (e) {
+                    return { error: e };
+                }
+            };
+        },
+    })
+    async recommendationHandler(req: FastifyRequest<{ Querystring: RecommendationRequestQuery }>, res: FastifyReply) {
+        res.send("HELLO");
     }
 }
-

@@ -1,15 +1,13 @@
 /**
  * Shape of the parameters of the route `plan/recoomendation`.
  */
-export interface RecommendationRequestParams {
-    data: string;
+export interface RecommendationRequestQuery {
+    data: RecommendationEHRData;
 }
 
 /**
  * The EHR Data payload provided in the `data` parameter of the request.
  */
-export type RecommendationEHRData = number | string;
-/*
 export type RecommendationEHRData = {
     market: "individual" | "smallGroup";
     demographic: "child" | "adult";
@@ -23,4 +21,4 @@ export type RecommendationEHRData = {
     target: "family";
     hasSpouse: boolean;
     numChildren: number;
-}) */
+});

@@ -1,15 +1,14 @@
-import fastify from 'fastify';
+import fastify, { RouteOptions } from 'fastify';
 import compress from 'fastify-compress';
 import cors from 'fastify-cors';
 import favicon from 'fastify-favicon';
 import helmet from 'fastify-helmet';
 import rateLimit from 'fastify-rate-limit';
 import fs from 'fs';
-import { SecureServerOptions } from 'http2';
-import { ephemeral } from 'tls-keygen';
-import { Container } from 'inversify';
-import { buildProviderModule } from 'inversify-binding-decorators';
+import { SecureServerOptions, Http2SecureServer } from 'http2';
 import "reflect-metadata";
+import { ephemeral } from 'tls-keygen';
+import { DiscoveryService } from './util/service/discovery.service';
 
 async function main() {
     const prodMode = process.env.NODE_ENV === "production";
@@ -39,13 +38,15 @@ async function main() {
     instance.register(favicon, { path: "favicon.jpg" });
     instance.register(rateLimit, { max: 2, timeWindow: 1500 });
 
+    const discoveryService = new DiscoveryService();
+    await discoveryService.discover();
+
     // Discover & setup all routes and providers
-    const container = new Container();
-    container.load(buildProviderModule());
-    console.log(container.get("Controller"));
-    container.getAll<Object>("Controller").forEach(controller => {
-        console.log(Reflect.getMetadata("route", controller));
-        console.log(controller);
+    discoveryService.getAll<Object>("Controller").forEach(controller => {
+        const routes: RouteOptions<Http2SecureServer>[] = Reflect.getMetadata("routes", controller.constructor);
+        routes.forEach(route => {
+            instance.route(route);
+        })
     });
 
     await instance.listen(3000);

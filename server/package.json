@@ -4,7 +4,7 @@
   "description": "Server backend for the clinovations project.",
   "scripts": {
     "prettier": "prettier src/**/*.ts --write",
-    "build": "ttsc",
+    "build": "tsc",
     "start": "node dist/main.js",
     "start:dev": "ts-node src/main.ts"
   },
@@ -31,12 +31,14 @@
     "fastify": "^3.1.1",
     "fastify-compress": "^3.2.2",
     "fastify-cors": "^4.1.0",
-    "fastify-decorators": "^3.1.0",
     "fastify-favicon": "^3.0.0",
     "fastify-helmet": "^4.0.2",
     "fastify-rate-limit": "^4.0.2",
+    "inversify": "^5.0.1",
+    "inversify-binding-decorators": "^4.0.0",
     "messagepack": "^1.1.10",
     "mongodb": "^3.5.9",
+    "reflect-metadata": "^0.1.13",
     "tls-keygen": "^3.7.0",
     "typescript-is": "^0.16.3"
   }

@@ -76,7 +76,7 @@ async onSubmit(e) {
     e.preventDefault();   
         if (this.handleFormValidation()) {           
            const response =
-           await axios.get("http://localhost:8080/api/premiums",
+           await axios.get("http://18.222.33.97:8081/api/premiums",
                { params: {stateCode: this.state.location,maritalStatus: this.state.mStatus,childCount:this.state.nChildren,age:this.state.age}}
            )           
          this.setState({planDetails: []});

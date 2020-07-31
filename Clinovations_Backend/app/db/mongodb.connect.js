@@ -2,8 +2,8 @@ const { MongoClient } = require('mongodb');
 
 const mongoclient = require('mongodb').MongoClient;
 const ObjectID = require('mongodb').ObjectID;
-const dbname = "clinovations";
-const url = "mongodb://localhost:27017";
+const dbname = "Clinovations";
+const url = "mongodb://mwebware:welcome1!@18.222.33.97:27017/mwebware?authSource=admin";
 const mongoOptions = { useNewUrlParser: true , useUnifiedTopology: true };
 
 const state = {

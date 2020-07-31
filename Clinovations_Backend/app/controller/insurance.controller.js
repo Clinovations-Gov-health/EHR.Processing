@@ -4,22 +4,19 @@ const { request, response } = require('express');
 const collection = "InsurancePlan";
 const { InsurancePlanModel } = require('../model/insurance.data.model.js');
 exports.getPremiums = (req, res) => {
-  let stateCode = req.query.stateCode;
- // let countyName = req.body.countyName;
-  let maritalStatus = req.query.maritalStatus;
-  let age = req.query.age;
-  var couple = false;
-  let noOfChildren = req.query.childCount;
-  if (maritalStatus == "Married")
-    couple = true;
 
+  var requestObj = {
+    stateCode: req.query.stateCode,
+    maritalStatus : req.query.maritalStatus,
+    age : req.query.age,
+    nChildren : req.query.childCount
+  }
 
-  db.getDB().collection(collection).find({"stateCode":stateCode}).toArray((err, documents) => {
+  db.getDB().collection(collection).find({ "stateCode": requestObj.stateCode }).toArray((err, documents) => {
     if (err)
       console.log(err)
     else {
-      debugger;
-      var data = mapDataToModel(documents, age, couple , noOfChildren);
+      var data = mapDataToModel(documents, requestObj);
       console.log(documents);
       res.json(data);
     }
@@ -31,36 +28,54 @@ exports.getPremiums = (req, res) => {
 };
 
 
-mapDataToModel = (docs, age, couple, noOfChild) => {
+mapDataToModel = (docs, obj) => {
   var returnData = [];
   docs.forEach(data => {
     InsurancePlanModel.planId = data.planID;
     InsurancePlanModel.planName = data.planMarketingName;
     InsurancePlanModel.summaryURL = data.summaryBenefitsURL;
     InsurancePlanModel.networkURL = data.networkURL;
-    InsurancePlanModel.premium = data.premiumScenarios[GetPremiumData(age,couple)][noOfChild];
+    if (obj.maritalStatus != "Single") {
+      InsurancePlanModel.premium = data.premiumScenarios[GetPremiumData(obj.age, obj.maritalStatus)][obj.nChildren];
+    }
+    else {
+      InsurancePlanModel.premium = data.premiumScenarios[GetPremiumData(obj.age, obj.maritalStatus)]
+    }
     returnData.push(InsurancePlanModel);
   });
 
   return returnData;
 }
 
-GetPremiumData = (age, couple) =>
-{
+GetPremiumData = (age, maritalStatus) => {
   var type = "individual";
-  if (couple)
+  if (maritalStatus == "Married")
     type = "couple"
-    
-  if (age < 21)
-    type += "21"
-  else if (age >= 21 && age < 30)
-    type += "30"
-  else if (age >= 30 && age < 40)
-    type += "40"
-  else if (age >= 40 && age < 50)
-    type += "50"
-  
-   return type;
+  else if (maritalStatus == "Single" || maritalStatus == "Divorced")
+    type = "individual"
+  if (maritalStatus != "Single") {
+    if (age <= 21)
+      type += "21"
+    else if (age > 21 && age <= 30)
+      type += "30"
+    else if (age > 30 && age <= 40)
+      type += "40"
+    else if (age > 40 && age <= 50)
+      type += "50"
+  }
+  else {
+    if (age <= 14)
+      type += "14"
+    else if (age > 14 && age <= 18)
+      type += "18"
+    else if (age > 18 && age <= 27)
+      type += "27"
+    else if (age > 27 && age <= 60)
+      type += "60"
+
+  }
+
+  return type;
 }
 
 

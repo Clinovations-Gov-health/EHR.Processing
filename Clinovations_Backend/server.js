@@ -5,7 +5,6 @@ app.use(bodyParser.json())
 
 const cors = require('cors')
 const corsOptions = {
-  origin: 'http://localhost:8081',
   optionsSuccessStatus: 200
 }
 app.use(cors(corsOptions))
@@ -21,7 +20,7 @@ db.connect((err) => {
     process.exit(1);
   }
   else {
-    app.listen(8080, function () {
+    app.listen(8081, function () {
       console.log('Connected to app');
     })
   }

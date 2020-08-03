@@ -4,6 +4,7 @@ import cors from 'fastify-cors';
 import favicon from 'fastify-favicon';
 import helmet from 'fastify-helmet';
 import rateLimit from 'fastify-rate-limit';
+import sensible from 'fastify-sensible';
 import fs from 'fs';
 import { SecureServerOptions, Http2SecureServer } from 'http2';
 import "reflect-metadata";
@@ -32,6 +33,7 @@ async function main() {
     });
 
     // Middleware setup
+    instance.register(sensible);
     instance.register(cors);
     instance.register(helmet);
     instance.register(compress);
@@ -39,6 +41,7 @@ async function main() {
     instance.register(rateLimit, { max: 2, timeWindow: 1500 });
 
     const discoveryService = new DiscoveryService();
+    discoveryService.bind("Fastify").toConstantValue(instance);
     await discoveryService.discover();
 
     // Discover & setup all routes and providers

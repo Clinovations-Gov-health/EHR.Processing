@@ -4,7 +4,8 @@ import { InjectionMetadataKey, InjectableDecoratorOptions } from '../decorators/
 
 export class DiscoveryService extends Container {
     private readonly providerFiles = [
-        "/plan/controller",
+        "/plan/plan.controller",
+        "/plan/plan.service",
         "/util/service/config.service",
         "/util/service/mongo.service",
         "/worker/worker.service",

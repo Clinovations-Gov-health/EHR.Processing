@@ -18,15 +18,20 @@
   },
   "homepage": "https://github.com/Clinovations-Gov-health/EHR.Processing#readme",
   "devDependencies": {
+    "@types/cache-manager": "^2.10.3",
     "@types/mongodb": "^3.5.25",
     "@types/node": "^14.0.27",
     "@types/tls-keygen": "^3.7.0",
+    "@types/zipcodes": "^8.0.0",
     "prettier": "^2.0.5",
     "ts-node": "^8.10.2",
     "ttypescript": "^1.5.10",
     "typescript": "^3.9.7"
   },
   "dependencies": {
+    "@googlemaps/google-maps-services-js": "^3.1.4",
+    "axios": "^0.19.2",
+    "cache-manager": "^3.3.0",
     "dotenv": "^8.2.0",
     "fastify": "^3.1.1",
     "fastify-compress": "^3.2.2",
@@ -34,12 +39,14 @@
     "fastify-favicon": "^3.0.0",
     "fastify-helmet": "^4.0.2",
     "fastify-rate-limit": "^4.0.2",
+    "fastify-sensible": "^3.0.1",
     "inversify": "^5.0.1",
     "messagepack": "^1.1.10",
     "mongodb": "^3.5.9",
     "reflect-metadata": "^0.1.13",
     "threads": "^1.6.3",
     "tls-keygen": "^3.7.0",
-    "typescript-is": "^0.16.3"
+    "typescript-is": "^0.16.3",
+    "zipcodes": "^8.0.0"
   }
 }

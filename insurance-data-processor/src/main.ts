@@ -2,20 +2,23 @@ import cliProgress from 'cli-progress';
 import loggerFactory, { Debugger } from 'debug';
 import fs from 'fs';
 import JsonStreamStringify from 'json-stream-stringify';
-import { addToDatabase, join } from './join/join';
-import { CostSharingPreprocessModel } from "./preprocess/interface/cost-sharing";
-import { PlanAttributePreprocessModel } from "./preprocess/interface/plan-attribute";
-import { RatePreprocessModel } from "./preprocess/interface/rate";
-import { preprocess } from "./preprocess/preprocess";
-import { getData } from "./source/source";
-import { DataSource } from "./util";
-import { Config } from './config';
+import { addToDatabase, join } from './insurance-data/join/join';
+import { CostSharingPreprocessModel } from "./insurance-data/preprocess/interface/cost-sharing";
+import { PlanAttributePreprocessModel } from "./insurance-data/preprocess/interface/plan-attribute";
+import { RatePreprocessModel } from "./insurance-data/preprocess/interface/rate";
+import { preprocess } from "./insurance-data/preprocess/preprocess";
+import { getData } from "./insurance-data/source/source";
+import { DataSource } from "./insurance-data/util";
+import { Config } from './insurance-data/config';
+import { scrapeData } from './rating-area/scrapper';
+import { loadDataIntoDb } from './rating-area/db';
 
 
 async function main() {
     const logger = loggerFactory("main");
     const config = new Config();
 
+    /*
     const rateData = await process('rate', logger);
     global.gc();
     const costSharingData = await process("costSharing", logger);
@@ -28,7 +31,10 @@ async function main() {
     await writeToFile(res, "data/final.json");
 
     logger("Loading the data into the database");
-    await addToDatabase(config.mongoDbAddress, Object.values(res));
+    await addToDatabase(config.mongoDbAddress, Object.values(res)); */
+
+    const data = await scrapeData(logger);
+    await loadDataIntoDb(config.mongoDbAddress, data, logger);
 }
 
 async function process(dataType: "rate", logger: Debugger): Promise<Record<string, RatePreprocessModel>>;

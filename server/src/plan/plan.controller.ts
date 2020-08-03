@@ -1,12 +1,16 @@
 import { FastifyReply, FastifyRequest } from "fastify";
-import { decode } from 'messagepack';
+import { decode, encode } from 'messagepack';
 import { assertEquals } from 'typescript-is';
 import { Controller } from '../util/decorators/controller.decorator';
 import { Route } from "../util/decorators/route.decorator";
 import { RecommendationEHRData, RecommendationRequestQuery } from "./interface/payload";
+import { inject } from "inversify";
+import { PlanService } from "./plan.service";
 
 @Controller("/plan")
 export class PlanController {
+    @inject(PlanService) private readonly planService!: PlanService;
+
     /**
      * Provides insurance plan recommendations given EHR data from the patient. The EHR data should be a hex encoding of the MessagePack serialization of the JSON object.
      */
@@ -22,7 +26,7 @@ export class PlanController {
                 done(e);
             }
         },
-        schema: { querystring: {} },
+        schema: { querystring: {}, response: { "2xx": {} } },
         validatorCompiler: _ => {
             return (query: Record<string, any>) => {
                 try {
@@ -33,8 +37,11 @@ export class PlanController {
                 }
             };
         },
+        serializerCompiler: _ => {
+            return (data: object) => Buffer.from(encode(data)).toString('hex');
+        },
     })
     async recommendationHandler(req: FastifyRequest<{ Querystring: RecommendationRequestQuery }>, res: FastifyReply) {
-        res.send("HELLO");
+        this.planService.recommendPlan(req.query.data, res);
     }
 }

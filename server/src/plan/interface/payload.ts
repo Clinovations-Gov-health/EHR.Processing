@@ -12,7 +12,7 @@ export type RecommendationEHRData = {
     market: "individual" | "smallGroup";
     demographic: "child" | "adult";
     target: "individual" | "family";
-    stateCode: string;
+    zipCode: string;
 } & ({
     target: "individual";
     age: number;

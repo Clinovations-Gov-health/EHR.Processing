@@ -63,7 +63,7 @@ export async function addToDatabase(dbAddress: string, data: Plan[]) {
     // sets the indices
     await collection.createIndexes([
         { key: { standardComponentId: 1, variantId: 1 }, name: 'planId', unique: true },
-        { key: { isDentalOnly: 1, stateCode: 1, isIndividual: 1, demographics: 1 }, name: 'query' },
+        { key: { stateCode: 1, isIndividual: 1, demographics: 1 }, name: 'query' },
     ]);
 
     const planChunks = chunk(data, 10);

@@ -1,7 +1,7 @@
 import dotenv from 'dotenv';
 
 export class Config {
-    readonly mongoDbAddress!: string;
+    readonly mongoDbAddress: string = "";
 
     constructor() {
         const rawConfig = dotenv.config({ path: ".env" });

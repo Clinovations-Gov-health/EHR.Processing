@@ -1,75 +1,15 @@
-import cliProgress from 'cli-progress';
-import loggerFactory, { Debugger } from 'debug';
-import fs from 'fs';
-import JsonStreamStringify from 'json-stream-stringify';
-import { addToDatabase, join } from './insurance-data/join/join';
-import { CostSharingPreprocessModel } from "./insurance-data/preprocess/interface/cost-sharing";
-import { PlanAttributePreprocessModel } from "./insurance-data/preprocess/interface/plan-attribute";
-import { RatePreprocessModel } from "./insurance-data/preprocess/interface/rate";
-import { preprocess } from "./insurance-data/preprocess/preprocess";
-import { getData } from "./insurance-data/source/source";
-import { DataSource } from "./insurance-data/util";
-import { Config } from './insurance-data/config';
-import { scrapeData } from './rating-area/scrapper';
-import { loadDataIntoDb } from './rating-area/db';
-
+import { argv } from 'yargs';
+import processInsuranceData from './insurance-data';
+import processRatingAreaData from './rating-area';
 
 async function main() {
-    const logger = loggerFactory("main");
-    const config = new Config();
-
-    /*
-    const rateData = await process('rate', logger);
-    global.gc();
-    const costSharingData = await process("costSharing", logger);
-    global.gc();
-    const attributesData = await process('attributes', logger);
-    
-    const res = await join(rateData, attributesData, costSharingData, logger);
-
-    logger("Writing final data to file");
-    await writeToFile(res, "data/final.json");
-
-    logger("Loading the data into the database");
-    await addToDatabase(config.mongoDbAddress, Object.values(res)); */
-
-    const data = await scrapeData(logger);
-    await loadDataIntoDb(config.mongoDbAddress, data, logger);
-}
-
-async function process(dataType: "rate", logger: Debugger): Promise<Record<string, RatePreprocessModel>>;
-async function process(dataType: "attributes", logger: Debugger): Promise<Record<string, PlanAttributePreprocessModel>>;
-async function process(dataType: "costSharing", logger: Debugger): Promise<Record<string, CostSharingPreprocessModel>>;
-async function process(dataType: DataSource, logger: Debugger) {
-    logger(`Now Processing: ${dataType} data`);
-    const data = await getData(dataType, logger);
-    const res = await preprocess(dataType, data, logger);
-
-    return res;
-}
-
-async function writeToFile(data: any, fileName: string): Promise<void> {
-    const progressBar = new cliProgress.SingleBar({}, cliProgress.Presets.shades_classic);
-    progressBar.start(Object.keys(data).length, 0);
-
-    await new Promise(resolve => {
-        const fsStream = fs.createWriteStream(fileName);
-        const readKeys = new Set<string>();
-        const jsonStream = new JsonStreamStringify(data, undefined, 4);
-        jsonStream.on('data', data => {
-            const currPath = jsonStream.path();
-            if (currPath.length as number === 1 && !readKeys.has(currPath[0])) {
-                readKeys.add(currPath[0]);
-                progressBar.increment();
-            }
-            fsStream.write(data);
-        });
-        jsonStream.on('close', () => {
-            fsStream.close();
-            progressBar.stop();
-            resolve();
-        })
-    });
+    if (argv.i) {
+        await processInsuranceData();
+    }
+    if (argv.r) {
+        console.log(processRatingAreaData);
+        await processRatingAreaData();
+    }
 }
 
 main();

@@ -1,11 +1,11 @@
-import { Debugger } from "debug";
-import cheerio from 'cheerio';
-import axios from 'axios';
-import { RatingAreaDataModel, ratingAreaDataModelSchema } from "./interface";
-import { usaStates } from 'typed-usa-states';
-import { StateCode } from "../insurance-data/util";
 import ajv from "ajv";
+import axios from 'axios';
+import cheerio from 'cheerio';
 import cliProgress from 'cli-progress';
+import { Debugger } from "debug";
+import { usaStates } from 'typed-usa-states';
+import { resolve } from "url";
+import { RatingAreaDataModel, ratingAreaDataModelSchema } from "./interface";
 
 const rootTableAddress = "https://www.cms.gov/CCIIO/Programs-and-Initiatives/Health-Insurance-Market-Reforms/state-gra";
 
@@ -20,31 +20,28 @@ export async function scrapeData(logger: Debugger) {
     }).map((_, elem) => {
         return elem.children[0];
     }).each((_, elem) => {
-        perStateTableAddress[elem.children[0].data!] = `https://www.cms.gov/${elem.attribs.href}`;
+        perStateTableAddress[elem.children[0].data!] = resolve("https://www.cms.gov/", elem.attribs.href);
     });
 
     const data: RatingAreaDataModel[] = new Array();
-    const emptyStringRegex = /^\s*$/.compile();
 
     logger("Processing per state data");
     let progressBar = new cliProgress.SingleBar({}, cliProgress.Presets.shades_classic);
     progressBar.start(Object.keys(perStateTableAddress).length, 0);
 
     for (const [stateName, url] of Object.entries(perStateTableAddress)) {
-        const stateCode = stateName === "US Virgin Islands" ? "VI" : usaStates.find(stateInfo => stateInfo.name === stateName)!.abbreviation as StateCode;
+        const stateCode = stateName === "US Virgin Islands" ? "VI" : usaStates.find(stateInfo => stateInfo.name.toLowerCase() === stateName.toLowerCase())!.abbreviation;
 
         const statePageHtml = (await axios.get(url)).data;
         const statePageDom = cheerio.load(statePageHtml);
-        statePageDom("tbody > tr").filter(id => id !== 0)
-            .each((i, elem) => {
-                const [ratingAreaCell, countyNameCell, zipcodeCell] = elem.children;
+        statePageDom("table").first().find("tr")
+            .filter(id => id !== 0)
+            .each((_, elem) => {
+                    const [ratingAreaCell, countyNameCell, zipcodeCell] = elem.children.filter(child => child.data !== "\n");
+                    const ratingAreaId = parseInt(statePageDom(ratingAreaCell).text().split(' ')[2]).toString();
+                    const countyName = statePageDom(countyNameCell).text().trim();
+                    const zipcode = statePageDom(zipcodeCell).text().trim();
 
-                try {
-                    const ratingAreaId = parseInt((ratingAreaCell.children[0]?.children?.[0] ?? ratingAreaCell.children[0]).data!.split(' ')[2]).toString();
-                    const countyName = (countyNameCell.children[0]?.children?.[0] ?? ratingAreaCell.children[0]).data!;
-                    const zipcode = (zipcodeCell.children[0]?.children?.[0] ?? ratingAreaCell.children[0]).data!;
-
-                
                     const datum = data.find(val => val.state === stateCode && val.ratingAreaId === ratingAreaId)
                         ?? (() => {
                             const datum = {
@@ -57,34 +54,11 @@ export async function scrapeData(logger: Debugger) {
                             return datum;
                         })();
 
-                    if (!emptyStringRegex.test(countyName)) {
+                    if (!countyName) {
                         datum.zipcodes.push(zipcode);
                     } else {
                         datum.counties.push(countyName);
                     }
-                } catch (e) {
-                    console.log(i, stateName);
-                    throw e;
-                }  
-                
-                /*
-                const datum = data.find(val => val.state === stateCode && val.ratingAreaId === ratingAreaId)
-                    ?? (() => {
-                        const datum = {
-                            state: stateCode,
-                            ratingAreaId,
-                            counties: [],
-                            zipcodes: [],
-                        };
-                        data.push(datum);
-                        return datum;
-                    })();
-
-                if (!emptyStringRegex.test(countyName)) {
-                    datum.zipcodes.push(zipcode);
-                } else {
-                    datum.counties.push(countyName);
-                } */
             });
 
         progressBar.increment();
@@ -97,11 +71,13 @@ export async function scrapeData(logger: Debugger) {
 
     const validator = new ajv();
     validator.addMetaSchema(require('ajv/lib/refs/json-schema-draft-06.json'));
-    const validate = validator.compile(ratingAreaDataModelSchema); 
+    const validate = validator.compile(ratingAreaDataModelSchema);
 
     Object.values(data).forEach(datum => {
         const valid = validate(datum);
         if (!valid) {
+            console.log(datum);
+            console.log(validate.errors);
             throw validate.errors;
         }
         progressBar.increment();

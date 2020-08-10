@@ -1,14 +1,14 @@
 import { RouteOptions } from "fastify/types/route";
 import { Http2SecureServer } from "http2";
-import { interfaces } from "inversify";
 import { join } from "path";
 import { Injectable } from './injectable.decorator';
+import { Newable } from "../service/discovery.service";
 
 /**
  * Marks a class as a controller. The decorator will scan through the methods in the class and registers all methods decorated with `Route` into
  * Fastify's router.
  */
-export const Controller = (route: string) => <T>(constructor: interfaces.Newable<T>) => {
+export const Controller = (route: string) => <T>(constructor: Newable<T>) => {
     const routes: RouteOptions<Http2SecureServer>[] = [];
 
     Object.getOwnPropertyNames(constructor.prototype).forEach((property) => {
@@ -22,5 +22,5 @@ export const Controller = (route: string) => <T>(constructor: interfaces.Newable
 
     Reflect.defineMetadata("routes", routes, constructor);
 
-    return Injectable("Controller")(constructor);
+    return Injectable(constructor, ["Controller"])(constructor);
 };

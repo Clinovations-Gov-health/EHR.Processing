@@ -1,4 +1,4 @@
-import { DentalPlanMetalLevel, NormalPlanMetalLevel, PlanDemographic, PlanType, StateCode } from '../../util/types';
+import { DentalPlanMetalLevel, NormalPlanMetalLevel, PlanDemographic, PlanType, StateCode } from '../../../util/types';
 
 /**
  * Plan attributes portion of the plan data as stored in the database.

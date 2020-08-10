@@ -3,7 +3,7 @@ import {
     BenefitItemCostSharingFrequency,
     BenefitItemLimitUnit,
     BenefitItemLimitFrequency,
-} from '../../util/types';
+} from '../../../util/types';
 
 export interface CostSharingPreprocessModel {
     standardComponentId: string;

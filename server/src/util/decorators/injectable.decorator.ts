@@ -6,21 +6,10 @@ export const ProviderMetadataKey = Symbol("DI:Provider");
 export interface ProviderMetadata<T> {
     token: InjectionToken<T>;
     provider: Provider<T>;
+    tags: string[];
 }
 
-export const Injectable = <T>(token?: InjectionToken<T>, asyncInitializer?: (target: T) => Promise<void>) => (target: Newable<T>) => {
-    let provider: Provider<T>;
-    if (!asyncInitializer) {
-        provider = { useClass: target };
-    } else {
-        const properties = Reflect.hasMetadata(InjectionMetadataKey, target) ? 
-    }
-
-    const metadata: ProviderMetadata<T> = {
-        token: token ?? target,
-        provide: asyncInitializer
-            ? 
-    }
-
-    Reflect.defineMetadata(ProviderMetadataKey, { token: token ?? target }, target);
+export const Injectable = <T>(token?: InjectionToken<T>, tags?: string[], asyncInitializer?: (target: T) => Promise<void>) => (target: Newable<T>) => {
+    const provider: ProviderMetadata<T> = { token: token ?? target, tags: tags ?? [], provider: { useClass: target, afterResolution: asyncInitializer } };
+    Reflect.defineMetadata(ProviderMetadataKey, provider, target);
 };

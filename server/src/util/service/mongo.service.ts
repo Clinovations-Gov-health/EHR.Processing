@@ -3,7 +3,7 @@ import { Inject } from "../decorators/inject.decorator";
 import { Injectable } from "../decorators/injectable.decorator";
 import { Config } from "./config.service";
 
-@Injectable(MongoService)
+@Injectable(MongoService, [], target => target.initialize())
 export class MongoService {
     @Inject(Config) private readonly config!: Config;
     client!: MongoClient;

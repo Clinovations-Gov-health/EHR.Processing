@@ -4,12 +4,12 @@ import { assertEquals } from 'typescript-is';
 import { Controller } from '../util/decorators/controller.decorator';
 import { Route } from "../util/decorators/route.decorator";
 import { RecommendationEHRData, RecommendationRequestQuery } from "./interface/payload";
-import { inject } from "inversify";
 import { PlanService } from "./plan.service";
+import { Inject } from "../util/decorators/inject.decorator";
 
 @Controller("/plan")
 export class PlanController {
-    @inject(PlanService) private readonly planService!: PlanService;
+    @Inject(PlanService) private readonly planService!: PlanService;
 
     /**
      * Provides insurance plan recommendations given EHR data from the patient. The EHR data should be a hex encoding of the MessagePack serialization of the JSON object.

@@ -41,7 +41,7 @@ async function main() {
     instance.register(rateLimit, { max: 2, timeWindow: 1500 });
 
     const discoveryService = new DiscoveryService();
-    discoveryService.bind("Fastify").toConstantValue(instance);
+    discoveryService.register("Fastify", { useValue: instance });
     await discoveryService.discover();
 
     // Discover & setup all routes and providers

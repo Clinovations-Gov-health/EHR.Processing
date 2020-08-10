@@ -1,8 +1,26 @@
-import { Container, interfaces } from 'inversify';
 import { join } from "path";
-import { InjectionMetadataKey, InjectableDecoratorOptions } from '../decorators/injectable.decorator';
+import { mapValues } from 'lodash';
+import { ProviderMetadataKey } from '../decorators/injectable.decorator';
 
-export class DiscoveryService extends Container {
+export type Newable<T = unknown> = { new (...args: any[]): T };
+export type InjectionToken<T = unknown> = string | symbol | Newable<T>;
+
+export interface ValueProvider<T> {
+    useValue: T;
+}
+
+export interface ClassProvider<T> {
+    useClass: Newable<T>;
+}
+
+export interface FactoryProvider<T> {
+    inject: InjectionToken[];
+    useFactory: (...args: any[]) => T | Promise<T>;
+}
+
+export type Provider<T = unknown> = ValueProvider<T> | ClassProvider<T> | FactoryProvider<T>;
+
+export class DiscoveryService {
     private readonly providerFiles = [
         "/plan/plan.controller",
         "/plan/plan.service",
@@ -11,20 +29,38 @@ export class DiscoveryService extends Container {
         "/worker/worker.service",
     ];
 
-    constructor() {
-        super();
-        this.bind(DiscoveryService).toConstantValue(this);
+    private providerMaps = new Map<InjectionToken, [Provider, string[]]>();
+    private container = new Map<InjectionToken, unknown>();
+
+    private isValueProvider<T>(provider: Provider<T>): provider is ValueProvider<T> {
+        return "useValue" in provider;
     }
 
-    /**
-     * Dark magic to check if something is a class (or newable object).
-     */
-    private isNewable(elem: any): elem is interfaces.Newable<any> {
-        try {
-            new new Proxy(elem, { construct() { return {}; }});
-            return true;
-        } catch (e) {
-            return false;
+    private isClassProvider<T>(provider: Provider<T>): provider is ClassProvider<T> {
+        return "useClass" in provider;
+    }
+
+    private isFactoryProvider<T>(provider: Provider<T>): provider is FactoryProvider<T> {
+        return "useFactory" in provider;
+    }
+
+    constructor() {
+        this.register(DiscoveryService, { useValue: this });
+    }
+
+    register<T>(token: InjectionToken<T>, provider: Provider<T>, ...tags: string[]) {
+        this.providerMaps.set(token, [provider, tags]);
+    }
+
+    async initialize() {
+        const records = new Map(Array.from(this.providerMaps).map<[InjectionToken, boolean]>(([token]) => [token, false]));
+
+        for (const token of this.providerMaps.keys()) {
+            if (records.has(token)) {
+                continue;
+            }
+
+            
         }
     }
 
@@ -38,11 +74,11 @@ export class DiscoveryService extends Container {
             const exports: Record<string, unknown> = await import(join(process.cwd(), "dist", provider));
 
             Object.values(exports).forEach(elem => {
-                if (!this.isNewable(elem)) {
-                    return;
+                if (Reflect.hasMetadata(ProviderMetadataKey, elem as any)) {
+                    const metadata: 
                 }
 
-                const metadata: InjectableDecoratorOptions<typeof elem> | undefined = Reflect.getMetadata(InjectionMetadataKey, elem);
+                const metadata: InjectableDecoratorOptions<typeof elem> | undefined = Reflect.getMetadata(ProviderMetadataKey, elem);
                 if (metadata) {
                     this.bind(metadata.token).to(elem);
                     if (metadata.asyncInitialize) {
@@ -50,10 +86,6 @@ export class DiscoveryService extends Container {
                     }
                 }
             });
-        }));
-
-        await Promise.all(Array.from(asyncInitializers.entries()).map(async ([token, initializer]) => {
-            return await initializer(this.get(token));
         }));
     }
 }

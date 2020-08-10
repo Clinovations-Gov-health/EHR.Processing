@@ -1,11 +1,11 @@
-import { Injectable } from "../decorators/injectable.decorator";
-import { inject } from "inversify";
-import { Config } from "./config.service";
 import { connect, MongoClient } from 'mongodb';
+import { Inject } from "../decorators/inject.decorator";
+import { Injectable } from "../decorators/injectable.decorator";
+import { Config } from "./config.service";
 
-@Injectable(MongoService, (service: MongoService) => service.initialize())
+@Injectable(MongoService)
 export class MongoService {
-    @inject(Config) private readonly config!: Config;
+    @Inject(Config) private readonly config!: Config;
     client!: MongoClient;
 
     async initialize() {

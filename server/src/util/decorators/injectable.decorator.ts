@@ -1,17 +1,26 @@
-import { injectable, interfaces } from "inversify";
+import { InjectionToken, Newable, Provider } from "../service/discovery.service";
+import { InjectionMetadataKey } from "./inject.decorator";
 
-export const InjectionMetadataKey = "DI:InjectionMetadata";
+export const ProviderMetadataKey = Symbol("DI:Provider");
 
-export interface InjectableDecoratorOptions<T> {
-    token: interfaces.ServiceIdentifier<T>;
-    asyncInitialize?: (instance: T) => Promise<void>;
+export interface ProviderMetadata<T> {
+    token: InjectionToken<T>;
+    provider: Provider<T>;
 }
 
-export const Injectable = <T>(token?: interfaces.ServiceIdentifier<any>, asyncInitialize?: (instance: T) => Promise<void>) => (target: interfaces.Newable<T>) => {
-    Reflect.defineMetadata(InjectionMetadataKey, {
-        token: token ?? target,
-        asyncInitialize,
-    }, target);
+export const Injectable = <T>(token?: InjectionToken<T>, asyncInitializer?: (target: T) => Promise<void>) => (target: Newable<T>) => {
+    let provider: Provider<T>;
+    if (!asyncInitializer) {
+        provider = { useClass: target };
+    } else {
+        const properties = Reflect.hasMetadata(InjectionMetadataKey, target) ? 
+    }
 
-    return injectable()(target);
+    const metadata: ProviderMetadata<T> = {
+        token: token ?? target,
+        provide: asyncInitializer
+            ? 
+    }
+
+    Reflect.defineMetadata(ProviderMetadataKey, { token: token ?? target }, target);
 };

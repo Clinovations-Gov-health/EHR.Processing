@@ -31,7 +31,7 @@ export class PlanController {
             }
         },
         schema: { querystring: {} },
-        validatorCompiler: (_) => {
+        validatorCompiler: _ => {
             return (query: Record<string, any>) => {
                 try {
                     assertEquals<RecommendationEHRData>(query.data);

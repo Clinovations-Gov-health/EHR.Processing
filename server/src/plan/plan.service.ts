@@ -7,13 +7,15 @@ import { MongoService } from '../util/service/mongo.service';
 import { Plan } from './interface/db/plan';
 import { RatingAreaModel } from './interface/db/rating-area';
 import { RecommendationEHRData } from './interface/payload';
+import { PlanRecommendationReturnPayload } from './interface/return-payload';
+import { assertEquals } from 'typescript-is';
 
 @Injectable()
 export class PlanService {
     @Inject(MongoService) private readonly mongoService!: MongoService;
     @Inject('Fastify') private readonly fastify!: FastifyInstance;
 
-    async recommendPlan(patientData: RecommendationEHRData) {
+    async recommendPlan(patientData: RecommendationEHRData): Promise<PlanRecommendationReturnPayload> {
         // First figure out the rating area of the user.
         const ratingAreaColl = this.mongoService.client.db('Clinovations').collection<RatingAreaModel>('RatingArea');
         const ratingArea = await ratingAreaColl.findOne({
@@ -102,16 +104,23 @@ export class PlanService {
                     benefits: mapValues(pick(plan.benefits, ...new Set(Object.values(categoryMappings).map(([_, name]) => name))), (val) =>
                         val.covered
                             ? {
-                                  covered: val.covered,
+                                  covered: true,
                                   details: val.inNetworkTierOne,
                               }
-                            : val
+                            : { covered: false }
                     ),
                 };
             })
             .sort((res1, res2) => (res1.cost < res2.cost ? -1 : 1))
             .slice(0, 5);
 
-        return result;
+        
+        try {
+            assertEquals<PlanRecommendationReturnPayload>(result);
+        } catch (e) {
+            throw this.fastify.httpErrors.internalServerError();
+        }
+
+        return result as any;
     }
 }

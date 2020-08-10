@@ -24,7 +24,7 @@ export class PlanController {
         preValidation: (req, _, done) => {
             const queries = req.query as any;
             try {
-                queries.data = decode(Buffer.from(queries.data, 'hex'));
+                queries.data = decode(Buffer.from(queries.data, 'base64'));
                 done();
             } catch (e) {
                 done(e);

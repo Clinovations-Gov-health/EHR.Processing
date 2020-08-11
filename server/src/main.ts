@@ -15,6 +15,7 @@ import { DiscoveryService } from './util/service/discovery.service';
 async function main() {
     const prodMode = process.env.NODE_ENV === "production";
 
+    /*
     const tlsOptions: SecureServerOptions = prodMode
         ? {
             key: fs.readFileSync('./cert/key.pem'),
@@ -24,13 +25,13 @@ async function main() {
         } : {
             ...await ephemeral({ entrust: false }),
             allowHTTP1: true,
-        };
+        }; */
 
     const instance = fastify({
         trustProxy: true,
-        https: tlsOptions,
+        // https: tlsOptions,
         maxParamLength: 500,
-        http2: true,
+        // http2: true,
     });
 
     // Middleware setup
@@ -50,7 +51,7 @@ async function main() {
 
     // Discover & setup all routes and providers.
     discoveryService.getByTag("Controller").forEach(controller => {
-        const routes: RouteOptions<Http2SecureServer>[] = Reflect.getMetadata("routes", controller.constructor);
+        const routes: RouteOptions[] = Reflect.getMetadata("routes", controller.constructor);
         routes.forEach(route => {
             instance.route({
                 ...route,
@@ -60,7 +61,7 @@ async function main() {
     });
 
     logger("Initialization complete.");
-    await instance.listen(3000);
+    await instance.listen(4000);
 }
 
 main();

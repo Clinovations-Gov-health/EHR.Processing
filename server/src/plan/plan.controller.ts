@@ -43,6 +43,7 @@ export class PlanController {
         },
     })
     async recommendationHandler(req: FastifyRequest<{ Querystring: RecommendationRequestQuery }>, res: FastifyReply) {
+        console.log(req.query.data);
         return this.planService.recommendPlan(req.query.data);
     }
 }

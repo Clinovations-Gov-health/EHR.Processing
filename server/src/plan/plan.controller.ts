@@ -24,7 +24,7 @@ export class PlanController {
         preValidation: (req, _, done) => {
             const queries = req.query as any;
             try {
-                queries.data = decode(Buffer.from(queries.data, 'hex'));
+                queries.data = JSON.parse(queries.data);
                 done();
             } catch (e) {
                 done(e);
@@ -43,7 +43,7 @@ export class PlanController {
         },
     })
     async recommendationHandler(req: FastifyRequest<{ Querystring: RecommendationRequestQuery }>, res: FastifyReply) {
-        console.log(req.query.data);
-        return this.planService.recommendPlan(req.query.data);
+        const result = await this.planService.recommendPlan(req.query.data);
+        return result;
     }
 }

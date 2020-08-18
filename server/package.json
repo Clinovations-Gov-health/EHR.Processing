@@ -41,7 +41,7 @@
     "fastify-helmet": "^5.0.0",
     "fastify-rate-limit": "^4.0.2",
     "fastify-sensible": "^3.0.1",
-    "lodash": "^4.17.19",
+    "lodash": "^4.17.20",
     "messagepack": "^1.1.10",
     "moment": "^2.27.0",
     "mongodb": "^3.6.0",

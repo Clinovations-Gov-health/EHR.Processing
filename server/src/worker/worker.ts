@@ -1,15 +1,15 @@
+import { mapValues, pick } from 'lodash';
+import moment from 'moment';
 import { expose } from 'threads';
 import { WorkerFunction } from 'threads/dist/types/worker';
-import { isMainThread } from 'worker_threads';
-import { RecommendationEHRData } from '../plan/interface/payload';
-import { Plan } from '../plan/interface/db/plan';
-import { assertEquals } from 'typescript-is';
-import { PlanRecommendationReturnPayload } from '../plan/interface/return-payload';
-import { mapValues, pick, clone, omit } from 'lodash';
 import { match, __ } from 'ts-pattern';
-import moment from 'moment';
-import { RatingAreaModel } from '../plan/interface/db/rating-area';
+import { assertEquals } from 'typescript-is';
+import { isMainThread } from 'worker_threads';
 import { BenefitItemCostSharingScheme } from '../plan/interface/db/cost-sharing';
+import { Plan } from '../plan/interface/db/plan';
+import { RatingAreaModel } from '../plan/interface/db/rating-area';
+import { RecommendationEHRData } from '../plan/interface/payload';
+import { PlanRecommendationReturnPayload } from '../plan/interface/return-payload';
 
 const categoryMappings: Record<string, [number, string]> = {
     '185349003': [150, 'Primary Care Visit to Treat an Injury or Illness'],
@@ -342,12 +342,16 @@ export class Worker implements Record<string, WorkerFunction> {
                     ),
                 };
             })
-            .sort((res1, res2) => (res1.cost < res2.cost ? -1 : 1))
-            .slice(0, 5);
+            .sort((res1, res2) => (res1.cost < res2.cost ? -1 : 1));
 
         assertEquals<PlanRecommendationReturnPayload>(result);
 
-        return result;
+        console.log("Name, Premium, OutOfPocket, Cost, Deductible, MaximumOutOfPocket, Type, MetalLevel")
+        result.forEach(planResult => {
+            console.log(`${planResult.name}, ${planResult.premium}, ${planResult.outOfPocket}, ${planResult.cost}, ${planResult.deductible}, ${planResult.maximumOutOfPocket}, ${planResult.type}, ${planResult.metalLevel}`);
+        })
+
+        return result.slice(0, 5);
     }
 }
 

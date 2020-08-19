@@ -76,7 +76,7 @@ export class DiscoveryService {
             if (this.isValueProvider(provider)) {
                 this.container.set(token, provider.useValue);
                 if (this.get("Logger")) {
-                    (this.get("Logger") as Debugger)(`Resolved ${String(token)}`);
+                    this.get<Debugger>("Logger")!(`Resolved ${String(token)}`);
                 }
             } else {
                 const dependencies = dependencyMap.get(token)!;
@@ -100,7 +100,7 @@ export class DiscoveryService {
                 }
 
                 if (this.get("Logger")) {
-                    (this.get("Logger") as Debugger)(`Resolved ${provider.useClass.name}`);
+                    this.get<Debugger>("Logger")!(`Resolved ${provider.useClass.name}`);
                 }
             }
         }

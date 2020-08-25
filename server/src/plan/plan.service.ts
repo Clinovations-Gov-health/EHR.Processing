@@ -36,6 +36,8 @@ export class PlanService {
                 isIndividual: patientData.market === 'individual',
                 isDentalOnly: false,
                 ['rateDetail.' + ratingArea.ratingAreaId + '.target']: patientData.market,
+                variationType: { $not: { $in: ["Zero Cost Sharing Plan Variation", "Limited Cost Sharing Plan Variation"]}},
+                metalLevel: { $not: { $eq: "catastrophic" }},
             })
             .toArray();
 

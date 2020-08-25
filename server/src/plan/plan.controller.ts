@@ -1,11 +1,11 @@
 import { FastifyReply, FastifyRequest } from 'fastify';
-import { decode } from 'messagepack';
 import { assertEquals } from 'typescript-is';
 import { Controller } from '../util/decorators/controller.decorator';
 import { Inject } from '../util/decorators/inject.decorator';
 import { Route } from '../util/decorators/route.decorator';
 import { RecommendationEHRData, RecommendationRequestQuery } from './interface/payload';
 import { PlanService } from './plan.service';
+
 
 @Controller('/plan')
 export class PlanController {

@@ -1,0 +1,49 @@
+Name                                                                             ,Premium ,OutOfPocket ,Cost               ,Deductible ,MaximumOutOfPocket ,Type ,MetalLevel
+OptimaFit Bronze 7200 40% Direct M Standard Bronze Off Exchange Plan             ,361     ,1934        ,6266               ,7200       ,8150               ,HMO  ,expanded bronze
+OptimaFit Bronze 7200 40% Direct M Standard Bronze On Exchange Plan              ,361     ,1934        ,6266               ,7200       ,8150               ,HMO  ,expanded bronze
+OptimaFit Silver 6600 30% Direct M 94% AV Level Silver Plan                      ,471.58  ,1000        ,6658.96            ,200        ,1000               ,HMO  ,silver
+Anthem HealthKeepers Bronze X 5250 Standard Bronze Off Exchange Plan             ,396.42  ,1919        ,6676.04            ,5250       ,8150               ,HMO  ,expanded bronze
+Anthem HealthKeepers Bronze X 5250 Standard Bronze On Exchange Plan              ,396.42  ,1919        ,6676.04            ,5250       ,8150               ,HMO  ,expanded bronze
+OptimaFit Bronze 6000 20% HSA Direct M Standard Bronze Off Exchange Plan         ,373.98  ,2249        ,6736.76            ,6000       ,6750               ,HMO  ,expanded bronze
+OptimaFit Bronze 6000 20% HSA Direct M Standard Bronze On Exchange Plan          ,373.98  ,2249        ,6736.76            ,6000       ,6750               ,HMO  ,expanded bronze
+Anthem HealthKeepers Bronze X 6300 Standard Bronze On Exchange Plan              ,403.2   ,1904        ,6742.4             ,6300       ,8150               ,HMO  ,expanded bronze
+Anthem HealthKeepers Bronze X 6300 Standard Bronze Off Exchange Plan             ,403.2   ,1904        ,6742.4             ,6300       ,8150               ,HMO  ,expanded bronze
+Anthem HealthKeepers Bronze X 5700 Online Plus Standard Bronze On Exchange Plan  ,407.97  ,1874        ,6769.64            ,5700       ,8150               ,HMO  ,expanded bronze
+Anthem HealthKeepers Bronze X 5700 Online Plus Standard Bronze Off Exchange Plan ,407.97  ,1874        ,6769.64            ,5700       ,8150               ,HMO  ,expanded bronze
+OptimaFit Silver 4600 30% Direct M 94% AV Level Silver Plan                      ,481.96  ,1000        ,6783.5199999999995 ,150        ,1000               ,HMO  ,silver
+Anthem HealthKeepers Bronze X 7500 Standard Bronze On Exchange Plan              ,379.7   ,2249        ,6805.4             ,7500       ,8150               ,HMO  ,bronze
+Anthem HealthKeepers Bronze X 7500 Standard Bronze Off Exchange Plan             ,379.7   ,2249        ,6805.4             ,7500       ,8150               ,HMO  ,bronze
+OptimaFit Silver 3000 25% Direct M 94% AV Level Silver Plan                      ,500.75  ,800         ,6809               ,100        ,800                ,HMO  ,silver
+Anthem HealthKeepers Bronze X 4900 for HSA Standard Bronze On Exchange Plan      ,404.69  ,2249        ,7105.28            ,4900       ,6850               ,HMO  ,expanded bronze
+Anthem HealthKeepers Bronze X 4900 for HSA Standard Bronze Off Exchange Plan     ,404.69  ,2249        ,7105.28            ,4900       ,6850               ,HMO  ,expanded bronze
+Anthem HealthKeepers Silver X 5000 Online Plus 94% AV Level Silver Plan          ,519.01  ,1000        ,7228.12            ,100        ,1000               ,HMO  ,silver
+Anthem HealthKeepers Silver X 6250 94% AV Level Silver Plan                      ,508.49  ,1250        ,7351.88            ,100        ,1250               ,HMO  ,silver
+OptimaFit Silver 6600 30% Direct M 87% AV Level Silver Plan                      ,471.58  ,1859        ,7517.96            ,600        ,2400               ,HMO  ,silver
+OptimaFit Silver 6600 30% Direct M Standard Silver Off Exchange Plan             ,471.58  ,1874        ,7532.96            ,6600       ,8150               ,HMO  ,silver
+OptimaFit Silver 6600 30% Direct M 73% AV Level Silver Plan                      ,471.58  ,1874        ,7532.96            ,3000       ,6500               ,HMO  ,silver
+OptimaFit Silver 6600 30% Direct M Standard Silver On Exchange Plan              ,471.58  ,1874        ,7532.96            ,6600       ,8150               ,HMO  ,silver
+OptimaFit Silver 4600 30% Direct M 87% AV Level Silver Plan                      ,481.96  ,1859        ,7642.5199999999995 ,450        ,2400               ,HMO  ,silver
+OptimaFit Silver 4600 30% Direct M Standard Silver Off Exchange Plan             ,481.96  ,1874        ,7657.5199999999995 ,4600       ,8150               ,HMO  ,silver
+OptimaFit Silver 4600 30% Direct M Standard Silver On Exchange Plan              ,481.96  ,1874        ,7657.5199999999995 ,4600       ,8150               ,HMO  ,silver
+OptimaFit Silver 4600 30% Direct M 73% AV Level Silver Plan                      ,481.96  ,1874        ,7657.5199999999995 ,2900       ,6500               ,HMO  ,silver
+OptimaFit Gold 1300 20% Direct M Standard Gold On Exchange Plan                  ,486.05  ,1904        ,7736.6             ,1300       ,8150               ,HMO  ,gold
+OptimaFit Gold 1300 20% Direct M Standard Gold Off Exchange Plan                 ,486.05  ,1904        ,7736.6             ,1300       ,8150               ,HMO  ,gold
+OptimaFit Silver 3000 25% Direct M 87% AV Level Silver Plan                      ,500.75  ,1859        ,7868               ,400        ,2500               ,HMO  ,silver
+OptimaFit Silver 3000 25% Direct M 73% AV Level Silver Plan                      ,500.75  ,1889        ,7898               ,2800       ,6500               ,HMO  ,silver
+OptimaFit Silver 3000 25% Direct M Standard Silver On Exchange Plan              ,500.75  ,1919        ,7928               ,3000       ,8150               ,HMO  ,silver
+OptimaFit Silver 3000 25% Direct M Standard Silver Off Exchange Plan             ,500.75  ,1919        ,7928               ,3000       ,8150               ,HMO  ,silver
+Anthem HealthKeepers Silver X 6250 87% AV Level Silver Plan                      ,508.49  ,1844        ,7945.88            ,625        ,2100               ,HMO  ,silver
+Anthem HealthKeepers Silver X 2000 94% AV Level Silver Plan                      ,551.08  ,1350        ,7962.960000000001  ,75         ,1350               ,HMO  ,silver
+Anthem HealthKeepers Silver X 6250 73% AV Level Silver Plan                      ,508.49  ,1874        ,7975.88            ,2500       ,5850               ,HMO  ,silver
+Anthem HealthKeepers Silver X 6250 Standard Silver On Exchange Plan              ,508.49  ,1904        ,8005.88            ,6250       ,8150               ,HMO  ,silver
+Anthem HealthKeepers Silver X 6250 Standard Silver Off Exchange Plan             ,508.49  ,1904        ,8005.88            ,6250       ,8150               ,HMO  ,silver
+Anthem HealthKeepers Gold X 1600 Standard Gold Off Exchange Plan                 ,511.51  ,1874        ,8012.12            ,1600       ,8150               ,HMO  ,gold
+Anthem HealthKeepers Gold X 1600 Standard Gold On Exchange Plan                  ,511.51  ,1874        ,8012.12            ,1600       ,8150               ,HMO  ,gold
+Anthem HealthKeepers Silver X 5000 Online Plus 87% AV Level Silver Plan          ,519.01  ,1859        ,8087.12            ,500        ,2400               ,HMO  ,silver
+Anthem HealthKeepers Silver X 5000 Online Plus Standard Silver Off Exchange Plan ,519.01  ,1889        ,8117.12            ,5000       ,8150               ,HMO  ,silver
+Anthem HealthKeepers Silver X 5000 Online Plus 73% AV Level Silver Plan          ,519.01  ,1889        ,8117.12            ,2150       ,6500               ,HMO  ,silver
+Anthem HealthKeepers Silver X 5000 Online Plus Standard Silver On Exchange Plan  ,519.01  ,1889        ,8117.12            ,5000       ,8150               ,HMO  ,silver
+Anthem HealthKeepers Silver X 2000 87% AV Level Silver Plan                      ,551.08  ,1844        ,8456.960000000001  ,650        ,2250               ,HMO  ,silver
+Anthem HealthKeepers Silver X 2000 73% AV Level Silver Plan                      ,551.08  ,1889        ,8501.960000000001  ,1850       ,6500               ,HMO  ,silver
+Anthem HealthKeepers Silver X 2000 Standard Silver On Exchange Plan              ,551.08  ,1904        ,8516.960000000001  ,2000       ,8150               ,HMO  ,silver
+Anthem HealthKeepers Silver X 2000 Standard Silver Off Exchange Plan             ,551.08  ,1904        ,8516.960000000001  ,2000       ,8150               ,HMO  ,silver

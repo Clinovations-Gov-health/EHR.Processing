@@ -323,15 +323,17 @@ export class Worker implements Record<string, WorkerFunction> {
                     .with({ isDentalOnly: false, costCeiling: { isMultiTiered: true, oop: { medicalDrugIntegrated: false } } }, plan => plan.costCeiling.oop.medicalTierOneInNetwork.individual)
                     .run();
 
+                const ceiledOOP = moop ? Math.min(moop, outOfPocket) : outOfPocket;
+
                 return {
                     maximumOutOfPocket: moop ?? -1,
                     deductible: deductible.totalAmount ?? 0,
                     premium,
-                    outOfPocket,
+                    outOfPocket: ceiledOOP,
                     metalLevel: plan.metalLevel,
                     type: plan.planType,
-                    cost: premium + outOfPocket,
-                    name: plan.marketingName,
+                    cost: premium * 12 + ceiledOOP,
+                    name: `${plan.marketingName} ${plan.variationType}`,
                     benefits: mapValues<typeof plan["benefits"], { covered: false } | { covered: true, details: [ BenefitItemCostSharingScheme ] | [ BenefitItemCostSharingScheme, BenefitItemCostSharingScheme ]}>(pick(plan.benefits, Object.values(categoryMappings).map(tp => tp[1])), val =>
                         val.covered
                             ? {

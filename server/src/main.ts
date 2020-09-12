@@ -15,7 +15,7 @@ import { DiscoveryService } from './util/service/discovery.service';
 async function main() {
     const prodMode = process.env.NODE_ENV === "production";
 
-    /* 
+    /*
     const tlsOptions: SecureServerOptions = prodMode
         ? {
             key: fs.readFileSync('./cert/key.pem'),

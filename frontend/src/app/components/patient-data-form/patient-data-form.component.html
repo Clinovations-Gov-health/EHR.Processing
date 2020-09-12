@@ -1,0 +1,90 @@
+<form [formGroup]="patientDataForm">
+    <div>
+        <mat-form-field appearance="legacy">
+            <mat-label>Zipcode</mat-label>
+            <input matInput formControlName="zipCode">
+            <mat-error *ngIf="patientDataForm.get('zipCode').invalid">
+                <div *ngIf="patientDataForm.get('zipCode').errors.required">
+                    Zipcode is required.
+                </div>
+                <div *ngIf="patientDataForm.get('zipCode').errors.pattern">
+                    Zipcode must be 5 digits.
+                </div>
+            </mat-error>
+        </mat-form-field>
+    </div>
+
+    <div>
+        <mat-form-field appearance="legacy">
+            <mat-label>Target</mat-label>
+            <mat-select formControlName="target">
+                <mat-option value="individual">Individual</mat-option>
+                <mat-option value="family">Family</mat-option>
+            </mat-select>
+            <mat-error *ngIf="patientDataForm.get('target').invalid">
+                <div *ngIf="patientDataForm.get('target').errors.required">
+                    Target is required.
+                </div>
+            </mat-error>
+        </mat-form-field>
+    </div>
+
+    <div *ngIf="patientDataForm.get('target').value === 'individual'" >
+        <div>
+            <mat-form-field appearance="legacy">
+                <mat-label>Age</mat-label>
+                <input matInput formControlName="age" type="number">
+                <mat-error *ngIf="patientDataForm.get('age').invalid">
+                    <div *ngIf="patientDataForm.get('age').errors">
+                        {{patientDataForm.get('age').errors.age}}
+                    </div>
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field appearance="legacy">
+                <mat-label>Tobacco Usage</mat-label>
+                <mat-select formControlName="usesTobacco">
+                    <mat-option [value]="true">I smoke tobacco</mat-option>
+                    <mat-option [value]="false">I don't smoke tobacco</mat-option>
+                </mat-select>
+                <mat-error *ngIf="patientDataForm.get('usesTobacco').invalid">
+                    Needs to provide a value.
+                </mat-error>
+            </mat-form-field>
+        </div>
+    </div>
+
+    <div *ngIf="patientDataForm.get('target').value === 'family'">
+        <div>
+            <mat-form-field appearance="legacy">
+                <mat-label>Number of Dependents</mat-label>
+                <input matInput formControlName="numChildren" type="number">
+                <mat-error *ngIf="patientDataForm.get('numChildren').invalid">
+                    <div *ngIf="patientDataForm.get('numChildren').errors">
+                        {{patientDataForm.get('numChildren').errors.numChildren}}
+                    </div>
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field appearance="legacy">
+                <mat-label>Spouse</mat-label>
+                <mat-select formControlName="hasSpouse">
+                    <mat-option [value]="true">I have a spouse</mat-option>
+                    <mat-option [value]="false">I don't have a spouse</mat-option>
+                </mat-select>
+                <mat-error *ngIf="patientDataForm.get('hasSpouse').invalid">
+                    Needs to provide a value.
+                </mat-error>
+            </mat-form-field>
+        </div>
+    </div>
+
+    {{patientDataForm.get('age').errors}}
+    
+    <div>
+        <button mat-flat-button color="primary" *ngIf="!patientDataForm.errors" (click)="onSubmit()">SUBMIT</button>
+        <button mat-flat-button invalid *ngIf="patientDataForm.errors">SUBMIT</button>
+    </div>
+</form>

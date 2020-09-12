@@ -1,0 +1,12 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+
+html, body { height: 100%; }
+body { margin: 10px; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none; 
+    margin: 0; 
+}

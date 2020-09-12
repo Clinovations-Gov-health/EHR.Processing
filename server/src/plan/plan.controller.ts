@@ -5,6 +5,7 @@ import { Inject } from '../util/decorators/inject.decorator';
 import { Route } from '../util/decorators/route.decorator';
 import { RecommendationEHRData, RecommendationRequestQuery } from './interface/payload';
 import { PlanService } from './plan.service';
+import { decode } from 'messagepack';
 
 
 @Controller('/plan')
@@ -24,8 +25,7 @@ export class PlanController {
         preValidation: (req, _, done) => {
             const queries = req.query as any;
             try {
-                queries.data = JSON.parse(queries.data);
-                // queries.data = decode(Buffer.from(queries.data, 'hex'));
+                queries.data = decode(Buffer.from(queries.data, 'hex'));
                 done();
             } catch (e) {
                 done(e);

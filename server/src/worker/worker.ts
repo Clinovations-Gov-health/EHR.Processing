@@ -325,6 +325,35 @@ export class Worker implements Record<string, WorkerFunction> {
 
                 const ceiledOOP = moop ? Math.min(moop, outOfPocket) : outOfPocket;
 
+                const payloadBenefits = Object.keys(plan.benefits).filter(benefitName => plan.benefits[benefitName].covered && Object.values(categoryMappings).map(tp => tp[1]).includes(benefitName));
+                const benefits: PlanRecommendationReturnPayload[number]["benefits"] = mapValues(pick(plan.benefits, payloadBenefits), benefit => {
+                    const result: PlanRecommendationReturnPayload[number]["benefits"][string] = { preDeductible: {}, afterDeductible: {} };
+                    if (!benefit.covered) {
+                        throw new Error("Invalid code path.");
+                    }
+
+                    const benefitDetails = benefit.inNetworkTierOne;
+                    const preDeductibleCopay = benefitDetails.find(elem => elem.deductibleStatus === "before" && !elem.isPercent);
+                    const preDeductibleCoinsurance = benefitDetails.find(elem => elem.deductibleStatus === "before" && elem.isPercent);
+                    const afterDeductibleCopay = benefitDetails.find(elem => elem.deductibleStatus !== "before" && !elem.isPercent);
+                    const afterDeductibleCoinsurance = benefitDetails.find(elem => elem.deductibleStatus !== "before" && elem.isPercent);
+
+                    if (preDeductibleCopay) {
+                        result.preDeductible.copay = preDeductibleCopay;
+                    }
+                    if (preDeductibleCoinsurance) {
+                        result.preDeductible.coinsurance = preDeductibleCoinsurance;
+                    }
+                    if (afterDeductibleCopay) {
+                        result.afterDeductible.copay = afterDeductibleCopay;
+                    }
+                    if (afterDeductibleCoinsurance) {
+                        result.afterDeductible.coinsurance = afterDeductibleCoinsurance;
+                    }
+
+                    return result;
+                });
+
                 return {
                     maximumOutOfPocket: moop ?? -1,
                     deductible: deductible.totalAmount ?? 0,
@@ -334,14 +363,7 @@ export class Worker implements Record<string, WorkerFunction> {
                     type: plan.planType,
                     cost: premium * 12 + ceiledOOP,
                     name: `${plan.marketingName} ${plan.variationType}`,
-                    benefits: mapValues<typeof plan["benefits"], { covered: false } | { covered: true, details: [ BenefitItemCostSharingScheme ] | [ BenefitItemCostSharingScheme, BenefitItemCostSharingScheme ]}>(pick(plan.benefits, Object.values(categoryMappings).map(tp => tp[1])), val =>
-                        val.covered
-                            ? {
-                                  covered: true,
-                                  details: val.inNetworkTierOne,
-                              }
-                            : { covered: false }
-                    ),
+                    benefits,
                 };
             })
             .sort((res1, res2) => (res1.cost < res2.cost ? -1 : 1));

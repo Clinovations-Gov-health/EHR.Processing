@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { every } from 'lodash';
-import { PlanRecommendationPayload } from '../../services/insurance-plan/insurance-plan.interface';
+import { PlanRecommendationPayload, PlanRecommendationReturnPayload } from '../../services/insurance-plan/insurance-plan.interface';
 import { InsurancePlanService } from '../../services/insurance-plan/insurance-plan.service';
 
 @Component({
@@ -10,6 +10,8 @@ import { InsurancePlanService } from '../../services/insurance-plan/insurance-pl
     styleUrls: ['./patient-data-form.component.scss']
 })
 export class PatientDataFormComponent {
+    dataPromise: Promise<PlanRecommendationReturnPayload>;
+
     patientDataForm = new FormGroup({
         zipCode: new FormControl("", [
             Validators.required,
@@ -115,7 +117,6 @@ export class PatientDataFormComponent {
             ]
         }
 
-        const a = await this.insurancePlanService.getPlanRecommendations(payload);
-        console.log(a);
+        this.dataPromise = this.insurancePlanService.getPlanRecommendations(payload);
     }
 }

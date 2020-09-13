@@ -80,11 +80,53 @@
             </mat-form-field>
         </div>
     </div>
-
-    {{patientDataForm.get('age').errors}}
     
     <div>
         <button mat-flat-button color="primary" *ngIf="!patientDataForm.errors" (click)="onSubmit()">SUBMIT</button>
         <button mat-flat-button invalid *ngIf="patientDataForm.errors">SUBMIT</button>
     </div>
 </form>
+
+<div>
+    <mat-expansion-panel *ngFor="let plan of (dataPromise | async)">
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                <b>{{plan.name}}</b>
+            </mat-panel-title>
+            <mat-panel-description style="font-size:20px;">
+                <div [ngClass]="{bronze: plan.metalLevel === 'expanded bronze' || plan.metalLevel === 'bronze', silver: plan.metalLevel === 'silver', catastrophic: plan.metalLevel === 'catastrophic', platinum: plan.metalLevel === 'platinum', gold: plan.metalLevel === 'gold'}">{{plan.metalLevel.trim().toUpperCase()}}</div>
+                <p style="width:100px; text-align:end;">${{plan.cost}}</p>
+            </mat-panel-description>
+        </mat-expansion-panel-header>
+
+        <div class="price-box">
+            <p style="font-size:12px; font-weight:200">PREMIUM</p>
+            <p style="font-size:30px">${{plan.premium}}</p>
+        </div>
+
+        <div class="price-box">
+            <p style="font-size:12px; font-weight:200">OOP COST</p>
+            <p style="font-size:30px">${{plan.outOfPocket}}</p>
+        </div>
+
+        <div class="price-box">
+            <p style="font-size:12px; font-weight:200">DEDUCTIBLE</p>
+            <p style="font-size:30px">${{plan.deductible}}</p>
+        </div>
+
+        <div class="price-box">
+            <p style="font-size:12px; font-weight:200">MAXIMUM OOP</p>
+            <p style="font-size:30px">${{plan.maximumOutOfPocket}}</p>
+        </div>
+
+        <div *ngFor="let benefit of plan.benefits | keyvalue" style="margin-top:10px;">
+            <div *ngIf="benefit.value.covered">
+                <div style="display:inline-block;">
+                    <p style="font-weight:600;">{{benefit.key}}</p>
+                    <p>Some description text to describe what's going on with this benefit.</p>
+                </div>
+                <div *ngIf="benefit.value."></div>
+            </div>
+        </div>
+    </mat-expansion-panel>
+</div>

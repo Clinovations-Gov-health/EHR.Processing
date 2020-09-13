@@ -11,6 +11,8 @@ import { AppComponent } from './app.component';
 import { PatientDataFormComponent } from './components/patient-data-form/patient-data-form.component';
 import { InsurancePlanService } from './services/insurance-plan/insurance-plan.service';
 import { MatButtonModule } from '@angular/material/button';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatDividerModule } from '@angular/material/divider';
 
 @NgModule({
     declarations: [
@@ -29,6 +31,8 @@ import { MatButtonModule } from '@angular/material/button';
         MatInputModule,
         MatSelectModule,
         MatButtonModule,
+        MatExpansionModule,
+        MatDividerModule,
     ],
     providers: [
         InsurancePlanService,

@@ -13,6 +13,7 @@ import { InsurancePlanService } from './services/insurance-plan/insurance-plan.s
 import { MatButtonModule } from '@angular/material/button';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatDividerModule } from '@angular/material/divider';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 @NgModule({
     declarations: [
@@ -33,6 +34,7 @@ import { MatDividerModule } from '@angular/material/divider';
         MatButtonModule,
         MatExpansionModule,
         MatDividerModule,
+        MatSlideToggleModule,
     ],
     providers: [
         InsurancePlanService,

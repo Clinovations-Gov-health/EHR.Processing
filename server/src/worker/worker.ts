@@ -352,6 +352,24 @@ export class Worker implements Record<string, WorkerFunction> {
                         result.afterDeductible.coinsurance = afterDeductibleCoinsurance;
                     }
 
+                    if (!preDeductibleCopay && !preDeductibleCoinsurance) {
+                        result.preDeductible.copay = {
+                            amount: 0,
+                            isPercent: false,
+                            deductibleStatus: "before",
+                            frequency: "once",
+                        };
+                    }
+
+                    if (!afterDeductibleCopay && !afterDeductibleCoinsurance) {
+                        result.afterDeductible.copay = {
+                            amount: 0,
+                            isPercent: false,
+                            deductibleStatus: "after",
+                            frequency: "once",
+                        };
+                    }
+
                     return result;
                 });
 

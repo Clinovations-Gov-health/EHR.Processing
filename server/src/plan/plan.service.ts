@@ -1,15 +1,12 @@
 import { FastifyInstance } from 'fastify';
-import { mapValues, pick } from 'lodash';
-import moment from 'moment';
 import { Inject } from '../util/decorators/inject.decorator';
 import { Injectable } from '../util/decorators/injectable.decorator';
 import { MongoService } from '../util/service/mongo.service';
+import { WorkerService } from '../worker/worker.service';
 import { Plan } from './interface/db/plan';
 import { RatingAreaModel } from './interface/db/rating-area';
 import { RecommendationEHRData } from './interface/payload';
 import { PlanRecommendationReturnPayload } from './interface/return-payload';
-import { assertEquals } from 'typescript-is';
-import { WorkerService } from '../worker/worker.service';
 
 @Injectable()
 export class PlanService {

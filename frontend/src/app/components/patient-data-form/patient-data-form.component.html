@@ -1,4 +1,4 @@
-<form [formGroup]="patientDataForm">
+<form [formGroup]="patientDataForm" *ngIf="!hasData">
     <div>
         <mat-form-field appearance="legacy">
             <mat-label>Zipcode</mat-label>
@@ -80,14 +80,20 @@
             </mat-form-field>
         </div>
     </div>
-    
+
     <div>
         <button mat-flat-button color="primary" *ngIf="!patientDataForm.errors" (click)="onSubmit()">SUBMIT</button>
         <button mat-flat-button invalid *ngIf="patientDataForm.errors">SUBMIT</button>
     </div>
 </form>
 
-<div>
+<div *ngIf="hasData">
+    <div align="right">
+        <mat-slide-toggle [checked]="showingPreDeductible" (change)="showingPreDeductible=$event.checked">
+            Pre-Deductible
+        </mat-slide-toggle>
+    </div>
+
     <mat-expansion-panel *ngFor="let plan of (dataPromise | async)">
         <mat-expansion-panel-header>
             <mat-panel-title>
@@ -121,26 +127,18 @@
 
         <div *ngFor="let benefit of plan.benefits | keyvalue" style="margin-top:10px;">
             {{benefit.value.covered}}
-            <div *ngIf="benefit.value.covered">
-                <div style="display:inline-block;">
+            <div style="display:flex;">
+                <div style="flex:auto;">
                     <p style="font-weight:600;">{{benefit.key}}</p>
                     <p>Some description text to describe what's going on with this benefit.</p>
                 </div>
-                <div style="display:inline-block;" class="price-box" *ngIf="benefit.preDeductible.copay">
-                    <p style="font-size:12px; font-weight:200">PREDEDUCITBLE COPAY</p>
-                    <p style="font-size:30px">${{benefit.preDeductible.copay.amount}}</p>
+                <div style="display:flex; justify-content:flex-end; width:30px; flex-wrap:wrap" *ngIf="(showingPreDeductible && benefit.value.preDeductible.copay) || (!showingPreDeductible && benefit.value.afterDeductible.copay)">
+                    <div style="font-size:12px; font-weight:200">COPAY</div>
+                    <div style="font-size:30px">${{showingPreDeductible ? benefit.value.preDeductible.copay.amount : benefit.value.afterDeductible.copay.amount}}</div>
                 </div>
-                <div style="display:inline-block;" class="price-box" *ngIf="benefit.preDeductible.coinsurance">
-                    <p style="font-size:12px; font-weight:200">PREDEDUCTIBLE COINSURANCE</p>
-                    <p style="font-size:30px">{{benefit.preDeductible.coinsurance.amount}}%</p>
-                </div>
-                <div style="display:inline-block;" class="price-box" *ngIf="benefit.afterDeductible.copay">
-                    <p style="font-size:12px; font-weight:200">POSTDEDUCTIBLE COPAY</p>
-                    <p style="font-size:30px">${{benefit.afterDeductible.copay.amount}}</p>
-                </div>
-                <div style="display:inline-block;" class="price-box" *ngIf="benefit.afterDeductible.coinsurance">
-                    <p style="font-size:12px; font-weight:200">POSTDEDUCTIBLE COINSURANCE</p>
-                    <p style="font-size:30px">{{benefit.afterDeductible.coinsurance.amount}}%</p>
+                <div style="display:flex; justify-content:flex-end; width:30px; flex-wrap:wrap" *ngIf="(showingPreDeductible && benefit.value.preDeductible.coinsurance) || (!showingPreDeductible && benefit.value.afterDeductible.coinsurance)">
+                    <div style="font-size:12px; font-weight:200">COINSURANCE</div>
+                    <div style="font-size:30px">{{showingPreDeductible ? benefit.value.preDeductible.coinsurance.amount : benefit.value.afterDeductible.coinsurance.amount}}%</div>
                 </div>
             </div>
         </div>

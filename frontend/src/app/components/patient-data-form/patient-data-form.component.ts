@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { every } from 'lodash';
-import { PlanRecommendationPayload, PlanRecommendationReturnPayload } from '../../services/insurance-plan/insurance-plan.interface';
+import { PlanRecommendationReturnPayload } from '../../services/insurance-plan/insurance-plan.interface';
 import { InsurancePlanService } from '../../services/insurance-plan/insurance-plan.service';
 
 @Component({
@@ -11,6 +11,9 @@ import { InsurancePlanService } from '../../services/insurance-plan/insurance-pl
 })
 export class PatientDataFormComponent {
     dataPromise: Promise<PlanRecommendationReturnPayload>;
+
+    hasData: boolean = false;
+    showingPreDeductible: boolean = true;
 
     patientDataForm = new FormGroup({
         zipCode: new FormControl("", [
@@ -117,6 +120,10 @@ export class PatientDataFormComponent {
             ]
         }
 
-        this.dataPromise = this.insurancePlanService.getPlanRecommendations(payload);
+        this.dataPromise = this.insurancePlanService.getPlanRecommendations(payload)
+            .then(res => {
+                this.hasData = true;
+                return res;
+            });
     }
 }

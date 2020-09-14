@@ -65,7 +65,10 @@ export type PlanRecommendationReturnPayload = {
     type: PlanType,
     cost: number,
     name: string;
-    benefits: Record<string, { covered: false } | { covered: true, details: [ BenefitItemCostSharingScheme ] | [ BenefitItemCostSharingScheme, BenefitItemCostSharingScheme ]}>;
+    benefits: Record<string, {
+        preDeductible: { copay?: BenefitItemCostSharingScheme, coinsurance?: BenefitItemCostSharingScheme },
+        afterDeductible: { copay?: BenefitItemCostSharingScheme, coinsurance?: BenefitItemCostSharingScheme },
+    }>;
 }[];
 
 

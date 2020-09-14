@@ -5,7 +5,6 @@ import { WorkerFunction } from 'threads/dist/types/worker';
 import { match, __ } from 'ts-pattern';
 import { assertEquals } from 'typescript-is';
 import { isMainThread } from 'worker_threads';
-import { BenefitItemCostSharingScheme } from '../plan/interface/db/cost-sharing';
 import { Plan } from '../plan/interface/db/plan';
 import { RatingAreaModel } from '../plan/interface/db/rating-area';
 import { RecommendationEHRData } from '../plan/interface/payload';
@@ -239,6 +238,8 @@ export class Worker implements Record<string, WorkerFunction> {
                 duration: moment.duration(moment(procedure.period.end).diff(moment(procedure.period.start))),
             };
         });
+
+        console.log(plans.length);
 
         const result = plans
             .map<PlanRecommendationReturnPayload extends Array<infer P> ? P : never>(plan => {

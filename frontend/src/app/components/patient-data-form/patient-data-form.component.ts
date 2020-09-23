@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { every } from 'lodash';
 import { PlanRecommendationReturnPayload } from '../../services/insurance-plan/insurance-plan.interface';
 import { InsurancePlanService } from '../../services/insurance-plan/insurance-plan.service';
+import FHIR from 'fhirclient';
 
 @Component({
     selector: 'app-patient-data-form',
@@ -76,6 +77,20 @@ export class PatientDataFormComponent {
                     this.patientDataForm.get('hasSpouse').enable();
             }
         });
+    }
+
+    async onPressed() {
+        try {
+            await FHIR.oauth2.authorize({
+                iss: "https://fhir.epic.com/interconnect-fhir-oauth/api/FHIR/R4/",
+                scope: "patient/Patient.read patient/Observation.read launch/patient online_access openid profile",
+                clientId: "cfc9a653-503b-4c86-ae77-c67c343a6142",
+            });
+    
+            const client = await FHIR.oauth2.ready();
+        } catch (e) {
+            console.log(e);
+        }
     }
 
     async onSubmit() {

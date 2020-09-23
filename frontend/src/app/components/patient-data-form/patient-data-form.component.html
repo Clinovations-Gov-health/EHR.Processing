@@ -1,3 +1,5 @@
+<button (click)="onPressed()"></button>
+
 <form [formGroup]="patientDataForm" *ngIf="!hasData">
     <div>
         <mat-form-field appearance="legacy">
@@ -105,24 +107,43 @@
             </mat-panel-description>
         </mat-expansion-panel-header>
 
-        <div class="price-box">
-            <p style="font-size:12px; font-weight:200">PREMIUM</p>
-            <p style="font-size:30px">${{plan.premium | number:'1.2-2'}}</p>
+        <div>
+            <div class="price-box">
+                <p style="font-size:12px; font-weight:200">MONTHLY PREMIUM</p>
+                <p style="font-size:30px">${{plan.premium | number:'1.2-2'}}</p>
+            </div>
+    
+            <div class="price-box">
+                <p style="font-size:12px; font-weight:200">ANNUAL PREMIUM COST</p>
+                <p style="font-size:30px">${{plan.premium * 12 | number:'1.2-2'}}</p>
+            </div>
+    
+            <div class="price-box">
+                <p style="font-size:12px; font-weight:200">ESTIMATED OOP COST</p>
+                <p style="font-size:30px">${{plan.outOfPocket | number:'1.2-2'}}</p>
+            </div>
+    
+            <div class="price-box">
+                <p style="font-size:12px; font-weight:200">TOTAL ESTIMATED MEDICAL COST</p>
+                <p style="font-size:30px">${{plan.cost | number:'1.2-2'}}</p>
+            </div>
         </div>
 
-        <div class="price-box">
-            <p style="font-size:12px; font-weight:200">OOP COST</p>
-            <p style="font-size:30px">${{plan.outOfPocket | number:'1.2-2'}}</p>
-        </div>
-
-        <div class="price-box">
-            <p style="font-size:12px; font-weight:200">DEDUCTIBLE</p>
-            <p style="font-size:30px">${{plan.deductible | number:'1.2-2'}}</p>
-        </div>
-
-        <div class="price-box">
-            <p style="font-size:12px; font-weight:200">MAXIMUM OOP</p>
-            <p style="font-size:30px">${{plan.maximumOutOfPocket | number:'1.2-2'}}</p>
+        <div>
+            <div class="price-box">
+                <p style="font-size:12px; font-weight:200">DEDUCTIBLE</p>
+                <p style="font-size:30px">${{plan.deductible | number:'1.2-2'}}</p>
+            </div>
+    
+            <div class="price-box">
+                <p style="font-size:12px; font-weight:200">MAXIMUM OOP</p>
+                <p style="font-size:30px">${{plan.maximumOutOfPocket | number:'1.2-2'}}</p>
+            </div>
+    
+            <div class="price-box">
+                <p style="font-size:12px; font-weight:200">MAXIMUM POSSIBLE MEDICAL COST</p>
+                <p style="font-size:30px">${{plan.maximumOutOfPocket + plan.premium * 12 | number:'1.2-2'}}</p>
+            </div>
         </div>
 
         <div *ngFor="let benefit of plan.benefits | keyvalue" style="margin-top:10px;">

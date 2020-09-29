@@ -56,7 +56,16 @@ export interface PatientProcedure {
     }
 }
 
-export type PlanRecommendationReturnPayload = {
+export interface PlanRecommendationReturnPayload {
+    costSortIds: string[];
+    oopSortIds: string[];
+    deductibleSortIds: string[];
+    premiumSortIds: string[];
+    maximumOOPSortIds: string[];
+    plans: Record<string, PlanRecommendationReturnPayloadPlanInfo>;
+}
+
+export interface PlanRecommendationReturnPayloadPlanInfo {
     deductible: number;
     premium: number;
     outOfPocket: number;
@@ -69,7 +78,7 @@ export type PlanRecommendationReturnPayload = {
         preDeductible: { copay?: BenefitItemCostSharingScheme, coinsurance?: BenefitItemCostSharingScheme },
         afterDeductible: { copay?: BenefitItemCostSharingScheme, coinsurance?: BenefitItemCostSharingScheme },
     }>;
-}[];
+};
 
 
 /**************** COMMON TYPES *******************/

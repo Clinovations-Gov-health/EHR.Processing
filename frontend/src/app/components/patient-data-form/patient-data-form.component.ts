@@ -5,6 +5,14 @@ import { PlanRecommendationReturnPayload } from '../../services/insurance-plan/i
 import { InsurancePlanService } from '../../services/insurance-plan/insurance-plan.service';
 import FHIR from 'fhirclient';
 
+enum SortCriterion {
+    COST = 1,
+    OOP = 2,
+    DEDUCTIBLE = 3,
+    PREMIUM = 4,
+    MAXIMUM_OOP = 5,
+}
+
 @Component({
     selector: 'app-patient-data-form',
     templateUrl: './patient-data-form.component.html',
@@ -15,6 +23,7 @@ export class PatientDataFormComponent {
 
     hasData: boolean = false;
     showingPreDeductible: boolean = true;
+    sortingCriterion: SortCriterion = SortCriterion.COST;
 
     patientDataForm = new FormGroup({
         zipCode: new FormControl("", [
@@ -93,6 +102,33 @@ export class PatientDataFormComponent {
         }
     }
 
+    async getPlans(criterion: SortCriterion) {
+        let ids: string[];
+        const data = await this.dataPromise;
+        switch (criterion) {
+            case SortCriterion.COST:
+                ids = data.costSortIds;
+                break;
+
+            case SortCriterion.DEDUCTIBLE:
+                ids = data.deductibleSortIds;
+                break;
+
+            case SortCriterion.MAXIMUM_OOP:
+                ids = data.maximumOOPSortIds;
+                break;
+
+            case SortCriterion.OOP:
+                ids = data.oopSortIds;
+                break;
+
+            case SortCriterion.PREMIUM:
+                ids = data.premiumSortIds;
+        }
+
+        return ids.map(id => data.plans[id]);
+    }
+
     async onSubmit() {
         const rawPayload = this.patientDataForm.value;
         this.patientDataForm.disable();
@@ -137,6 +173,7 @@ export class PatientDataFormComponent {
 
         this.dataPromise = this.insurancePlanService.getPlanRecommendations(payload)
             .then(res => {
+                console.log("I'm here");
                 this.hasData = true;
                 return res;
             });

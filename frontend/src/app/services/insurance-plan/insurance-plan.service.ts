@@ -15,6 +15,6 @@ export class InsurancePlanService {
 
     getPlanRecommendations(payload: PlanRecommendationPayload): Promise<PlanRecommendationReturnPayload> {
         const encodedPayload: string = Array.prototype.map.call(encode(payload), (x: number) => ('00' + x.toString(16)).slice(-2)).join('');
-        return this.http.get(`${this.backendAddress}/plan/recommendation?data=${encodedPayload}`, { responseType: 'json' }).toPromise() as Promise<PlanRecommendationReturnPayload>;
+        return this.http.get<PlanRecommendationReturnPayload>(`${this.backendAddress}/plan/recommendation?data=${encodedPayload}`, { responseType: 'json' }).toPromise();
     }
 }

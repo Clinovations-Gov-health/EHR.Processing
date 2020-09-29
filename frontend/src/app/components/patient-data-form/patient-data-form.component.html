@@ -96,7 +96,7 @@
         </mat-slide-toggle>
     </div>
 
-    <mat-expansion-panel *ngFor="let plan of (dataPromise | async)">
+    <mat-expansion-panel *ngFor="let plan of (getPlans(sortingCriterion) | async)">
         <mat-expansion-panel-header>
             <mat-panel-title>
                 <b>{{plan.name}}</b>

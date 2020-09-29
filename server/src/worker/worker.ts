@@ -1,4 +1,4 @@
-import { mapValues, pick } from 'lodash';
+import { keyBy, mapValues, pick, union } from 'lodash';
 import moment from 'moment';
 import { expose } from 'threads';
 import { WorkerFunction } from 'threads/dist/types/worker';
@@ -8,7 +8,7 @@ import { isMainThread } from 'worker_threads';
 import { Plan } from '../plan/interface/db/plan';
 import { RatingAreaModel } from '../plan/interface/db/rating-area';
 import { RecommendationEHRData } from '../plan/interface/payload';
-import { PlanRecommendationReturnPayload } from '../plan/interface/return-payload';
+import { PlanRecommendationReturnPayload, PlanRecommendationReturnPayloadPlanInfo } from '../plan/interface/return-payload';
 
 const categoryMappings: Record<string, [number, string]> = {
     '185349003': [150, 'Primary Care Visit to Treat an Injury or Illness'],
@@ -242,7 +242,7 @@ export class Worker implements Record<string, WorkerFunction> {
         console.log(plans.length);
 
         const result = plans
-            .map<PlanRecommendationReturnPayload extends Array<infer P> ? P : never>(plan => {
+            .map<PlanRecommendationReturnPayloadPlanInfo>(plan => {
                 const deductible = this.getDeductibleInformation(plan);
 
                 const outOfPocket = [...encounters, ...procedures]
@@ -327,8 +327,8 @@ export class Worker implements Record<string, WorkerFunction> {
                 const ceiledOOP = moop ? Math.min(moop, outOfPocket) : outOfPocket;
 
                 const payloadBenefits = Object.keys(plan.benefits).filter(benefitName => plan.benefits[benefitName].covered && Object.values(categoryMappings).map(tp => tp[1]).includes(benefitName));
-                const benefits: PlanRecommendationReturnPayload[number]["benefits"] = mapValues(pick(plan.benefits, payloadBenefits), benefit => {
-                    const result: PlanRecommendationReturnPayload[number]["benefits"][string] = { preDeductible: {}, afterDeductible: {} };
+                const benefits: PlanRecommendationReturnPayloadPlanInfo["benefits"] = mapValues(pick(plan.benefits, payloadBenefits), benefit => {
+                    const result: PlanRecommendationReturnPayloadPlanInfo["benefits"][string] = { preDeductible: {}, afterDeductible: {} };
                     if (!benefit.covered) {
                         throw new Error("Invalid code path.");
                     }
@@ -384,17 +384,28 @@ export class Worker implements Record<string, WorkerFunction> {
                     name: `${plan.marketingName} ${plan.variationType}`,
                     benefits,
                 };
-            })
-            .sort((res1, res2) => (res1.cost < res2.cost ? -1 : 1));
+            });
 
-        assertEquals<PlanRecommendationReturnPayload>(result);
+        const costSortIds = result.sort((plan1, plan2) => plan1.cost < plan2.cost ? -1 : 1).slice(0, 3).map(plan => plan.name);
+        const oopSortIds = result.sort((plan1, plan2) => plan1.outOfPocket < plan2.outOfPocket ? -1 : 1).slice(0, 3).map(plan => plan.name);
+        const deductibleSortIds = result.sort((plan1, plan2) => plan1.deductible < plan2.deductible ? -1 : 1).slice(0, 3).map(plan => plan.name);
+        const premiumSortIds = result.sort((plan1, plan2) => plan1.premium < plan2.premium ? -1 : 1).slice(0, 3).map(plan => plan.name);
+        const maximumOOPSortIds = result.sort((plan1, plan2) => plan1.maximumOutOfPocket < plan2.maximumOutOfPocket ? -1 : 1).slice(0, 3).map(plan => plan.name);
 
-        console.log("Name, Premium, OutOfPocket, Cost, Deductible, MaximumOutOfPocket, Type, MetalLevel")
-        result.forEach(planResult => {
-            console.log(`${planResult.name}, ${planResult.premium}, ${planResult.outOfPocket}, ${planResult.cost}, ${planResult.deductible}, ${planResult.maximumOutOfPocket}, ${planResult.type}, ${planResult.metalLevel}`);
-        })
+        // A list of name of plans that need to be included in the payload.
+        const requiredPlans = union(costSortIds, oopSortIds, deductibleSortIds, premiumSortIds, maximumOOPSortIds);
+        const payload: PlanRecommendationReturnPayload = {
+            costSortIds,
+            oopSortIds,
+            deductibleSortIds,
+            premiumSortIds,
+            maximumOOPSortIds,
+            plans: keyBy(result.filter(plan => requiredPlans.includes(plan.name)), "name"),
+        };
+        assertEquals<PlanRecommendationReturnPayload>(payload);
+        console.log(requiredPlans);
 
-        return result.slice(0, 5);
+        return payload;
     }
 }
 

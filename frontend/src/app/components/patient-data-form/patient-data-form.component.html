@@ -1,5 +1,3 @@
-<button (click)="onPressed()"></button>
-
 <form [formGroup]="patientDataForm" *ngIf="!hasData">
     <div>
         <mat-form-field appearance="legacy">
@@ -90,13 +88,21 @@
 </form>
 
 <div *ngIf="hasData">
+    <div style="display:flex; align-self: flex-end;">
+        <mat-label style="margin-right:15px">Sort By</mat-label>
+        <mat-select [(value)]="sortingCriterion" style="width:100px">
+            <mat-option *ngFor="let criterion of sortingCriterions" [value]="criterion">
+                {{criterion}}
+            </mat-option>
+        </mat-select>
+    </div>
     <div align="right">
         <mat-slide-toggle [checked]="showingPreDeductible" (change)="showingPreDeductible=$event.checked">
             Pre-Deductible
         </mat-slide-toggle>
     </div>
 
-    <mat-expansion-panel *ngFor="let plan of (getPlans(sortingCriterion) | async)">
+    <mat-expansion-panel *ngFor="let plan of getPlans(sortingCriterion)">
         <mat-expansion-panel-header>
             <mat-panel-title>
                 <b>{{plan.name}}</b>

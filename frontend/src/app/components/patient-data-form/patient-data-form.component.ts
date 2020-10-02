@@ -5,13 +5,8 @@ import { PlanRecommendationReturnPayload } from '../../services/insurance-plan/i
 import { InsurancePlanService } from '../../services/insurance-plan/insurance-plan.service';
 import FHIR from 'fhirclient';
 
-enum SortCriterion {
-    COST = 1,
-    OOP = 2,
-    DEDUCTIBLE = 3,
-    PREMIUM = 4,
-    MAXIMUM_OOP = 5,
-}
+const SortCriterions = ["cost", "oop", "deductible", "premium", "maximum oop"] as const;
+type SortCriterion = typeof SortCriterions[number];
 
 @Component({
     selector: 'app-patient-data-form',
@@ -19,11 +14,13 @@ enum SortCriterion {
     styleUrls: ['./patient-data-form.component.scss']
 })
 export class PatientDataFormComponent {
-    dataPromise: Promise<PlanRecommendationReturnPayload>;
+    data: PlanRecommendationReturnPayload;
 
     hasData: boolean = false;
     showingPreDeductible: boolean = true;
-    sortingCriterion: SortCriterion = SortCriterion.COST;
+    sortingCriterion: SortCriterion = "cost";
+
+    readonly sortingCriterions = SortCriterions;
 
     patientDataForm = new FormGroup({
         zipCode: new FormControl("", [
@@ -102,31 +99,32 @@ export class PatientDataFormComponent {
         }
     }
 
-    async getPlans(criterion: SortCriterion) {
+    getPlans(criterion: SortCriterion) {
         let ids: string[];
-        const data = await this.dataPromise;
         switch (criterion) {
-            case SortCriterion.COST:
-                ids = data.costSortIds;
+            case "cost":
+                ids = this.data.costSortIds;
                 break;
 
-            case SortCriterion.DEDUCTIBLE:
-                ids = data.deductibleSortIds;
+            case "deductible":
+                ids = this.data.deductibleSortIds;
                 break;
 
-            case SortCriterion.MAXIMUM_OOP:
-                ids = data.maximumOOPSortIds;
+            case "maximum oop":
+                ids = this.data.maximumOOPSortIds;
                 break;
 
-            case SortCriterion.OOP:
-                ids = data.oopSortIds;
+            case "oop":
+                ids = this.data.oopSortIds;
                 break;
 
-            case SortCriterion.PREMIUM:
-                ids = data.premiumSortIds;
+            case "premium":
+                ids = this.data.premiumSortIds;
         }
 
-        return ids.map(id => data.plans[id]);
+        console.log(ids);
+
+        return ids.map(id => this.data.plans[id]);
     }
 
     async onSubmit() {
@@ -171,10 +169,10 @@ export class PatientDataFormComponent {
             ]
         }
 
-        this.dataPromise = this.insurancePlanService.getPlanRecommendations(payload)
+        return this.insurancePlanService.getPlanRecommendations(payload)
             .then(res => {
-                console.log("I'm here");
                 this.hasData = true;
+                this.data = res;
                 return res;
             });
     }

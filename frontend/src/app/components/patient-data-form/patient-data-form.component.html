@@ -82,8 +82,17 @@
     </div>
 
     <div>
-        <button mat-flat-button color="primary" *ngIf="!patientDataForm.errors" (click)="onSubmit()">SUBMIT</button>
-        <button mat-flat-button invalid *ngIf="patientDataForm.errors">SUBMIT</button>
+        <button mat-flat-button color="accent" (click)="onPressed()" *ngIf="!fhirService.authenticated; else connectWithCernerElseBlock">Connect With Cerner</button>
+        <ng-template #connectWithCernerElseBlock>
+            <div>
+                {{(patient | async)?.name[0].given[0]}}
+            </div>
+        </ng-template>
+    </div>
+
+    <div>
+        <button mat-flat-button color="primary" *ngIf="!patientDataForm.errors; else submitButtonElseBlock" (click)="onSubmit()">SUBMIT</button>
+        <ng-template #submitButtonElseBlock><button mat-flat-button invalid *ngIf="patientDataForm.errors">SUBMIT</button></ng-template>
     </div>
 </form>
 

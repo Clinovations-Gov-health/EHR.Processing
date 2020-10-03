@@ -1,9 +1,11 @@
+import { R4 } from '@ahryman40k/ts-fhir-types';
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 import { every } from 'lodash';
+import { FhirService } from '../../services/fhir.service';
 import { PlanRecommendationReturnPayload } from '../../services/insurance-plan/insurance-plan.interface';
 import { InsurancePlanService } from '../../services/insurance-plan/insurance-plan.service';
-import FHIR from 'fhirclient';
 
 const SortCriterions = ["cost", "oop", "deductible", "premium", "maximum oop"] as const;
 type SortCriterion = typeof SortCriterions[number];
@@ -21,6 +23,8 @@ export class PatientDataFormComponent {
     sortingCriterion: SortCriterion = "cost";
 
     readonly sortingCriterions = SortCriterions;
+
+    patient: Promise<R4.IPatient>;
 
     patientDataForm = new FormGroup({
         zipCode: new FormControl("", [
@@ -66,7 +70,11 @@ export class PatientDataFormComponent {
         }
     }});
 
-    constructor(private readonly insurancePlanService: InsurancePlanService) {
+    constructor(
+        private readonly insurancePlanService: InsurancePlanService, 
+        readonly fhirService: FhirService,
+        route: ActivatedRoute,
+    ) {
         this.patientDataForm.get('target').valueChanges.subscribe(change => {
             switch (change) {
                 case 'individual':
@@ -83,20 +91,18 @@ export class PatientDataFormComponent {
                     this.patientDataForm.get('hasSpouse').enable();
             }
         });
+
+        if (route.snapshot.queryParams.redirected) {
+            this.patient = this.fhirService.initializeClient()
+                .then(_ => {
+                    console.log("I'm here 1");
+                    return this.fhirService.getPatient();
+                });
+        }
     }
 
-    async onPressed() {
-        try {
-            await FHIR.oauth2.authorize({
-                iss: "https://fhir.epic.com/interconnect-fhir-oauth/api/FHIR/R4/",
-                scope: "patient/Patient.read patient/Observation.read launch/patient online_access openid profile",
-                clientId: "cfc9a653-503b-4c86-ae77-c67c343a6142",
-            });
-    
-            const client = await FHIR.oauth2.ready();
-        } catch (e) {
-            console.log(e);
-        }
+    onPressed() {
+        this.fhirService.authenticate();
     }
 
     getPlans(criterion: SortCriterion) {

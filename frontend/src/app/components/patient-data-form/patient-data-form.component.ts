@@ -1,14 +1,10 @@
 import { R4 } from '@ahryman40k/ts-fhir-types';
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { every } from 'lodash';
-import { FhirService } from '../../services/fhir.service';
-import { PlanRecommendationReturnPayload } from '../../services/insurance-plan/insurance-plan.interface';
+import { FhirProviders, FhirService } from '../../services/fhir.service';
 import { InsurancePlanService } from '../../services/insurance-plan/insurance-plan.service';
-
-const SortCriterions = ["cost", "oop", "deductible", "premium", "maximum oop"] as const;
-type SortCriterion = typeof SortCriterions[number];
 
 @Component({
     selector: 'app-patient-data-form',
@@ -16,14 +12,6 @@ type SortCriterion = typeof SortCriterions[number];
     styleUrls: ['./patient-data-form.component.scss']
 })
 export class PatientDataFormComponent {
-    data: PlanRecommendationReturnPayload;
-
-    hasData: boolean = false;
-    showingPreDeductible: boolean = true;
-    sortingCriterion: SortCriterion = "cost";
-
-    readonly sortingCriterions = SortCriterions;
-
     patient: Promise<R4.IPatient>;
 
     patientDataForm = new FormGroup({
@@ -56,6 +44,10 @@ export class PatientDataFormComponent {
                 : { numChildren: "Must be a nonnegative integer." },
         ]),
     }, { validators: (control: FormGroup) => {
+        if (!this.fhirService.authenticated) {
+            return { errorText: "Haven't connected with Fhir service." };
+        }
+
         if (control.get('target').value === 'individual') {
             every(control.controls, control => control.valid);
             return control.get('usesTobacco').enabled && control.get('age').enabled && every(control.controls, control => control.disabled || control.valid)
@@ -74,6 +66,7 @@ export class PatientDataFormComponent {
         private readonly insurancePlanService: InsurancePlanService, 
         readonly fhirService: FhirService,
         route: ActivatedRoute,
+        private readonly router: Router,
     ) {
         this.patientDataForm.get('target').valueChanges.subscribe(change => {
             switch (change) {
@@ -93,44 +86,12 @@ export class PatientDataFormComponent {
         });
 
         if (route.snapshot.queryParams.redirected) {
-            this.patient = this.fhirService.initializeClient()
-                .then(_ => {
-                    console.log("I'm here 1");
-                    return this.fhirService.getPatient();
-                });
+            this.patient = this.fhirService.getPatient();
         }
     }
 
-    onPressed() {
-        this.fhirService.authenticate();
-    }
-
-    getPlans(criterion: SortCriterion) {
-        let ids: string[];
-        switch (criterion) {
-            case "cost":
-                ids = this.data.costSortIds;
-                break;
-
-            case "deductible":
-                ids = this.data.deductibleSortIds;
-                break;
-
-            case "maximum oop":
-                ids = this.data.maximumOOPSortIds;
-                break;
-
-            case "oop":
-                ids = this.data.oopSortIds;
-                break;
-
-            case "premium":
-                ids = this.data.premiumSortIds;
-        }
-
-        console.log(ids);
-
-        return ids.map(id => this.data.plans[id]);
+    connectWithFhir(provider: FhirProviders) {
+        this.fhirService.authenticate(provider);
     }
 
     async onSubmit() {
@@ -175,11 +136,7 @@ export class PatientDataFormComponent {
             ]
         }
 
-        return this.insurancePlanService.getPlanRecommendations(payload)
-            .then(res => {
-                this.hasData = true;
-                this.data = res;
-                return res;
-            });
+        this.insurancePlanService.fetchPlanRecommendations(payload);
+        this.router.navigateByUrl("/result");
     }
 }

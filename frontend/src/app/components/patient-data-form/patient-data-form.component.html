@@ -1,4 +1,4 @@
-<form [formGroup]="patientDataForm" *ngIf="!hasData">
+<form [formGroup]="patientDataForm">
     <div>
         <mat-form-field appearance="legacy">
             <mat-label>Zipcode</mat-label>
@@ -82,7 +82,10 @@
     </div>
 
     <div>
-        <button mat-flat-button color="accent" (click)="onPressed()" *ngIf="!fhirService.authenticated; else connectWithCernerElseBlock">Connect With Cerner</button>
+        <div *ngIf="!fhirService.authenticated; else connectWithCernerElseBlock">
+            <button mat-flat-button color="accent" (click)="connectWithFhir('Cerner')" >Connect With Cerner</button>
+            <button mat-flat-button color="accent" (click)="connectWithFhir('Athena')" >Connect With Athena</button>
+        </div>
         <ng-template #connectWithCernerElseBlock>
             <div>
                 {{(patient | async)?.name[0].given[0]}}
@@ -92,91 +95,9 @@
 
     <div>
         <button mat-flat-button color="primary" *ngIf="!patientDataForm.errors; else submitButtonElseBlock" (click)="onSubmit()">SUBMIT</button>
-        <ng-template #submitButtonElseBlock><button mat-flat-button invalid *ngIf="patientDataForm.errors">SUBMIT</button></ng-template>
+        <ng-template #submitButtonElseBlock>
+            <button mat-flat-button invalid>SUBMIT</button>
+            <mat-error>{{patientDataForm.errors.errorText}}</mat-error>
+        </ng-template>
     </div>
 </form>
-
-<div *ngIf="hasData">
-    <div style="display:flex; align-self: flex-end;">
-        <mat-label style="margin-right:15px">Sort By</mat-label>
-        <mat-select [(value)]="sortingCriterion" style="width:100px">
-            <mat-option *ngFor="let criterion of sortingCriterions" [value]="criterion">
-                {{criterion}}
-            </mat-option>
-        </mat-select>
-    </div>
-    <div align="right">
-        <mat-slide-toggle [checked]="showingPreDeductible" (change)="showingPreDeductible=$event.checked">
-            Pre-Deductible
-        </mat-slide-toggle>
-    </div>
-
-    <mat-expansion-panel *ngFor="let plan of getPlans(sortingCriterion)">
-        <mat-expansion-panel-header>
-            <mat-panel-title>
-                <b>{{plan.name}}</b>
-            </mat-panel-title>
-            <mat-panel-description style="font-size:20px;">
-                <div [ngClass]="{bronze: plan.metalLevel === 'expanded bronze' || plan.metalLevel === 'bronze', silver: plan.metalLevel === 'silver', catastrophic: plan.metalLevel === 'catastrophic', platinum: plan.metalLevel === 'platinum', gold: plan.metalLevel === 'gold'}">{{plan.metalLevel.trim().toUpperCase()}}</div>
-                <p style="width:100px; text-align:end;">${{plan.cost | number:'1.2-2'}}</p>
-            </mat-panel-description>
-        </mat-expansion-panel-header>
-
-        <div>
-            <div class="price-box">
-                <p style="font-size:12px; font-weight:200">MONTHLY PREMIUM</p>
-                <p style="font-size:30px">${{plan.premium | number:'1.2-2'}}</p>
-            </div>
-    
-            <div class="price-box">
-                <p style="font-size:12px; font-weight:200">ANNUAL PREMIUM COST</p>
-                <p style="font-size:30px">${{plan.premium * 12 | number:'1.2-2'}}</p>
-            </div>
-    
-            <div class="price-box">
-                <p style="font-size:12px; font-weight:200">ESTIMATED OOP COST</p>
-                <p style="font-size:30px">${{plan.outOfPocket | number:'1.2-2'}}</p>
-            </div>
-    
-            <div class="price-box">
-                <p style="font-size:12px; font-weight:200">TOTAL ESTIMATED MEDICAL COST</p>
-                <p style="font-size:30px">${{plan.cost | number:'1.2-2'}}</p>
-            </div>
-        </div>
-
-        <div>
-            <div class="price-box">
-                <p style="font-size:12px; font-weight:200">DEDUCTIBLE</p>
-                <p style="font-size:30px">${{plan.deductible | number:'1.2-2'}}</p>
-            </div>
-    
-            <div class="price-box">
-                <p style="font-size:12px; font-weight:200">MAXIMUM OOP</p>
-                <p style="font-size:30px">${{plan.maximumOutOfPocket | number:'1.2-2'}}</p>
-            </div>
-    
-            <div class="price-box">
-                <p style="font-size:12px; font-weight:200">MAXIMUM POSSIBLE MEDICAL COST</p>
-                <p style="font-size:30px">${{plan.maximumOutOfPocket + plan.premium * 12 | number:'1.2-2'}}</p>
-            </div>
-        </div>
-
-        <div *ngFor="let benefit of plan.benefits | keyvalue" style="margin-top:10px;">
-            {{benefit.value.covered}}
-            <div style="display:flex;">
-                <div style="flex:auto;">
-                    <p style="font-weight:600;">{{benefit.key}}</p>
-                    <p>Some description text to describe what's going on with this benefit.</p>
-                </div>
-                <div style="display:flex; justify-content:flex-end; width:30px; flex-wrap:wrap" *ngIf="(showingPreDeductible && benefit.value.preDeductible.copay) || (!showingPreDeductible && benefit.value.afterDeductible.copay)">
-                    <div style="font-size:12px; font-weight:200">COPAY</div>
-                    <div style="font-size:30px">${{showingPreDeductible ? benefit.value.preDeductible.copay.amount : benefit.value.afterDeductible.copay.amount}}</div>
-                </div>
-                <div style="display:flex; justify-content:flex-end; width:30px; flex-wrap:wrap" *ngIf="(showingPreDeductible && benefit.value.preDeductible.coinsurance) || (!showingPreDeductible && benefit.value.afterDeductible.coinsurance)">
-                    <div style="font-size:12px; font-weight:200">COINSURANCE</div>
-                    <div style="font-size:30px">{{showingPreDeductible ? benefit.value.preDeductible.coinsurance.amount : benefit.value.afterDeductible.coinsurance.amount}}%</div>
-                </div>
-            </div>
-        </div>
-    </mat-expansion-panel>
-</div>

@@ -14,11 +14,16 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { ErrorComponent } from './components/error/error.component';
+import { RecommendationComponent } from './components/recommendation/recommendation.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @NgModule({
     declarations: [
         AppComponent,
-        PatientDataFormComponent
+        PatientDataFormComponent,
+        ErrorComponent,
+        RecommendationComponent
     ],
     imports: [
         BrowserModule,
@@ -35,6 +40,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
         MatExpansionModule,
         MatDividerModule,
         MatSlideToggleModule,
+        MatProgressSpinnerModule,
     ],
     providers: [
         InsurancePlanService,

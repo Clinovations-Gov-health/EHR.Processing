@@ -83,8 +83,9 @@
 
     <div>
         <div *ngIf="!fhirService.authenticated; else connectWithCernerElseBlock">
-            <button mat-flat-button color="accent" (click)="connectWithFhir('Cerner')" >Connect With Cerner</button>
-            <button mat-flat-button color="accent" (click)="connectWithFhir('Athena')" >Connect With Athena</button>
+            <button mat-flat-button color="accent" (click)="connectWithFhir('Cerner')" style="margin-right: 10px" >Connect With Cerner</button>
+            <button mat-flat-button color="accent" (click)="connectWithFhir('AllScripts')" style="margin-right: 10px" >Connect With AllScripts</button>
+            <button mat-flat-button color="accent" (click)="connectWithFhir('NextGen')" style="margin-right: 10px" >Connect With NextGen</button>
         </div>
         <ng-template #connectWithCernerElseBlock>
             <div>

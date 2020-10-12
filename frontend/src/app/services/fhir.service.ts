@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
 import FHIR from 'fhirclient';
 import Client from 'fhirclient/lib/Client';
 
-export type FhirProviders = "Cerner" | "AllScripts" | "NextGen";
+export type FhirProviders = "Cerner" | "AllScripts" | "Epic";
 
 @Injectable({
     providedIn: 'root'
@@ -31,15 +31,14 @@ export class FhirService {
                     scope: "patient/Patient.read patient/Observation.read launch/patient",
                     clientId: "da8dda9a-10c5-4c1e-9b9c-666d72f341a6",
                     redirectUri: "http://localhost:4200/findPlan?redirected=true",
-                });                
+                });
                 break;
 
-            case "NextGen":
+            case "Epic":
                 FHIR.oauth2.authorize({
-                    iss: "https://fhir.nextgen.com/nge/prod/fhir-api-r4/fhir/R4",
+                    iss: "https://fhir.epic.com/interconnect-fhir-oauth/api/FHIR/DSTU2",
                     scope: "patient/Patient.read patient/Observation.read launch/patient",
-                    clientId: "l72e989d4abb2443bf9dbae5f74a8221c3",
-                    clientSecret: "833e8cd61e8142f399ba0507bbf53d49",
+                    clientId: "cfc9a653-503b-4c86-ae77-c67c343a6142",
                     redirectUri: "http://localhost:4200/findPlan?redirected=true",
                 });
                 break;

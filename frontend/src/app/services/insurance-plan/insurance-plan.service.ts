@@ -13,7 +13,7 @@ export class InsurancePlanService {
     ) { }
 
     private readonly backendAddress = "http://localhost:4000";
-    
+
     plans: BehaviorSubject<PlanRecommendationReturnPayload | null> = new BehaviorSubject(null);
 
     fetchPlanRecommendations(payload: PlanRecommendationPayload) {

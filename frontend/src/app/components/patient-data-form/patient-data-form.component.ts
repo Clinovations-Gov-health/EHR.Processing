@@ -1,4 +1,3 @@
-import { R4 } from '@ahryman40k/ts-fhir-types';
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -12,8 +11,6 @@ import { InsurancePlanService } from '../../services/insurance-plan/insurance-pl
     styleUrls: ['./patient-data-form.component.scss']
 })
 export class PatientDataFormComponent {
-    patient: Promise<R4.IPatient>;
-
     patientDataForm = new FormGroup({
         zipCode: new FormControl("", [
             Validators.required,
@@ -45,7 +42,7 @@ export class PatientDataFormComponent {
         ]),
     }, { validators: (control: FormGroup) => {
         if (!this.fhirService.authenticated) {
-            return { errorText: "Haven't connected with Fhir service." };
+            return { errorText: "Haven't connected with FHIR service." };
         }
 
         if (control.get('target').value === 'individual') {
@@ -86,7 +83,7 @@ export class PatientDataFormComponent {
         });
 
         if (route.snapshot.queryParams.redirected) {
-            this.patient = this.fhirService.getPatient();
+            this.fhirService.getPatient();
         }
     }
 

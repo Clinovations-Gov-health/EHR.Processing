@@ -2,8 +2,10 @@
 
 @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
 
+* { font-family: Helvetica }
+
 html, body { height: 100%; }
-body { margin: 10px; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { margin: 10px; }
 
 input[type=number]::-webkit-inner-spin-button, 
 input[type=number]::-webkit-outer-spin-button { 

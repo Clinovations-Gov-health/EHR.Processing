@@ -9,6 +9,7 @@ import { Plan } from '../plan/interface/db/plan';
 import { RatingAreaModel } from '../plan/interface/db/rating-area';
 import { RecommendationEHRData } from '../plan/interface/payload';
 import { PlanRecommendationReturnPayload, PlanRecommendationReturnPayloadPlanInfo } from '../plan/interface/return-payload';
+import { UserModel } from '../user/interface/user';
 
 const categoryMappings: Record<string, [number, string]> = {
     '185349003': [150, 'Primary Care Visit to Treat an Injury or Illness'],
@@ -218,8 +219,42 @@ export class Worker implements Record<string, WorkerFunction> {
         };
     };
 
-    public readonly recommendPlans = (patientData: RecommendationEHRData, plans: Plan[], ratingArea: RatingAreaModel): PlanRecommendationReturnPayload => {
-        const encounters = patientData.encounters.map((encounter) => {
+    public readonly recommendPlans = (patientData: UserModel, plans: Plan[], ratingArea: RatingAreaModel): PlanRecommendationReturnPayload => {
+        const dummyEncounters = [
+            { 
+                participants: [],
+                period: { end: "2019-10-02T11:32:43-04:00", start: "2019-10-02T11:02:43-04:00" },
+                type: [ { coding: [ { code: "185345009", display: "Encounter for symptom", system: "cpt" } ] } ],
+                class: { code: "WELLNESS" },
+            },
+            {
+                participants: [],
+                period: { end: "2019-10-02T11:32:43-04:00", start: "2019-10-02T11:02:43-04:00" },
+                type: [ { coding: [ { code: "185349003", display: "Encounter for checkup", system: "cpt" } ] } ],
+                class: { code: "WELLNESS" },
+            },
+            {
+                participants: [],
+                period: { end: "2019-10-02T11:32:43-04:00", start: "2019-10-02T11:02:43-04:00" },
+                type: [ { coding: [ { code: "50849002", display: "Emergency room admission", system: "cpt" } ] } ],
+                class: { code: "WELLNESS" },
+            },
+            {
+                participants: [],
+                period: { end: "2019-10-02T11:32:43-04:00", start: "2019-10-02T11:02:43-04:00" },
+                type: [ { coding: [ { code: "185349003", display: "Encounter for checkup", system: "cpt" } ] } ],
+                class: { code: "WELLNESS" },
+            }
+        ];
+        const dummyProcedures = [
+            {
+                period: { end: "2019-10-02T11:32:43-04:00", start: "2019-10-02T11:02:43-04:00" },
+                coding: { encoding: [{ code: "1225002", display: "Upper arm X-Ray", system: "cpt" }] },
+                encounterContext: { reference: "reference" },
+            }
+        ];
+
+        const encounters = dummyEncounters.map(encounter => {
             const [price, name] = categoryMappings[encounter.type[0].coding[0].code];
             return {
                 price,
@@ -229,7 +264,7 @@ export class Worker implements Record<string, WorkerFunction> {
             };
         });
 
-        const procedures = patientData.procedures.map((procedure) => {
+        const procedures = dummyProcedures.map(procedure => {
             const [price, name] = categoryMappings[procedure.coding.encoding[0].code];
             return {
                 price,

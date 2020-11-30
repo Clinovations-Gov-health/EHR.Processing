@@ -1,0 +1,116 @@
+<h2 style="text-align: center; font-family: Helvetica">REGISTER</h2>
+
+<form [formGroup]="registerForm">
+    <div>
+        <mat-form-field appearance="legacy">
+            <mat-label>Username</mat-label>
+            <input matInput [disabled]="working" formControlName="username">
+            <mat-error *ngIf="registerForm.get('username').invalid">
+                <div *ngIf="registerForm.get('username').errors.required">
+                    Username is required.
+                </div>
+            </mat-error>
+        </mat-form-field>
+    </div>
+
+    <div>
+        <mat-form-field appearance="legacy">
+            <mat-label>Password</mat-label>
+            <input matInput [disabled]="working" formControlName="password">
+            <mat-error *ngIf="registerForm.get('password').invalid">
+                <div *ngIf="registerForm.get('password').errors.required">
+                    Password is required.
+                </div>
+            </mat-error>
+        </mat-form-field>
+    </div>
+
+    <div style="padding-right:15px">
+        <mat-form-field appearance="legacy">
+            <mat-label>Zipcode</mat-label>
+            <input matInput [disabled]="working" formControlName="zipCode">
+            <mat-error *ngIf="registerForm.get('zipCode').invalid">
+                <div *ngIf="registerForm.get('zipCode').errors.required">
+                    Zipcode is required.
+                </div>
+                <div *ngIf="registerForm.get('zipCode').errors.pattern">
+                    Zipcode must be 5 digits.
+                </div>
+            </mat-error>
+        </mat-form-field>
+    </div>
+
+    <div style="padding-right:15px">
+        <mat-form-field appearance="legacy">
+            <mat-label>Target</mat-label>
+            <mat-select [disabled]="working" formControlName="target">
+                <mat-option value="individual">Individual</mat-option>
+                <mat-option value="family">Family</mat-option>
+            </mat-select>
+            <mat-error *ngIf="registerForm.get('target').invalid">
+                <div *ngIf="registerForm.get('target').errors.required">
+                    Target is required.
+                </div>
+            </mat-error>
+        </mat-form-field>
+    </div>
+
+    <div *ngIf="registerForm.get('target').value === 'individual'" >
+        <div style="padding-right:15px">
+            <mat-form-field appearance="legacy">
+                <mat-label>Age</mat-label>
+                <input matInput [disabled]="working" formControlName="age" type="number">
+                <mat-error *ngIf="registerForm.get('age').invalid">
+                    <div *ngIf="registerForm.get('age').errors">
+                        {{registerForm.get('age').errors.age}}
+                    </div>
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div style="padding-right:15px">
+            <mat-form-field appearance="legacy">
+                <mat-label>Tobacco Usage</mat-label>
+                <mat-select [disabled]="working" formControlName="usesTobacco">
+                    <mat-option [value]="true">I smoke tobacco</mat-option>
+                    <mat-option [value]="false">I don't smoke tobacco</mat-option>
+                </mat-select>
+                <mat-error *ngIf="registerForm.get('usesTobacco').invalid">
+                    Needs to provide a value.
+                </mat-error>
+            </mat-form-field>
+        </div>
+    </div>
+
+    <div *ngIf="registerForm.get('target').value === 'family'">
+        <div style="padding-right:15px">
+            <mat-form-field appearance="legacy">
+                <mat-label>Number of Dependents</mat-label>
+                <input matInput [disabled]="working" formControlName="numChildren" type="number">
+                <mat-error *ngIf="registerForm.get('numChildren').invalid">
+                    <div *ngIf="registerForm.get('numChildren').errors">
+                        {{registerForm.get('numChildren').errors.numChildren}}
+                    </div>
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div style="padding-right:15px">
+            <mat-form-field appearance="legacy">
+                <mat-label>Spouse</mat-label>
+                <mat-select [disabled]="working" formControlName="hasSpouse">
+                    <mat-option [value]="true">I have a spouse</mat-option>
+                    <mat-option [value]="false">I don't have a spouse</mat-option>
+                </mat-select>
+                <mat-error *ngIf="registerForm.get('hasSpouse').invalid">
+                    Needs to provide a value.
+                </mat-error>
+            </mat-form-field>
+        </div>
+    </div>
+    <div>
+        <button mat-flat-button color="primary" *ngIf="!registerForm.errors; else submitButtonElseBlock" [disabled]="working" (click)="onPressRegister()">SUBMIT</button>
+        <ng-template #submitButtonElseBlock>
+            <button mat-flat-button invalid>SUBMIT</button>
+            <mat-error>{{registerForm.errors.errorText}}</mat-error>
+        </ng-template>
+    </div>
+</form>

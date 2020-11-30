@@ -1,16 +1,17 @@
-import { FastifyReply, FastifyRequest } from 'fastify';
-import { assertEquals } from 'typescript-is';
+import { FastifyInstance, FastifyReply, FastifyRequest } from 'fastify';
+import { UserService } from '../user/user.service';
 import { Controller } from '../util/decorators/controller.decorator';
 import { Inject } from '../util/decorators/inject.decorator';
 import { Route } from '../util/decorators/route.decorator';
-import { RecommendationEHRData, RecommendationRequestQuery } from './interface/payload';
+import { RecommendationRequestQuery } from './interface/payload';
 import { PlanService } from './plan.service';
-import { decode } from 'messagepack';
 
 
 @Controller('/plan')
 export class PlanController {
     @Inject(PlanService) private readonly planService!: PlanService;
+    @Inject(UserService) private readonly userService!: UserService;
+    @Inject('Fastify') private readonly fastify!: FastifyInstance;
 
     constructor() {
         this.recommendationHandler = this.recommendationHandler.bind(this);
@@ -22,29 +23,17 @@ export class PlanController {
     @Route({
         method: 'GET',
         url: '/recommendation',
-        preValidation: (req, _, done) => {
-            const queries = req.query as any;
-            try {
-                queries.data = decode(Buffer.from(queries.data, 'hex'));
-                done();
-            } catch (e) {
-                done(e);
-            }
-        },
-        schema: { querystring: {} },
-        validatorCompiler: _ => {
-            return (query: Record<string, any>) => {
-                try {
-                    assertEquals<RecommendationEHRData>(query.data);
-                    return { value: query };
-                } catch (e) {
-                    return { error: e };
-                }
-            };
-        },
     })
     async recommendationHandler(req: FastifyRequest<{ Querystring: RecommendationRequestQuery }>, res: FastifyReply) {
-        const result = await this.planService.recommendPlan(req.query.data);
+        const authCode = req.headers.authorization?.split(' ');
+        if (!authCode || authCode.length !== 2) {
+            throw this.fastify.httpErrors.badRequest("Invalid authorization info.");
+        }
+
+        const userId = await this.userService.verifyJwtToken(authCode[1]);
+
+        const result = await this.planService.recommendPlan(userId);
+        await this.userService.updateUser(userId, { $set: { lastRecommendPlans: result }});
         return result;
     }
 }

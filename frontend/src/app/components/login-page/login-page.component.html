@@ -1,0 +1,32 @@
+<h2 style="text-align: center; font-family: Helvetica">LOGIN</h2>
+
+<form [formGroup]="loginForm">
+    <div>
+        <mat-form-field appearance="legacy">
+            <mat-label>Username</mat-label>
+            <input matInput [disabled]="working" formControlName="username">
+            <mat-error *ngIf="loginForm.get('username').invalid">
+                <div *ngIf="loginForm.get('username').errors.required">
+                    Username is required.
+                </div>
+            </mat-error>
+        </mat-form-field>
+    </div>
+
+    <div>
+        <mat-form-field appearance="legacy">
+            <mat-label>Password</mat-label>
+            <input matInput [disabled]="working" formControlName="password">
+            <mat-error *ngIf="loginForm.get('password').invalid">
+                <div *ngIf="loginForm.get('password').errors.required">
+                    Password is required.
+                </div>
+            </mat-error>
+        </mat-form-field>
+    </div>
+
+    <div>
+        <button mat-flat-button color="primary" [disabled]="working || loginForm.errors" (click)="onPressLogin()"> LOGIN </button>
+        <button mat-flat-button color="primary" [disabled]="working" (click)="onPressRegister()">REGISTER</button>
+    </div>
+</form>

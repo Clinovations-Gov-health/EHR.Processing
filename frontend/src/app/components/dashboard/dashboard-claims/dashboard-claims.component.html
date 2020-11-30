@@ -1,0 +1,24 @@
+<div>
+    <button mat-flat-button [disabled]="working" (click)="onConnect('Cerner')" style="margin-right: 10px; background-color: blue; color: #ffffff" >Connect With Cerner</button>
+    <button mat-flat-button [disabled]="working" color="accent" (click)="onConnect('AllScripts')" style="margin-right: 10px" >Connect With Allscripts</button>
+    <button mat-flat-button [disabled]="working" color="accent" (click)="onConnect('Epic')" style="margin-right: 10px" >Connect With Epic</button>
+</div>
+
+<div>
+    <div>Here's a list of your insurance claims.</div>
+    <table>
+        <tr>
+            <td>Procedure Name</td>
+            <td>Total Cost</td>
+            <td>Start Date</td>
+            <td>End Date</td>
+        </tr>
+
+        <tr *ngFor="let claim of (userService.currUser | async)?.claims">
+            <td>{{claim.diagnoses[0].name }}</td>
+            <td>{{claim.totalCost}}</td>
+            <td>{{claim.starts.format("YYYY-MM-DD")}}</td>
+            <td>{{claim.ends.format("YYYY-MM-DD")}}</td>
+        </tr>
+    </table>
+</div>

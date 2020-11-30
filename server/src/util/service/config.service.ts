@@ -4,6 +4,7 @@ import dotenv from 'dotenv';
 @Injectable()
 export class Config {
     readonly mongoDbAddress: string = "";
+    readonly jsonWebTokenKey: string = "";
 
     constructor() {
         const rawConfig = dotenv.config({ path: ".env" });

@@ -25,6 +25,8 @@ export class DiscoveryService {
     private readonly providerFiles = [
         "/plan/plan.controller",
         "/plan/plan.service",
+        "/user/user.controller",
+        "/user/user.service",
         "/util/service/config.service",
         "/util/service/mongo.service",
         "/worker/worker.service",

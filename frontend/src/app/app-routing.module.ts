@@ -1,14 +1,18 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
+import { DashboardHomepageComponent } from './components/dashboard/dashboard-homepage/dashboard-homepage.component';
 import { ErrorComponent } from './components/error/error.component';
-import { PatientDataFormComponent } from './components/patient-data-form/patient-data-form.component';
-import { RecommendationComponent } from './components/recommendation/recommendation.component';
-import { FindPlanPageRedirectGuard } from './guards/find-plan-page-redirect.guard';
+import { LoginPageComponent } from './components/login-page/login-page.component';
+import { RegisterPageComponent } from './components/register-page/register-page.component';
+import { DashboardGuard } from './guard/dashboard.guard';
 
 const routes: Routes = [
-    { path: '', redirectTo: 'findPlan', pathMatch: 'full' },
-    { path: 'findPlan', component: PatientDataFormComponent, canActivate: [FindPlanPageRedirectGuard] },
-    { path: 'result', component: RecommendationComponent },
+    { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+    // { path: 'findPlan', component: PatientDataFormComponent, canActivate: [FindPlanPageRedirectGuard] },
+    // { path: 'result', component: RecommendationComponent },
+    { path: 'dashboard', component: DashboardHomepageComponent, canActivate: [DashboardGuard]},
+    { path: 'register', component: RegisterPageComponent },
+    { path: 'login', component: LoginPageComponent },
     { path: 'error', component: ErrorComponent },
 ];
 

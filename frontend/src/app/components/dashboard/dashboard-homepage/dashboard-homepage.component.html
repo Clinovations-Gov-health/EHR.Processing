@@ -1,0 +1,15 @@
+<mat-toolbar color="primary">
+    <mat-toolbar-row>
+        <div> Welcome, {{(userService.currUser | async)?.username}}! </div>
+        <div style="width:60px"></div>
+        <button mat-button [color]="currPage === 'overview' ? 'accent' : 'basic'" (click)="currPage = 'overview'"> Overview </button>
+        <button mat-button [color]="currPage === 'profile' ? 'accent' : 'basic'" (click)="currPage = 'profile'"> Profile </button>
+        <button mat-button [color]="currPage === 'claims' ? 'accent' : 'basic'" (click)="currPage = 'claims'"> Claims </button>
+    </mat-toolbar-row>
+</mat-toolbar>
+
+<div [ngSwitch]="currPage">
+    <app-dashboard-overview *ngSwitchCase="'overview'"></app-dashboard-overview>
+    <app-dashboard-claims *ngSwitchCase="'claims'"></app-dashboard-claims>
+    <app-dashboard-profile *ngSwitchCase="'profile'"></app-dashboard-profile>
+</div>

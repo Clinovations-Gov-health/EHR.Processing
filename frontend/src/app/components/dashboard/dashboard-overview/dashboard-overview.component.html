@@ -1,4 +1,5 @@
-<div *ngIf="insurancePlanService.plans | async; else elseBlock">
+<div *ngIf="(userService.currUser | async)?.lastRecommendPlans !== null; else elseBlock">
+    <button mat-flat-button color="basic" [disabled]="isWorking" (click)="onGetNewRecommendations()"> UPDATE RECOMMENDATIONS </button>
     <div style="display:flex; align-self: flex-end;">
         <mat-label style="margin-right:15px">Sort By</mat-label>
         <mat-select [(value)]="sortingCriterion" style="width:100px">
@@ -64,7 +65,6 @@
         </div>
 
         <div *ngFor="let benefit of plan.benefits | keyvalue" style="margin-top:10px;">
-            {{benefit.value.covered}}
             <div style="display:flex;">
                 <div style="flex:auto;">
                     <p style="font-weight:600;">{{benefit.key}}</p>
@@ -83,6 +83,11 @@
     </mat-expansion-panel>
 </div>
 <ng-template #elseBlock>
-    <mat-progress-spinner [diameter]="30", [mode]="'indeterminate'", [strokeWidth]="2"></mat-progress-spinner>
-    <p>Loading</p>
+    <div *ngIf="(userService.currUser | async)?.claims?.length > 0; else errorElseBlock">
+        <p>You haven't requested a recommendation yet. </p>
+        <button mat-flat-button color="basic" [disabled]="isWorking" (click)="onGetNewRecommendations()"> GET RECOMMENDATIONS </button>
+    </div>
+    <ng-template #errorElseBlock> 
+        <p> You haven't updated claims data yet. Enter the "Claims" tab to connect to your FHIR provider. </p>
+    </ng-template>
 </ng-template>

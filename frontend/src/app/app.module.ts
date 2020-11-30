@@ -8,22 +8,31 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { PatientDataFormComponent } from './components/patient-data-form/patient-data-form.component';
 import { InsurancePlanService } from './services/insurance-plan/insurance-plan.service';
 import { MatButtonModule } from '@angular/material/button';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { ErrorComponent } from './components/error/error.component';
-import { RecommendationComponent } from './components/recommendation/recommendation.component';
+import { DashboardOverviewComponent } from './components/dashboard/dashboard-overview/dashboard-overview.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { LoginPageComponent } from './components/login-page/login-page.component';
+import { RegisterPageComponent } from './components/register-page/register-page.component';
+import { DashboardHomepageComponent } from './components/dashboard/dashboard-homepage/dashboard-homepage.component';
+import { DashboardProfileComponent } from './components/dashboard/dashboard-profile/dashboard-profile.component';
+import { DashboardClaimsComponent } from './components/dashboard/dashboard-claims/dashboard-claims.component';
 
 @NgModule({
     declarations: [
         AppComponent,
-        PatientDataFormComponent,
         ErrorComponent,
-        RecommendationComponent
+        DashboardOverviewComponent,
+        LoginPageComponent,
+        RegisterPageComponent,
+        DashboardHomepageComponent,
+        DashboardProfileComponent,
+        DashboardClaimsComponent
     ],
     imports: [
         BrowserModule,
@@ -41,6 +50,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
         MatDividerModule,
         MatSlideToggleModule,
         MatProgressSpinnerModule,
+        MatToolbarModule,
     ],
     providers: [
         InsurancePlanService,

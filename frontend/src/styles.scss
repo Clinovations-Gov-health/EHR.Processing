@@ -4,11 +4,35 @@
 
 * { font-family: Helvetica }
 
-html, body { height: 100%; }
+html, body { 
+    height: 100%;
+    background-color: #6274DD;
+}
 body { margin: 10px; }
 
 input[type=number]::-webkit-inner-spin-button, 
 input[type=number]::-webkit-outer-spin-button { 
     -webkit-appearance: none; 
     margin: 0; 
+}
+
+.mat-focused .mat-form-field-ripple {
+    background-color: #1F2B49 !important;
+}
+
+.mat-focused .mat-form-field-underline {
+    background-color: #1F2B49 !important;
+}
+
+.mat-focused .mat-form-field-label {
+    color:#1F2B49 !important;
+    font-weight: 700 !important;
+}
+
+.mat-error {
+    color: darkred !important;
+}
+
+.mat-error .mat-form-field-ripple {
+    background-color: darkred !important;
 }

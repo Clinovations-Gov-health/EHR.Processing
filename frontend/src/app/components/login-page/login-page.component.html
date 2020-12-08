@@ -1,32 +1,49 @@
-<h2 style="text-align: center; font-family: Helvetica">LOGIN</h2>
-
-<form [formGroup]="loginForm">
-    <div>
-        <mat-form-field appearance="legacy">
-            <mat-label>Username</mat-label>
-            <input matInput [disabled]="working" formControlName="username">
-            <mat-error *ngIf="loginForm.get('username').invalid">
-                <div *ngIf="loginForm.get('username').errors.required">
-                    Username is required.
-                </div>
-            </mat-error>
-        </mat-form-field>
+<div>
+    <div style="margin-bottom:20px">
+        <mat-icon style="color:#1B2B4B; zoom: 2; float:left; margin-right: 5px">calendar_today</mat-icon> 
+        <div>
+            <h2 style="color:#1B2B4B; margin:0px; line-height: 25px;">Health Coverage</h2>
+            <h2 style="color:white; margin:0px; line-height: 25px;">Reimagined</h2>
+        </div>
     </div>
 
-    <div>
-        <mat-form-field appearance="legacy">
-            <mat-label>Password</mat-label>
-            <input matInput [disabled]="working" formControlName="password">
-            <mat-error *ngIf="loginForm.get('password').invalid">
-                <div *ngIf="loginForm.get('password').errors.required">
-                    Password is required.
-                </div>
-            </mat-error>
-        </mat-form-field>
-    </div>
+    <mat-divider></mat-divider>
 
-    <div>
-        <button mat-flat-button color="primary" [disabled]="working || loginForm.errors" (click)="onPressLogin()"> LOGIN </button>
-        <button mat-flat-button color="primary" [disabled]="working" (click)="onPressRegister()">REGISTER</button>
-    </div>
-</form>
+    <img src="assets/homepage-img.png" style="float:right; width: 600px; margin-right: 100px; margin-top: 50px">
+
+    <div style="height:150px"></div>
+
+    <h1 style="color: white; width: 500px; word-wrap:normal; font-weight: 700;">Find health insurance plans that are suited for you.</h1>
+    <h3 style="color: white; width: 500px; word-wrap: normal;">We have created a matching algorithm that understands your healthcare needs and recommends plans based on your previous usage.</h3>
+
+    <form [formGroup]="loginForm">
+        <div style="display: inline">
+            <mat-form-field appearance="legacy">
+                <mat-label>USERNAME</mat-label>
+                <input matInput [disabled]="working" formControlName="username">
+                <mat-error *ngIf="loginForm.get('username').invalid" style="color:darkred">
+                    <div *ngIf="loginForm.get('username').errors.required">
+                        Username is required.
+                    </div>
+                </mat-error>
+            </mat-form-field>
+        </div>
+    
+        <div style="display: inline; margin-left: 10px">
+            <mat-form-field appearance="legacy">
+                <mat-label>PASSWORD</mat-label>
+                <input matInput [disabled]="working" formControlName="password">
+                <mat-error *ngIf="loginForm.get('password').invalid" style="color:darkred">
+                    <div *ngIf="loginForm.get('password').errors.required">
+                        Password is required.
+                    </div>
+                </mat-error>
+            </mat-form-field>
+        </div>
+    
+        <div>
+            <button mat-flat-button style="background-color: #1F2B49; color: white" [disabled]="working || loginForm.errors" (click)="onPressLogin()"> LOGIN </button>
+            <button mat-flat-button style="background-color: #1F2B49; color: white; margin-left: 10px" [disabled]="working" (click)="onPressRegister()">REGISTER</button>
+        </div>
+    </form>
+</div>

@@ -36,6 +36,9 @@ export type UpdatePayload = {
 export type UpdateClaimsPayload = {
     starts: string;
     ends: string;
-    diagnoses: { name: string; code: number; }[];
-    totalCost: number;
+    procCode: string;
+    typeOfService: string;
+    amountBilled: number;
+    planPaid: number;
+    responsibility: number;
 }[];

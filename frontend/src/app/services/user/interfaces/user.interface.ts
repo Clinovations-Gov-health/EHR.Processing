@@ -21,8 +21,11 @@ export type User = {
 export interface Claim {
     starts: moment.Moment;
     ends: moment.Moment;
-    diagnoses: { name: string; code: number; }[];
-    totalCost: number;
+    procCode: string;
+    typeOfService: string;
+    amountBilled: number;
+    planPaid: number;
+    responsibility:number;
 }
 
 export interface PlanRecommendation {

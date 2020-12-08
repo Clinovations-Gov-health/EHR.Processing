@@ -37,8 +37,11 @@ export type GetUserReturnPayload = {
     claims: {
         starts: string;
         ends: string;
-        diagnoses: { name: string; code: number; }[];
-        totalCost: number;
+        procCode: string;
+        typeOfService: string;
+        amountBilled: number;
+        planPaid: number;
+        responsibility:number;
     }[],
     lastRecommendPlans: PlanRecommendation | null,
     market: "individual" | "small group";
@@ -75,6 +78,9 @@ export type UpdateUserPayload = {
 export type updateClaimsPayload = {
     starts: string;
     ends: string;
-    diagnoses: { name: string; code: number; }[];
-    totalCost: number;
+    procCode: string;
+    typeOfService: string;
+    amountBilled: number;
+    planPaid: number;
+    responsibility:number;
 }[];

@@ -1,17 +1,16 @@
 <div *ngIf="(userService.currUser | async)?.lastRecommendPlans !== null; else elseBlock">
-    <button mat-flat-button color="basic" [disabled]="isWorking" (click)="onGetNewRecommendations()"> UPDATE RECOMMENDATIONS </button>
-    <div style="display:flex; align-self: flex-end;">
-        <mat-label style="margin-right:15px">Sort By</mat-label>
-        <mat-select [(value)]="sortingCriterion" style="width:100px">
+    <div style="display:flex; flex-direction:row; align-content:flex-end; margin-bottom: 5px">
+        <mat-label style="margin-right:15px; color:white">SORT BY</mat-label>
+        <mat-select [(value)]="sortingCriterion" style="width:100px; margin-right: 10px">
             <mat-option *ngFor="let criterion of sortingCriterions" [value]="criterion">
                 {{criterion}}
             </mat-option>
         </mat-select>
-    </div>
-    <div align="right">
-        <mat-slide-toggle [checked]="showingPreDeductible" (change)="showingPreDeductible=$event.checked">
-            Pre-Deductible
+        <mat-slide-toggle style="color:white" [checked]="showingPreDeductible" (change)="showingPreDeductible=$event.checked">
+            PRE-DEDUCTIBLE
         </mat-slide-toggle>
+        
+        <button mat-flat-button style="background-color: #1F2B49; color: white; margin-right: 10px; margin-left: auto; justify-self: right;" [disabled]="isWorking" (click)="onGetNewRecommendations()"> UPDATE RECOMMENDATIONS </button>
     </div>
 
     <mat-expansion-panel *ngFor="let plan of getPlans(sortingCriterion)">

@@ -1,6 +1,9 @@
 export interface Claim {
     starts: Date;
     ends: Date;
-    diagnoses: { name: string; code: number; }[];
-    totalCost: number;
+    procCode: string;
+    typeOfService: string;
+    amountBilled: number;
+    planPaid: number;
+    responsibility: number;
 }

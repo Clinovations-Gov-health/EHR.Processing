@@ -5,6 +5,7 @@ import FHIR from 'fhirclient';
 import Client from 'fhirclient/lib/Client';
 import moment from 'moment';
 import { BehaviorSubject } from 'rxjs';
+import { Claim } from './user/interfaces/user.interface';
 
 export type FhirProviders = "Cerner" | "AllScripts" | "Epic";
 
@@ -15,12 +16,17 @@ export class FhirService {
     // client: Client;
     // authenticated = false;
 
-    readonly claimsData = [
-        { starts: moment("2000-10-01"), ends: moment("2000-10-01"), diagnoses: [{ name: "BRIEF INTERVIEW & EVALUA", code: 8901 }], totalCost: 50 },
-        { starts: moment("2000-09-01"), ends: moment("2000-09-01"), diagnoses: [{ name: "INJECT/INFUSE NEC", code: 9929 }], totalCost: 150 },
-        { starts: moment("2000-01-01"), ends: moment("2000-01-01"), diagnoses: [{ name: "INJECT ANTIBIOTIC", code: 9921 }], totalCost: 0 },
-        { starts: moment("2000-09-01"), ends: moment("2000-09-01"), diagnoses: [{ name: "LIMITED INTERVIEW & EVALUA", code: 8902 }], totalCost: 80 },
-        { starts: moment("2000-09-01"), ends: moment("2000-09-01"), diagnoses: [{ name: "C.A.T. SCAN OF THORAX", code: 8741 }], totalCost: 70 },
+    readonly claimsData: Claim[] = [
+        { starts: moment('2020-01-18'), ends: moment('2020-01-18'), typeOfService: "Urine culture/colony count", procCode: "87086", amountBilled: 37.01, planPaid: 21.22, responsibility: 15.79 },
+        { starts: moment('2020-01-18'), ends: moment('2020-01-18'), typeOfService: "Microbe susceptible mic", procCode: "87186", amountBilled: 84.00, planPaid: 69.45, responsibility: 14.55 },
+        { starts: moment('2020-01-18'), ends: moment('2020-01-18'), typeOfService: "Urine bacteria culture", procCode: "87088", amountBilled: 34.99, planPaid: 21.37, responsibility: 13.62 },
+        { starts: moment('2020-01-29'), ends: moment('2020-01-29'), typeOfService: "Immunization", procCode: "", amountBilled: 21.00, planPaid: 16.80, responsibility: 4.20 },
+        { starts: moment('2020-01-29'), ends: moment('2020-01-29'), typeOfService: "Immunization", procCode: "", amountBilled: 32.00, planPaid: 32.00, responsibility: 0 },
+        { starts: moment('2020-09-29'), ends: moment('2020-09-29'), typeOfService: "Office Outpatient visit 24 min", procCode: "99214 25", amountBilled: 202.84, planPaid: 0, responsibility: 0 },
+        { starts: moment('2020-09-29'), ends: moment('2020-09-29'), typeOfService: "Therapeutic Prophylatic/Dx Injection SUBQ/IM", procCode: "96372", amountBilled: 46.56, planPaid: 0, responsibility: 0 },
+        { starts: moment('2020-09-29'), ends: moment('2020-09-29'), typeOfService: "Injection Dexamethosone sodium phosphate 1MG", procCode: "J1100", amountBilled: 12.80, planPaid: 0, responsibility: 0 },
+        { starts: moment('2020-11-21'), ends: moment('2020-11-21'), typeOfService: "Mammography", procCode: "", amountBilled: 51.50, planPaid: 12.87, responsibility: 38.63 },
+        { starts: moment('2020-11-21'), ends: moment('2020-11-21'), typeOfService: "Screening Mammogram", procCode: "", amountBilled: 385.12, planPaid: 91.20, responsibility: 273.84 },
     ];
 
     getClaimsData(provider: FhirProviders) {

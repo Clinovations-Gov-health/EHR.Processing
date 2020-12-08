@@ -6,8 +6,8 @@
                 {{criterion}}
             </mat-option>
         </mat-select>
-        <mat-slide-toggle style="color:white" [checked]="showingPreDeductible" (change)="showingPreDeductible=$event.checked">
-            PRE-DEDUCTIBLE
+        <mat-slide-toggle style="color:white" [checked]="!showingPreDeductible" (change)="showingPreDeductible=!$event.checked">
+            POST-DEDUCTIBLE
         </mat-slide-toggle>
         
         <button mat-flat-button style="background-color: #1F2B49; color: white; margin-right: 10px; margin-left: auto; justify-self: right;" [disabled]="isWorking" (click)="onGetNewRecommendations()"> UPDATE RECOMMENDATIONS </button>

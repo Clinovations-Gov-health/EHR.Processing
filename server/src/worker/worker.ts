@@ -220,6 +220,7 @@ export class Worker implements Record<string, WorkerFunction> {
     };
 
     public readonly recommendPlans = (patientData: UserModel, plans: Plan[], ratingArea: RatingAreaModel): PlanRecommendationReturnPayload => {
+        /*
         const dummyEncounters = [
             { 
                 participants: [],
@@ -272,7 +273,23 @@ export class Worker implements Record<string, WorkerFunction> {
                 starts: moment(procedure.period.start),
                 duration: moment.duration(moment(procedure.period.end).diff(moment(procedure.period.start))),
             };
-        });
+        }); */
+
+        const encounters = [
+            { starts: moment('2020-01-18'), duration: moment.duration(1, 'day'), price: 37.01, name: "Laboratory Outpatient and Professional Services" },
+            { starts: moment('2020-01-18'), duration: moment.duration(1, 'day'), price: 84.00, name: "Laboratory Outpatient and Professional Services" },
+            { starts: moment('2020-01-18'), duration: moment.duration(1, 'day'), price: 34.99, name: "Laboratory Outpatient and Professional Services" },
+            { starts: moment('2020-01-29'), duration: moment.duration(1, 'day'), price: 21.00, name: "Preventive Care/Screening/Immunization" },
+            { starts: moment('2020-01-29'), duration: moment.duration(1, 'day'), price: 32.00, name: "Preventive Care/Screening/Immunization" },
+            { starts: moment('2020-09-29'), duration: moment.duration(1, 'day'), price: 202.84, name: "Preventive Care/Screening/Immunization" },
+            { starts: moment('2020-09-29'), duration: moment.duration(1, 'day'), price: 46.56, name: "Laboratory Outpatient and Professional Services" },
+            { starts: moment('2020-09-29'), duration: moment.duration(1, 'day'), price: 12.80, name: "Laboratory Outpatient and Professional Services" },
+            { starts: moment('2020-11-21'), duration: moment.duration(1, 'day'), price: 51.50, name: "Preventive Care/Screening/Immunization" },
+        ]
+
+        const procedures = [
+            { starts: moment('2020-11-21'), duration: moment.duration(1, 'day'), price: 385.12, name: "Preventive Care/Screening/Immunization" },
+        ];
 
         console.log(plans.length);
 
@@ -361,7 +378,7 @@ export class Worker implements Record<string, WorkerFunction> {
 
                 const ceiledOOP = moop ? Math.min(moop, outOfPocket) : outOfPocket;
 
-                const payloadBenefits = Object.keys(plan.benefits).filter(benefitName => plan.benefits[benefitName].covered && Object.values(categoryMappings).map(tp => tp[1]).includes(benefitName));
+                const payloadBenefits = Object.keys(plan.benefits).filter(benefitName => plan.benefits[benefitName].covered && ["Preventive Care/Screening/Immunization", "Laboratory Outpatient and Professional Services"].includes(benefitName));
                 const benefits: PlanRecommendationReturnPayloadPlanInfo["benefits"] = mapValues(pick(plan.benefits, payloadBenefits), benefit => {
                     const result: PlanRecommendationReturnPayloadPlanInfo["benefits"][string] = { preDeductible: {}, afterDeductible: {} };
                     if (!benefit.covered) {

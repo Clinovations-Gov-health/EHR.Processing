@@ -1,4 +1,4 @@
-import { keyBy, mapValues, pick, union } from 'lodash';
+import { isNil, keyBy, mapValues, pick, union } from 'lodash';
 import moment from 'moment';
 import { expose } from 'threads';
 import { WorkerFunction } from 'threads/dist/types/worker';
@@ -70,15 +70,15 @@ export class Worker implements Record<string, WorkerFunction> {
     private getDeductibleInformation(plan: Plan) {
         const dentalOnlyMatchFunc = (plan: Plan & { isDentalOnly: true }) => {
             const deductibles = {
-                inNetwork: plan.deductible.inNetwork.individual ?? 0,
-                outNetwork: plan.deductible.inNetwork.individual ?? 0,
-                combined: plan.deductible.inNetwork.individual ?? 0,
+                inNetwork: plan.deductible.inNetwork.individual,
+                outNetwork: plan.deductible.inNetwork.individual,
+                combined: plan.deductible.inNetwork.individual,
             };
 
             return {
-                inNetwork: plan.deductible.inNetwork.individual ?? 0,
-                outNetwork: plan.deductible.outNetwork.individual ?? 0,
-                combined: plan.deductible.combined.individual ?? 0,
+                inNetwork: plan.deductible.inNetwork.individual,
+                outNetwork: plan.deductible.outNetwork.individual,
+                combined: plan.deductible.combined.individual,
                 propertiesToDeduce: (type: "drug" | "medical", providerTier: [boolean, boolean]) =>
                     match<["drug" | "medical", boolean, boolean], Array<keyof typeof deductibles>>([type, ...providerTier])
                         .with([__, true, __], () => ["inNetwork", "combined"])
@@ -89,9 +89,9 @@ export class Worker implements Record<string, WorkerFunction> {
 
         const singleTieredIntegratedMatchFunc = (plan: Plan & { isDentalOnly: false, costCeiling: { isMultiTiered: false, deductible: { medicalDrugIntegrated: true } } }) => {
             const deductibles = {
-                inNetwork: plan.costCeiling.deductible.inNetwork.individual ?? 0,
-                outNetwork: plan.costCeiling.deductible.inNetwork.individual ?? 0,
-                combined: plan.costCeiling.deductible.inNetwork.individual ?? 0,
+                inNetwork: plan.costCeiling.deductible.inNetwork.individual,
+                outNetwork: plan.costCeiling.deductible.inNetwork.individual,
+                combined: plan.costCeiling.deductible.inNetwork.individual,
             };
             
             return {
@@ -106,12 +106,12 @@ export class Worker implements Record<string, WorkerFunction> {
 
         const singleTieredUnintegratedMatchFunc = (plan: Plan & { isDentalOnly: false, costCeiling: { isMultiTiered: false, deductible: { medicalDrugIntegrated: false } } }) => {
             const deductibles = {
-                medicalInNetwork: plan.costCeiling.deductible.medicalInNetwork.individual ?? 0,
-                medicalOutNetwork: plan.costCeiling.deductible.medicalOutNetwork.individual ?? 0,
-                medicalCombined: plan.costCeiling.deductible.medicalCombined.individual ?? 0,
-                drugInNetwork: plan.costCeiling.deductible.drugInNetwork.individual ?? 0,
-                drugOutNetwork: plan.costCeiling.deductible.drugOutNetwork.individual ?? 0,
-                drugCombined: plan.costCeiling.deductible.drugCombined.individual ?? 0,
+                medicalInNetwork: plan.costCeiling.deductible.medicalInNetwork.individual,
+                medicalOutNetwork: plan.costCeiling.deductible.medicalOutNetwork.individual,
+                medicalCombined: plan.costCeiling.deductible.medicalCombined.individual,
+                drugInNetwork: plan.costCeiling.deductible.drugInNetwork.individual,
+                drugOutNetwork: plan.costCeiling.deductible.drugOutNetwork.individual,
+                drugCombined: plan.costCeiling.deductible.drugCombined.individual,
             };
 
             return {
@@ -128,10 +128,10 @@ export class Worker implements Record<string, WorkerFunction> {
 
         const multiTieredIntegratedMatchFunc = (plan: Plan & { isDentalOnly: false, costCeiling: { isMultiTiered: true, deductible: { medicalDrugIntegrated: true } } }) => {
             const deductibles = {
-                tierOneInNetwork: plan.costCeiling.deductible.tierOneInNetwork.individual ?? 0,
-                tierTwoInNetwork: plan.costCeiling.deductible.tierTwoInNetwork.individual ?? 0,
-                outNetwork: plan.costCeiling.deductible.outNetwork.individual ?? 0,
-                combined: plan.costCeiling.deductible.combined.individual ?? 0,
+                tierOneInNetwork: plan.costCeiling.deductible.tierOneInNetwork.individual,
+                tierTwoInNetwork: plan.costCeiling.deductible.tierTwoInNetwork.individual,
+                outNetwork: plan.costCeiling.deductible.outNetwork.individual,
+                combined: plan.costCeiling.deductible.combined.individual,
             };
             
             return {
@@ -147,14 +147,14 @@ export class Worker implements Record<string, WorkerFunction> {
 
         const multiTieredUnintegratedMatchFunc = (plan: Plan & { isDentalOnly: false, costCeiling: { isMultiTiered: true, deductible: { medicalDrugIntegrated: false } } }) => {
             const deductibles =  {
-                medicalTierOneInNetwork: plan.costCeiling.deductible.medicalTierOneInNetwork.individual ?? 0,
-                medicalTierTwoInNetwork: plan.costCeiling.deductible.medicalTierTwoInNetwork.individual ?? 0,
-                medicalOutNetwork: plan.costCeiling.deductible.medicalOutNetwork.individual ?? 0,
-                medicalCombined: plan.costCeiling.deductible.medicalCombined.individual ?? 0,
-                drugTierOneInNetwork: plan.costCeiling.deductible.drugTierOneInNetwork.individual ?? 0,
-                drugTierTwoInNetwork: plan.costCeiling.deductible.drugTierTwoInNetwork.individual ?? 0,
-                drugOutNetwork: plan.costCeiling.deductible.drugOutNetwork.individual ?? 0,
-                drugCombined: plan.costCeiling.deductible.drugCombined.individual ?? 0
+                medicalTierOneInNetwork: plan.costCeiling.deductible.medicalTierOneInNetwork.individual,
+                medicalTierTwoInNetwork: plan.costCeiling.deductible.medicalTierTwoInNetwork.individual,
+                medicalOutNetwork: plan.costCeiling.deductible.medicalOutNetwork.individual,
+                medicalCombined: plan.costCeiling.deductible.medicalCombined.individual,
+                drugTierOneInNetwork: plan.costCeiling.deductible.drugTierOneInNetwork.individual,
+                drugTierTwoInNetwork: plan.costCeiling.deductible.drugTierTwoInNetwork.individual,
+                drugOutNetwork: plan.costCeiling.deductible.drugOutNetwork.individual,
+                drugCombined: plan.costCeiling.deductible.drugCombined.individual
             };
 
             return {
@@ -202,10 +202,15 @@ export class Worker implements Record<string, WorkerFunction> {
              */
             fulfill: (cost: number, type: "drug" | "medical", providerTier: [boolean, boolean]) => {
                 const propertiesToDeduce = remainingDeductibles.propertiesToDeduce(type, providerTier) as string[];
-                if (propertiesToDeduce.map(property => Reflect.get(remainingDeductibles, property) as number).includes(0)) {
+                
+                if (propertiesToDeduce.map(property => Reflect.get(remainingDeductibles, property) as number | undefined | null).includes(0)) {
                     return false;
                 } else {
-                    propertiesToDeduce.forEach(property => Reflect.set(remainingDeductibles, property, Math.max(Reflect.get(remainingDeductibles, property) - cost, 0)));
+                    propertiesToDeduce.forEach(property => Reflect.set(
+                        remainingDeductibles, 
+                        property, 
+                        isNil(Reflect.get(remainingDeductibles, property)) ? undefined : Math.max(Reflect.get(remainingDeductibles, property) - cost, 0),
+                    ));
                     return true;
                 }
             },
@@ -214,7 +219,7 @@ export class Worker implements Record<string, WorkerFunction> {
              */
             fulfilled: (type: "drug" | "medical", providerTier: [boolean, boolean]) => {
                 const propertiesToDeduce = remainingDeductibles.propertiesToDeduce(type, providerTier) as string[];
-                return propertiesToDeduce.map(property => Reflect.get(remainingDeductibles, property) as number).includes(0);
+                return propertiesToDeduce.map(property => Reflect.get(remainingDeductibles, property) as number | undefined | null).includes(0);
             }
         };
     };
@@ -319,9 +324,9 @@ export class Worker implements Record<string, WorkerFunction> {
                         if (!deductible.fulfilled(benefitType, providerTier)) {
                             // Cost for the patient if the patient is still fulfilling the deductibles. It is undefined if the plan doesn't have pre-deductible
                             // cost sharings.
-                            const beforeDeductibleCost = benefitSharingScheme?.filter(value => value.deductibleStatus === "before")
+                            const beforeDeductibleCost = benefitSharingScheme?.filter(value => value.deductibleStatus === "before" || value.deductibleStatus === 'unknown')
                                 ?.reduce<number | undefined>((prev, scheme) => {
-                                    return (prev === undefined ? 0 : prev) + (scheme.isPercent ? encounter.price * scheme.amount
+                                    return (prev === undefined ? 0 : prev) + (scheme.isPercent ? encounter.price * (scheme.amount / 100)
                                         : scheme.frequency === "day" ? scheme.amount * encounter.duration.asDays()
                                         : scheme.amount);
                                 }, undefined);
@@ -349,7 +354,6 @@ export class Worker implements Record<string, WorkerFunction> {
                             }
                         }
                     }, 0);
-
                 const rateDetail = plan.rateDetail[ratingArea.ratingAreaId];
 
                 const premium = (() => {

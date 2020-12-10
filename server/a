@@ -1,0 +1,3903 @@
+
+> server@1.0.0 start
+> DEBUG=main node dist/main.js
+
+48
+Laboratory Outpatient and Professional Services 7.402 OptimaFit Bronze 6000 20% HSA Direct M Standard Bronze Off Exchange Plan
+{
+  tierOneInNetwork: 5992.598,
+  tierTwoInNetwork: 6000,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 16.8 OptimaFit Bronze 6000 20% HSA Direct M Standard Bronze Off Exchange Plan
+{
+  tierOneInNetwork: 5975.798,
+  tierTwoInNetwork: 6000,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 6.998000000000001 OptimaFit Bronze 6000 20% HSA Direct M Standard Bronze Off Exchange Plan
+{
+  tierOneInNetwork: 5968.8,
+  tierTwoInNetwork: 6000,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 OptimaFit Bronze 6000 20% HSA Direct M Standard Bronze Off Exchange Plan
+{
+  tierOneInNetwork: 5968.8,
+  tierTwoInNetwork: 6000,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 OptimaFit Bronze 6000 20% HSA Direct M Standard Bronze Off Exchange Plan
+{
+  tierOneInNetwork: 5968.8,
+  tierTwoInNetwork: 6000,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 OptimaFit Bronze 6000 20% HSA Direct M Standard Bronze Off Exchange Plan
+{
+  tierOneInNetwork: 5968.8,
+  tierTwoInNetwork: 6000,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 9.312000000000001 OptimaFit Bronze 6000 20% HSA Direct M Standard Bronze Off Exchange Plan
+{
+  tierOneInNetwork: 5959.488,
+  tierTwoInNetwork: 6000,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 2.5600000000000005 OptimaFit Bronze 6000 20% HSA Direct M Standard Bronze Off Exchange Plan
+{
+  tierOneInNetwork: 5956.928,
+  tierTwoInNetwork: 6000,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 OptimaFit Bronze 6000 20% HSA Direct M Standard Bronze Off Exchange Plan
+{
+  tierOneInNetwork: 5956.928,
+  tierTwoInNetwork: 6000,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 OptimaFit Bronze 6000 20% HSA Direct M Standard Bronze Off Exchange Plan
+{
+  tierOneInNetwork: 5956.928,
+  tierTwoInNetwork: 6000,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+43.072
+Laboratory Outpatient and Professional Services 7.402 OptimaFit Gold 1300 20% Direct M Standard Gold On Exchange Plan
+{
+  tierOneInNetwork: 1292.598,
+  tierTwoInNetwork: 1300,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 16.8 OptimaFit Gold 1300 20% Direct M Standard Gold On Exchange Plan
+{
+  tierOneInNetwork: 1275.798,
+  tierTwoInNetwork: 1300,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 6.998000000000001 OptimaFit Gold 1300 20% Direct M Standard Gold On Exchange Plan
+{
+  tierOneInNetwork: 1268.8,
+  tierTwoInNetwork: 1300,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 OptimaFit Gold 1300 20% Direct M Standard Gold On Exchange Plan
+{
+  tierOneInNetwork: 1268.8,
+  tierTwoInNetwork: 1300,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 OptimaFit Gold 1300 20% Direct M Standard Gold On Exchange Plan
+{
+  tierOneInNetwork: 1268.8,
+  tierTwoInNetwork: 1300,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 OptimaFit Gold 1300 20% Direct M Standard Gold On Exchange Plan
+{
+  tierOneInNetwork: 1268.8,
+  tierTwoInNetwork: 1300,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 9.312000000000001 OptimaFit Gold 1300 20% Direct M Standard Gold On Exchange Plan
+{
+  tierOneInNetwork: 1259.488,
+  tierTwoInNetwork: 1300,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 2.5600000000000005 OptimaFit Gold 1300 20% Direct M Standard Gold On Exchange Plan
+{
+  tierOneInNetwork: 1256.928,
+  tierTwoInNetwork: 1300,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 OptimaFit Gold 1300 20% Direct M Standard Gold On Exchange Plan
+{
+  tierOneInNetwork: 1256.928,
+  tierTwoInNetwork: 1300,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 OptimaFit Gold 1300 20% Direct M Standard Gold On Exchange Plan
+{
+  tierOneInNetwork: 1256.928,
+  tierTwoInNetwork: 1300,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+43.072
+Laboratory Outpatient and Professional Services 7.402 OptimaFit Gold 1300 20% Direct M Standard Gold Off Exchange Plan
+{
+  tierOneInNetwork: 1292.598,
+  tierTwoInNetwork: 1300,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 16.8 OptimaFit Gold 1300 20% Direct M Standard Gold Off Exchange Plan
+{
+  tierOneInNetwork: 1275.798,
+  tierTwoInNetwork: 1300,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 6.998000000000001 OptimaFit Gold 1300 20% Direct M Standard Gold Off Exchange Plan
+{
+  tierOneInNetwork: 1268.8,
+  tierTwoInNetwork: 1300,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 OptimaFit Gold 1300 20% Direct M Standard Gold Off Exchange Plan
+{
+  tierOneInNetwork: 1268.8,
+  tierTwoInNetwork: 1300,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 OptimaFit Gold 1300 20% Direct M Standard Gold Off Exchange Plan
+{
+  tierOneInNetwork: 1268.8,
+  tierTwoInNetwork: 1300,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 OptimaFit Gold 1300 20% Direct M Standard Gold Off Exchange Plan
+{
+  tierOneInNetwork: 1268.8,
+  tierTwoInNetwork: 1300,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 9.312000000000001 OptimaFit Gold 1300 20% Direct M Standard Gold Off Exchange Plan
+{
+  tierOneInNetwork: 1259.488,
+  tierTwoInNetwork: 1300,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 2.5600000000000005 OptimaFit Gold 1300 20% Direct M Standard Gold Off Exchange Plan
+{
+  tierOneInNetwork: 1256.928,
+  tierTwoInNetwork: 1300,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 OptimaFit Gold 1300 20% Direct M Standard Gold Off Exchange Plan
+{
+  tierOneInNetwork: 1256.928,
+  tierTwoInNetwork: 1300,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 OptimaFit Gold 1300 20% Direct M Standard Gold Off Exchange Plan
+{
+  tierOneInNetwork: 1256.928,
+  tierTwoInNetwork: 1300,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+43.072
+Laboratory Outpatient and Professional Services 7.402 OptimaFit Bronze 6000 20% HSA Direct M Standard Bronze On Exchange Plan
+{
+  tierOneInNetwork: 5992.598,
+  tierTwoInNetwork: 6000,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 16.8 OptimaFit Bronze 6000 20% HSA Direct M Standard Bronze On Exchange Plan
+{
+  tierOneInNetwork: 5975.798,
+  tierTwoInNetwork: 6000,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 6.998000000000001 OptimaFit Bronze 6000 20% HSA Direct M Standard Bronze On Exchange Plan
+{
+  tierOneInNetwork: 5968.8,
+  tierTwoInNetwork: 6000,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 OptimaFit Bronze 6000 20% HSA Direct M Standard Bronze On Exchange Plan
+{
+  tierOneInNetwork: 5968.8,
+  tierTwoInNetwork: 6000,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 OptimaFit Bronze 6000 20% HSA Direct M Standard Bronze On Exchange Plan
+{
+  tierOneInNetwork: 5968.8,
+  tierTwoInNetwork: 6000,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 OptimaFit Bronze 6000 20% HSA Direct M Standard Bronze On Exchange Plan
+{
+  tierOneInNetwork: 5968.8,
+  tierTwoInNetwork: 6000,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 9.312000000000001 OptimaFit Bronze 6000 20% HSA Direct M Standard Bronze On Exchange Plan
+{
+  tierOneInNetwork: 5959.488,
+  tierTwoInNetwork: 6000,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 2.5600000000000005 OptimaFit Bronze 6000 20% HSA Direct M Standard Bronze On Exchange Plan
+{
+  tierOneInNetwork: 5956.928,
+  tierTwoInNetwork: 6000,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 OptimaFit Bronze 6000 20% HSA Direct M Standard Bronze On Exchange Plan
+{
+  tierOneInNetwork: 5956.928,
+  tierTwoInNetwork: 6000,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 OptimaFit Bronze 6000 20% HSA Direct M Standard Bronze On Exchange Plan
+{
+  tierOneInNetwork: 5956.928,
+  tierTwoInNetwork: 6000,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+43.072
+Laboratory Outpatient and Professional Services 9.2525 OptimaFit Silver 3000 25% Direct M Standard Silver Off Exchange Plan
+{
+  tierOneInNetwork: 2990.7475,
+  tierTwoInNetwork: 3000,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 21 OptimaFit Silver 3000 25% Direct M Standard Silver Off Exchange Plan
+{
+  tierOneInNetwork: 2969.7475,
+  tierTwoInNetwork: 3000,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 8.7475 OptimaFit Silver 3000 25% Direct M Standard Silver Off Exchange Plan
+{
+  tierOneInNetwork: 2961,
+  tierTwoInNetwork: 3000,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 OptimaFit Silver 3000 25% Direct M Standard Silver Off Exchange Plan
+{
+  tierOneInNetwork: 2961,
+  tierTwoInNetwork: 3000,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 OptimaFit Silver 3000 25% Direct M Standard Silver Off Exchange Plan
+{
+  tierOneInNetwork: 2961,
+  tierTwoInNetwork: 3000,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 OptimaFit Silver 3000 25% Direct M Standard Silver Off Exchange Plan
+{
+  tierOneInNetwork: 2961,
+  tierTwoInNetwork: 3000,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 11.64 OptimaFit Silver 3000 25% Direct M Standard Silver Off Exchange Plan
+{
+  tierOneInNetwork: 2949.36,
+  tierTwoInNetwork: 3000,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 3.2 OptimaFit Silver 3000 25% Direct M Standard Silver Off Exchange Plan
+{
+  tierOneInNetwork: 2946.1600000000003,
+  tierTwoInNetwork: 3000,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 OptimaFit Silver 3000 25% Direct M Standard Silver Off Exchange Plan
+{
+  tierOneInNetwork: 2946.1600000000003,
+  tierTwoInNetwork: 3000,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 OptimaFit Silver 3000 25% Direct M Standard Silver Off Exchange Plan
+{
+  tierOneInNetwork: 2946.1600000000003,
+  tierTwoInNetwork: 3000,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+53.84
+Laboratory Outpatient and Professional Services 14.804 OptimaFit Bronze 7200 40% Direct M Standard Bronze Off Exchange Plan
+{
+  tierOneInNetwork: 7185.196,
+  tierTwoInNetwork: 7200,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 33.6 OptimaFit Bronze 7200 40% Direct M Standard Bronze Off Exchange Plan
+{
+  tierOneInNetwork: 7151.596,
+  tierTwoInNetwork: 7200,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 13.996000000000002 OptimaFit Bronze 7200 40% Direct M Standard Bronze Off Exchange Plan
+{
+  tierOneInNetwork: 7137.599999999999,
+  tierTwoInNetwork: 7200,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 OptimaFit Bronze 7200 40% Direct M Standard Bronze Off Exchange Plan
+{
+  tierOneInNetwork: 7137.599999999999,
+  tierTwoInNetwork: 7200,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 OptimaFit Bronze 7200 40% Direct M Standard Bronze Off Exchange Plan
+{
+  tierOneInNetwork: 7137.599999999999,
+  tierTwoInNetwork: 7200,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 OptimaFit Bronze 7200 40% Direct M Standard Bronze Off Exchange Plan
+{
+  tierOneInNetwork: 7137.599999999999,
+  tierTwoInNetwork: 7200,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 18.624000000000002 OptimaFit Bronze 7200 40% Direct M Standard Bronze Off Exchange Plan
+{
+  tierOneInNetwork: 7118.976,
+  tierTwoInNetwork: 7200,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 5.120000000000001 OptimaFit Bronze 7200 40% Direct M Standard Bronze Off Exchange Plan
+{
+  tierOneInNetwork: 7113.856,
+  tierTwoInNetwork: 7200,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 OptimaFit Bronze 7200 40% Direct M Standard Bronze Off Exchange Plan
+{
+  tierOneInNetwork: 7113.856,
+  tierTwoInNetwork: 7200,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 OptimaFit Bronze 7200 40% Direct M Standard Bronze Off Exchange Plan
+{
+  tierOneInNetwork: 7113.856,
+  tierTwoInNetwork: 7200,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+86.144
+Laboratory Outpatient and Professional Services 11.103 OptimaFit Silver 6600 30% Direct M 73% AV Level Silver Plan
+{
+  tierOneInNetwork: 2988.897,
+  tierTwoInNetwork: 3000,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 25.2 OptimaFit Silver 6600 30% Direct M 73% AV Level Silver Plan
+{
+  tierOneInNetwork: 2963.697,
+  tierTwoInNetwork: 3000,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 10.497 OptimaFit Silver 6600 30% Direct M 73% AV Level Silver Plan
+{
+  tierOneInNetwork: 2953.2000000000003,
+  tierTwoInNetwork: 3000,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 OptimaFit Silver 6600 30% Direct M 73% AV Level Silver Plan
+{
+  tierOneInNetwork: 2953.2000000000003,
+  tierTwoInNetwork: 3000,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 OptimaFit Silver 6600 30% Direct M 73% AV Level Silver Plan
+{
+  tierOneInNetwork: 2953.2000000000003,
+  tierTwoInNetwork: 3000,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 OptimaFit Silver 6600 30% Direct M 73% AV Level Silver Plan
+{
+  tierOneInNetwork: 2953.2000000000003,
+  tierTwoInNetwork: 3000,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 13.968 OptimaFit Silver 6600 30% Direct M 73% AV Level Silver Plan
+{
+  tierOneInNetwork: 2939.2320000000004,
+  tierTwoInNetwork: 3000,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 3.84 OptimaFit Silver 6600 30% Direct M 73% AV Level Silver Plan
+{
+  tierOneInNetwork: 2935.3920000000003,
+  tierTwoInNetwork: 3000,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 OptimaFit Silver 6600 30% Direct M 73% AV Level Silver Plan
+{
+  tierOneInNetwork: 2935.3920000000003,
+  tierTwoInNetwork: 3000,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 OptimaFit Silver 6600 30% Direct M 73% AV Level Silver Plan
+{
+  tierOneInNetwork: 2935.3920000000003,
+  tierTwoInNetwork: 3000,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+64.608
+Laboratory Outpatient and Professional Services 9.2525 OptimaFit Silver 3000 25% Direct M 73% AV Level Silver Plan
+{
+  tierOneInNetwork: 2790.7475,
+  tierTwoInNetwork: 2800,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 21 OptimaFit Silver 3000 25% Direct M 73% AV Level Silver Plan
+{
+  tierOneInNetwork: 2769.7475,
+  tierTwoInNetwork: 2800,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 8.7475 OptimaFit Silver 3000 25% Direct M 73% AV Level Silver Plan
+{
+  tierOneInNetwork: 2761,
+  tierTwoInNetwork: 2800,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 OptimaFit Silver 3000 25% Direct M 73% AV Level Silver Plan
+{
+  tierOneInNetwork: 2761,
+  tierTwoInNetwork: 2800,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 OptimaFit Silver 3000 25% Direct M 73% AV Level Silver Plan
+{
+  tierOneInNetwork: 2761,
+  tierTwoInNetwork: 2800,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 OptimaFit Silver 3000 25% Direct M 73% AV Level Silver Plan
+{
+  tierOneInNetwork: 2761,
+  tierTwoInNetwork: 2800,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 11.64 OptimaFit Silver 3000 25% Direct M 73% AV Level Silver Plan
+{
+  tierOneInNetwork: 2749.36,
+  tierTwoInNetwork: 2800,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 3.2 OptimaFit Silver 3000 25% Direct M 73% AV Level Silver Plan
+{
+  tierOneInNetwork: 2746.1600000000003,
+  tierTwoInNetwork: 2800,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 OptimaFit Silver 3000 25% Direct M 73% AV Level Silver Plan
+{
+  tierOneInNetwork: 2746.1600000000003,
+  tierTwoInNetwork: 2800,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 OptimaFit Silver 3000 25% Direct M 73% AV Level Silver Plan
+{
+  tierOneInNetwork: 2746.1600000000003,
+  tierTwoInNetwork: 2800,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+53.84
+Laboratory Outpatient and Professional Services 11.103 OptimaFit Silver 4600 30% Direct M Standard Silver Off Exchange Plan
+{
+  tierOneInNetwork: 4588.897,
+  tierTwoInNetwork: 4600,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 25.2 OptimaFit Silver 4600 30% Direct M Standard Silver Off Exchange Plan
+{
+  tierOneInNetwork: 4563.697,
+  tierTwoInNetwork: 4600,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 10.497 OptimaFit Silver 4600 30% Direct M Standard Silver Off Exchange Plan
+{
+  tierOneInNetwork: 4553.2,
+  tierTwoInNetwork: 4600,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 OptimaFit Silver 4600 30% Direct M Standard Silver Off Exchange Plan
+{
+  tierOneInNetwork: 4553.2,
+  tierTwoInNetwork: 4600,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 OptimaFit Silver 4600 30% Direct M Standard Silver Off Exchange Plan
+{
+  tierOneInNetwork: 4553.2,
+  tierTwoInNetwork: 4600,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 OptimaFit Silver 4600 30% Direct M Standard Silver Off Exchange Plan
+{
+  tierOneInNetwork: 4553.2,
+  tierTwoInNetwork: 4600,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 13.968 OptimaFit Silver 4600 30% Direct M Standard Silver Off Exchange Plan
+{
+  tierOneInNetwork: 4539.232,
+  tierTwoInNetwork: 4600,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 3.84 OptimaFit Silver 4600 30% Direct M Standard Silver Off Exchange Plan
+{
+  tierOneInNetwork: 4535.392,
+  tierTwoInNetwork: 4600,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 OptimaFit Silver 4600 30% Direct M Standard Silver Off Exchange Plan
+{
+  tierOneInNetwork: 4535.392,
+  tierTwoInNetwork: 4600,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 OptimaFit Silver 4600 30% Direct M Standard Silver Off Exchange Plan
+{
+  tierOneInNetwork: 4535.392,
+  tierTwoInNetwork: 4600,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+64.608
+Laboratory Outpatient and Professional Services 11.103 OptimaFit Silver 6600 30% Direct M Standard Silver Off Exchange Plan
+{
+  tierOneInNetwork: 6588.897,
+  tierTwoInNetwork: 6600,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 25.2 OptimaFit Silver 6600 30% Direct M Standard Silver Off Exchange Plan
+{
+  tierOneInNetwork: 6563.697,
+  tierTwoInNetwork: 6600,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 10.497 OptimaFit Silver 6600 30% Direct M Standard Silver Off Exchange Plan
+{
+  tierOneInNetwork: 6553.2,
+  tierTwoInNetwork: 6600,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 OptimaFit Silver 6600 30% Direct M Standard Silver Off Exchange Plan
+{
+  tierOneInNetwork: 6553.2,
+  tierTwoInNetwork: 6600,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 OptimaFit Silver 6600 30% Direct M Standard Silver Off Exchange Plan
+{
+  tierOneInNetwork: 6553.2,
+  tierTwoInNetwork: 6600,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 OptimaFit Silver 6600 30% Direct M Standard Silver Off Exchange Plan
+{
+  tierOneInNetwork: 6553.2,
+  tierTwoInNetwork: 6600,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 13.968 OptimaFit Silver 6600 30% Direct M Standard Silver Off Exchange Plan
+{
+  tierOneInNetwork: 6539.232,
+  tierTwoInNetwork: 6600,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 3.84 OptimaFit Silver 6600 30% Direct M Standard Silver Off Exchange Plan
+{
+  tierOneInNetwork: 6535.392,
+  tierTwoInNetwork: 6600,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 OptimaFit Silver 6600 30% Direct M Standard Silver Off Exchange Plan
+{
+  tierOneInNetwork: 6535.392,
+  tierTwoInNetwork: 6600,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 OptimaFit Silver 6600 30% Direct M Standard Silver Off Exchange Plan
+{
+  tierOneInNetwork: 6535.392,
+  tierTwoInNetwork: 6600,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+64.608
+Laboratory Outpatient and Professional Services 9.2525 OptimaFit Silver 6600 30% Direct M 87% AV Level Silver Plan
+{
+  tierOneInNetwork: 590.7475,
+  tierTwoInNetwork: 600,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 21 OptimaFit Silver 6600 30% Direct M 87% AV Level Silver Plan
+{
+  tierOneInNetwork: 569.7475,
+  tierTwoInNetwork: 600,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 8.7475 OptimaFit Silver 6600 30% Direct M 87% AV Level Silver Plan
+{
+  tierOneInNetwork: 561,
+  tierTwoInNetwork: 600,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 OptimaFit Silver 6600 30% Direct M 87% AV Level Silver Plan
+{
+  tierOneInNetwork: 561,
+  tierTwoInNetwork: 600,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 OptimaFit Silver 6600 30% Direct M 87% AV Level Silver Plan
+{
+  tierOneInNetwork: 561,
+  tierTwoInNetwork: 600,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 OptimaFit Silver 6600 30% Direct M 87% AV Level Silver Plan
+{
+  tierOneInNetwork: 561,
+  tierTwoInNetwork: 600,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 11.64 OptimaFit Silver 6600 30% Direct M 87% AV Level Silver Plan
+{
+  tierOneInNetwork: 549.36,
+  tierTwoInNetwork: 600,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 3.2 OptimaFit Silver 6600 30% Direct M 87% AV Level Silver Plan
+{
+  tierOneInNetwork: 546.16,
+  tierTwoInNetwork: 600,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 OptimaFit Silver 6600 30% Direct M 87% AV Level Silver Plan
+{
+  tierOneInNetwork: 546.16,
+  tierTwoInNetwork: 600,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 OptimaFit Silver 6600 30% Direct M 87% AV Level Silver Plan
+{
+  tierOneInNetwork: 546.16,
+  tierTwoInNetwork: 600,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+53.84
+Laboratory Outpatient and Professional Services 14.804 OptimaFit Bronze 7200 40% Direct M Standard Bronze On Exchange Plan
+{
+  tierOneInNetwork: 7185.196,
+  tierTwoInNetwork: 7200,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 33.6 OptimaFit Bronze 7200 40% Direct M Standard Bronze On Exchange Plan
+{
+  tierOneInNetwork: 7151.596,
+  tierTwoInNetwork: 7200,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 13.996000000000002 OptimaFit Bronze 7200 40% Direct M Standard Bronze On Exchange Plan
+{
+  tierOneInNetwork: 7137.599999999999,
+  tierTwoInNetwork: 7200,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 OptimaFit Bronze 7200 40% Direct M Standard Bronze On Exchange Plan
+{
+  tierOneInNetwork: 7137.599999999999,
+  tierTwoInNetwork: 7200,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 OptimaFit Bronze 7200 40% Direct M Standard Bronze On Exchange Plan
+{
+  tierOneInNetwork: 7137.599999999999,
+  tierTwoInNetwork: 7200,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 OptimaFit Bronze 7200 40% Direct M Standard Bronze On Exchange Plan
+{
+  tierOneInNetwork: 7137.599999999999,
+  tierTwoInNetwork: 7200,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 18.624000000000002 OptimaFit Bronze 7200 40% Direct M Standard Bronze On Exchange Plan
+{
+  tierOneInNetwork: 7118.976,
+  tierTwoInNetwork: 7200,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 5.120000000000001 OptimaFit Bronze 7200 40% Direct M Standard Bronze On Exchange Plan
+{
+  tierOneInNetwork: 7113.856,
+  tierTwoInNetwork: 7200,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 OptimaFit Bronze 7200 40% Direct M Standard Bronze On Exchange Plan
+{
+  tierOneInNetwork: 7113.856,
+  tierTwoInNetwork: 7200,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 OptimaFit Bronze 7200 40% Direct M Standard Bronze On Exchange Plan
+{
+  tierOneInNetwork: 7113.856,
+  tierTwoInNetwork: 7200,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+86.144
+Laboratory Outpatient and Professional Services 5.5515 OptimaFit Silver 3000 25% Direct M 87% AV Level Silver Plan
+{
+  tierOneInNetwork: 394.4485,
+  tierTwoInNetwork: 400,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 12.6 OptimaFit Silver 3000 25% Direct M 87% AV Level Silver Plan
+{
+  tierOneInNetwork: 381.8485,
+  tierTwoInNetwork: 400,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 5.2485 OptimaFit Silver 3000 25% Direct M 87% AV Level Silver Plan
+{
+  tierOneInNetwork: 376.6,
+  tierTwoInNetwork: 400,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 OptimaFit Silver 3000 25% Direct M 87% AV Level Silver Plan
+{
+  tierOneInNetwork: 376.6,
+  tierTwoInNetwork: 400,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 OptimaFit Silver 3000 25% Direct M 87% AV Level Silver Plan
+{
+  tierOneInNetwork: 376.6,
+  tierTwoInNetwork: 400,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 OptimaFit Silver 3000 25% Direct M 87% AV Level Silver Plan
+{
+  tierOneInNetwork: 376.6,
+  tierTwoInNetwork: 400,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 6.984 OptimaFit Silver 3000 25% Direct M 87% AV Level Silver Plan
+{
+  tierOneInNetwork: 369.61600000000004,
+  tierTwoInNetwork: 400,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 1.92 OptimaFit Silver 3000 25% Direct M 87% AV Level Silver Plan
+{
+  tierOneInNetwork: 367.696,
+  tierTwoInNetwork: 400,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 OptimaFit Silver 3000 25% Direct M 87% AV Level Silver Plan
+{
+  tierOneInNetwork: 367.696,
+  tierTwoInNetwork: 400,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 OptimaFit Silver 3000 25% Direct M 87% AV Level Silver Plan
+{
+  tierOneInNetwork: 367.696,
+  tierTwoInNetwork: 400,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+32.304
+Laboratory Outpatient and Professional Services 11.103 OptimaFit Silver 4600 30% Direct M 87% AV Level Silver Plan
+{
+  tierOneInNetwork: 438.897,
+  tierTwoInNetwork: 450,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 25.2 OptimaFit Silver 4600 30% Direct M 87% AV Level Silver Plan
+{
+  tierOneInNetwork: 413.697,
+  tierTwoInNetwork: 450,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 10.497 OptimaFit Silver 4600 30% Direct M 87% AV Level Silver Plan
+{
+  tierOneInNetwork: 403.2,
+  tierTwoInNetwork: 450,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 OptimaFit Silver 4600 30% Direct M 87% AV Level Silver Plan
+{
+  tierOneInNetwork: 403.2,
+  tierTwoInNetwork: 450,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 OptimaFit Silver 4600 30% Direct M 87% AV Level Silver Plan
+{
+  tierOneInNetwork: 403.2,
+  tierTwoInNetwork: 450,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 OptimaFit Silver 4600 30% Direct M 87% AV Level Silver Plan
+{
+  tierOneInNetwork: 403.2,
+  tierTwoInNetwork: 450,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 13.968 OptimaFit Silver 4600 30% Direct M 87% AV Level Silver Plan
+{
+  tierOneInNetwork: 389.23199999999997,
+  tierTwoInNetwork: 450,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 3.84 OptimaFit Silver 4600 30% Direct M 87% AV Level Silver Plan
+{
+  tierOneInNetwork: 385.392,
+  tierTwoInNetwork: 450,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 OptimaFit Silver 4600 30% Direct M 87% AV Level Silver Plan
+{
+  tierOneInNetwork: 385.392,
+  tierTwoInNetwork: 450,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 OptimaFit Silver 4600 30% Direct M 87% AV Level Silver Plan
+{
+  tierOneInNetwork: 385.392,
+  tierTwoInNetwork: 450,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+64.608
+Laboratory Outpatient and Professional Services 3.701 OptimaFit Silver 3000 25% Direct M 94% AV Level Silver Plan
+{
+  tierOneInNetwork: 96.299,
+  tierTwoInNetwork: 100,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 8.4 OptimaFit Silver 3000 25% Direct M 94% AV Level Silver Plan
+{
+  tierOneInNetwork: 87.899,
+  tierTwoInNetwork: 100,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 3.4990000000000006 OptimaFit Silver 3000 25% Direct M 94% AV Level Silver Plan
+{
+  tierOneInNetwork: 84.4,
+  tierTwoInNetwork: 100,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 OptimaFit Silver 3000 25% Direct M 94% AV Level Silver Plan
+{
+  tierOneInNetwork: 84.4,
+  tierTwoInNetwork: 100,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 OptimaFit Silver 3000 25% Direct M 94% AV Level Silver Plan
+{
+  tierOneInNetwork: 84.4,
+  tierTwoInNetwork: 100,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 OptimaFit Silver 3000 25% Direct M 94% AV Level Silver Plan
+{
+  tierOneInNetwork: 84.4,
+  tierTwoInNetwork: 100,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 4.656000000000001 OptimaFit Silver 3000 25% Direct M 94% AV Level Silver Plan
+{
+  tierOneInNetwork: 79.744,
+  tierTwoInNetwork: 100,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 1.2800000000000002 OptimaFit Silver 3000 25% Direct M 94% AV Level Silver Plan
+{
+  tierOneInNetwork: 78.464,
+  tierTwoInNetwork: 100,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 OptimaFit Silver 3000 25% Direct M 94% AV Level Silver Plan
+{
+  tierOneInNetwork: 78.464,
+  tierTwoInNetwork: 100,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 OptimaFit Silver 3000 25% Direct M 94% AV Level Silver Plan
+{
+  tierOneInNetwork: 78.464,
+  tierTwoInNetwork: 100,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+21.536
+Laboratory Outpatient and Professional Services 7.402 OptimaFit Silver 4600 30% Direct M 94% AV Level Silver Plan
+{
+  tierOneInNetwork: 142.598,
+  tierTwoInNetwork: 150,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 16.8 OptimaFit Silver 4600 30% Direct M 94% AV Level Silver Plan
+{
+  tierOneInNetwork: 125.79800000000002,
+  tierTwoInNetwork: 150,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 6.998000000000001 OptimaFit Silver 4600 30% Direct M 94% AV Level Silver Plan
+{
+  tierOneInNetwork: 118.80000000000001,
+  tierTwoInNetwork: 150,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 OptimaFit Silver 4600 30% Direct M 94% AV Level Silver Plan
+{
+  tierOneInNetwork: 118.80000000000001,
+  tierTwoInNetwork: 150,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 OptimaFit Silver 4600 30% Direct M 94% AV Level Silver Plan
+{
+  tierOneInNetwork: 118.80000000000001,
+  tierTwoInNetwork: 150,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 OptimaFit Silver 4600 30% Direct M 94% AV Level Silver Plan
+{
+  tierOneInNetwork: 118.80000000000001,
+  tierTwoInNetwork: 150,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 9.312000000000001 OptimaFit Silver 4600 30% Direct M 94% AV Level Silver Plan
+{
+  tierOneInNetwork: 109.48800000000001,
+  tierTwoInNetwork: 150,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 2.5600000000000005 OptimaFit Silver 4600 30% Direct M 94% AV Level Silver Plan
+{
+  tierOneInNetwork: 106.92800000000001,
+  tierTwoInNetwork: 150,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 OptimaFit Silver 4600 30% Direct M 94% AV Level Silver Plan
+{
+  tierOneInNetwork: 106.92800000000001,
+  tierTwoInNetwork: 150,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 OptimaFit Silver 4600 30% Direct M 94% AV Level Silver Plan
+{
+  tierOneInNetwork: 106.92800000000001,
+  tierTwoInNetwork: 150,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+43.072
+Laboratory Outpatient and Professional Services 11.103 OptimaFit Silver 4600 30% Direct M 73% AV Level Silver Plan
+{
+  tierOneInNetwork: 2888.897,
+  tierTwoInNetwork: 2900,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 25.2 OptimaFit Silver 4600 30% Direct M 73% AV Level Silver Plan
+{
+  tierOneInNetwork: 2863.697,
+  tierTwoInNetwork: 2900,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 10.497 OptimaFit Silver 4600 30% Direct M 73% AV Level Silver Plan
+{
+  tierOneInNetwork: 2853.2000000000003,
+  tierTwoInNetwork: 2900,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 OptimaFit Silver 4600 30% Direct M 73% AV Level Silver Plan
+{
+  tierOneInNetwork: 2853.2000000000003,
+  tierTwoInNetwork: 2900,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 OptimaFit Silver 4600 30% Direct M 73% AV Level Silver Plan
+{
+  tierOneInNetwork: 2853.2000000000003,
+  tierTwoInNetwork: 2900,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 OptimaFit Silver 4600 30% Direct M 73% AV Level Silver Plan
+{
+  tierOneInNetwork: 2853.2000000000003,
+  tierTwoInNetwork: 2900,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 13.968 OptimaFit Silver 4600 30% Direct M 73% AV Level Silver Plan
+{
+  tierOneInNetwork: 2839.2320000000004,
+  tierTwoInNetwork: 2900,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 3.84 OptimaFit Silver 4600 30% Direct M 73% AV Level Silver Plan
+{
+  tierOneInNetwork: 2835.3920000000003,
+  tierTwoInNetwork: 2900,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 OptimaFit Silver 4600 30% Direct M 73% AV Level Silver Plan
+{
+  tierOneInNetwork: 2835.3920000000003,
+  tierTwoInNetwork: 2900,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 OptimaFit Silver 4600 30% Direct M 73% AV Level Silver Plan
+{
+  tierOneInNetwork: 2835.3920000000003,
+  tierTwoInNetwork: 2900,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+64.608
+Laboratory Outpatient and Professional Services 7.402 OptimaFit Silver 6600 30% Direct M 94% AV Level Silver Plan
+{
+  tierOneInNetwork: 192.598,
+  tierTwoInNetwork: 200,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 16.8 OptimaFit Silver 6600 30% Direct M 94% AV Level Silver Plan
+{
+  tierOneInNetwork: 175.798,
+  tierTwoInNetwork: 200,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 6.998000000000001 OptimaFit Silver 6600 30% Direct M 94% AV Level Silver Plan
+{
+  tierOneInNetwork: 168.8,
+  tierTwoInNetwork: 200,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 OptimaFit Silver 6600 30% Direct M 94% AV Level Silver Plan
+{
+  tierOneInNetwork: 168.8,
+  tierTwoInNetwork: 200,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 OptimaFit Silver 6600 30% Direct M 94% AV Level Silver Plan
+{
+  tierOneInNetwork: 168.8,
+  tierTwoInNetwork: 200,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 OptimaFit Silver 6600 30% Direct M 94% AV Level Silver Plan
+{
+  tierOneInNetwork: 168.8,
+  tierTwoInNetwork: 200,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 9.312000000000001 OptimaFit Silver 6600 30% Direct M 94% AV Level Silver Plan
+{
+  tierOneInNetwork: 159.488,
+  tierTwoInNetwork: 200,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 2.5600000000000005 OptimaFit Silver 6600 30% Direct M 94% AV Level Silver Plan
+{
+  tierOneInNetwork: 156.928,
+  tierTwoInNetwork: 200,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 OptimaFit Silver 6600 30% Direct M 94% AV Level Silver Plan
+{
+  tierOneInNetwork: 156.928,
+  tierTwoInNetwork: 200,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 OptimaFit Silver 6600 30% Direct M 94% AV Level Silver Plan
+{
+  tierOneInNetwork: 156.928,
+  tierTwoInNetwork: 200,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+43.072
+Laboratory Outpatient and Professional Services 11.103 OptimaFit Silver 4600 30% Direct M Standard Silver On Exchange Plan
+{
+  tierOneInNetwork: 4588.897,
+  tierTwoInNetwork: 4600,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 25.2 OptimaFit Silver 4600 30% Direct M Standard Silver On Exchange Plan
+{
+  tierOneInNetwork: 4563.697,
+  tierTwoInNetwork: 4600,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 10.497 OptimaFit Silver 4600 30% Direct M Standard Silver On Exchange Plan
+{
+  tierOneInNetwork: 4553.2,
+  tierTwoInNetwork: 4600,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 OptimaFit Silver 4600 30% Direct M Standard Silver On Exchange Plan
+{
+  tierOneInNetwork: 4553.2,
+  tierTwoInNetwork: 4600,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 OptimaFit Silver 4600 30% Direct M Standard Silver On Exchange Plan
+{
+  tierOneInNetwork: 4553.2,
+  tierTwoInNetwork: 4600,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 OptimaFit Silver 4600 30% Direct M Standard Silver On Exchange Plan
+{
+  tierOneInNetwork: 4553.2,
+  tierTwoInNetwork: 4600,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 13.968 OptimaFit Silver 4600 30% Direct M Standard Silver On Exchange Plan
+{
+  tierOneInNetwork: 4539.232,
+  tierTwoInNetwork: 4600,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 3.84 OptimaFit Silver 4600 30% Direct M Standard Silver On Exchange Plan
+{
+  tierOneInNetwork: 4535.392,
+  tierTwoInNetwork: 4600,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 OptimaFit Silver 4600 30% Direct M Standard Silver On Exchange Plan
+{
+  tierOneInNetwork: 4535.392,
+  tierTwoInNetwork: 4600,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 OptimaFit Silver 4600 30% Direct M Standard Silver On Exchange Plan
+{
+  tierOneInNetwork: 4535.392,
+  tierTwoInNetwork: 4600,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+64.608
+Laboratory Outpatient and Professional Services 9.2525 OptimaFit Silver 3000 25% Direct M Standard Silver On Exchange Plan
+{
+  tierOneInNetwork: 2990.7475,
+  tierTwoInNetwork: 3000,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 21 OptimaFit Silver 3000 25% Direct M Standard Silver On Exchange Plan
+{
+  tierOneInNetwork: 2969.7475,
+  tierTwoInNetwork: 3000,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 8.7475 OptimaFit Silver 3000 25% Direct M Standard Silver On Exchange Plan
+{
+  tierOneInNetwork: 2961,
+  tierTwoInNetwork: 3000,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 OptimaFit Silver 3000 25% Direct M Standard Silver On Exchange Plan
+{
+  tierOneInNetwork: 2961,
+  tierTwoInNetwork: 3000,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 OptimaFit Silver 3000 25% Direct M Standard Silver On Exchange Plan
+{
+  tierOneInNetwork: 2961,
+  tierTwoInNetwork: 3000,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 OptimaFit Silver 3000 25% Direct M Standard Silver On Exchange Plan
+{
+  tierOneInNetwork: 2961,
+  tierTwoInNetwork: 3000,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 11.64 OptimaFit Silver 3000 25% Direct M Standard Silver On Exchange Plan
+{
+  tierOneInNetwork: 2949.36,
+  tierTwoInNetwork: 3000,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 3.2 OptimaFit Silver 3000 25% Direct M Standard Silver On Exchange Plan
+{
+  tierOneInNetwork: 2946.1600000000003,
+  tierTwoInNetwork: 3000,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 OptimaFit Silver 3000 25% Direct M Standard Silver On Exchange Plan
+{
+  tierOneInNetwork: 2946.1600000000003,
+  tierTwoInNetwork: 3000,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 OptimaFit Silver 3000 25% Direct M Standard Silver On Exchange Plan
+{
+  tierOneInNetwork: 2946.1600000000003,
+  tierTwoInNetwork: 3000,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+53.84
+Laboratory Outpatient and Professional Services 11.103 OptimaFit Silver 6600 30% Direct M Standard Silver On Exchange Plan
+{
+  tierOneInNetwork: 6588.897,
+  tierTwoInNetwork: 6600,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 25.2 OptimaFit Silver 6600 30% Direct M Standard Silver On Exchange Plan
+{
+  tierOneInNetwork: 6563.697,
+  tierTwoInNetwork: 6600,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 10.497 OptimaFit Silver 6600 30% Direct M Standard Silver On Exchange Plan
+{
+  tierOneInNetwork: 6553.2,
+  tierTwoInNetwork: 6600,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 OptimaFit Silver 6600 30% Direct M Standard Silver On Exchange Plan
+{
+  tierOneInNetwork: 6553.2,
+  tierTwoInNetwork: 6600,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 OptimaFit Silver 6600 30% Direct M Standard Silver On Exchange Plan
+{
+  tierOneInNetwork: 6553.2,
+  tierTwoInNetwork: 6600,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 OptimaFit Silver 6600 30% Direct M Standard Silver On Exchange Plan
+{
+  tierOneInNetwork: 6553.2,
+  tierTwoInNetwork: 6600,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 13.968 OptimaFit Silver 6600 30% Direct M Standard Silver On Exchange Plan
+{
+  tierOneInNetwork: 6539.232,
+  tierTwoInNetwork: 6600,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 3.84 OptimaFit Silver 6600 30% Direct M Standard Silver On Exchange Plan
+{
+  tierOneInNetwork: 6535.392,
+  tierTwoInNetwork: 6600,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 OptimaFit Silver 6600 30% Direct M Standard Silver On Exchange Plan
+{
+  tierOneInNetwork: 6535.392,
+  tierTwoInNetwork: 6600,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 OptimaFit Silver 6600 30% Direct M Standard Silver On Exchange Plan
+{
+  tierOneInNetwork: 6535.392,
+  tierTwoInNetwork: 6600,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+64.608
+Laboratory Outpatient and Professional Services 12.953499999999998 Anthem HealthKeepers Bronze X 5250 Standard Bronze Off Exchange Plan
+{
+  tierOneInNetwork: 5237.0465,
+  tierTwoInNetwork: 5250,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 29.4 Anthem HealthKeepers Bronze X 5250 Standard Bronze Off Exchange Plan
+{
+  tierOneInNetwork: 5207.646500000001,
+  tierTwoInNetwork: 5250,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 12.2465 Anthem HealthKeepers Bronze X 5250 Standard Bronze Off Exchange Plan
+{
+  tierOneInNetwork: 5195.400000000001,
+  tierTwoInNetwork: 5250,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 Anthem HealthKeepers Bronze X 5250 Standard Bronze Off Exchange Plan
+{
+  tierOneInNetwork: 5195.400000000001,
+  tierTwoInNetwork: 5250,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 Anthem HealthKeepers Bronze X 5250 Standard Bronze Off Exchange Plan
+{
+  tierOneInNetwork: 5195.400000000001,
+  tierTwoInNetwork: 5250,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 Anthem HealthKeepers Bronze X 5250 Standard Bronze Off Exchange Plan
+{
+  tierOneInNetwork: 5195.400000000001,
+  tierTwoInNetwork: 5250,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 16.296 Anthem HealthKeepers Bronze X 5250 Standard Bronze Off Exchange Plan
+{
+  tierOneInNetwork: 5179.104,
+  tierTwoInNetwork: 5250,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 4.4799999999999995 Anthem HealthKeepers Bronze X 5250 Standard Bronze Off Exchange Plan
+{
+  tierOneInNetwork: 5174.624000000001,
+  tierTwoInNetwork: 5250,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 Anthem HealthKeepers Bronze X 5250 Standard Bronze Off Exchange Plan
+{
+  tierOneInNetwork: 5174.624000000001,
+  tierTwoInNetwork: 5250,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 Anthem HealthKeepers Bronze X 5250 Standard Bronze Off Exchange Plan
+{
+  tierOneInNetwork: 5174.624000000001,
+  tierTwoInNetwork: 5250,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+75.37599999999999
+Laboratory Outpatient and Professional Services 14.804 Anthem HealthKeepers Bronze X 7500 Standard Bronze Off Exchange Plan
+{
+  tierOneInNetwork: 7485.196,
+  tierTwoInNetwork: 7500,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 33.6 Anthem HealthKeepers Bronze X 7500 Standard Bronze Off Exchange Plan
+{
+  tierOneInNetwork: 7451.596,
+  tierTwoInNetwork: 7500,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 13.996000000000002 Anthem HealthKeepers Bronze X 7500 Standard Bronze Off Exchange Plan
+{
+  tierOneInNetwork: 7437.599999999999,
+  tierTwoInNetwork: 7500,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 Anthem HealthKeepers Bronze X 7500 Standard Bronze Off Exchange Plan
+{
+  tierOneInNetwork: 7437.599999999999,
+  tierTwoInNetwork: 7500,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 Anthem HealthKeepers Bronze X 7500 Standard Bronze Off Exchange Plan
+{
+  tierOneInNetwork: 7437.599999999999,
+  tierTwoInNetwork: 7500,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 Anthem HealthKeepers Bronze X 7500 Standard Bronze Off Exchange Plan
+{
+  tierOneInNetwork: 7437.599999999999,
+  tierTwoInNetwork: 7500,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 18.624000000000002 Anthem HealthKeepers Bronze X 7500 Standard Bronze Off Exchange Plan
+{
+  tierOneInNetwork: 7418.976,
+  tierTwoInNetwork: 7500,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 5.120000000000001 Anthem HealthKeepers Bronze X 7500 Standard Bronze Off Exchange Plan
+{
+  tierOneInNetwork: 7413.856,
+  tierTwoInNetwork: 7500,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 Anthem HealthKeepers Bronze X 7500 Standard Bronze Off Exchange Plan
+{
+  tierOneInNetwork: 7413.856,
+  tierTwoInNetwork: 7500,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 Anthem HealthKeepers Bronze X 7500 Standard Bronze Off Exchange Plan
+{
+  tierOneInNetwork: 7413.856,
+  tierTwoInNetwork: 7500,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+86.144
+Laboratory Outpatient and Professional Services 12.953499999999998 Anthem HealthKeepers Bronze X 6300 Standard Bronze On Exchange Plan
+{
+  tierOneInNetwork: 6287.0465,
+  tierTwoInNetwork: 6300,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 29.4 Anthem HealthKeepers Bronze X 6300 Standard Bronze On Exchange Plan
+{
+  tierOneInNetwork: 6257.646500000001,
+  tierTwoInNetwork: 6300,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 12.2465 Anthem HealthKeepers Bronze X 6300 Standard Bronze On Exchange Plan
+{
+  tierOneInNetwork: 6245.400000000001,
+  tierTwoInNetwork: 6300,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 Anthem HealthKeepers Bronze X 6300 Standard Bronze On Exchange Plan
+{
+  tierOneInNetwork: 6245.400000000001,
+  tierTwoInNetwork: 6300,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 Anthem HealthKeepers Bronze X 6300 Standard Bronze On Exchange Plan
+{
+  tierOneInNetwork: 6245.400000000001,
+  tierTwoInNetwork: 6300,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 Anthem HealthKeepers Bronze X 6300 Standard Bronze On Exchange Plan
+{
+  tierOneInNetwork: 6245.400000000001,
+  tierTwoInNetwork: 6300,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 16.296 Anthem HealthKeepers Bronze X 6300 Standard Bronze On Exchange Plan
+{
+  tierOneInNetwork: 6229.104,
+  tierTwoInNetwork: 6300,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 4.4799999999999995 Anthem HealthKeepers Bronze X 6300 Standard Bronze On Exchange Plan
+{
+  tierOneInNetwork: 6224.624000000001,
+  tierTwoInNetwork: 6300,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 Anthem HealthKeepers Bronze X 6300 Standard Bronze On Exchange Plan
+{
+  tierOneInNetwork: 6224.624000000001,
+  tierTwoInNetwork: 6300,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 Anthem HealthKeepers Bronze X 6300 Standard Bronze On Exchange Plan
+{
+  tierOneInNetwork: 6224.624000000001,
+  tierTwoInNetwork: 6300,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+75.37599999999999
+Laboratory Outpatient and Professional Services 12.953499999999998 Anthem HealthKeepers Bronze X 4900 for HSA Standard Bronze On Exchange Plan
+{
+  tierOneInNetwork: 4887.0465,
+  tierTwoInNetwork: 4900,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 29.4 Anthem HealthKeepers Bronze X 4900 for HSA Standard Bronze On Exchange Plan
+{
+  tierOneInNetwork: 4857.646500000001,
+  tierTwoInNetwork: 4900,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 12.2465 Anthem HealthKeepers Bronze X 4900 for HSA Standard Bronze On Exchange Plan
+{
+  tierOneInNetwork: 4845.400000000001,
+  tierTwoInNetwork: 4900,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 Anthem HealthKeepers Bronze X 4900 for HSA Standard Bronze On Exchange Plan
+{
+  tierOneInNetwork: 4845.400000000001,
+  tierTwoInNetwork: 4900,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 Anthem HealthKeepers Bronze X 4900 for HSA Standard Bronze On Exchange Plan
+{
+  tierOneInNetwork: 4845.400000000001,
+  tierTwoInNetwork: 4900,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 Anthem HealthKeepers Bronze X 4900 for HSA Standard Bronze On Exchange Plan
+{
+  tierOneInNetwork: 4845.400000000001,
+  tierTwoInNetwork: 4900,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 16.296 Anthem HealthKeepers Bronze X 4900 for HSA Standard Bronze On Exchange Plan
+{
+  tierOneInNetwork: 4829.104,
+  tierTwoInNetwork: 4900,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 4.4799999999999995 Anthem HealthKeepers Bronze X 4900 for HSA Standard Bronze On Exchange Plan
+{
+  tierOneInNetwork: 4824.624000000001,
+  tierTwoInNetwork: 4900,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 Anthem HealthKeepers Bronze X 4900 for HSA Standard Bronze On Exchange Plan
+{
+  tierOneInNetwork: 4824.624000000001,
+  tierTwoInNetwork: 4900,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 Anthem HealthKeepers Bronze X 4900 for HSA Standard Bronze On Exchange Plan
+{
+  tierOneInNetwork: 4824.624000000001,
+  tierTwoInNetwork: 4900,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+75.37599999999999
+Laboratory Outpatient and Professional Services 12.953499999999998 Anthem HealthKeepers Bronze X 5250 Standard Bronze On Exchange Plan
+{
+  tierOneInNetwork: 5237.0465,
+  tierTwoInNetwork: 5250,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 29.4 Anthem HealthKeepers Bronze X 5250 Standard Bronze On Exchange Plan
+{
+  tierOneInNetwork: 5207.646500000001,
+  tierTwoInNetwork: 5250,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 12.2465 Anthem HealthKeepers Bronze X 5250 Standard Bronze On Exchange Plan
+{
+  tierOneInNetwork: 5195.400000000001,
+  tierTwoInNetwork: 5250,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 Anthem HealthKeepers Bronze X 5250 Standard Bronze On Exchange Plan
+{
+  tierOneInNetwork: 5195.400000000001,
+  tierTwoInNetwork: 5250,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 Anthem HealthKeepers Bronze X 5250 Standard Bronze On Exchange Plan
+{
+  tierOneInNetwork: 5195.400000000001,
+  tierTwoInNetwork: 5250,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 Anthem HealthKeepers Bronze X 5250 Standard Bronze On Exchange Plan
+{
+  tierOneInNetwork: 5195.400000000001,
+  tierTwoInNetwork: 5250,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 16.296 Anthem HealthKeepers Bronze X 5250 Standard Bronze On Exchange Plan
+{
+  tierOneInNetwork: 5179.104,
+  tierTwoInNetwork: 5250,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 4.4799999999999995 Anthem HealthKeepers Bronze X 5250 Standard Bronze On Exchange Plan
+{
+  tierOneInNetwork: 5174.624000000001,
+  tierTwoInNetwork: 5250,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 Anthem HealthKeepers Bronze X 5250 Standard Bronze On Exchange Plan
+{
+  tierOneInNetwork: 5174.624000000001,
+  tierTwoInNetwork: 5250,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 Anthem HealthKeepers Bronze X 5250 Standard Bronze On Exchange Plan
+{
+  tierOneInNetwork: 5174.624000000001,
+  tierTwoInNetwork: 5250,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+75.37599999999999
+Laboratory Outpatient and Professional Services 12.953499999999998 Anthem HealthKeepers Silver X 6250 Standard Silver On Exchange Plan
+{
+  tierOneInNetwork: 6237.0465,
+  tierTwoInNetwork: 6250,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 29.4 Anthem HealthKeepers Silver X 6250 Standard Silver On Exchange Plan
+{
+  tierOneInNetwork: 6207.646500000001,
+  tierTwoInNetwork: 6250,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 12.2465 Anthem HealthKeepers Silver X 6250 Standard Silver On Exchange Plan
+{
+  tierOneInNetwork: 6195.400000000001,
+  tierTwoInNetwork: 6250,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 Anthem HealthKeepers Silver X 6250 Standard Silver On Exchange Plan
+{
+  tierOneInNetwork: 6195.400000000001,
+  tierTwoInNetwork: 6250,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 Anthem HealthKeepers Silver X 6250 Standard Silver On Exchange Plan
+{
+  tierOneInNetwork: 6195.400000000001,
+  tierTwoInNetwork: 6250,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 Anthem HealthKeepers Silver X 6250 Standard Silver On Exchange Plan
+{
+  tierOneInNetwork: 6195.400000000001,
+  tierTwoInNetwork: 6250,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 16.296 Anthem HealthKeepers Silver X 6250 Standard Silver On Exchange Plan
+{
+  tierOneInNetwork: 6179.104,
+  tierTwoInNetwork: 6250,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 4.4799999999999995 Anthem HealthKeepers Silver X 6250 Standard Silver On Exchange Plan
+{
+  tierOneInNetwork: 6174.624000000001,
+  tierTwoInNetwork: 6250,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 Anthem HealthKeepers Silver X 6250 Standard Silver On Exchange Plan
+{
+  tierOneInNetwork: 6174.624000000001,
+  tierTwoInNetwork: 6250,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 Anthem HealthKeepers Silver X 6250 Standard Silver On Exchange Plan
+{
+  tierOneInNetwork: 6174.624000000001,
+  tierTwoInNetwork: 6250,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+75.37599999999999
+Laboratory Outpatient and Professional Services 12.953499999999998 Anthem HealthKeepers Bronze X 6300 Standard Bronze Off Exchange Plan
+{
+  tierOneInNetwork: 6287.0465,
+  tierTwoInNetwork: 6300,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 29.4 Anthem HealthKeepers Bronze X 6300 Standard Bronze Off Exchange Plan
+{
+  tierOneInNetwork: 6257.646500000001,
+  tierTwoInNetwork: 6300,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 12.2465 Anthem HealthKeepers Bronze X 6300 Standard Bronze Off Exchange Plan
+{
+  tierOneInNetwork: 6245.400000000001,
+  tierTwoInNetwork: 6300,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 Anthem HealthKeepers Bronze X 6300 Standard Bronze Off Exchange Plan
+{
+  tierOneInNetwork: 6245.400000000001,
+  tierTwoInNetwork: 6300,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 Anthem HealthKeepers Bronze X 6300 Standard Bronze Off Exchange Plan
+{
+  tierOneInNetwork: 6245.400000000001,
+  tierTwoInNetwork: 6300,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 Anthem HealthKeepers Bronze X 6300 Standard Bronze Off Exchange Plan
+{
+  tierOneInNetwork: 6245.400000000001,
+  tierTwoInNetwork: 6300,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 16.296 Anthem HealthKeepers Bronze X 6300 Standard Bronze Off Exchange Plan
+{
+  tierOneInNetwork: 6229.104,
+  tierTwoInNetwork: 6300,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 4.4799999999999995 Anthem HealthKeepers Bronze X 6300 Standard Bronze Off Exchange Plan
+{
+  tierOneInNetwork: 6224.624000000001,
+  tierTwoInNetwork: 6300,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 Anthem HealthKeepers Bronze X 6300 Standard Bronze Off Exchange Plan
+{
+  tierOneInNetwork: 6224.624000000001,
+  tierTwoInNetwork: 6300,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 Anthem HealthKeepers Bronze X 6300 Standard Bronze Off Exchange Plan
+{
+  tierOneInNetwork: 6224.624000000001,
+  tierTwoInNetwork: 6300,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+75.37599999999999
+Laboratory Outpatient and Professional Services 12.953499999999998 Anthem HealthKeepers Bronze X 4900 for HSA Standard Bronze Off Exchange Plan
+{
+  tierOneInNetwork: 4887.0465,
+  tierTwoInNetwork: 4900,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 29.4 Anthem HealthKeepers Bronze X 4900 for HSA Standard Bronze Off Exchange Plan
+{
+  tierOneInNetwork: 4857.646500000001,
+  tierTwoInNetwork: 4900,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 12.2465 Anthem HealthKeepers Bronze X 4900 for HSA Standard Bronze Off Exchange Plan
+{
+  tierOneInNetwork: 4845.400000000001,
+  tierTwoInNetwork: 4900,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 Anthem HealthKeepers Bronze X 4900 for HSA Standard Bronze Off Exchange Plan
+{
+  tierOneInNetwork: 4845.400000000001,
+  tierTwoInNetwork: 4900,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 Anthem HealthKeepers Bronze X 4900 for HSA Standard Bronze Off Exchange Plan
+{
+  tierOneInNetwork: 4845.400000000001,
+  tierTwoInNetwork: 4900,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 Anthem HealthKeepers Bronze X 4900 for HSA Standard Bronze Off Exchange Plan
+{
+  tierOneInNetwork: 4845.400000000001,
+  tierTwoInNetwork: 4900,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 16.296 Anthem HealthKeepers Bronze X 4900 for HSA Standard Bronze Off Exchange Plan
+{
+  tierOneInNetwork: 4829.104,
+  tierTwoInNetwork: 4900,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 4.4799999999999995 Anthem HealthKeepers Bronze X 4900 for HSA Standard Bronze Off Exchange Plan
+{
+  tierOneInNetwork: 4824.624000000001,
+  tierTwoInNetwork: 4900,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 Anthem HealthKeepers Bronze X 4900 for HSA Standard Bronze Off Exchange Plan
+{
+  tierOneInNetwork: 4824.624000000001,
+  tierTwoInNetwork: 4900,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 Anthem HealthKeepers Bronze X 4900 for HSA Standard Bronze Off Exchange Plan
+{
+  tierOneInNetwork: 4824.624000000001,
+  tierTwoInNetwork: 4900,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+75.37599999999999
+Laboratory Outpatient and Professional Services 7.402 Anthem HealthKeepers Gold X 1600 Standard Gold Off Exchange Plan
+{
+  tierOneInNetwork: 1592.598,
+  tierTwoInNetwork: 1600,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 16.8 Anthem HealthKeepers Gold X 1600 Standard Gold Off Exchange Plan
+{
+  tierOneInNetwork: 1575.798,
+  tierTwoInNetwork: 1600,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 6.998000000000001 Anthem HealthKeepers Gold X 1600 Standard Gold Off Exchange Plan
+{
+  tierOneInNetwork: 1568.8,
+  tierTwoInNetwork: 1600,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 Anthem HealthKeepers Gold X 1600 Standard Gold Off Exchange Plan
+{
+  tierOneInNetwork: 1568.8,
+  tierTwoInNetwork: 1600,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 Anthem HealthKeepers Gold X 1600 Standard Gold Off Exchange Plan
+{
+  tierOneInNetwork: 1568.8,
+  tierTwoInNetwork: 1600,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 Anthem HealthKeepers Gold X 1600 Standard Gold Off Exchange Plan
+{
+  tierOneInNetwork: 1568.8,
+  tierTwoInNetwork: 1600,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 9.312000000000001 Anthem HealthKeepers Gold X 1600 Standard Gold Off Exchange Plan
+{
+  tierOneInNetwork: 1559.488,
+  tierTwoInNetwork: 1600,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 2.5600000000000005 Anthem HealthKeepers Gold X 1600 Standard Gold Off Exchange Plan
+{
+  tierOneInNetwork: 1556.928,
+  tierTwoInNetwork: 1600,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 Anthem HealthKeepers Gold X 1600 Standard Gold Off Exchange Plan
+{
+  tierOneInNetwork: 1556.928,
+  tierTwoInNetwork: 1600,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 Anthem HealthKeepers Gold X 1600 Standard Gold Off Exchange Plan
+{
+  tierOneInNetwork: 1556.928,
+  tierTwoInNetwork: 1600,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+43.072
+Laboratory Outpatient and Professional Services 14.804 Anthem HealthKeepers Bronze X 7500 Standard Bronze On Exchange Plan
+{
+  tierOneInNetwork: 7485.196,
+  tierTwoInNetwork: 7500,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 33.6 Anthem HealthKeepers Bronze X 7500 Standard Bronze On Exchange Plan
+{
+  tierOneInNetwork: 7451.596,
+  tierTwoInNetwork: 7500,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 13.996000000000002 Anthem HealthKeepers Bronze X 7500 Standard Bronze On Exchange Plan
+{
+  tierOneInNetwork: 7437.599999999999,
+  tierTwoInNetwork: 7500,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 Anthem HealthKeepers Bronze X 7500 Standard Bronze On Exchange Plan
+{
+  tierOneInNetwork: 7437.599999999999,
+  tierTwoInNetwork: 7500,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 Anthem HealthKeepers Bronze X 7500 Standard Bronze On Exchange Plan
+{
+  tierOneInNetwork: 7437.599999999999,
+  tierTwoInNetwork: 7500,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 Anthem HealthKeepers Bronze X 7500 Standard Bronze On Exchange Plan
+{
+  tierOneInNetwork: 7437.599999999999,
+  tierTwoInNetwork: 7500,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 18.624000000000002 Anthem HealthKeepers Bronze X 7500 Standard Bronze On Exchange Plan
+{
+  tierOneInNetwork: 7418.976,
+  tierTwoInNetwork: 7500,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 5.120000000000001 Anthem HealthKeepers Bronze X 7500 Standard Bronze On Exchange Plan
+{
+  tierOneInNetwork: 7413.856,
+  tierTwoInNetwork: 7500,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 Anthem HealthKeepers Bronze X 7500 Standard Bronze On Exchange Plan
+{
+  tierOneInNetwork: 7413.856,
+  tierTwoInNetwork: 7500,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 Anthem HealthKeepers Bronze X 7500 Standard Bronze On Exchange Plan
+{
+  tierOneInNetwork: 7413.856,
+  tierTwoInNetwork: 7500,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+86.144
+Laboratory Outpatient and Professional Services 11.103 Anthem HealthKeepers Silver X 2000 Standard Silver On Exchange Plan
+{
+  tierOneInNetwork: 1988.897,
+  tierTwoInNetwork: 2000,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 25.2 Anthem HealthKeepers Silver X 2000 Standard Silver On Exchange Plan
+{
+  tierOneInNetwork: 1963.697,
+  tierTwoInNetwork: 2000,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 10.497 Anthem HealthKeepers Silver X 2000 Standard Silver On Exchange Plan
+{
+  tierOneInNetwork: 1953.1999999999998,
+  tierTwoInNetwork: 2000,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 Anthem HealthKeepers Silver X 2000 Standard Silver On Exchange Plan
+{
+  tierOneInNetwork: 1953.1999999999998,
+  tierTwoInNetwork: 2000,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 Anthem HealthKeepers Silver X 2000 Standard Silver On Exchange Plan
+{
+  tierOneInNetwork: 1953.1999999999998,
+  tierTwoInNetwork: 2000,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 Anthem HealthKeepers Silver X 2000 Standard Silver On Exchange Plan
+{
+  tierOneInNetwork: 1953.1999999999998,
+  tierTwoInNetwork: 2000,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 13.968 Anthem HealthKeepers Silver X 2000 Standard Silver On Exchange Plan
+{
+  tierOneInNetwork: 1939.2319999999997,
+  tierTwoInNetwork: 2000,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 3.84 Anthem HealthKeepers Silver X 2000 Standard Silver On Exchange Plan
+{
+  tierOneInNetwork: 1935.3919999999998,
+  tierTwoInNetwork: 2000,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 Anthem HealthKeepers Silver X 2000 Standard Silver On Exchange Plan
+{
+  tierOneInNetwork: 1935.3919999999998,
+  tierTwoInNetwork: 2000,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 Anthem HealthKeepers Silver X 2000 Standard Silver On Exchange Plan
+{
+  tierOneInNetwork: 1935.3919999999998,
+  tierTwoInNetwork: 2000,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+64.608
+Laboratory Outpatient and Professional Services 9.2525 Anthem HealthKeepers Silver X 5000 Online Plus 87% AV Level Silver Plan
+{
+  tierOneInNetwork: 490.7475,
+  tierTwoInNetwork: 500,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 21 Anthem HealthKeepers Silver X 5000 Online Plus 87% AV Level Silver Plan
+{
+  tierOneInNetwork: 469.7475,
+  tierTwoInNetwork: 500,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 8.7475 Anthem HealthKeepers Silver X 5000 Online Plus 87% AV Level Silver Plan
+{
+  tierOneInNetwork: 461,
+  tierTwoInNetwork: 500,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 Anthem HealthKeepers Silver X 5000 Online Plus 87% AV Level Silver Plan
+{
+  tierOneInNetwork: 461,
+  tierTwoInNetwork: 500,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 Anthem HealthKeepers Silver X 5000 Online Plus 87% AV Level Silver Plan
+{
+  tierOneInNetwork: 461,
+  tierTwoInNetwork: 500,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 Anthem HealthKeepers Silver X 5000 Online Plus 87% AV Level Silver Plan
+{
+  tierOneInNetwork: 461,
+  tierTwoInNetwork: 500,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 11.64 Anthem HealthKeepers Silver X 5000 Online Plus 87% AV Level Silver Plan
+{
+  tierOneInNetwork: 449.36,
+  tierTwoInNetwork: 500,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 3.2 Anthem HealthKeepers Silver X 5000 Online Plus 87% AV Level Silver Plan
+{
+  tierOneInNetwork: 446.16,
+  tierTwoInNetwork: 500,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 Anthem HealthKeepers Silver X 5000 Online Plus 87% AV Level Silver Plan
+{
+  tierOneInNetwork: 446.16,
+  tierTwoInNetwork: 500,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 Anthem HealthKeepers Silver X 5000 Online Plus 87% AV Level Silver Plan
+{
+  tierOneInNetwork: 446.16,
+  tierTwoInNetwork: 500,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+53.84
+Laboratory Outpatient and Professional Services 7.402 Anthem HealthKeepers Gold X 1600 Standard Gold On Exchange Plan
+{
+  tierOneInNetwork: 1592.598,
+  tierTwoInNetwork: 1600,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 16.8 Anthem HealthKeepers Gold X 1600 Standard Gold On Exchange Plan
+{
+  tierOneInNetwork: 1575.798,
+  tierTwoInNetwork: 1600,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 6.998000000000001 Anthem HealthKeepers Gold X 1600 Standard Gold On Exchange Plan
+{
+  tierOneInNetwork: 1568.8,
+  tierTwoInNetwork: 1600,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 Anthem HealthKeepers Gold X 1600 Standard Gold On Exchange Plan
+{
+  tierOneInNetwork: 1568.8,
+  tierTwoInNetwork: 1600,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 Anthem HealthKeepers Gold X 1600 Standard Gold On Exchange Plan
+{
+  tierOneInNetwork: 1568.8,
+  tierTwoInNetwork: 1600,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 Anthem HealthKeepers Gold X 1600 Standard Gold On Exchange Plan
+{
+  tierOneInNetwork: 1568.8,
+  tierTwoInNetwork: 1600,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 9.312000000000001 Anthem HealthKeepers Gold X 1600 Standard Gold On Exchange Plan
+{
+  tierOneInNetwork: 1559.488,
+  tierTwoInNetwork: 1600,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 2.5600000000000005 Anthem HealthKeepers Gold X 1600 Standard Gold On Exchange Plan
+{
+  tierOneInNetwork: 1556.928,
+  tierTwoInNetwork: 1600,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 Anthem HealthKeepers Gold X 1600 Standard Gold On Exchange Plan
+{
+  tierOneInNetwork: 1556.928,
+  tierTwoInNetwork: 1600,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 Anthem HealthKeepers Gold X 1600 Standard Gold On Exchange Plan
+{
+  tierOneInNetwork: 1556.928,
+  tierTwoInNetwork: 1600,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+43.072
+Laboratory Outpatient and Professional Services 11.103 Anthem HealthKeepers Silver X 2000 Standard Silver Off Exchange Plan
+{
+  tierOneInNetwork: 1988.897,
+  tierTwoInNetwork: 2000,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 25.2 Anthem HealthKeepers Silver X 2000 Standard Silver Off Exchange Plan
+{
+  tierOneInNetwork: 1963.697,
+  tierTwoInNetwork: 2000,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 10.497 Anthem HealthKeepers Silver X 2000 Standard Silver Off Exchange Plan
+{
+  tierOneInNetwork: 1953.1999999999998,
+  tierTwoInNetwork: 2000,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 Anthem HealthKeepers Silver X 2000 Standard Silver Off Exchange Plan
+{
+  tierOneInNetwork: 1953.1999999999998,
+  tierTwoInNetwork: 2000,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 Anthem HealthKeepers Silver X 2000 Standard Silver Off Exchange Plan
+{
+  tierOneInNetwork: 1953.1999999999998,
+  tierTwoInNetwork: 2000,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 Anthem HealthKeepers Silver X 2000 Standard Silver Off Exchange Plan
+{
+  tierOneInNetwork: 1953.1999999999998,
+  tierTwoInNetwork: 2000,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 13.968 Anthem HealthKeepers Silver X 2000 Standard Silver Off Exchange Plan
+{
+  tierOneInNetwork: 1939.2319999999997,
+  tierTwoInNetwork: 2000,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 3.84 Anthem HealthKeepers Silver X 2000 Standard Silver Off Exchange Plan
+{
+  tierOneInNetwork: 1935.3919999999998,
+  tierTwoInNetwork: 2000,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 Anthem HealthKeepers Silver X 2000 Standard Silver Off Exchange Plan
+{
+  tierOneInNetwork: 1935.3919999999998,
+  tierTwoInNetwork: 2000,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 Anthem HealthKeepers Silver X 2000 Standard Silver Off Exchange Plan
+{
+  tierOneInNetwork: 1935.3919999999998,
+  tierTwoInNetwork: 2000,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+64.608
+Laboratory Outpatient and Professional Services 12.953499999999998 Anthem HealthKeepers Silver X 6250 73% AV Level Silver Plan
+{
+  tierOneInNetwork: 2487.0465,
+  tierTwoInNetwork: 2500,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 29.4 Anthem HealthKeepers Silver X 6250 73% AV Level Silver Plan
+{
+  tierOneInNetwork: 2457.6465,
+  tierTwoInNetwork: 2500,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 12.2465 Anthem HealthKeepers Silver X 6250 73% AV Level Silver Plan
+{
+  tierOneInNetwork: 2445.3999999999996,
+  tierTwoInNetwork: 2500,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 Anthem HealthKeepers Silver X 6250 73% AV Level Silver Plan
+{
+  tierOneInNetwork: 2445.3999999999996,
+  tierTwoInNetwork: 2500,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 Anthem HealthKeepers Silver X 6250 73% AV Level Silver Plan
+{
+  tierOneInNetwork: 2445.3999999999996,
+  tierTwoInNetwork: 2500,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 Anthem HealthKeepers Silver X 6250 73% AV Level Silver Plan
+{
+  tierOneInNetwork: 2445.3999999999996,
+  tierTwoInNetwork: 2500,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 16.296 Anthem HealthKeepers Silver X 6250 73% AV Level Silver Plan
+{
+  tierOneInNetwork: 2429.104,
+  tierTwoInNetwork: 2500,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 4.4799999999999995 Anthem HealthKeepers Silver X 6250 73% AV Level Silver Plan
+{
+  tierOneInNetwork: 2424.624,
+  tierTwoInNetwork: 2500,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 Anthem HealthKeepers Silver X 6250 73% AV Level Silver Plan
+{
+  tierOneInNetwork: 2424.624,
+  tierTwoInNetwork: 2500,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 Anthem HealthKeepers Silver X 6250 73% AV Level Silver Plan
+{
+  tierOneInNetwork: 2424.624,
+  tierTwoInNetwork: 2500,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+75.37599999999999
+Laboratory Outpatient and Professional Services 9.2525 Anthem HealthKeepers Silver X 5000 Online Plus 73% AV Level Silver Plan
+{
+  tierOneInNetwork: 2140.7475,
+  tierTwoInNetwork: 2150,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 21 Anthem HealthKeepers Silver X 5000 Online Plus 73% AV Level Silver Plan
+{
+  tierOneInNetwork: 2119.7475,
+  tierTwoInNetwork: 2150,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 8.7475 Anthem HealthKeepers Silver X 5000 Online Plus 73% AV Level Silver Plan
+{
+  tierOneInNetwork: 2111,
+  tierTwoInNetwork: 2150,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 Anthem HealthKeepers Silver X 5000 Online Plus 73% AV Level Silver Plan
+{
+  tierOneInNetwork: 2111,
+  tierTwoInNetwork: 2150,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 Anthem HealthKeepers Silver X 5000 Online Plus 73% AV Level Silver Plan
+{
+  tierOneInNetwork: 2111,
+  tierTwoInNetwork: 2150,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 Anthem HealthKeepers Silver X 5000 Online Plus 73% AV Level Silver Plan
+{
+  tierOneInNetwork: 2111,
+  tierTwoInNetwork: 2150,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 11.64 Anthem HealthKeepers Silver X 5000 Online Plus 73% AV Level Silver Plan
+{
+  tierOneInNetwork: 2099.36,
+  tierTwoInNetwork: 2150,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 3.2 Anthem HealthKeepers Silver X 5000 Online Plus 73% AV Level Silver Plan
+{
+  tierOneInNetwork: 2096.1600000000003,
+  tierTwoInNetwork: 2150,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 Anthem HealthKeepers Silver X 5000 Online Plus 73% AV Level Silver Plan
+{
+  tierOneInNetwork: 2096.1600000000003,
+  tierTwoInNetwork: 2150,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 Anthem HealthKeepers Silver X 5000 Online Plus 73% AV Level Silver Plan
+{
+  tierOneInNetwork: 2096.1600000000003,
+  tierTwoInNetwork: 2150,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+53.84
+Laboratory Outpatient and Professional Services 11.103 Anthem HealthKeepers Bronze X 5700 Online Plus Standard Bronze On Exchange Plan
+{
+  tierOneInNetwork: 5688.897,
+  tierTwoInNetwork: 5700,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 25.2 Anthem HealthKeepers Bronze X 5700 Online Plus Standard Bronze On Exchange Plan
+{
+  tierOneInNetwork: 5663.697,
+  tierTwoInNetwork: 5700,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 10.497 Anthem HealthKeepers Bronze X 5700 Online Plus Standard Bronze On Exchange Plan
+{
+  tierOneInNetwork: 5653.2,
+  tierTwoInNetwork: 5700,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 Anthem HealthKeepers Bronze X 5700 Online Plus Standard Bronze On Exchange Plan
+{
+  tierOneInNetwork: 5653.2,
+  tierTwoInNetwork: 5700,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 Anthem HealthKeepers Bronze X 5700 Online Plus Standard Bronze On Exchange Plan
+{
+  tierOneInNetwork: 5653.2,
+  tierTwoInNetwork: 5700,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 Anthem HealthKeepers Bronze X 5700 Online Plus Standard Bronze On Exchange Plan
+{
+  tierOneInNetwork: 5653.2,
+  tierTwoInNetwork: 5700,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 13.968 Anthem HealthKeepers Bronze X 5700 Online Plus Standard Bronze On Exchange Plan
+{
+  tierOneInNetwork: 5639.232,
+  tierTwoInNetwork: 5700,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 3.84 Anthem HealthKeepers Bronze X 5700 Online Plus Standard Bronze On Exchange Plan
+{
+  tierOneInNetwork: 5635.392,
+  tierTwoInNetwork: 5700,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 Anthem HealthKeepers Bronze X 5700 Online Plus Standard Bronze On Exchange Plan
+{
+  tierOneInNetwork: 5635.392,
+  tierTwoInNetwork: 5700,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 Anthem HealthKeepers Bronze X 5700 Online Plus Standard Bronze On Exchange Plan
+{
+  tierOneInNetwork: 5635.392,
+  tierTwoInNetwork: 5700,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+64.608
+Laboratory Outpatient and Professional Services 11.103 Anthem HealthKeepers Silver X 2000 73% AV Level Silver Plan
+{
+  tierOneInNetwork: 1838.897,
+  tierTwoInNetwork: 1850,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 25.2 Anthem HealthKeepers Silver X 2000 73% AV Level Silver Plan
+{
+  tierOneInNetwork: 1813.697,
+  tierTwoInNetwork: 1850,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 10.497 Anthem HealthKeepers Silver X 2000 73% AV Level Silver Plan
+{
+  tierOneInNetwork: 1803.1999999999998,
+  tierTwoInNetwork: 1850,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 Anthem HealthKeepers Silver X 2000 73% AV Level Silver Plan
+{
+  tierOneInNetwork: 1803.1999999999998,
+  tierTwoInNetwork: 1850,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 Anthem HealthKeepers Silver X 2000 73% AV Level Silver Plan
+{
+  tierOneInNetwork: 1803.1999999999998,
+  tierTwoInNetwork: 1850,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 Anthem HealthKeepers Silver X 2000 73% AV Level Silver Plan
+{
+  tierOneInNetwork: 1803.1999999999998,
+  tierTwoInNetwork: 1850,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 13.968 Anthem HealthKeepers Silver X 2000 73% AV Level Silver Plan
+{
+  tierOneInNetwork: 1789.2319999999997,
+  tierTwoInNetwork: 1850,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 3.84 Anthem HealthKeepers Silver X 2000 73% AV Level Silver Plan
+{
+  tierOneInNetwork: 1785.3919999999998,
+  tierTwoInNetwork: 1850,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 Anthem HealthKeepers Silver X 2000 73% AV Level Silver Plan
+{
+  tierOneInNetwork: 1785.3919999999998,
+  tierTwoInNetwork: 1850,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 Anthem HealthKeepers Silver X 2000 73% AV Level Silver Plan
+{
+  tierOneInNetwork: 1785.3919999999998,
+  tierTwoInNetwork: 1850,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+64.608
+Laboratory Outpatient and Professional Services 1.8505 Anthem HealthKeepers Silver X 2000 94% AV Level Silver Plan
+{
+  tierOneInNetwork: 73.1495,
+  tierTwoInNetwork: 75,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 4.2 Anthem HealthKeepers Silver X 2000 94% AV Level Silver Plan
+{
+  tierOneInNetwork: 68.9495,
+  tierTwoInNetwork: 75,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 1.7495000000000003 Anthem HealthKeepers Silver X 2000 94% AV Level Silver Plan
+{
+  tierOneInNetwork: 67.2,
+  tierTwoInNetwork: 75,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 Anthem HealthKeepers Silver X 2000 94% AV Level Silver Plan
+{
+  tierOneInNetwork: 67.2,
+  tierTwoInNetwork: 75,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 Anthem HealthKeepers Silver X 2000 94% AV Level Silver Plan
+{
+  tierOneInNetwork: 67.2,
+  tierTwoInNetwork: 75,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 Anthem HealthKeepers Silver X 2000 94% AV Level Silver Plan
+{
+  tierOneInNetwork: 67.2,
+  tierTwoInNetwork: 75,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 2.3280000000000003 Anthem HealthKeepers Silver X 2000 94% AV Level Silver Plan
+{
+  tierOneInNetwork: 64.872,
+  tierTwoInNetwork: 75,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 0.6400000000000001 Anthem HealthKeepers Silver X 2000 94% AV Level Silver Plan
+{
+  tierOneInNetwork: 64.232,
+  tierTwoInNetwork: 75,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 Anthem HealthKeepers Silver X 2000 94% AV Level Silver Plan
+{
+  tierOneInNetwork: 64.232,
+  tierTwoInNetwork: 75,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 Anthem HealthKeepers Silver X 2000 94% AV Level Silver Plan
+{
+  tierOneInNetwork: 64.232,
+  tierTwoInNetwork: 75,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+10.768
+Laboratory Outpatient and Professional Services 9.2525 Anthem HealthKeepers Silver X 5000 Online Plus Standard Silver On Exchange Plan
+{
+  tierOneInNetwork: 4990.7475,
+  tierTwoInNetwork: 5000,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 21 Anthem HealthKeepers Silver X 5000 Online Plus Standard Silver On Exchange Plan
+{
+  tierOneInNetwork: 4969.7475,
+  tierTwoInNetwork: 5000,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 8.7475 Anthem HealthKeepers Silver X 5000 Online Plus Standard Silver On Exchange Plan
+{
+  tierOneInNetwork: 4961,
+  tierTwoInNetwork: 5000,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 Anthem HealthKeepers Silver X 5000 Online Plus Standard Silver On Exchange Plan
+{
+  tierOneInNetwork: 4961,
+  tierTwoInNetwork: 5000,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 Anthem HealthKeepers Silver X 5000 Online Plus Standard Silver On Exchange Plan
+{
+  tierOneInNetwork: 4961,
+  tierTwoInNetwork: 5000,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 Anthem HealthKeepers Silver X 5000 Online Plus Standard Silver On Exchange Plan
+{
+  tierOneInNetwork: 4961,
+  tierTwoInNetwork: 5000,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 11.64 Anthem HealthKeepers Silver X 5000 Online Plus Standard Silver On Exchange Plan
+{
+  tierOneInNetwork: 4949.36,
+  tierTwoInNetwork: 5000,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 3.2 Anthem HealthKeepers Silver X 5000 Online Plus Standard Silver On Exchange Plan
+{
+  tierOneInNetwork: 4946.16,
+  tierTwoInNetwork: 5000,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 Anthem HealthKeepers Silver X 5000 Online Plus Standard Silver On Exchange Plan
+{
+  tierOneInNetwork: 4946.16,
+  tierTwoInNetwork: 5000,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 Anthem HealthKeepers Silver X 5000 Online Plus Standard Silver On Exchange Plan
+{
+  tierOneInNetwork: 4946.16,
+  tierTwoInNetwork: 5000,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+53.84
+Laboratory Outpatient and Professional Services 9.2525 Anthem HealthKeepers Silver X 5000 Online Plus Standard Silver Off Exchange Plan
+{
+  tierOneInNetwork: 4990.7475,
+  tierTwoInNetwork: 5000,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 21 Anthem HealthKeepers Silver X 5000 Online Plus Standard Silver Off Exchange Plan
+{
+  tierOneInNetwork: 4969.7475,
+  tierTwoInNetwork: 5000,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 8.7475 Anthem HealthKeepers Silver X 5000 Online Plus Standard Silver Off Exchange Plan
+{
+  tierOneInNetwork: 4961,
+  tierTwoInNetwork: 5000,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 Anthem HealthKeepers Silver X 5000 Online Plus Standard Silver Off Exchange Plan
+{
+  tierOneInNetwork: 4961,
+  tierTwoInNetwork: 5000,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 Anthem HealthKeepers Silver X 5000 Online Plus Standard Silver Off Exchange Plan
+{
+  tierOneInNetwork: 4961,
+  tierTwoInNetwork: 5000,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 Anthem HealthKeepers Silver X 5000 Online Plus Standard Silver Off Exchange Plan
+{
+  tierOneInNetwork: 4961,
+  tierTwoInNetwork: 5000,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 11.64 Anthem HealthKeepers Silver X 5000 Online Plus Standard Silver Off Exchange Plan
+{
+  tierOneInNetwork: 4949.36,
+  tierTwoInNetwork: 5000,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 3.2 Anthem HealthKeepers Silver X 5000 Online Plus Standard Silver Off Exchange Plan
+{
+  tierOneInNetwork: 4946.16,
+  tierTwoInNetwork: 5000,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 Anthem HealthKeepers Silver X 5000 Online Plus Standard Silver Off Exchange Plan
+{
+  tierOneInNetwork: 4946.16,
+  tierTwoInNetwork: 5000,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 Anthem HealthKeepers Silver X 5000 Online Plus Standard Silver Off Exchange Plan
+{
+  tierOneInNetwork: 4946.16,
+  tierTwoInNetwork: 5000,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+53.84
+Laboratory Outpatient and Professional Services 7.402 Anthem HealthKeepers Silver X 6250 87% AV Level Silver Plan
+{
+  tierOneInNetwork: 617.598,
+  tierTwoInNetwork: 625,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 16.8 Anthem HealthKeepers Silver X 6250 87% AV Level Silver Plan
+{
+  tierOneInNetwork: 600.798,
+  tierTwoInNetwork: 625,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 6.998000000000001 Anthem HealthKeepers Silver X 6250 87% AV Level Silver Plan
+{
+  tierOneInNetwork: 593.8,
+  tierTwoInNetwork: 625,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 Anthem HealthKeepers Silver X 6250 87% AV Level Silver Plan
+{
+  tierOneInNetwork: 593.8,
+  tierTwoInNetwork: 625,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 Anthem HealthKeepers Silver X 6250 87% AV Level Silver Plan
+{
+  tierOneInNetwork: 593.8,
+  tierTwoInNetwork: 625,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 Anthem HealthKeepers Silver X 6250 87% AV Level Silver Plan
+{
+  tierOneInNetwork: 593.8,
+  tierTwoInNetwork: 625,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 9.312000000000001 Anthem HealthKeepers Silver X 6250 87% AV Level Silver Plan
+{
+  tierOneInNetwork: 584.4879999999999,
+  tierTwoInNetwork: 625,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 2.5600000000000005 Anthem HealthKeepers Silver X 6250 87% AV Level Silver Plan
+{
+  tierOneInNetwork: 581.928,
+  tierTwoInNetwork: 625,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 Anthem HealthKeepers Silver X 6250 87% AV Level Silver Plan
+{
+  tierOneInNetwork: 581.928,
+  tierTwoInNetwork: 625,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 Anthem HealthKeepers Silver X 6250 87% AV Level Silver Plan
+{
+  tierOneInNetwork: 581.928,
+  tierTwoInNetwork: 625,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+43.072
+Laboratory Outpatient and Professional Services 1.8505 Anthem HealthKeepers Silver X 6250 94% AV Level Silver Plan
+{
+  tierOneInNetwork: 98.1495,
+  tierTwoInNetwork: 100,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 4.2 Anthem HealthKeepers Silver X 6250 94% AV Level Silver Plan
+{
+  tierOneInNetwork: 93.9495,
+  tierTwoInNetwork: 100,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 1.7495000000000003 Anthem HealthKeepers Silver X 6250 94% AV Level Silver Plan
+{
+  tierOneInNetwork: 92.2,
+  tierTwoInNetwork: 100,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 Anthem HealthKeepers Silver X 6250 94% AV Level Silver Plan
+{
+  tierOneInNetwork: 92.2,
+  tierTwoInNetwork: 100,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 Anthem HealthKeepers Silver X 6250 94% AV Level Silver Plan
+{
+  tierOneInNetwork: 92.2,
+  tierTwoInNetwork: 100,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 Anthem HealthKeepers Silver X 6250 94% AV Level Silver Plan
+{
+  tierOneInNetwork: 92.2,
+  tierTwoInNetwork: 100,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 2.3280000000000003 Anthem HealthKeepers Silver X 6250 94% AV Level Silver Plan
+{
+  tierOneInNetwork: 89.872,
+  tierTwoInNetwork: 100,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 0.6400000000000001 Anthem HealthKeepers Silver X 6250 94% AV Level Silver Plan
+{
+  tierOneInNetwork: 89.232,
+  tierTwoInNetwork: 100,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 Anthem HealthKeepers Silver X 6250 94% AV Level Silver Plan
+{
+  tierOneInNetwork: 89.232,
+  tierTwoInNetwork: 100,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 Anthem HealthKeepers Silver X 6250 94% AV Level Silver Plan
+{
+  tierOneInNetwork: 89.232,
+  tierTwoInNetwork: 100,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+10.768
+Laboratory Outpatient and Professional Services 12.953499999999998 Anthem HealthKeepers Silver X 6250 Standard Silver Off Exchange Plan
+{
+  tierOneInNetwork: 6237.0465,
+  tierTwoInNetwork: 6250,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 29.4 Anthem HealthKeepers Silver X 6250 Standard Silver Off Exchange Plan
+{
+  tierOneInNetwork: 6207.646500000001,
+  tierTwoInNetwork: 6250,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 12.2465 Anthem HealthKeepers Silver X 6250 Standard Silver Off Exchange Plan
+{
+  tierOneInNetwork: 6195.400000000001,
+  tierTwoInNetwork: 6250,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 Anthem HealthKeepers Silver X 6250 Standard Silver Off Exchange Plan
+{
+  tierOneInNetwork: 6195.400000000001,
+  tierTwoInNetwork: 6250,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 Anthem HealthKeepers Silver X 6250 Standard Silver Off Exchange Plan
+{
+  tierOneInNetwork: 6195.400000000001,
+  tierTwoInNetwork: 6250,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 Anthem HealthKeepers Silver X 6250 Standard Silver Off Exchange Plan
+{
+  tierOneInNetwork: 6195.400000000001,
+  tierTwoInNetwork: 6250,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 16.296 Anthem HealthKeepers Silver X 6250 Standard Silver Off Exchange Plan
+{
+  tierOneInNetwork: 6179.104,
+  tierTwoInNetwork: 6250,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 4.4799999999999995 Anthem HealthKeepers Silver X 6250 Standard Silver Off Exchange Plan
+{
+  tierOneInNetwork: 6174.624000000001,
+  tierTwoInNetwork: 6250,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 Anthem HealthKeepers Silver X 6250 Standard Silver Off Exchange Plan
+{
+  tierOneInNetwork: 6174.624000000001,
+  tierTwoInNetwork: 6250,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 Anthem HealthKeepers Silver X 6250 Standard Silver Off Exchange Plan
+{
+  tierOneInNetwork: 6174.624000000001,
+  tierTwoInNetwork: 6250,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+75.37599999999999
+Laboratory Outpatient and Professional Services 7.402 Anthem HealthKeepers Silver X 2000 87% AV Level Silver Plan
+{
+  tierOneInNetwork: 642.598,
+  tierTwoInNetwork: 650,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 16.8 Anthem HealthKeepers Silver X 2000 87% AV Level Silver Plan
+{
+  tierOneInNetwork: 625.798,
+  tierTwoInNetwork: 650,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 6.998000000000001 Anthem HealthKeepers Silver X 2000 87% AV Level Silver Plan
+{
+  tierOneInNetwork: 618.8,
+  tierTwoInNetwork: 650,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 Anthem HealthKeepers Silver X 2000 87% AV Level Silver Plan
+{
+  tierOneInNetwork: 618.8,
+  tierTwoInNetwork: 650,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 Anthem HealthKeepers Silver X 2000 87% AV Level Silver Plan
+{
+  tierOneInNetwork: 618.8,
+  tierTwoInNetwork: 650,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 Anthem HealthKeepers Silver X 2000 87% AV Level Silver Plan
+{
+  tierOneInNetwork: 618.8,
+  tierTwoInNetwork: 650,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 9.312000000000001 Anthem HealthKeepers Silver X 2000 87% AV Level Silver Plan
+{
+  tierOneInNetwork: 609.4879999999999,
+  tierTwoInNetwork: 650,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 2.5600000000000005 Anthem HealthKeepers Silver X 2000 87% AV Level Silver Plan
+{
+  tierOneInNetwork: 606.928,
+  tierTwoInNetwork: 650,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 Anthem HealthKeepers Silver X 2000 87% AV Level Silver Plan
+{
+  tierOneInNetwork: 606.928,
+  tierTwoInNetwork: 650,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 Anthem HealthKeepers Silver X 2000 87% AV Level Silver Plan
+{
+  tierOneInNetwork: 606.928,
+  tierTwoInNetwork: 650,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+43.072
+Laboratory Outpatient and Professional Services 11.103 Anthem HealthKeepers Bronze X 5700 Online Plus Standard Bronze Off Exchange Plan
+{
+  tierOneInNetwork: 5688.897,
+  tierTwoInNetwork: 5700,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 25.2 Anthem HealthKeepers Bronze X 5700 Online Plus Standard Bronze Off Exchange Plan
+{
+  tierOneInNetwork: 5663.697,
+  tierTwoInNetwork: 5700,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 10.497 Anthem HealthKeepers Bronze X 5700 Online Plus Standard Bronze Off Exchange Plan
+{
+  tierOneInNetwork: 5653.2,
+  tierTwoInNetwork: 5700,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 Anthem HealthKeepers Bronze X 5700 Online Plus Standard Bronze Off Exchange Plan
+{
+  tierOneInNetwork: 5653.2,
+  tierTwoInNetwork: 5700,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 Anthem HealthKeepers Bronze X 5700 Online Plus Standard Bronze Off Exchange Plan
+{
+  tierOneInNetwork: 5653.2,
+  tierTwoInNetwork: 5700,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 Anthem HealthKeepers Bronze X 5700 Online Plus Standard Bronze Off Exchange Plan
+{
+  tierOneInNetwork: 5653.2,
+  tierTwoInNetwork: 5700,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 13.968 Anthem HealthKeepers Bronze X 5700 Online Plus Standard Bronze Off Exchange Plan
+{
+  tierOneInNetwork: 5639.232,
+  tierTwoInNetwork: 5700,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 3.84 Anthem HealthKeepers Bronze X 5700 Online Plus Standard Bronze Off Exchange Plan
+{
+  tierOneInNetwork: 5635.392,
+  tierTwoInNetwork: 5700,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 Anthem HealthKeepers Bronze X 5700 Online Plus Standard Bronze Off Exchange Plan
+{
+  tierOneInNetwork: 5635.392,
+  tierTwoInNetwork: 5700,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 Anthem HealthKeepers Bronze X 5700 Online Plus Standard Bronze Off Exchange Plan
+{
+  tierOneInNetwork: 5635.392,
+  tierTwoInNetwork: 5700,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+64.608
+Laboratory Outpatient and Professional Services 9.2525 Anthem HealthKeepers Silver X 5000 Online Plus 94% AV Level Silver Plan
+{
+  tierOneInNetwork: 90.7475,
+  tierTwoInNetwork: 100,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 21 Anthem HealthKeepers Silver X 5000 Online Plus 94% AV Level Silver Plan
+{
+  tierOneInNetwork: 69.7475,
+  tierTwoInNetwork: 100,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 8.7475 Anthem HealthKeepers Silver X 5000 Online Plus 94% AV Level Silver Plan
+{
+  tierOneInNetwork: 61,
+  tierTwoInNetwork: 100,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 Anthem HealthKeepers Silver X 5000 Online Plus 94% AV Level Silver Plan
+{
+  tierOneInNetwork: 61,
+  tierTwoInNetwork: 100,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 Anthem HealthKeepers Silver X 5000 Online Plus 94% AV Level Silver Plan
+{
+  tierOneInNetwork: 61,
+  tierTwoInNetwork: 100,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 Anthem HealthKeepers Silver X 5000 Online Plus 94% AV Level Silver Plan
+{
+  tierOneInNetwork: 61,
+  tierTwoInNetwork: 100,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 11.64 Anthem HealthKeepers Silver X 5000 Online Plus 94% AV Level Silver Plan
+{
+  tierOneInNetwork: 49.36,
+  tierTwoInNetwork: 100,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Laboratory Outpatient and Professional Services 3.2 Anthem HealthKeepers Silver X 5000 Online Plus 94% AV Level Silver Plan
+{
+  tierOneInNetwork: 46.16,
+  tierTwoInNetwork: 100,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 Anthem HealthKeepers Silver X 5000 Online Plus 94% AV Level Silver Plan
+{
+  tierOneInNetwork: 46.16,
+  tierTwoInNetwork: 100,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+Preventive Care/Screening/Immunization 0 Anthem HealthKeepers Silver X 5000 Online Plus 94% AV Level Silver Plan
+{
+  tierOneInNetwork: 46.16,
+  tierTwoInNetwork: 100,
+  outNetwork: null,
+  combined: undefined,
+  propertiesToDeduce: [Function: propertiesToDeduce]
+}
+53.84
+[
+  'OptimaFit Bronze 7200 40% Direct M Standard Bronze Off Exchange Plan',
+  'OptimaFit Bronze 7200 40% Direct M Standard Bronze On Exchange Plan',
+  'OptimaFit Bronze 6000 20% HSA Direct M Standard Bronze Off Exchange Plan',
+  'Anthem HealthKeepers Silver X 6250 94% AV Level Silver Plan',
+  'Anthem HealthKeepers Silver X 2000 94% AV Level Silver Plan',
+  'OptimaFit Silver 3000 25% Direct M 94% AV Level Silver Plan',
+  'OptimaFit Silver 6600 30% Direct M 94% AV Level Silver Plan',
+  'OptimaFit Silver 4600 30% Direct M 94% AV Level Silver Plan'
+]

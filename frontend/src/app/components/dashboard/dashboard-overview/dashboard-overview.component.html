@@ -1,7 +1,7 @@
 <div *ngIf="(userService.currUser | async)?.lastRecommendPlans !== null; else elseBlock">
     <div style="display:flex; flex-direction:row; align-content:flex-end; margin-bottom: 5px">
         <mat-label style="margin-right:15px; color:white">SORT BY</mat-label>
-        <mat-select [(value)]="sortingCriterion" style="width:100px; margin-right: 10px">
+        <mat-select [(value)]="sortingCriterion" style="width:200px; margin-right: 10px">
             <mat-option *ngFor="let criterion of sortingCriterions" [value]="criterion">
                 {{criterion}}
             </mat-option>
@@ -36,12 +36,12 @@
             </div>
     
             <div class="price-box">
-                <p style="font-size:12px; font-weight:200">OOP</p>
+                <p style="font-size:12px; font-weight:200">OUT OF POCKET COST</p>
                 <p style="font-size:30px">${{plan.outOfPocket | number:'1.2-2'}}</p>
             </div>
     
             <div class="price-box">
-                <p style="font-size:12px; font-weight:200">COST</p>
+                <p style="font-size:12px; font-weight:200">TOTAL MEDICAL COST</p>
                 <p style="font-size:30px">${{plan.cost | number:'1.2-2'}}</p>
             </div>
         </div>
@@ -53,12 +53,12 @@
             </div>
     
             <div class="price-box">
-                <p style="font-size:12px; font-weight:200">MAXIMUM OOP</p>
+                <p style="font-size:12px; font-weight:200">MAXIMUM OUT OF POCKET COST</p>
                 <p style="font-size:30px">${{plan.maximumOutOfPocket | number:'1.2-2'}}</p>
             </div>
     
             <div class="price-box">
-                <p style="font-size:12px; font-weight:200">MAXIMUM MEDICAL COST</p>
+                <p style="font-size:12px; font-weight:200">MAXIMUM POSSIBLE MEDICAL COST</p>
                 <p style="font-size:30px">${{plan.maximumOutOfPocket + plan.premium * 12 | number:'1.2-2'}}</p>
             </div>
         </div>
@@ -78,6 +78,7 @@
                     <div style="font-size:30px">{{showingPreDeductible ? benefit.value.preDeductible.coinsurance.amount : benefit.value.afterDeductible.coinsurance.amount}}%</div>
                 </div>
             </div>
+            <mat-divider style="margin-top: 10px; margin-bottom: 10px"></mat-divider>
         </div>
     </mat-expansion-panel>
 </div>

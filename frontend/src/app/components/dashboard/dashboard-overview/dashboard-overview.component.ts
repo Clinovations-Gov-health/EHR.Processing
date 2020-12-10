@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { InsurancePlanService } from '../../../services/insurance-plan/insurance-plan.service';
 import { UserService } from '../../../services/user/user.service';
 
-const SortCriterions = ["cost", "oop", "deductible", "premium", "maximum oop"] as const;
+const SortCriterions = ["Total Estimated Medical Cost", "Out Of Pocket Cost", "Deductible", "Monthly Premium", "Maximum Out Of Pocket"] as const;
 type SortCriterion = typeof SortCriterions[number];
 
 @Component({
@@ -12,7 +12,7 @@ type SortCriterion = typeof SortCriterions[number];
 })
 export class DashboardOverviewComponent {
     showingPreDeductible: boolean = true;
-    sortingCriterion: SortCriterion = "cost";
+    sortingCriterion: SortCriterion = "Total Estimated Medical Cost";
     isWorking: boolean = false;
 
     readonly sortingCriterions = SortCriterions;
@@ -26,23 +26,23 @@ export class DashboardOverviewComponent {
         let ids: string[];
         const plans = this.userService.currUser.getValue().lastRecommendPlans;
         switch (criterion) {
-            case "cost":
+            case "Total Estimated Medical Cost":
                 ids = plans.costSortIds;
                 break;
 
-            case "deductible":
+            case "Deductible":
                 ids = plans.deductibleSortIds;
                 break;
 
-            case "maximum oop":
+            case "Maximum Out Of Pocket":
                 ids = plans.maximumOOPSortIds;
                 break;
 
-            case "oop":
+            case "Out Of Pocket Cost":
                 ids = plans.oopSortIds;
                 break;
 
-            case "premium":
+            case "Monthly Premium":
                 ids = plans.premiumSortIds;
         }
 

@@ -31,17 +31,17 @@
             </div>
     
             <div class="price-box">
-                <p style="font-size:12px; font-weight:200">ANNUAL PREMIUM COST</p>
+                <p style="font-size:12px; font-weight:200">ANNUAL PREMIUM</p>
                 <p style="font-size:30px">${{plan.premium * 12 | number:'1.2-2'}}</p>
             </div>
     
             <div class="price-box">
-                <p style="font-size:12px; font-weight:200">ESTIMATED OOP COST</p>
+                <p style="font-size:12px; font-weight:200">OOP</p>
                 <p style="font-size:30px">${{plan.outOfPocket | number:'1.2-2'}}</p>
             </div>
     
             <div class="price-box">
-                <p style="font-size:12px; font-weight:200">TOTAL ESTIMATED MEDICAL COST</p>
+                <p style="font-size:12px; font-weight:200">COST</p>
                 <p style="font-size:30px">${{plan.cost | number:'1.2-2'}}</p>
             </div>
         </div>
@@ -58,7 +58,7 @@
             </div>
     
             <div class="price-box">
-                <p style="font-size:12px; font-weight:200">MAXIMUM POSSIBLE MEDICAL COST</p>
+                <p style="font-size:12px; font-weight:200">MAXIMUM MEDICAL COST</p>
                 <p style="font-size:30px">${{plan.maximumOutOfPocket + plan.premium * 12 | number:'1.2-2'}}</p>
             </div>
         </div>

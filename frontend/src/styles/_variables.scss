@@ -3,7 +3,7 @@ $font-sans: 'Roboto';
 $font-serif: 'EB Garamond';
 
 /* ========== Colors ========== */
-$bg-color: lightyellow;
+$bg-color: white;
 
 /* primary colors */
 $primary-color-500: #4DB6AC; /* main primary color */
@@ -18,3 +18,12 @@ $secondary-color-600: #FFC107;
 $heading-color: black;
 $body-text-color: black;
 $placeholder-color: grey;
+
+/* ========== Breakpoints ========== */
+
+$bp-laptop: 1400px;
+$bp-tablet: 786px;
+$bp-mobile: 450px;
+
+/* ========== Breakpoints ========== */
+$bar-padding-left: 50px; // for the left space on the header and footer

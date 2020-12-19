@@ -19,6 +19,9 @@ body {
 .buttons{
     background-color: $secondary-color-600 !important;
 }
+.buttons-inactive{
+    background-color: $secondary-color-400 !important;
+}
 
 footer{
     position: fixed;

@@ -128,9 +128,10 @@
 
             <div>
                 <button mat-flat-button class="buttons" *ngIf="!registerForm.errors; else submitButtonElseBlock"
-                    [disabled]="working" (click)="onPressRegister()">LOGIN</button>
+                    [disabled]="working" (click)="onPressRegister()">REGISTER
+                </button>
                 <ng-template #submitButtonElseBlock>
-                    <button mat-flat-button invalid class="buttons-inactive">LOGIN</button>
+                    <button mat-flat-button invalid class="buttons-inactive">REGISTER</button>
                     <mat-error>{{registerForm.errors.errorText}}</mat-error>
                 </ng-template>
             </div>

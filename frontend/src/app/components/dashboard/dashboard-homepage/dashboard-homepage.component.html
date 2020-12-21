@@ -1,20 +1,20 @@
-<mat-toolbar style="background-color: transparent">
-    <mat-toolbar-row>
-        <div style="margin-bottom:20px">
-            <mat-icon style="color:#1B2B4B; zoom: 2; float:left; margin-right: 5px">calendar_today</mat-icon> 
-            <div>
-                <h2 style="color:#1B2B4B; margin:0px; line-height: 25px;">Health Coverage</h2>
-                <h2 style="color:white; margin:0px; line-height: 25px;">Reimagined</h2>
-            </div>
+<header>
+    <div style="display: flex">
+        <mat-icon>calendar_today</mat-icon>
+        <div>
+            <h2>Health Coverage </h2>
+            <h2 style="color: white">Reimagined</h2>
         </div>
-        <div style="width:200px"></div>
-        <button mat-button style="font-size: 15px;" [color]="currPage === 'overview' ? 'accent' : 'basic'" (click)="currPage = 'overview'"> OVERVIEW </button>
-        <button mat-button style="font-size: 15px;" [color]="currPage === 'profile' ? 'accent' : 'basic'" (click)="currPage = 'profile'"> PROFILE </button>
-        <button mat-button style="font-size: 15px;" [color]="currPage === 'claims' ? 'accent' : 'basic'" (click)="currPage = 'claims'"> CLAIMS </button>
-    </mat-toolbar-row>
-</mat-toolbar>
-
-<mat-divider></mat-divider>
+    </div>
+    <nav>
+        <button mat-button class="nav-links" [color]="currPage === 'overview' ? 'accent' : 'basic'"
+            (click)="currPage = 'overview'">RECOMMENDATIONS</button>
+        <button mat-button class="nav-links" [color]="currPage === 'claims' ? 'accent' : 'basic'"
+            (click)="currPage = 'claims'">YOUR CLAIMS </button>
+        <button mat-button class="nav-links" [color]="currPage === 'profile' ? 'accent' : 'basic'"
+            (click)="currPage = 'profile'"> PROFILE </button>
+    </nav>
+</header>
 
 <div [ngSwitch]="currPage" style="margin-top: 20px">
     <app-dashboard-overview *ngSwitchCase="'overview'"></app-dashboard-overview>

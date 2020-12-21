@@ -15,7 +15,10 @@ body {
     margin: 10px; 
     background-color: $bg-color;
 }
-
+main{
+    width: 80vw;
+    margin: 0 auto;
+}
 .buttons{
     background-color: $secondary-color-600 !important;
 }

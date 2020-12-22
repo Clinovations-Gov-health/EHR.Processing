@@ -1,37 +1,47 @@
-<h2 style="color:white">Here's a list of your insurance claims.</h2>
+<main>
+    <h1>Your Claims</h1>
+    <p class="caption">Here's a list of your insurance claims.</p>
 
-<table mat-table [dataSource]="(userService.currUser | async)?.claims" style="width: 90%;">
-    <ng-container matColumnDef="Procedure Name">
-        <th mat-header-cell *matHeaderCellDef style="font-size: 15px; color: #1f2b49"> PROCEDURE NAME </th>
-        <td mat-cell *matCellDef="let claim">{{claim.typeOfService}}</td>
-    </ng-container>
-    <ng-container matColumnDef="Start Date">
-        <th mat-header-cell *matHeaderCellDef style="font-size: 15px; color: #1f2b49"> START DATE </th>
-        <td mat-cell *matCellDef="let claim">{{claim.starts.format("YYYY-MM-DD")}}</td>
-    </ng-container>
-    <ng-container matColumnDef="End Date">
-        <th mat-header-cell *matHeaderCellDef style="font-size: 15px; color: #1f2b49"> END DATE </th>
-        <td mat-cell *matCellDef="let claim">{{claim.ends.format("YYYY-MM-DD")}}</td>
-    </ng-container>
-    <ng-container matColumnDef="Amount Billed">
-        <th mat-header-cell *matHeaderCellDef style="font-size: 15px; color: #1f2b49"> AMOUNT BILLED </th>
-        <td mat-cell *matCellDef="let claim">{{claim.amountBilled}}</td>
-    </ng-container>
-    <ng-container matColumnDef="Your Plan Paid">
-        <th mat-header-cell *matHeaderCellDef style="font-size: 15px; color: #1f2b49"> YOUR PLAN PAID </th>
-        <td mat-cell *matCellDef="let claim">{{claim.planPaid}}</td>
-    </ng-container>
-    <ng-container matColumnDef="Your Responsibility">
-        <th mat-header-cell *matHeaderCellDef style="font-size: 15px; color: #1f2b49"> YOUR RESPONSIBILITY </th>
-        <td mat-cell *matCellDef="let claim">{{claim.responsibility}}</td>
-    </ng-container>
+    <table mat-table class="data-table" [dataSource]="(userService.currUser | async)?.claims">
+        <ng-container matColumnDef="Procedure Name">
+            <th mat-header-cell *matHeaderCellDef class="column-names"> PROCEDURE NAME </th>
+            <td mat-cell *matCellDef="let claim">{{claim.typeOfService}}</td>
+        </ng-container>
+        <ng-container matColumnDef="Start Date">
+            <th mat-header-cell *matHeaderCellDef class="column-names"> START DATE </th>
+            <td mat-cell *matCellDef="let claim">{{claim.starts.format("YYYY-MM-DD")}}</td>
+        </ng-container>
+        <ng-container matColumnDef="End Date">
+            <th mat-header-cell *matHeaderCellDef class="column-names"> END DATE </th>
+            <td mat-cell *matCellDef="let claim">{{claim.ends.format("YYYY-MM-DD")}}</td>
+        </ng-container>
+        <ng-container matColumnDef="Amount Billed">
+            <th mat-header-cell *matHeaderCellDef class="column-names"> AMOUNT BILLED </th>
+            <td mat-cell *matCellDef="let claim">{{claim.amountBilled}}</td>
+        </ng-container>
+        <ng-container matColumnDef="Your Plan Paid">
+            <th mat-header-cell *matHeaderCellDef class="column-names"> YOUR PLAN PAID </th>
+            <td mat-cell *matCellDef="let claim">{{claim.planPaid}}</td>
+        </ng-container>
+        <ng-container matColumnDef="Your Responsibility">
+            <th mat-header-cell *matHeaderCellDef class="column-names"> YOUR RESPONSIBILITY </th>
+            <td mat-cell *matCellDef="let claim">{{claim.responsibility}}</td>
+        </ng-container>
 
-    <tr mat-header-row *matHeaderRowDef="['Procedure Name', 'Start Date', 'End Date', 'Amount Billed', 'Your Plan Paid', 'Your Responsibility']"></tr>
-    <tr mat-row *matRowDef="let row; columns: ['Procedure Name', 'Start Date', 'End Date', 'Amount Billed', 'Your Plan Paid', 'Your Responsibility']"></tr>
-</table>
+        <tr mat-header-row
+            *matHeaderRowDef="['Procedure Name', 'Start Date', 'End Date', 'Amount Billed', 'Your Plan Paid', 'Your Responsibility']">
+        </tr>
+        <tr mat-row
+            *matRowDef="let row; columns: ['Procedure Name', 'Start Date', 'End Date', 'Amount Billed', 'Your Plan Paid', 'Your Responsibility']">
+        </tr>
+    </table>
 
-<div style="margin-top: 30px">
-    <button mat-flat-button style="background-color: #1F2B49; color: white; margin-right: 10px" [disabled]="working" (click)="onConnect('Cerner')" >Update With Cerner</button>
-    <button mat-flat-button style="background-color: #1F2B49; color: white; margin-right: 10px" [disabled]="working" color="accent" (click)="onConnect('AllScripts')" >Update With Allscripts</button>
-    <button mat-flat-button style="background-color: #1F2B49; color: white; margin-right: 10px" [disabled]="working" color="accent" (click)="onConnect('Epic')" >Update With Epic</button>
-</div>
+    <div class="data-provider-wrapper">
+        <button mat-flat-button class="buttons" [disabled]="working" (click)="onConnect('Cerner')">Update With
+            Cerner</button>
+        <button mat-flat-button class="buttons" [disabled]="working" color="accent"
+            (click)="onConnect('AllScripts')">Update With Allscripts</button>
+        <button mat-flat-button class="buttons" [disabled]="working" color="accent" (click)="onConnect('Epic')">Update
+            With Epic</button>
+    </div>
+</main>

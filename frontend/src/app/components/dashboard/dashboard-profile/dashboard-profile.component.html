@@ -1,94 +1,98 @@
-<h2 style="color:white">Update your profile here.</h2>
+<main>
+    <h1>Update your profile here</h1>
 
-<form [formGroup]="profileForm">
-    <div>
-        <div style="padding-right:10px; display:inline">
-            <mat-form-field appearance="legacy">
-                <mat-label>ZIPCODE</mat-label>
-                <input matInput [disabled]="working" formControlName="zipCode">
-                <mat-error *ngIf="profileForm.get('zipCode').invalid">
-                    <div *ngIf="profileForm.get('zipCode').errors.required">
-                        Zipcode is required.
-                    </div>
-                    <div *ngIf="profileForm.get('zipCode').errors.pattern">
-                        Zipcode must be 5 digits.
-                    </div>
-                </mat-error>
-            </mat-form-field>
-        </div>
-    
-        <div style="padding-right:10px; display:inline">
-            <mat-form-field appearance="legacy">
-                <mat-label>TARGET</mat-label>
-                <mat-select [disabled]="working" formControlName="target">
-                    <mat-option value="individual">Individual</mat-option>
-                    <mat-option value="family">Family</mat-option>
-                </mat-select>
-                <mat-error *ngIf="profileForm.get('target').invalid">
-                    <div *ngIf="profileForm.get('target').errors.required">
-                        Target is required.
-                    </div>
-                </mat-error>
-            </mat-form-field>
-        </div>
-    </div>
+    <form [formGroup]="profileForm">
+        <div>
+            <div style="padding-right:10px; display:inline">
+                <mat-form-field appearance="legacy">
+                    <mat-label>ZIPCODE</mat-label>
+                    <input matInput [disabled]="working" formControlName="zipCode">
+                    <mat-error *ngIf="profileForm.get('zipCode').invalid">
+                        <div *ngIf="profileForm.get('zipCode').errors.required">
+                            Zipcode is required.
+                        </div>
+                        <div *ngIf="profileForm.get('zipCode').errors.pattern">
+                            Zipcode must be 5 digits.
+                        </div>
+                    </mat-error>
+                </mat-form-field>
+            </div>
 
-    <div *ngIf="profileForm.get('target').value === 'individual'" >
-        <div style="padding-right:10px; display:inline">
-            <mat-form-field appearance="legacy">
-                <mat-label>AGE</mat-label>
-                <input matInput [disabled]="working" formControlName="age" type="number">
-                <mat-error *ngIf="profileForm.get('age').invalid">
-                    <div *ngIf="profileForm.get('age').errors">
-                        {{profileForm.get('age').errors.age}}
-                    </div>
-                </mat-error>
-            </mat-form-field>
+            <div style="padding-right:10px; display:inline">
+                <mat-form-field appearance="legacy">
+                    <mat-label>TARGET</mat-label>
+                    <mat-select [disabled]="working" formControlName="target">
+                        <mat-option value="individual">Individual</mat-option>
+                        <mat-option value="family">Family</mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="profileForm.get('target').invalid">
+                        <div *ngIf="profileForm.get('target').errors.required">
+                            Target is required.
+                        </div>
+                    </mat-error>
+                </mat-form-field>
+            </div>
         </div>
-        <div style="padding-right:10px; display:inline">
-            <mat-form-field appearance="legacy">
-                <mat-label>TOBACCO USAGE</mat-label>
-                <mat-select [disabled]="working" formControlName="usesTobacco">
-                    <mat-option [value]="true">I smoke tobacco</mat-option>
-                    <mat-option [value]="false">I don't smoke tobacco</mat-option>
-                </mat-select>
-                <mat-error *ngIf="profileForm.get('usesTobacco').invalid">
-                    Needs to provide a value.
-                </mat-error>
-            </mat-form-field>
-        </div>
-    </div>
 
-    <div *ngIf="profileForm.get('target').value === 'family'">
-        <div style="padding-right:10px; display:inline">
-            <mat-form-field appearance="legacy">
-                <mat-label>NUMBER OF DEPENDENTS</mat-label>
-                <input matInput [disabled]="working" formControlName="numChildren" type="number">
-                <mat-error *ngIf="profileForm.get('numChildren').invalid">
-                    <div *ngIf="profileForm.get('numChildren').errors">
-                        {{profileForm.get('numChildren').errors.numChildren}}
-                    </div>
-                </mat-error>
-            </mat-form-field>
+        <div *ngIf="profileForm.get('target').value === 'individual'">
+            <div style="padding-right:10px; display:inline">
+                <mat-form-field appearance="legacy">
+                    <mat-label>AGE</mat-label>
+                    <input matInput [disabled]="working" formControlName="age" type="number">
+                    <mat-error *ngIf="profileForm.get('age').invalid">
+                        <div *ngIf="profileForm.get('age').errors">
+                            {{profileForm.get('age').errors.age}}
+                        </div>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div style="padding-right:10px; display:inline">
+                <mat-form-field appearance="legacy">
+                    <mat-label>TOBACCO USAGE</mat-label>
+                    <mat-select [disabled]="working" formControlName="usesTobacco">
+                        <mat-option [value]="true">I smoke tobacco</mat-option>
+                        <mat-option [value]="false">I don't smoke tobacco</mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="profileForm.get('usesTobacco').invalid">
+                        Needs to provide a value.
+                    </mat-error>
+                </mat-form-field>
+            </div>
         </div>
-        <div style="padding-right:10px; display:inline">
-            <mat-form-field appearance="legacy">
-                <mat-label>SPOUSE</mat-label>
-                <mat-select [disabled]="working" formControlName="hasSpouse">
-                    <mat-option [value]="true">I have a spouse</mat-option>
-                    <mat-option [value]="false">I don't have a spouse</mat-option>
-                </mat-select>
-                <mat-error *ngIf="profileForm.get('hasSpouse').invalid">
-                    Needs to provide a value.
-                </mat-error>
-            </mat-form-field>
+
+        <div *ngIf="profileForm.get('target').value === 'family'">
+            <div style="padding-right:10px; display:inline">
+                <mat-form-field appearance="legacy">
+                    <mat-label>NUMBER OF DEPENDENTS</mat-label>
+                    <input matInput [disabled]="working" formControlName="numChildren" type="number">
+                    <mat-error *ngIf="profileForm.get('numChildren').invalid">
+                        <div *ngIf="profileForm.get('numChildren').errors">
+                            {{profileForm.get('numChildren').errors.numChildren}}
+                        </div>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div style="padding-right:10px; display:inline">
+                <mat-form-field appearance="legacy">
+                    <mat-label>SPOUSE</mat-label>
+                    <mat-select [disabled]="working" formControlName="hasSpouse">
+                        <mat-option [value]="true">I have a spouse</mat-option>
+                        <mat-option [value]="false">I don't have a spouse</mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="profileForm.get('hasSpouse').invalid">
+                        Needs to provide a value.
+                    </mat-error>
+                </mat-form-field>
+            </div>
         </div>
-    </div>
-    <div>
-        <button mat-flat-button style="background-color: #1F2B49; color: white" *ngIf="!profileForm.errors; else submitButtonElseBlock" [disabled]="working" (click)="onSubmitChanges()">SUBMIT</button>
-        <ng-template #submitButtonElseBlock>
-            <button mat-flat-button invalid style="background-color: transparent;">SUBMIT</button>
-            <mat-error>{{profileForm.errors.errorText}}</mat-error>
-        </ng-template>
-    </div>
-</form>
+        <div>
+            <button mat-flat-button class="buttons" *ngIf="!profileForm.errors; else submitButtonElseBlock"
+                [disabled]="working" (click)="onSubmitChanges()">SAVE</button>
+            <ng-template #submitButtonElseBlock>
+                <button mat-flat-button invalid style="background-color: transparent;">SUBMIT</button>
+                <mat-error>{{profileForm.errors.errorText}}</mat-error>
+            </ng-template>
+        </div>
+    </form>
+
+</main>

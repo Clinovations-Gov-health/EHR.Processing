@@ -9,6 +9,7 @@ header{
     left: 0;
     padding: 10px $bar-padding-left 10px $bar-padding-left;
     background-color: $primary-color-500;
+    z-index: 5;
 
     display: flex;
     justify-content: space-between;

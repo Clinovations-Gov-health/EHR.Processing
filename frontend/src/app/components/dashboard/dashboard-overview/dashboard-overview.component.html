@@ -85,13 +85,13 @@
                         <p style="font-weight:600;">{{benefit.key}}</p>
                         <p>Some description text to describe what's going on with this benefit.</p>
                     </div>
-                    <div style="display:flex; justify-content:flex-end; width:30px; flex-wrap:wrap"
+                    <div style="display:flex; justify-content:flex-end; width:60px; flex-wrap:wrap"
                         *ngIf="(showingPreDeductible && benefit.value.preDeductible.copay) || (!showingPreDeductible && benefit.value.afterDeductible.copay)">
                         <div style="font-size:12px; font-weight:200">You Pay</div>
                         <div style="font-size:30px">${{showingPreDeductible ? benefit.value.preDeductible.copay.amount :
                             benefit.value.afterDeductible.copay.amount}}</div>
                     </div>
-                    <div style="display:flex; justify-content:flex-end; width:30px; flex-wrap:wrap"
+                    <div style="display:flex; justify-content:flex-end; width:60px; flex-wrap:wrap"
                         *ngIf="(showingPreDeductible && benefit.value.preDeductible.coinsurance) || (!showingPreDeductible && benefit.value.afterDeductible.coinsurance)">
                         <div style="font-size:12px; font-weight:200">You Pay</div>
                         <div style="font-size:30px">{{showingPreDeductible ?

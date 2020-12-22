@@ -1,93 +1,119 @@
 <div *ngIf="(userService.currUser | async)?.lastRecommendPlans !== null; else elseBlock">
-    <div style="display:flex; flex-direction:row; align-content:flex-end; margin-bottom: 5px">
-        <mat-label style="margin-right:15px; color:white">SORT BY</mat-label>
-        <mat-select [(value)]="sortingCriterion" style="width:200px; margin-right: 10px">
-            <mat-option *ngFor="let criterion of sortingCriterions" [value]="criterion">
-                {{criterion}}
-            </mat-option>
-        </mat-select>
-        <mat-slide-toggle style="color:white" [checked]="!showingPreDeductible" (change)="showingPreDeductible=!$event.checked">
-            POST-DEDUCTIBLE
-        </mat-slide-toggle>
-        
-        <button mat-flat-button style="background-color: #1F2B49; color: white; margin-right: 10px; margin-left: auto; justify-self: right;" [disabled]="isWorking" (click)="onGetNewRecommendations()"> UPDATE RECOMMENDATIONS </button>
-    </div>
+    <main>
+        <h1>Recommended Plans</h1>
+        <p class="caption">Here are the top 3 plans we found based on your information.</p>
 
-    <mat-expansion-panel *ngFor="let plan of getPlans(sortingCriterion)">
-        <mat-expansion-panel-header>
-            <mat-panel-title>
-                <b>{{plan.name}}</b>
-            </mat-panel-title>
-            <mat-panel-description style="font-size:20px;">
-                <div [ngClass]="{bronze: plan.metalLevel === 'expanded bronze' || plan.metalLevel === 'bronze', silver: plan.metalLevel === 'silver', catastrophic: plan.metalLevel === 'catastrophic', platinum: plan.metalLevel === 'platinum', gold: plan.metalLevel === 'gold'}">{{plan.metalLevel.trim().toUpperCase()}}</div>
-                <p style="width:100px; text-align:end;">${{plan.cost | number:'1.2-2'}}</p>
-            </mat-panel-description>
-        </mat-expansion-panel-header>
+        <div class="filter-wrapper">
+            <div class="filter-options">
+                <mat-label>SORT BY</mat-label>
+                <mat-select class="filter-dropdown" [(value)]="sortingCriterion">
+                    <mat-option *ngFor="let criterion of sortingCriterions" [value]="criterion">
+                        {{criterion}}
+                    </mat-option>
+                </mat-select>
+                <mat-slide-toggle [checked]="!showingPreDeductible" (change)="showingPreDeductible=!$event.checked">
+                    POST-DEDUCTIBLE
+                </mat-slide-toggle>
 
-        <div>
-            <div class="price-box">
-                <p style="font-size:12px; font-weight:200">MONTHLY PREMIUM</p>
-                <p style="font-size:30px">${{plan.premium | number:'1.2-2'}}</p>
             </div>
-    
-            <div class="price-box">
-                <p style="font-size:12px; font-weight:200">ANNUAL PREMIUM</p>
-                <p style="font-size:30px">${{plan.premium * 12 | number:'1.2-2'}}</p>
-            </div>
-    
-            <div class="price-box">
-                <p style="font-size:12px; font-weight:200">OUT OF POCKET COST</p>
-                <p style="font-size:30px">${{plan.outOfPocket | number:'1.2-2'}}</p>
-            </div>
-    
-            <div class="price-box">
-                <p style="font-size:12px; font-weight:200">TOTAL MEDICAL COST</p>
-                <p style="font-size:30px">${{plan.cost | number:'1.2-2'}}</p>
-            </div>
+            <button mat-flat-button class="buttons" style="flex-basis: 25%" [disabled]="isWorking"
+                (click)="onGetNewRecommendations()">
+                UPDATE
+                RECOMMENDATIONS </button>
+        </div>
+        <div class="table-heading">
+            <h4 class="column-names" style="flex-basis: 65%;">Plan Name</h4>
+            <h4 class="column-names">Medal</h4>
+            <h4 class="column-names">Cost</h4>
         </div>
 
-        <div>
-            <div class="price-box">
-                <p style="font-size:12px; font-weight:200">DEDUCTIBLE</p>
-                <p style="font-size:30px">${{plan.deductible | number:'1.2-2'}}</p>
-            </div>
-    
-            <div class="price-box">
-                <p style="font-size:12px; font-weight:200">MAXIMUM OUT OF POCKET COST</p>
-                <p style="font-size:30px">${{plan.maximumOutOfPocket | number:'1.2-2'}}</p>
-            </div>
-    
-            <div class="price-box">
-                <p style="font-size:12px; font-weight:200">MAXIMUM POSSIBLE MEDICAL COST</p>
-                <p style="font-size:30px">${{plan.maximumOutOfPocket + plan.premium * 12 | number:'1.2-2'}}</p>
-            </div>
-        </div>
+        <mat-expansion-panel class="panel-wrapper" *ngFor="let plan of getPlans(sortingCriterion)">
+            <mat-expansion-panel-header class="panel-headers">
+                <mat-panel-title class="panel-title">
+                    <b>{{plan.name}}</b>
+                </mat-panel-title>
+                <mat-panel-description style="font-size:20px;">
+                    <div
+                        [ngClass]="{bronze: plan.metalLevel === 'expanded bronze' || plan.metalLevel === 'bronze', silver: plan.metalLevel === 'silver', catastrophic: plan.metalLevel === 'catastrophic', platinum: plan.metalLevel === 'platinum', gold: plan.metalLevel === 'gold'}">
+                        {{plan.metalLevel.trim().toUpperCase()}}</div>
+                    <p style="width:100px; text-align:end;">${{plan.cost | number:'1.2-2'}}</p>
+                </mat-panel-description>
+            </mat-expansion-panel-header>
 
-        <div *ngFor="let benefit of plan.benefits | keyvalue" style="margin-top:10px;">
-            <div style="display:flex;">
-                <div style="flex:auto;">
-                    <p style="font-weight:600;">{{benefit.key}}</p>
-                    <p>Some description text to describe what's going on with this benefit.</p>
+            <div>
+                <div class="price-box">
+                    <p style="font-size:12px; font-weight:200">MONTHLY PREMIUM</p>
+                    <p style="font-size:30px">${{plan.premium | number:'1.2-2'}}</p>
                 </div>
-                <div style="display:flex; justify-content:flex-end; width:30px; flex-wrap:wrap" *ngIf="(showingPreDeductible && benefit.value.preDeductible.copay) || (!showingPreDeductible && benefit.value.afterDeductible.copay)">
-                    <div style="font-size:12px; font-weight:200">COPAY</div>
-                    <div style="font-size:30px">${{showingPreDeductible ? benefit.value.preDeductible.copay.amount : benefit.value.afterDeductible.copay.amount}}</div>
+
+                <div class="price-box">
+                    <p style="font-size:12px; font-weight:200">ANNUAL PREMIUM</p>
+                    <p style="font-size:30px">${{plan.premium * 12 | number:'1.2-2'}}</p>
                 </div>
-                <div style="display:flex; justify-content:flex-end; width:30px; flex-wrap:wrap" *ngIf="(showingPreDeductible && benefit.value.preDeductible.coinsurance) || (!showingPreDeductible && benefit.value.afterDeductible.coinsurance)">
-                    <div style="font-size:12px; font-weight:200">COINSURANCE</div>
-                    <div style="font-size:30px">{{showingPreDeductible ? benefit.value.preDeductible.coinsurance.amount : benefit.value.afterDeductible.coinsurance.amount}}%</div>
+
+                <div class="price-box">
+                    <p style="font-size:12px; font-weight:200">OUT OF POCKET COST</p>
+                    <p style="font-size:30px">${{plan.outOfPocket | number:'1.2-2'}}</p>
+                </div>
+
+                <div class="price-box">
+                    <p style="font-size:12px; font-weight:200">TOTAL MEDICAL COST</p>
+                    <p style="font-size:30px">${{plan.cost | number:'1.2-2'}}</p>
                 </div>
             </div>
-            <mat-divider style="margin-top: 10px; margin-bottom: 10px"></mat-divider>
-        </div>
-    </mat-expansion-panel>
+
+            <div>
+                <div class="price-box">
+                    <p style="font-size:12px; font-weight:200">DEDUCTIBLE</p>
+                    <p style="font-size:30px">${{plan.deductible | number:'1.2-2'}}</p>
+                </div>
+
+                <div class="price-box">
+                    <p style="font-size:12px; font-weight:200">MAXIMUM OUT OF POCKET COST</p>
+                    <p style="font-size:30px">${{plan.maximumOutOfPocket | number:'1.2-2'}}</p>
+                </div>
+
+                <div class="price-box">
+                    <p style="font-size:12px; font-weight:200">MAXIMUM POSSIBLE MEDICAL COST</p>
+                    <p style="font-size:30px">${{plan.maximumOutOfPocket + plan.premium * 12 | number:'1.2-2'}}</p>
+                </div>
+            </div>
+
+            <div *ngFor="let benefit of plan.benefits | keyvalue" style="margin-top:10px;">
+                <div style="display:flex;">
+                    <div style="flex:auto;">
+                        <p style="font-weight:600;">{{benefit.key}}</p>
+                        <p>Some description text to describe what's going on with this benefit.</p>
+                    </div>
+                    <div style="display:flex; justify-content:flex-end; width:30px; flex-wrap:wrap"
+                        *ngIf="(showingPreDeductible && benefit.value.preDeductible.copay) || (!showingPreDeductible && benefit.value.afterDeductible.copay)">
+                        <div style="font-size:12px; font-weight:200">You Pay</div>
+                        <div style="font-size:30px">${{showingPreDeductible ? benefit.value.preDeductible.copay.amount :
+                            benefit.value.afterDeductible.copay.amount}}</div>
+                    </div>
+                    <div style="display:flex; justify-content:flex-end; width:30px; flex-wrap:wrap"
+                        *ngIf="(showingPreDeductible && benefit.value.preDeductible.coinsurance) || (!showingPreDeductible && benefit.value.afterDeductible.coinsurance)">
+                        <div style="font-size:12px; font-weight:200">You Pay</div>
+                        <div style="font-size:30px">{{showingPreDeductible ?
+                            benefit.value.preDeductible.coinsurance.amount
+                            : benefit.value.afterDeductible.coinsurance.amount}}%</div>
+                    </div>
+                </div>
+                <mat-divider style="margin-top: 10px; margin-bottom: 10px"></mat-divider>
+            </div>
+        </mat-expansion-panel>
+    </main>
 </div>
 <ng-template #elseBlock>
-    <div *ngIf="(userService.currUser | async)?.claims?.length > 0; else errorElseBlock">
-        <p>You haven't requested a recommendation yet. </p>
-        <button mat-flat-button color="basic" [disabled]="isWorking" (click)="onGetNewRecommendations()"> GET RECOMMENDATIONS </button>
-    </div>
-    <ng-template #errorElseBlock> 
-        <p> You haven't updated claims data yet. Enter the "Claims" tab to connect to your FHIR provider. </p>
-    </ng-template>
+    <main>
+        <div *ngIf="(userService.currUser | async)?.claims?.length > 0; else errorElseBlock">
+            <p>You haven't requested a recommendation yet. </p>
+            <button mat-flat-button class="buttons" color="basic" [disabled]="isWorking"
+                (click)="onGetNewRecommendations()"> GET
+                RECOMMENDATIONS </button>
+        </div>
+        <ng-template #errorElseBlock>
+            <p> You haven't updated claims data yet. Click the "Claims" tab to connect to your FHIR provider. </p>
+        </ng-template>
+    </main>
 </ng-template>

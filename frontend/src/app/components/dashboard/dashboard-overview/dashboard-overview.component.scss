@@ -39,10 +39,9 @@ h1{
 .table-heading{
     display: flex;
     justify-content: space-around;
-    background-color: $secondary-color-400;
-    margin-bottom: 20px;
+    background-color: $secondary-color-300;
+    margin-bottom: 10px;
     text-align: center;
-    border-radius: 5px;
     box-shadow: 2px 2px 5px lightgray;
     .column-names{
         font-weight: 600;
@@ -53,18 +52,101 @@ h1{
 
 .panel-wrapper{
     margin-bottom: 20px;
+    padding: 0px;
     background-color: white;
+    border-radius: 0;
 
     .panel-headers{
+        height: auto;
+        padding: 0 10px 0 0;
+        background-color: $primary-color-400;
+        &:hover{
+            background-color: $primary-color-400;
+        }
+
         .panel-title{
-            // background-color: $secondary-color-400;
+            margin: 0;
+            padding: 20px 30px;
+            font-family: 'EB Garamond', serif;
+            font-weight: 600;
+            font-size: 1.8rem;
+            line-height: 2rem;
+            background-color: $secondary-color-500;
+        }
+        mat-panel-description{
+            justify-content: space-around;
+            text-align: center;
+            flex-basis: 30%;
+            margin: 0;
+
+            .panel-medal{
+                width: 50%;
+                margin: 0;
+                padding: 0;
+                text-align: center;
+                background-color: $secondary-color-400;
+
+                display: flex;
+                align-items: center;
+            }
+            .panel-cost{
+                width: 50%;
+                margin: 0;
+                padding: 0;
+                background-color: $primary-color-400;
+                display: flex;
+                align-items: center;
+
+                font-family: $font-serif, serif;
+                font-size: 1.5rem;
+                font-weight: 600;
+                line-height: 2rem;
+            }
         }
     }
-}
 
-.price-box {
-    display:inline-block;
-    margin-right:40px;
+    .panel-body {
+        padding: 20px 24px 16px;
+        .top-stats{
+            display: flex;
+            flex-wrap: wrap;
+        
+            .price-box { /* each flex item in top-stats*/
+                flex: 0 0 25%;
+                display: inline-block;
+                margin-bottom: 20px;
+            }
+        }
+        .bottom-stats{
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 1px solid black;
+            display: flex;
+            justify-content: space-between;
+
+            .you-pay{
+                margin-left: 15px;
+                display: flex;
+                justify-content: flex-end;
+                width: 60px;
+                flex-wrap: wrap;
+            }
+        }
+        .price-name{
+            margin: 0;
+            padding: 0;
+            font-size: 1rem;
+        }
+        .price-cost{
+            margin: 0;
+            padding: 0;
+
+            font-family: 'EB Garamond', serif;
+            font-weight: 600;
+            font-size: 1.8rem;
+            line-height: 2rem;
+        }
+    }
 }
 
 .metal-display {

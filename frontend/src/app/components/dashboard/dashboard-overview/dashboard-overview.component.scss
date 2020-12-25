@@ -62,12 +62,15 @@ h1{
         height: auto;
         padding: 0 10px 0 0;
         background-color: $primary-color-400;
+        display: flex;
+        flex-wrap: wrap;
         &:hover{
             background-color: $primary-color-400;
         }
 
         .panel-title{
             margin: 0;
+            width: 70%;
             padding: 20px 30px;
             font-family: 'EB Garamond', serif;
             font-weight: 600;
@@ -75,27 +78,30 @@ h1{
             line-height: 2rem;
             background-color: $secondary-color-500;
         }
-        mat-panel-description{
+        .panel-description{
             justify-content: space-around;
             text-align: center;
-            flex-basis: 30%;
+            display: flex;
+            width: 30%;
             margin: 0;
 
             .panel-medal{
-                width: 50%;
+                flex: 1 1 50%;
                 margin: 0;
                 padding: 0;
                 text-align: center;
                 background-color: $secondary-color-400;
 
+                flex: 1;
                 display: flex;
                 align-items: center;
             }
             .panel-cost{
-                width: 50%;
+                flex: 1 1 50%;
                 margin: 0;
                 padding: 0;
                 background-color: $primary-color-400;
+                flex: 1;
                 display: flex;
                 align-items: center;
 
@@ -114,7 +120,7 @@ h1{
             flex-wrap: wrap;
         
             .price-box { /* each flex item in top-stats*/
-                flex: 0 0 25%;
+                width: 25%;
                 display: inline-block;
                 margin-bottom: 20px;
             }
@@ -132,6 +138,7 @@ h1{
                 justify-content: flex-end;
                 width: 60px;
                 flex-wrap: wrap;
+                text-align: right;
             }
         }
         .price-name{
@@ -195,6 +202,34 @@ mat-panel-description {
         }
         .filter-dropdown{      
             width: 100%;
+        }
+    }
+
+    .panel-wrapper{
+        .panel-headers{
+            .panel-title{
+
+            }
+            .panel-description{
+                flex-direction: column;
+                .panel-medal{
+                    flex: 1 1 100%;
+                }
+                .panel-cost{
+                    flex: 1 1 100%;
+                }
+            }
+        }
+
+        .panel-body {
+            .top-stats{
+            
+                .price-box { /* each flex item in top-stats*/
+                    width: 50%;
+                }
+            }
+            .bottom-stats{
+            }
         }
     }
 }

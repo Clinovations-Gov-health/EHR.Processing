@@ -29,19 +29,19 @@
 
         <mat-expansion-panel class="panel-wrapper" *ngFor="let plan of getPlans(sortingCriterion)">
             <mat-expansion-panel-header class="panel-headers">
-                <mat-panel-title class="panel-title">
+                <span class="panel-title">
                     {{plan.name}}
-                </mat-panel-title>
-                <mat-panel-description>
+                </span>
+                <div class="panel-description">
                     <div class="panel-medal">
                         <span style="text-align: center; width: 100%; font-size: 1.2rem;"
                             [ngClass]="{bronze: plan.metalLevel === 'expanded bronze' || plan.metalLevel === 'bronze', silver: plan.metalLevel === 'silver', catastrophic: plan.metalLevel === 'catastrophic', platinum: plan.metalLevel === 'platinum', gold: plan.metalLevel === 'gold'}">{{plan.metalLevel.trim().toUpperCase()}}</span>
                     </div>
-                    <p class="panel-cost"><span
+                    <div class="panel-cost"><span
                             style="text-align: center; width: 100%; font-family: inherit; font-size: inherit; line-height: inherit;">${{plan.cost
                             |
-                            number:'1.2-2'}}</span></p>
-                </mat-panel-description>
+                            number:'1.2-2'}}</span></div>
+                </div>
             </mat-expansion-panel-header>
 
             <div class="panel-body">

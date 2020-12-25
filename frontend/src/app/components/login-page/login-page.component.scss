@@ -38,6 +38,7 @@ h1{
     line-height: 3rem;
 
     width: 50%;
+    margin-top: 250px;
     margin-bottom: 50px;
 }
 .caption{
@@ -69,10 +70,6 @@ h1{
         z-index: -1;
     }
 }
-
-.divider{
-    height: 100px;
-}
 /* === Responsive Styles === */
 @media all and (max-width: $bp-tablet){
     main{
@@ -81,11 +78,8 @@ h1{
     header{
         padding: 10px 0 10px $bar-padding-left-small;
     }
-
-    .divider{
-        height: 100px;
-    }
     h1{
+        margin-top: 0px;
         width: 100%;
     }
     .caption{

@@ -207,6 +207,12 @@ mat-panel-description {
 
     .panel-wrapper{
         .panel-headers{
+            background-color:  $secondary-color-500;
+            display: flex;
+            flex-wrap: wrap;
+            &:hover{
+                background-color: $secondary-color-500;
+            }
             .panel-title{
 
             }

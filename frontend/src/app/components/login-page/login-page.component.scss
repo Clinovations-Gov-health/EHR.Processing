@@ -43,6 +43,16 @@ h1{
 .caption{
     width: 50%;
 }
+
+.login-form{
+    .form-field{
+        display: inline;
+
+        &:nth-child(odd){
+            margin-right: 10px;
+        }
+    }
+}
 .img-wrapper{
     position: absolute;
     width: 100vw;
@@ -66,20 +76,23 @@ h1{
 /* === Responsive Styles === */
 @media all and (max-width: $bp-tablet){
     main{
-        width: 90vw;
+        width: 80vw;
     }
-    img{
-        opacity: 0.2;
+    header{
+        padding: 10px 0 10px $bar-padding-left-small;
     }
+
     .divider{
         height: 100px;
     }
     h1{
-        width: 80%;
+        width: 100%;
     }
     .caption{
-        width: 80%;
+        width: 100%;
     }
-}
-@media all and (max-width: $bp-mobile){
+
+    img{
+        opacity: 0.2;
+    }
 }

@@ -21,8 +21,8 @@
             understands
             your healthcare needs and recommends plans based on your previous usage.</p>
 
-        <form [formGroup]="loginForm">
-            <div style="display: inline">
+        <form class="login-form" [formGroup]="loginForm">
+            <div class="form-field">
                 <mat-form-field appearance="legacy">
                     <mat-label>USERNAME</mat-label>
                     <input matInput [disabled]="working" formControlName="username">
@@ -34,7 +34,7 @@
                 </mat-form-field>
             </div>
 
-            <div style="display: inline; margin-left: 10px">
+            <div class="form-field">
                 <mat-form-field appearance="legacy">
                     <mat-label>PASSWORD</mat-label>
                     <input matInput [disabled]="working" formControlName="password">

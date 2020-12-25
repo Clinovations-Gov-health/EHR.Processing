@@ -1,4 +1,10 @@
 <div *ngIf="(userService.currUser | async)?.lastRecommendPlans !== null; else elseBlock">
+    <div class="bg-wrapper">
+        <img class="triangle" src="../../../assets/triangle-purple.png" alt="purple triangle" />
+        <img class="circle" src="../../../assets/circle-blue.png" alt="yellow circle" />
+        <img class="square" src="../../../assets/sq-red.png" alt="red square" />
+    </div>
+
     <main>
         <h1>Recommended Plans</h1>
         <p class="caption">Here are the top 3 plans we found based on your information.</p>

@@ -16,6 +16,7 @@ h1{
 }
 .data-provider-wrapper{
     display: flex;
+    flex-wrap: wrap;
     width: 100%;
     justify-content: space-between;
 }
@@ -25,6 +26,7 @@ h1{
     .column-names{
         font-size: 0.8rem;
         color: black;
+        padding: 5px;
         
     }
     .mat-row:nth-child(odd){
@@ -35,6 +37,7 @@ h1{
     }
     .mat-cell{
         border: none;
+        padding: 5px;
     }
 }
 

@@ -17,12 +17,14 @@ h1{
 .filter-wrapper{
     display:flex; 
     justify-content: space-between;
+    flex-wrap: wrap;
     align-items: center;
     margin-bottom: 15px;
 
     .filter-options{
-        display: flex;
-        flex-basis: 60%;
+        margin-bottom: 10px;
+        flex-basis: 50%;
+        flex-wrap: wrap;
         justify-content: space-between;
         align-items: baseline;
     }
@@ -32,7 +34,7 @@ h1{
     }
     .filter-dropdown{
         background-color: lightgrey;
-        width: 50%;
+        width: 70%;
         padding: 10px;
     }
 }
@@ -184,4 +186,15 @@ h1{
 mat-panel-description {
     display: flex;
     justify-content: flex-end;
+}
+
+@media all and (max-width: $bp-tablet){
+    .filter-wrapper{
+        .filter-options{
+            flex-basis: 100%;
+        }
+        .filter-dropdown{      
+            width: 100%;
+        }
+    }
 }

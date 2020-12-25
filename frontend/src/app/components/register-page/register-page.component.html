@@ -17,9 +17,9 @@
 
         <h1>Tell us a little about you...</h1>
 
-        <form [formGroup]="registerForm">
+        <form class="login-form" [formGroup]="registerForm">
             <div>
-                <div style="display: inline; margin-right: 10px">
+                <div class="form-field">
                     <mat-form-field appearance="legacy">
                         <mat-label>USERNAME</mat-label>
                         <input matInput [disabled]="working" formControlName="username">
@@ -31,7 +31,7 @@
                     </mat-form-field>
                 </div>
 
-                <div style="display: inline; margin-right: 10px">
+                <div class="form-field">
                     <mat-form-field appearance="legacy">
                         <mat-label>PASSWORD</mat-label>
                         <input matInput [disabled]="working" formControlName="password">
@@ -44,7 +44,7 @@
                 </div>
             </div>
             <div>
-                <div style="padding-right:10px; display: inline;">
+                <div class="form-field">
                     <mat-form-field appearance="legacy">
                         <mat-label>ZIPCODE</mat-label>
                         <input matInput [disabled]="working" formControlName="zipCode">
@@ -59,7 +59,7 @@
                     </mat-form-field>
                 </div>
 
-                <div style="padding-right:10px; display: inline;">
+                <div class="form-field">
                     <mat-form-field appearance="legacy">
                         <mat-label>TARGET</mat-label>
                         <mat-select [disabled]="working" formControlName="target">
@@ -75,7 +75,7 @@
                 </div>
             </div>
             <div *ngIf="registerForm.get('target').value === 'individual'">
-                <div style="padding-right:10px; display:inline">
+                <div class="form-field">
                     <mat-form-field appearance="legacy">
                         <mat-label>AGE</mat-label>
                         <input matInput [disabled]="working" formControlName="age" type="number">
@@ -86,7 +86,7 @@
                         </mat-error>
                     </mat-form-field>
                 </div>
-                <div style="padding-right:10px; display:inline">
+                <div class="form-field">
                     <mat-form-field appearance="legacy">
                         <mat-label>TOBACCO USAGE</mat-label>
                         <mat-select [disabled]="working" formControlName="usesTobacco">
@@ -101,7 +101,7 @@
             </div>
 
             <div *ngIf="registerForm.get('target').value === 'family'">
-                <div style="padding-right:10px; display:inline">
+                <div class="form-field">
                     <mat-form-field appearance="legacy">
                         <mat-label>NUMBER OF DEPENDENTS</mat-label>
                         <input matInput [disabled]="working" formControlName="numChildren" type="number">
@@ -112,7 +112,7 @@
                         </mat-error>
                     </mat-form-field>
                 </div>
-                <div style="padding-right:10px; display:inline">
+                <div class="form-field">
                     <mat-form-field appearance="legacy">
                         <mat-label>SPOUSE</mat-label>
                         <mat-select [disabled]="working" formControlName="hasSpouse">

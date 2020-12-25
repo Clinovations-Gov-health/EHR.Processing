@@ -32,10 +32,6 @@ header{
     }
 }
 
-main{
-    width: 80vw;
-    margin: 0 auto;
-}
 h1{
     font-family: $font-serif;
     font-weight: 700;
@@ -47,6 +43,16 @@ h1{
 }
 .caption{
     width: 50%;
+}
+
+.login-form{
+    .form-field{
+        display: inline;
+
+        &:nth-child(odd){
+            margin-right: 10px;
+        }
+    }
 }
 .img-wrapper{
     position: absolute;
@@ -66,25 +72,28 @@ h1{
 }
 
 .divider{
-    height: 200px;
+    height: 100px;
 }
 /* === Responsive Styles === */
 @media all and (max-width: $bp-tablet){
     main{
-        width: 90vw;
+        width: 80vw;
     }
-    img{
-        opacity: 0.2;
+    header{
+        padding: 10px 0 10px $bar-padding-left-small;
     }
+
     .divider{
         height: 100px;
     }
     h1{
-        width: 80%;
+        width: 100%;
     }
     .caption{
-        width: 80%;
+        width: 100%;
     }
-}
-@media all and (max-width: $bp-mobile){
+
+    img{
+        opacity: 0.2;
+    }
 }

@@ -36,10 +36,20 @@ footer{
 
     display: flex;
     align-items: center;
-    background-color: $secondary-color-500;
+    background-color: $secondary-color-300;
 
     .footer-caption{
         margin: 0;
+    }
+}
+
+@media all and (max-width: $bp-tablet){
+    main{
+        width: 90vw;
+        margin-top: 30px;
+    }
+    footer{
+        padding-left: $bar-padding-left-small;
     }
 }
 

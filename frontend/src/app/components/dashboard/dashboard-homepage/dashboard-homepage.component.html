@@ -7,12 +7,16 @@
         </div>
     </div>
     <nav>
-        <button mat-button class="nav-links" [color]="currPage === 'overview' ? 'accent' : 'basic'"
-            (click)="currPage = 'overview'">RECOMMENDATIONS</button>
-        <button mat-button class="nav-links" [color]="currPage === 'claims' ? 'accent' : 'basic'"
-            (click)="currPage = 'claims'">YOUR CLAIMS </button>
-        <button mat-button class="nav-links" [color]="currPage === 'profile' ? 'accent' : 'basic'"
-            (click)="currPage = 'profile'"> PROFILE </button>
+        <label id="toggle-button-text" for="toggle-button">☰</label>
+        <input type="checkbox" id="toggle-button" />
+        <div id="menu">
+            <button mat-button class="nav-links" [color]="currPage === 'overview' ? 'accent' : 'basic'"
+                (click)="currPage = 'overview'">RECOMMENDATIONS</button>
+            <button mat-button class="nav-links" [color]="currPage === 'claims' ? 'accent' : 'basic'"
+                (click)="currPage = 'claims'">YOUR CLAIMS </button>
+            <button mat-button class="nav-links" [color]="currPage === 'profile' ? 'accent' : 'basic'"
+                (click)="currPage = 'profile'"> PROFILE </button>
+        </div>
     </nav>
 </header>
 

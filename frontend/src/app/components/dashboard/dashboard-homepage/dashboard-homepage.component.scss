@@ -27,7 +27,45 @@ header{
 }
 
 nav{
+
+    #toggle-button-text{
+        display: none;
+    }
+    #toggle-button{
+        display: none;
+    }
     .nav-links{
         font-size: 1rem;
+    }
+}
+
+@media all and (max-width: $bp-tablet){
+    header{
+        padding: 10px $bar-padding-left-small 10px $bar-padding-left-small;
+
+        #toggle-button-text{
+            display: block;
+            font-size: 2rem;
+            cursor: pointer;
+        }
+        #menu{
+            background-color: $primary-color-400;
+            width: 100vw;
+            position: absolute;
+            top: 70px;
+            left: 0;
+            overflow: hidden;
+            max-height: 0;
+            padding: 0;
+            margin: 0 auto;
+
+            display: flex;
+            justify-content: space-around;
+
+            -webkit-transition: all 0.3s ease;
+        }
+        #toggle-button:checked + #menu {
+            max-height: 100px;
+          }
     }
 }

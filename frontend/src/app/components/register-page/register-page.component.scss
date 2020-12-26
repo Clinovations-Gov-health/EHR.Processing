@@ -47,11 +47,14 @@ h1{
 }
 
 .login-form{
+    mat-form-field{
+        width: 300px;
+    }
     .form-field{
         display: inline;
 
         &:nth-child(odd){
-            margin-right: 10px;
+            margin-right: 30px;
         }
     }
 }

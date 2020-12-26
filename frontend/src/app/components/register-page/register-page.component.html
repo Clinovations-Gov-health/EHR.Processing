@@ -76,7 +76,7 @@
             </div>
 
             <div>
-                <div style="padding-right:10px; display: inline;">
+                <div class="form-field">
                     <mat-form-field appearance="legacy">
                         <mat-label>CURRENT PLAN MONTHLY PREMIUM</mat-label>
                         <input matInput [disabled]="working" type="number" formControlName="currPlanMonthlyPremium">
@@ -88,7 +88,7 @@
                     </mat-form-field>
                 </div>
 
-                <div style="padding-right:10px; display: inline;">
+                <div class="form-field">
                     <mat-form-field appearance="legacy">
                         <mat-label>CURRENT PLAN ANNUAL DEDUCTIBLE</mat-label>
                         <input matInput [disabled]="working" type="number" formControlName="currPlanAnnualDeductible">
@@ -98,7 +98,7 @@
                             </div>
                         </mat-error>
                     </mat-form-field>
-                </div>                
+                </div>
             </div>
 
             <div *ngIf="registerForm.get('target').value === 'individual'">
@@ -159,7 +159,8 @@
                 </button>
                 <ng-template #submitButtonElseBlock>
                     <button mat-flat-button invalid class="buttons-inactive">REGISTER</button>
-                    <mat-error>{{registerForm.errors.errorText}}</mat-error>
+                    <mat-error style="color: darkred; font-size: 0.8rem; margin-top: 5px;">
+                        {{registerForm.errors.errorText}}</mat-error>
                 </ng-template>
             </div>
         </form>

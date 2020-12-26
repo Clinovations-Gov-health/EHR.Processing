@@ -105,8 +105,9 @@ input[type=number]::-webkit-outer-spin-button {
     font-weight: 700 !important;
 }
 
-.mat-error {
+.mat-error > *{
     color: darkred !important;
+    font-size: 0.8rem;
 }
 
 .mat-error .mat-form-field-ripple {

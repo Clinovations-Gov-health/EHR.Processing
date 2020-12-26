@@ -7,9 +7,9 @@
 <main>
     <h1>Update your profile here</h1>
 
-    <form [formGroup]="profileForm">
+    <form class="profile-form" [formGroup]="profileForm">
         <div>
-            <div style="padding-right:10px; display:inline">
+            <div class="form-field">
                 <mat-form-field appearance="legacy">
                     <mat-label>ZIPCODE</mat-label>
                     <input matInput [disabled]="working" formControlName="zipCode">
@@ -24,7 +24,7 @@
                 </mat-form-field>
             </div>
 
-            <div style="padding-right:10px; display:inline">
+            <div class="form-field">
                 <mat-form-field appearance="legacy">
                     <mat-label>TARGET</mat-label>
                     <mat-select [disabled]="working" formControlName="target">
@@ -41,7 +41,7 @@
         </div>
 
         <div>
-            <div style="padding-right:10px; display: inline;">
+            <div class="form-field">
                 <mat-form-field appearance="legacy">
                     <mat-label>CURRENT PLAN MONTHLY PREMIUM</mat-label>
                     <input matInput [disabled]="working" type="number" formControlName="currPlanMonthlyPremium">
@@ -53,7 +53,7 @@
                 </mat-form-field>
             </div>
 
-            <div style="padding-right:10px; display: inline;">
+            <div class="form-field">
                 <mat-form-field appearance="legacy">
                     <mat-label>CURRENT PLAN ANNUAL DEDUCTIBLE</mat-label>
                     <input matInput [disabled]="working" type="number" formControlName="currPlanAnnualDeductible">
@@ -63,11 +63,11 @@
                         </div>
                     </mat-error>
                 </mat-form-field>
-            </div>                
+            </div>
         </div>
 
         <div *ngIf="profileForm.get('target').value === 'individual'">
-            <div style="padding-right:10px; display:inline">
+            <div class="form-field">
                 <mat-form-field appearance="legacy">
                     <mat-label>AGE</mat-label>
                     <input matInput [disabled]="working" formControlName="age" type="number">
@@ -78,7 +78,7 @@
                     </mat-error>
                 </mat-form-field>
             </div>
-            <div style="padding-right:10px; display:inline">
+            <div class="form-field">
                 <mat-form-field appearance="legacy">
                     <mat-label>TOBACCO USAGE</mat-label>
                     <mat-select [disabled]="working" formControlName="usesTobacco">
@@ -93,7 +93,7 @@
         </div>
 
         <div *ngIf="profileForm.get('target').value === 'family'">
-            <div style="padding-right:10px; display:inline">
+            <div class="form-field">
                 <mat-form-field appearance="legacy">
                     <mat-label>NUMBER OF DEPENDENTS</mat-label>
                     <input matInput [disabled]="working" formControlName="numChildren" type="number">
@@ -104,7 +104,7 @@
                     </mat-error>
                 </mat-form-field>
             </div>
-            <div style="padding-right:10px; display:inline">
+            <div class="form-field">
                 <mat-form-field appearance="legacy">
                     <mat-label>SPOUSE</mat-label>
                     <mat-select [disabled]="working" formControlName="hasSpouse">
@@ -121,8 +121,9 @@
             <button mat-flat-button class="buttons" *ngIf="!profileForm.errors; else submitButtonElseBlock"
                 [disabled]="working" (click)="onSubmitChanges()">SAVE</button>
             <ng-template #submitButtonElseBlock>
-                <button mat-flat-button invalid style="background-color: transparent;">SUBMIT</button>
-                <mat-error>{{profileForm.errors.errorText}}</mat-error>
+                <button mat-flat-button invalid class="buttons-inactive">SUBMIT</button>
+                <mat-error style="color: darkred; font-size: 0.8rem; margin-top: 5px;">{{profileForm.errors.errorText}}
+                </mat-error>
             </ng-template>
         </div>
     </form>

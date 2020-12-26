@@ -12,3 +12,16 @@ h1{
 
     margin-bottom: 50px;
 }
+
+.profile-form{
+    mat-form-field{
+        width: 300px;
+    }
+    .form-field{
+        display: inline;
+
+        &:nth-child(odd){
+            margin-right: 30px;
+        }
+    }
+}

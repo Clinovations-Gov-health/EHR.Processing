@@ -20,6 +20,8 @@ export type GetUserReturnPayload = {
         responsibility: number;
     }[],
     lastRecommendPlans: PlanRecommendation | null,
+    currPlanMonthlyPremium: number;
+    currPlanAnnualDeductible: number;
     market: "individual" | "small group";
     demographic: "child" | "adult";
     zipCode: string;

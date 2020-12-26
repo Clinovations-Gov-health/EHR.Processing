@@ -40,6 +40,16 @@ export class DashboardProfileComponent {
                 ? null
                 : { numChildren: "Must be a nonnegative integer." },
         ]),
+        currPlanMonthlyPremium: new FormControl("", [
+            control => typeof control.value === "number" && control.value >= 0
+                ? null
+                : { currPlanMonthlyPremium: "Must be a nonnegative number." },
+        ]),
+        currPlanAnnualDeductible: new FormControl("", [
+            control => typeof control.value === "number" && control.value >= 0
+                ? null
+                : { currPlanAnnualDeductible: "Must be a nonnegative number." },
+        ]),
     }, { validators: (control: FormGroup) => {
         if (control.get('target').value === 'individual') {
             every(control.controls, control => control.valid);
@@ -81,7 +91,7 @@ export class DashboardProfileComponent {
             this.profileForm.setValue({
                 ...pick(
                     currUser,
-                    "zipCode", "target", "age", "usesTobacco",
+                    "zipCode", "target", "age", "usesTobacco", "currPlanMonthlyPremium", "currPlanAnnualDeductible"
                 ),
                 hasSpouse: false,
                 numChildren: 0,
@@ -90,7 +100,7 @@ export class DashboardProfileComponent {
             this.profileForm.setValue({
                 ...pick(
                     currUser,
-                    "zipCode", "target", "hasSpouse", "numChildren",
+                    "zipCode", "target", "hasSpouse", "numChildren", "currPlanMonthlyPremium", "currPlanAnnualDeductible"
                 ),
                 usesTobacco: false,
                 age: 0,

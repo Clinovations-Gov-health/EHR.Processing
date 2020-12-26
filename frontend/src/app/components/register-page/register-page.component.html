@@ -74,6 +74,33 @@
                     </mat-form-field>
                 </div>
             </div>
+
+            <div>
+                <div style="padding-right:10px; display: inline;">
+                    <mat-form-field appearance="legacy">
+                        <mat-label>CURRENT PLAN MONTHLY PREMIUM</mat-label>
+                        <input matInput [disabled]="working" type="number" formControlName="currPlanMonthlyPremium">
+                        <mat-error *ngIf="registerForm.get('currPlanMonthlyPremium').invalid">
+                            <div *ngIf="registerForm.get('currPlanMonthlyPremium').errors">
+                                {{registerForm.get('currPlanMonthlyPremium').errors.currPlanMonthlyPremium}}
+                            </div>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+
+                <div style="padding-right:10px; display: inline;">
+                    <mat-form-field appearance="legacy">
+                        <mat-label>CURRENT PLAN ANNUAL DEDUCTIBLE</mat-label>
+                        <input matInput [disabled]="working" type="number" formControlName="currPlanAnnualDeductible">
+                        <mat-error *ngIf="registerForm.get('currPlanAnnualDeductible').invalid">
+                            <div *ngIf="registerForm.get('currPlanAnnualDeductible').errors">
+                                {{registerForm.get('currPlanAnnualDeductible').errors.currPlanAnnualDeductible}}
+                            </div>
+                        </mat-error>
+                    </mat-form-field>
+                </div>                
+            </div>
+
             <div *ngIf="registerForm.get('target').value === 'individual'">
                 <div style="padding-right:10px; display:inline">
                     <mat-form-field appearance="legacy">

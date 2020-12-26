@@ -48,6 +48,16 @@ export class RegisterPageComponent {
                 ? null
                 : { numChildren: "Must be a nonnegative integer." },
         ]),
+        currPlanMonthlyPremium: new FormControl("", [
+            control => typeof control.value === "number" && control.value >= 0
+                ? null
+                : { currPlanMonthlyPremium: "Must be a nonnegative number." },
+        ]),
+        currPlanAnnualDeductible: new FormControl("", [
+            control => typeof control.value === "number" && control.value >= 0
+                ? null
+                : { currPlanAnnualDeductible: "Must be a nonnegative number." },
+        ]),
     }, { validators: (control: FormGroup) => {
         if (control.get('target').value === 'individual') {
             every(control.controls, control => control.valid);

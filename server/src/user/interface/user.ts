@@ -6,6 +6,8 @@ export type UserModel = {
     _id: ObjectId,
     claims: Claim[],
     lastRecommendPlans: PlanRecommendation | null,
+    currPlanMonthlyPremium: number;
+    currPlanAnnualDeductible: number;
     market: "individual" | "small group";
     demographic: "child" | "adult";
     zipCode: string;

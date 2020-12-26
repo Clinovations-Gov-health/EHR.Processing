@@ -8,6 +8,8 @@ export type User = {
     zipCode: string;
     username: string;
     password: string;
+    currPlanMonthlyPremium: number;
+    currPlanAnnualDeductible: number;
 } & ({
     target: "individual";
     age: number;

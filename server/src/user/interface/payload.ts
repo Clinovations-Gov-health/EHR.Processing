@@ -4,6 +4,8 @@ export type CreateUserPayload = {
     zipCode: string;
     username: string;
     password: string;
+    currPlanMonthlyPremium: number;
+    currPlanAnnualDeductible: number;
 } & ({
     target: "individual";
     age: number;
@@ -23,6 +25,8 @@ export type UpdatePayload = {
     market: "individual" | "small group";
     demographic: "child" | "adult";
     zipCode: string;
+    currPlanMonthlyPremium: number;
+    currPlanAnnualDeductible: number;
 } & ({
     target: "individual";
     age: number;

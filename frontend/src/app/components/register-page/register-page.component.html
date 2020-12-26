@@ -120,7 +120,8 @@
                             <mat-option [value]="true">I smoke tobacco</mat-option>
                             <mat-option [value]="false">I don't smoke tobacco</mat-option>
                         </mat-select>
-                        <mat-error *ngIf="registerForm.get('usesTobacco').invalid">
+                        <mat-error style="color: darkred; font-size: 0.8rem;"
+                            *ngIf="registerForm.get('usesTobacco').invalid">
                             Needs to provide a value.
                         </mat-error>
                     </mat-form-field>

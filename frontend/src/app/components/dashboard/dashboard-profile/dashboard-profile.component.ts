@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { every, pick } from 'lodash';
+import { every, isNil, pick } from 'lodash';
+import { filter } from 'rxjs/operators';
 import { UserService } from '../../../services/user/user.service';
 
 @Component({
@@ -86,36 +87,37 @@ export class DashboardProfileComponent {
             }
         });
 
-        const currUser = userService.currUser.getValue();
-        if (currUser.target === "individual") {
-            this.profileForm.setValue({
-                ...pick(
-                    currUser,
-                    "zipCode", "target", "age", "usesTobacco", "currPlanMonthlyPremium", "currPlanAnnualDeductible"
-                ),
-                hasSpouse: false,
-                numChildren: 0,
+        userService.currUser.pipe(filter(user => !isNil(user)))
+            .subscribe(currUser => {
+                if (currUser.target === "individual") {
+                    this.profileForm.setValue({
+                        ...pick(
+                            currUser,
+                            "zipCode", "target", "age", "usesTobacco", "currPlanMonthlyPremium", "currPlanAnnualDeductible"
+                        ),
+                        hasSpouse: false,
+                        numChildren: 0,
+                    });
+                } else {
+                    this.profileForm.setValue({
+                        ...pick(
+                            currUser,
+                            "zipCode", "target", "hasSpouse", "numChildren", "currPlanMonthlyPremium", "currPlanAnnualDeductible"
+                        ),
+                        usesTobacco: false,
+                        age: 0,
+                    });
+                }
             });
-        } else {
-            this.profileForm.setValue({
-                ...pick(
-                    currUser,
-                    "zipCode", "target", "hasSpouse", "numChildren", "currPlanMonthlyPremium", "currPlanAnnualDeductible"
-                ),
-                usesTobacco: false,
-                age: 0,
-            });
-        }
     }
 
     onSubmitChanges() {
         this.working = true;
-        console.log(this.profileForm.value);
         this.userService.updateUser({
             ...this.profileForm.value,
             demographic: "adult",
             market: "individual",
-        }).then(_ => this.working = false);
+        }).then(() => this.working = false);
     }
 
 }

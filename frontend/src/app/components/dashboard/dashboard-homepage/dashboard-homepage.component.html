@@ -8,11 +8,13 @@
     </div>
     <nav>
         <button mat-button class="nav-links" [color]="currPage === 'overview' ? 'accent' : 'basic'"
-            (click)="currPage = 'overview'">RECOMMENDATIONS</button>
+            (click)="router.navigateByUrl('overview')">RECOMMENDATIONS</button>
         <button mat-button class="nav-links" [color]="currPage === 'claims' ? 'accent' : 'basic'"
-            (click)="currPage = 'claims'">YOUR CLAIMS </button>
+            (click)="router.navigateByUrl('claims')">YOUR CLAIMS </button>
         <button mat-button class="nav-links" [color]="currPage === 'profile' ? 'accent' : 'basic'"
-            (click)="currPage = 'profile'"> PROFILE </button>
+            (click)="router.navigateByUrl('profile')"> PROFILE </button>
+        <button mat-button class="nav-links" [color]="'basic'"
+            (click)="logout()"> LOGOUT </button>
     </nav>
 </header>
 

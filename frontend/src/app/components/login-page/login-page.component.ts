@@ -38,7 +38,7 @@ export class LoginPageComponent {
         this.userService.login(this.loginForm.value);
         this.userService.currToken
             .pipe(skipWhile(isNil), first())
-            .subscribe(_ => this.router.navigateByUrl('/dashboard'));
+            .subscribe(_ => this.router.navigateByUrl('/overview'));
     }
 
     onPressRegister() {

@@ -1,7 +1,7 @@
 <main>
     <h1>Update your profile here</h1>
 
-    <form [formGroup]="profileForm">
+    <form [formGroup]="profileForm" *ngIf="userService.currUser | async">
         <div>
             <div style="padding-right:10px; display:inline">
                 <mat-form-field appearance="legacy">

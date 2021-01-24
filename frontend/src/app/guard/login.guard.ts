@@ -5,7 +5,7 @@ import { UserService } from '../services/user/user.service';
 @Injectable({
   providedIn: 'root'
 })
-export class DashboardGuard implements CanActivate {
+export class LoginGuard implements CanActivate {
     constructor(
         private readonly userService: UserService,
         private readonly router: Router
@@ -14,11 +14,14 @@ export class DashboardGuard implements CanActivate {
     canActivate(
         route: ActivatedRouteSnapshot,
         state: RouterStateSnapshot): true | UrlTree {
-        if (!this.userService.currToken.getValue()) {
-            return this.router.parseUrl('/login');
+        if (this.userService.currToken.getValue()) {
+            return true;
+        } else if (route.queryParamMap.has("token")) {
+            this.userService.currToken.next(route.queryParamMap.get("token"));
+            return true;
+        } else {
+            return this.router.parseUrl('/login');   
         }
-
-        return true;
     }
   
 }

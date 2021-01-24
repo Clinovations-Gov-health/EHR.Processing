@@ -4,16 +4,19 @@ import { DashboardHomepageComponent } from './components/dashboard/dashboard-hom
 import { ErrorComponent } from './components/error/error.component';
 import { LoginPageComponent } from './components/login-page/login-page.component';
 import { RegisterPageComponent } from './components/register-page/register-page.component';
-import { DashboardGuard } from './guard/dashboard.guard';
+import { LoginGuard } from './guard/login.guard';
 
 const routes: Routes = [
-    { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+    { path: '', redirectTo: 'overview', pathMatch: 'full' },
     // { path: 'findPlan', component: PatientDataFormComponent, canActivate: [FindPlanPageRedirectGuard] },
     // { path: 'result', component: RecommendationComponent },
-    { path: 'dashboard', component: DashboardHomepageComponent, canActivate: [DashboardGuard]},
+    { path: 'overview', component: DashboardHomepageComponent, canActivate: [LoginGuard]},
+    { path: 'claims', component: DashboardHomepageComponent, canActivate: [LoginGuard]},
+    { path: 'profile', component: DashboardHomepageComponent, canActivate: [LoginGuard]},
     { path: 'register', component: RegisterPageComponent },
     { path: 'login', component: LoginPageComponent },
     { path: 'error', component: ErrorComponent },
+    { path: '**', component: ErrorComponent },
 ];
 
 @NgModule({

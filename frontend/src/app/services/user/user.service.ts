@@ -1,8 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from "@angular/core";
-import { omit } from 'lodash';
+import { isNil, omit } from 'lodash';
 import moment from 'moment';
+import { CookieService } from 'ngx-cookie-service';
 import { BehaviorSubject } from 'rxjs';
+import { filter, skipWhile } from 'rxjs/operators';
 import { CreateUserPayload, CreateUserReturnPayload, GetUserReturnPayload, LoginPayload, LoginReturnPayload, updateClaimsPayload, UpdateUserPayload } from './interfaces/payload.interface';
 import { User } from './interfaces/user.interface';
 
@@ -10,20 +12,33 @@ import { User } from './interfaces/user.interface';
     providedIn: 'root'
 })
 export class UserService {
-    constructor(
-        private readonly http: HttpClient,
-    ) {}
-
     private readonly backendAddress = "http://localhost:4000";
 
     currToken: BehaviorSubject<string | null> = new BehaviorSubject(null);
     currUser: BehaviorSubject<User | null> = new BehaviorSubject(null);
 
+
+    constructor(
+        private readonly http: HttpClient,
+        private readonly cookieService: CookieService,
+    ) {
+        this.currToken.pipe(filter(token => !isNil(token))).subscribe(token => {
+            this.getUser();
+            this.cookieService.set("token", token, moment().add(1, "hour").toDate());
+        });
+    }
+
+    logout() {
+        this.cookieService.delete('token');
+        this.currToken.next(null);
+        this.currUser.next(null);
+    }
+
     createUser(payload: CreateUserPayload) {
         this.http.post<CreateUserReturnPayload>(`${this.backendAddress}/user/`, payload, { responseType: 'json' })
             .subscribe(res => {
                 this.currToken.next(res.token);
-                this.getUser();
+                // this.getUser();
             })
     }
 
@@ -45,7 +60,7 @@ export class UserService {
         this.http.post<LoginReturnPayload>(`${this.backendAddress}/user/login`, payload, { responseType: 'json' })
             .subscribe(res => {
                 this.currToken.next(res.token);
-                this.getUser();
+                // this.getUser();
             })
     }
 
@@ -53,7 +68,6 @@ export class UserService {
         return new Promise<void>(resolve => {
             this.http.put(`${this.backendAddress}/user/update`, payload, { responseType: "text", headers: { Authorization: `bearer ${this.currToken.getValue()}` } })
                 .subscribe(_ => {
-                    console.log("I'm here");
                     this.currUser.next({
                         ...omit(this.currUser.getValue(), "usesTobacco", "numChildren", "hasSpouse", "age"),
                         ...payload
@@ -64,7 +78,7 @@ export class UserService {
     }
 
     updateClaims(payload: updateClaimsPayload) {
-        return new Promise(resolve => {
+        return new Promise<void>(resolve => {
             this.http.put(`${this.backendAddress}/user/updateClaims`, payload, { responseType: "text", headers: { Authorization: `bearer ${this.currToken.getValue()}` } })
                 .subscribe(_ => {
                     this.currUser.next({

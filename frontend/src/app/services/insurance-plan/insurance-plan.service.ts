@@ -15,7 +15,7 @@ export class InsurancePlanService {
     private readonly backendAddress = "http://localhost:4000";
 
     fetchPlanRecommendations() {
-        return new Promise(resolve => {
+        return new Promise<void>(resolve => {
             this.http.get<PlanRecommendationReturnPayload>(`${this.backendAddress}/plan/recommendation`, { responseType: 'json', headers: { Authorization: `bearer ${this.userService.currToken.getValue()}` } })
                 .subscribe(res => {
                     const currUser = this.userService.currUser.getValue();

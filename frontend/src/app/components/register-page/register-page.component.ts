@@ -106,6 +106,6 @@ export class RegisterPageComponent {
         this.registerForm.disable();
         this.userService.currToken
             .pipe(skipWhile(isNil), first())
-            .subscribe(_ => this.router.navigateByUrl('/dashboard'));
+            .subscribe(_ => this.router.navigateByUrl('/overview'));
     }
 }

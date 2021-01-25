@@ -13,6 +13,8 @@
             (click)="router.navigateByUrl('claims')">YOUR CLAIMS </button>
         <button mat-button class="nav-links" [color]="currPage === 'profile' ? 'accent' : 'basic'"
             (click)="router.navigateByUrl('profile')"> PROFILE </button>
+        <button mat-button class="nav-links" [color]="currPage === 'ehr' ? 'accent' : 'basic'"
+            (click)="router.navigateByUrl('ehr')"> EHR </button>
         <button mat-button class="nav-links" [color]="'basic'"
             (click)="logout()"> LOGOUT </button>
     </nav>
@@ -22,4 +24,5 @@
     <app-dashboard-overview *ngSwitchCase="'overview'"></app-dashboard-overview>
     <app-dashboard-claims *ngSwitchCase="'claims'"></app-dashboard-claims>
     <app-dashboard-profile *ngSwitchCase="'profile'"></app-dashboard-profile>
+    <app-dashboard-ehr *ngSwitchCase="'ehr'"></app-dashboard-ehr>
 </div>

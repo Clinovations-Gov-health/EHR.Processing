@@ -93,4 +93,9 @@ export class UserService {
                 });
         })
     }
+
+    async validateToken(token: string): Promise<boolean> {
+        return await this.http.get<boolean>(`${this.backendAddress}/user/validateToken/${token}`, { responseType: 'json' })
+            .toPromise<boolean>();
+    }
 }

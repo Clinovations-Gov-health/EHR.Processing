@@ -150,4 +150,17 @@ export class UserController {
             _id: user._id.toHexString(),
         };
     }
+
+    @Route({
+        method: 'GET',
+        url: '/validateToken/:token',
+    })
+    async validateTokenHandler(req: FastifyRequest<{ Params: { token: string } }>, res: FastifyReply): Promise<boolean> {
+        try {
+            this.userService.verifyJwtToken(req.params.token);
+            return true;
+        } catch (e) {
+            return false;
+        }
+    }
 }

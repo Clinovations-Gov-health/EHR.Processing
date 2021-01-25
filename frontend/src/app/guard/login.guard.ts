@@ -16,9 +16,6 @@ export class LoginGuard implements CanActivate {
         state: RouterStateSnapshot): true | UrlTree {
         if (this.userService.currToken.getValue()) {
             return true;
-        } else if (route.queryParamMap.has("token")) {
-            this.userService.currToken.next(route.queryParamMap.get("token"));
-            return true;
         } else {
             return this.router.parseUrl('/login');   
         }

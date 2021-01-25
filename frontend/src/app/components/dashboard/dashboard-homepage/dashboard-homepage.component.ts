@@ -8,14 +8,14 @@ import { UserService } from '../../../services/user/user.service';
     styleUrls: ['./dashboard-homepage.component.scss']
 })
 export class DashboardHomepageComponent {
-    currPage: "overview" | "claims" | "profile" = "overview";
+    currPage: "overview" | "claims" | "profile" | "ehr" = "overview";
 
     constructor(
         route: ActivatedRoute,
         readonly userService: UserService,
         readonly router: Router,
     ) {
-        this.currPage = route.snapshot.url[0].path as "overview" | "claims" | "profile";
+        this.currPage = route.snapshot.url[0].path as "overview" | "claims" | "profile" | "ehr";
     }
 
     logout() {

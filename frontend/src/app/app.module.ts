@@ -1,5 +1,5 @@
 import { HttpClientModule } from '@angular/common/http';
-import { NgModule } from '@angular/core';
+import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDividerModule } from '@angular/material/divider';
@@ -27,6 +27,7 @@ import { RegisterPageComponent } from './components/register-page/register-page.
 import { FhirService } from './services/fhir.service';
 import { InsurancePlanService } from './services/insurance-plan/insurance-plan.service';
 import { UserService } from './services/user/user.service';
+import { DashboardEhrComponent } from './components/dashboard/dashboard-ehr/dashboard-ehr.component'
 
 @NgModule({
     declarations: [
@@ -37,7 +38,8 @@ import { UserService } from './services/user/user.service';
         RegisterPageComponent,
         DashboardHomepageComponent,
         DashboardProfileComponent,
-        DashboardClaimsComponent
+        DashboardClaimsComponent,
+        DashboardEhrComponent,
     ],
     imports: [
         BrowserModule,
@@ -61,6 +63,24 @@ import { UserService } from './services/user/user.service';
     ],
     providers: [
         CookieService,
+
+        {
+            provide: APP_INITIALIZER,
+            useFactory: (userService: UserService, cookieService: CookieService) => async () => {
+                if (cookieService.check("token")) {
+                    const token = cookieService.get('token');
+                    const isValid = await userService.validateToken(token);
+                    if (isValid) {
+                        userService.currToken.next(token);
+        
+                    } else {
+                        cookieService.delete('token');
+                    }
+                }
+            },
+            deps: [UserService, CookieService],
+            multi: true,
+        }
     ],
     bootstrap: [AppComponent],
 })

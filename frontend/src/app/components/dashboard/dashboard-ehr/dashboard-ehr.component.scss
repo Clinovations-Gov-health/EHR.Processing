@@ -1,0 +1,27 @@
+@import "~src/styles/variables";
+
+
+.data-provider-wrapper{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.data-table{
+    width: 100%;
+    margin-bottom: 20px;
+    .column-names{
+        font-size: 0.8rem;
+        color: black;
+        
+    }
+    .mat-row:nth-child(odd){
+        background-color: $secondary-color-400;
+    }
+    .mat-row:nth-child(even){
+        background-color: #FAFAFA;
+    }
+    .mat-cell{
+        border: none;
+    }
+}

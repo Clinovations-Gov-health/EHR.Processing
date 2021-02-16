@@ -12,7 +12,9 @@ export class InsurancePlanService {
         private readonly userService: UserService
     ) { }
 
-    private readonly backendAddress = "http://localhost:4000";
+    // private readonly backendAddress = "http://localhost:4000";
+    private readonly backendAddress = "https://clinoserver.azurewebsites.net";
+    
 
     fetchPlanRecommendations() {
         return new Promise<void>(resolve => {

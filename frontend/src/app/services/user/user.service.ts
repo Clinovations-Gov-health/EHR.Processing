@@ -12,7 +12,9 @@ import { User } from './interfaces/user.interface';
     providedIn: 'root'
 })
 export class UserService {
-    private readonly backendAddress = "http://localhost:4000";
+    //private readonly backendAddress = "http://localhost:4000";
+    private readonly backendAddress = "https://clinoserver.azurewebsites.net";
+    
 
     currToken: BehaviorSubject<string | null> = new BehaviorSubject(null);
     currUser: BehaviorSubject<User | null> = new BehaviorSubject(null);

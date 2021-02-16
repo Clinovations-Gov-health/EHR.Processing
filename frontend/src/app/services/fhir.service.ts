@@ -45,7 +45,9 @@ export class FhirService {
         this.authenticated.next(false);
         this.encountersObservable.next(null);
 
-        const redirectUri = `http://localhost:4200/ehr?redirected=true`;
+        //const redirectUri = `http://localhost:4200/ehr?redirected=true`;
+        const redirectUri = `https://clinoserver.azurewebsites.net/ehr?redirected=true`;
+        
 
         switch (provider) {
             case "Cerner":

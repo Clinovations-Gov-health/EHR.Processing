@@ -14,6 +14,7 @@ import { DiscoveryService } from './util/service/discovery.service';
 
 async function main() {
     const prodMode = process.env.NODE_ENV === "production";
+    const PORT: any = process.env.PORT||4000;
 
     /*
     const tlsOptions: SecureServerOptions = prodMode
@@ -36,7 +37,7 @@ async function main() {
 
     // Middleware setup
     instance.register(sensible);
-    instance.register(cors);
+    instance.register(cors, { origin: '*' });
     instance.register(helmet);
     instance.register(compress);
     instance.register(favicon, { path: "favicon.jpg" });
@@ -61,7 +62,27 @@ async function main() {
     });
 
     logger("Initialization complete.");
-    await instance.listen(4000);
+    //await instance.listen(4000);
+    
+    try{
+         await instance.listen(PORT,'0.0.0.0', (err) => {
+             if (err) {
+                console.log(`server listening on error:==>[` + err + "]");
+             throw err;
+             } else {
+                //console.log(`server listening on ${instance.server.address().port}`);
+                console.log(`server listening on ${instance.server.address()}`);
+             }
+            
+            }); 
+         console.log("attempting to listen on port " + PORT); 
+        }catch(err)
+         {
+             console.log("error listening on port" + PORT);
+         }
+    
+    
+    
 }
 
 main();

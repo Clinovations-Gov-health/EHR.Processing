@@ -37,7 +37,7 @@
             <div style="display: inline; margin-left: 10px">
                 <mat-form-field appearance="legacy">
                     <mat-label>PASSWORD</mat-label>
-                    <input matInput [disabled]="working" formControlName="password">
+                    <input matInput [disabled]="working" formControlName="password" type="password">
                     <mat-error *ngIf="loginForm.get('password').invalid" style="color:darkred">
                         <div *ngIf="loginForm.get('password').errors.required">
                             Password is required.
